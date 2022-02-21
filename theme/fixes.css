@@ -217,7 +217,7 @@
     border-radius: 50%;
 }
 
-#app-mount [role="listbox"] {
+#app-mount #uid_9[role="listbox"] {
     left: calc(100% - 297px) !important;
     position: absolute;
 }
