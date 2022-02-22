@@ -221,3 +221,17 @@
     left: calc(100% - 297px) !important;
     position: absolute;
 }
+
+#app-mount .scroller-2MALzE {
+    background-color: var(--background-secondary);
+}
+
+#app-mount .inspector-DFKXwB,
+.inspector-2A2Chb {
+    background-color: var(--background-secondary);
+}
+
+#app-mount .unicodeShortcut-3N8oDe,
+.standardStickerShortcut-ObSns3 {
+    background-color: var(--background-secondary);
+}
