@@ -235,10 +235,14 @@
     background-color: #272727
 }
 
-#app-mount .container-1Bj0eq{
-    margin-left:14px
+#app-mount .container-1Bj0eq {
+    margin-left: 14px
 }
 
-.container-1Bj0eq .mainContent-20q_Hp{
-    margin-left:4px
+.container-1Bj0eq .mainContent-20q_Hp {
+    margin-left: 4px
+}
+
+#channels>ul>li:nth-child(n)>div>div>.children-1MGS9G {
+    display: none
 }
