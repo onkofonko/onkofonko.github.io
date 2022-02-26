@@ -217,11 +217,6 @@
     border-radius: 50%;
 }
 
-#app-mount #uid_9[role="listbox"] {
-    left: calc(100% - 297px) !important;
-    position: absolute;
-}
-
 #app-mount .scroller-2MALzE {
     background-color: var(--background-secondary);
 }
