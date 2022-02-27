@@ -242,10 +242,11 @@
 .container-1Bj0eq .mainContent-20q_Hp {
     margin-left: 4px
 }
-/*
-#channels>ul>li:nth-child(n)>div>div>.children-1MGS9G {
-    display: none
-}*/
+
+.container-1NXEtd[aria-label*="Alexis Modern Theme"]>#channels>ul>li:nth-child(n)>div>div>.children-1MGS9G {
+    position: absolute;
+    left: 82px
+}
 
 #app-mount .roleName-2ZJJYR {
     padding-top: 3px;
