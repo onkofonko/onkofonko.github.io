@@ -245,7 +245,7 @@
 
 .container-1NXEtd[aria-label*="Alexis Modern Theme"]>#channels>ul>li:nth-child(n)>div>div>.children-1MGS9G {
     position: absolute;
-    left: 82px
+    left: calc(var(--sidebar-width) / 3.16);
 }
 
 #app-mount .roleName-2ZJJYR {
