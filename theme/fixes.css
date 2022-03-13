@@ -235,12 +235,13 @@
     background-color: #272727
 }
 
-#app-mount .container-1Bj0eq {
+#app-mount .container-1Bj0eq>svg {
     margin-left: 14px
 }
 
-.container-1Bj0eq .mainContent-20q_Hp {
-    margin-left: 4px
+#app-mount .container-1Bj0eq>div>div>div.content-1gYQeQ {
+    left: 14px !important;
+    width: calc(var(--sidebar-width) - 66px)
 }
 
 .container-1NXEtd[aria-label*="Alexis Modern Theme"]>#channels>ul>li:nth-child(n)>div>div>.children-1MGS9G {
