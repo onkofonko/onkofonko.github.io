@@ -259,3 +259,13 @@
     height: calc(100% + var(--app-info-bar-height));
     background-color: var(--background-secondary) !important
 }
+
+#app-mount .sidebar-1tnWFu .content-2a4AW9 .containerDefault-3TQ5YN .children-3MeUvj {
+    display: flex
+}
+
+#app-mount .addButtonIcon-3rJeaD {
+    height: 14px;
+    width: 14px;
+    padding-top: 2px
+}
