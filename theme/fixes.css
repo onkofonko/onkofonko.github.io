@@ -172,7 +172,7 @@
     min-height: 32px;
 }
 
-#app-mount .container-2o3qEW {
+#app-mount .container-2o3qEW>aside>div {
     height: calc(100% + var(--app-info-bar-height))
 }
 
