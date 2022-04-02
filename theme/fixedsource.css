@@ -47,7 +47,8 @@
     --app-focused-transition: background-color var(--app-focused-duration) ease-in-out, backdrop-filter 0s linear var(--app-focused-duration);
     --blur-header: blur(0px);
     --blur-sidebar: blur(0px);
-    --button-blur: blur(0px)
+    --button-blur: blur(0px);
+    --channel-icon: #787878
 }
 
 .app-focused {
