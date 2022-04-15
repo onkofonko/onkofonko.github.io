@@ -239,7 +239,7 @@
     margin-left: 14px
 }
 
-#app-mount .container-1Bj0eq>div>div>div.content-1gYQeQ {
+#app-mount .container-1Bj0eq>ul>li>div>div.content-1gYQeQ {
     left: 14px !important;
     width: calc(var(--sidebar-width) - 66px)
 }
