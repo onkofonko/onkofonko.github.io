@@ -618,15 +618,15 @@
     box-shadow: none
 }
 
-.folder-1hbNCn .folderIconWrapper-1_bOZe {
+.folder-241Joy .folderIconWrapper-1oRIZr {
     transform: rotate(-90deg) !important
 }
 
-.folder-1hbNCn .folderIconWrapper-1_bOZe .iconSizeSmol-qsFaRK {
+.folder-241Joy .folderIconWrapper-1oRIZr .iconSizeSmol-qsFaRK {
     transform: rotate(90deg) !important
 }
 
-.folder-1hbNCn .folderIconWrapper-1_bOZe .expandedFolderIconWrapper-Huv7rA svg {
+.folder-241Joy .folderIconWrapper-1oRIZr .expandedFolderIconWrapper-3RwQpD svg {
     transform: rotate(90deg) !important
 }
 
@@ -886,7 +886,7 @@
 }
 
 #app-mount .guilds-2JjMmN .wrapper-21YSNc,
-#app-mount .guilds-2JjMmN .wrapper-3Njo_c {
+#app-mount .guilds-2JjMmN .wrapper-38slSD {
     width: var(--server-container)
 }
 
@@ -905,7 +905,8 @@
     width: var(--server-size);
     left: 50%;
     border-radius: calc(var(--server-size)/ 2);
-    transform: translateX(-50%)
+    transform: translateX(-50%);
+    height: 100%;
 }
 
 #app-mount .guilds-2JjMmN .folder-21wGz3 {
@@ -3402,7 +3403,7 @@ body.foldercontentopened .base-2jDfDU {
     transform-origin: top left
 }
 
-.expandedFolderBackground-1cujaW {
+.expandedFolderBackground-1kSAf6 {
     background-color: var(--bg-color-hover);
     margin-top: 0;
     height: 100%
@@ -3416,26 +3417,26 @@ body.foldercontentopened .base-2jDfDU {
     background-color: rgba(0, 0, 0, .1)
 }
 
-.folder-1hbNCn {
+.folder-241Joy {
     background-color: var(--background-secondary-alt)
 }
 
-.folder-1hbNCn.hover-3m7-WT {
+.folder-241Joy.hover-3m7-WT {
     background-color: var(--background-tertiary)
 }
 
-.circleIconButton-3lUBQk {
+.circleIconButton-1VxDrg {
     background-color: transparent;
     color: var(--interactive-normal);
     border-radius: 100% !important
 }
 
-.circleIconButton-3lUBQk svg {
+.circleIconButton-1VxDrg svg {
     width: 32px !important;
     height: 32px !important
 }
 
-.circleIconButton-3lUBQk.selected-2tb4pB {
+.circleIconButton-1VxDrg.selected-2tb4pB {
     color: var(--interactive-hover);
     background-color: var(--bg-color-hover)
 }
@@ -4434,7 +4435,7 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
 }
 
 .listItem-1d8GP4,
-.listItem-1d8GP4 {
+.listItem-3SmSlK {
     margin: 8px 0 8px 0
 }
 
@@ -4452,7 +4453,7 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
 .app-2CXKsg button,
 .avatar-1EWyVD.wrapper-1VLyxH,
 .closeIcon-3_iQ6l,
-.listItem-1d8GP4,
+.listItem-3SmSlK,
 .listItem-1d8GP4,
 .listItemWrapper-3d87LP,
 .panels-3wFtMD,
@@ -4462,7 +4463,7 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     -webkit-app-region: no-drag
 }
 
-.scroller-3X7KbA.none-2-_0dP.scrollerBase-_bVAAt .tutorialContainer-35RLOQ+.listItem-1d8GP4,
+.scroller-3X7KbA.none-2-_0dP.scrollerBase-_bVAAt .tutorialContainer-35RLOQ+.listItem-3SmSlK,
 .scroller-3X7KbA.none-2-_0dP.scrollerBase-_bVAAt .tutorialContainer-35RLOQ+.listItem-1d8GP4 {
     margin-bottom: 32px !important
 }
