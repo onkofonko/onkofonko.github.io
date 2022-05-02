@@ -11743,7 +11743,7 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
 }
 
 .sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 .containerDefault-3TQ5YN~.containerDefault-YUSmu3 {
-    width: calc(50% - 8px)
+    width: 100%
 }
 
 .sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 .containerDefault-YUSmu3:nth-child(odd) {
