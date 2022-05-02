@@ -11798,6 +11798,19 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
     --mask-image: none
 }
 
+.container-1NXEtd[aria-label*="Alexis Modern Theme"] [data-list-item-id*="channels___upcoming-events-"]>div.iconContainer-21RCa3>svg{
+    height:32px;
+    width:32px;
+    margin-left:calc(50% - 8px);
+    margin-bottom:12px
+}
+.container-1NXEtd[aria-label*="Alexis Modern Theme"] [data-list-item-id*="channels___upcoming-events-"]>div.name-28HaxV{
+    text-align:center;
+    font-size:14px;
+    font-family:dash2space,var(--font-primary);
+    text-transform:capitalize
+}
+
 .container-1NXEtd .scroller-1ox3I2.thin-31rlnD.scrollerBase-_bVAAt {
     --mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 24px);
     -webkit-mask-image: var(--mask-image);
