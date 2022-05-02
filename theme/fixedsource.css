@@ -3748,7 +3748,7 @@ html.platform-osx #app-mount .guilds-2JjMmN:after {
     display: none
 }
 
-button[aria-label="Disable Game Activity"],
+/* button[aria-label="Disable Game Activity"],
 button[aria-label="Enable Game Activity"] {
     display: none;
     --user-settings-svg-size: 16px !important;
@@ -3835,7 +3835,7 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
     opacity: 1;
     transition: transform .12s ease-out, opacity .12s ease-out;
     animation: var(--dialog-fade-in-from-top)
-}
+} */
 
 .avatar-3mTjvZ,
 .avatar-2Vndt_,
