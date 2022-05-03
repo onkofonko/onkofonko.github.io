@@ -1,7 +1,5 @@
-/*@import url(https://discord-custom-covers.github.io/usrbg/dist/usrbg.css);*/
-
 :root {
-    --theme-version: "22.02.22 - temporary fixes "
+    --theme-version: "22.05.02 - temporary fixes "
 }
 
 [id^="Alexis Modern Discord Theme"] .bd-addon-header .bd-version:before {
@@ -3748,7 +3746,7 @@ html.platform-osx #app-mount .guilds-2JjMmN:after {
     display: none
 }
 
-button[aria-label="Disable Game Activity"],
+/* button[aria-label="Disable Game Activity"],
 button[aria-label="Enable Game Activity"] {
     display: none;
     --user-settings-svg-size: 16px !important;
@@ -3835,7 +3833,7 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
     opacity: 1;
     transition: transform .12s ease-out, opacity .12s ease-out;
     animation: var(--dialog-fade-in-from-top)
-}
+} */
 
 .avatar-3mTjvZ,
 .avatar-2Vndt_,
