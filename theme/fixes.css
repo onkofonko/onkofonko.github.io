@@ -150,3 +150,7 @@
 #app-mount .content-1jQy2l>main[aria-label=" (channel)"]>form>div>div.scrollableContainer-15eg7h.webkit-QgSAqd>div>div.textArea-2CLwUE.textAreaSlate-9-y-k2.slateContainer-3x9zil>div>div {
     position: absolute !important
 }
+
+#app-mount .defaultColor-24IHKz.text-sm-normal-3Zj3Iv.usernameContainer-3PPkWq {
+    margin-top: 7px;
+}
