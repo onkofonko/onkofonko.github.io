@@ -154,3 +154,7 @@
 #app-mount .defaultColor-24IHKz.text-sm-normal-3Zj3Iv.usernameContainer-3PPkWq {
     margin-top: 7px;
 }
+
+#app-mount .videoGrid-1tZm-F {
+    background-color: var(--background-primary)
+}
