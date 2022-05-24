@@ -158,3 +158,39 @@
 #app-mount .videoGrid-1tZm-F {
     background-color: var(--background-primary)
 }
+
+#account-avatar {
+    display: none
+}
+
+#account-avatar>div.UserBackgrounds-banner-container {
+    display: none
+}
+
+#account-info>div.profileBody-3QbfPe {
+    display: none
+}
+
+#account-info>div.headerTop-3GPUSF.headerTopWithCustomStatus-1aNSNd.copiableNameTag-3f6roa>div.profileBadges-2pItdR.container-1gYwHN {
+    display: none
+}
+
+#account-info>div.headerTop-3GPUSF.headerTopWithCustomStatus-1aNSNd.copiableNameTag-3f6roa>div.clickTarget-2uXro4>div>div.childWrapper-2wlp_S>div>div>div {
+    display: none
+}
+
+#account-info>div.headerTop-3GPUSF.headerTopWithCustomStatus-1aNSNd.copiableNameTag-3f6roa>div.clickTarget-2uXro4 {
+    display: none
+}
+
+#account-status-picker {
+    padding-left: 5px
+}
+
+#account-edit-custom-status {
+    padding-left: 5px
+}
+
+#account-switch-account {
+    padding-left: 5px
+}
