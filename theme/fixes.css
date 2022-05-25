@@ -194,3 +194,7 @@
 #account-switch-account {
     padding-left: 5px
 }
+
+#app-mount>div:nth-child(7)>div.layer-2aCOJ3.disabledPointerEvents-2AmYRc>div>div.tooltipContent-Nejnvh {
+    display: none
+}
