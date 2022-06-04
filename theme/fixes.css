@@ -187,8 +187,12 @@
     padding-left: 5px
 }
 
-#account-edit-custom-status {
-    padding-left: 5px
+#account-set-custom-status {
+    padding-left: 8px
+}
+
+#account-sedit-custom-status {
+    padding-left: 8px
 }
 
 #account-switch-account {
