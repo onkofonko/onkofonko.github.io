@@ -89,6 +89,7 @@
     --interactive-hover: #dedede;
     --interactive-active: #fff;
     --interactive-muted: #575757;
+    --embed-color: hsl(0, 0%, 34%);
     --background-primary: #111111;
     --background-primary-transparent: rgba(26, 26, 26, 0.6);
     --background-transparent-header: rgba(49, 49, 49, 0.5);
@@ -5005,7 +5006,7 @@ button[class^=attachButton] {
 }
 
 .embedFull-1HGV2S {
-    border-left: calc(4px + var(--embed-line-width)) solid var(--background-accent);
+    border-left: calc(4px + var(--embed-line-width)) solid var(--embed-color);
     background: var(--background-secondary)
 }
 
