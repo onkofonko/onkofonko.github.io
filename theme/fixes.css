@@ -151,10 +151,6 @@
     position: absolute !important
 }
 
-#app-mount .defaultColor-24IHKz.text-sm-normal-3Zj3Iv.usernameContainer-3PPkWq {
-    margin-top: 7px;
-}
-
 #app-mount .videoGrid-1tZm-F {
     background-color: var(--background-primary)
 }
@@ -188,11 +184,11 @@
 }
 
 #account-set-custom-status {
-    padding-left: 8px
+    padding-left: 7px
 }
 
-#account-sedit-custom-status {
-    padding-left: 8px
+#account-edit-custom-status {
+    padding-left: 5px
 }
 
 #account-switch-account {
@@ -201,4 +197,16 @@
 
 #status-picker>div>div.submenuContainer-3EVTeH>div.layer-2aCOJ3>div>div>div>div[id*="status-picker-switch-account"i] {
     width: 100%
+}
+
+#app-mount .layer-2aCOJ3>div>div>div>div[id*="account-switch-account"i] {
+    width: 100%
+}
+
+#app-mount .container-YkUktl>div.avatarWrapper-1B9FTW.withTagAsButton-OsgQ9L>div.nameTag-sc-gpq.canCopy-IgTwyV>div.defaultColor-24IHKz.text-sm-normal-3Zj3Iv.usernameContainer-3PPkWq>div {
+    line-height: 23px
+}
+
+#app-mount .container-YkUktl>div.avatarWrapper-1B9FTW.withTagAsButton-OsgQ9L>div.avatar-1EWyVD.wrapper-1VLyxH {
+    top: 4px !important
 }
