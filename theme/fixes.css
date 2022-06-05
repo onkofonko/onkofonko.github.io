@@ -231,3 +231,15 @@
 .toast-q3Y4wI {
     background-color: var(--background-floating);
 }
+
+#app-mount .chatSidebarOpen--YCxhs>div:nth-child(n)>section>.toolbar-3_r2xA {
+    z-index: 100;
+    position: fixed;
+    right: 8px
+}
+
+#app-mount .layerContainer-2v_Sit>div>div:nth-child(n)>section>.toolbar-3_r2xA {
+    z-index: 100;
+    position: fixed;
+    right: 8px
+}
