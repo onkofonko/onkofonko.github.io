@@ -211,15 +211,6 @@
     top: 4px !important
 }
 
-#account-info>div.headerTop-3GPUSF.copiableNameTag-3f6roa>div.clickTarget-2uXro4 {
-    display: none
-}
-
-#account-info>div.headerTop-3GPUSF.copiableNameTag-3f6roa {
-    padding-top: 32px;
-    padding-bottom: 12px;
-}
-
 .theme-dark.authBox-1HR6Ha {
     background-color: var(--background-floating)
 }
