@@ -250,7 +250,6 @@
 
 
 #account-info>.headerTop-3GPUSF>.clickTarget-2uXro4>div>.childWrapper-2wlp_S>div>div>span {
-
     margin: 2px 0;
     box-sizing: border-box;
     border-radius: 4px;
@@ -293,7 +292,7 @@
     right: 8px;
 }
 
-#account-info>.headerTop-3GPUSF>.clickTarget-2uXro4>div>.childWrapper-2wlp_S>div>div>span::before {
+#account-info>.headerTop-3GPUSF>.clickTarget-2uXro4>div>.childWrapper-2wlp_S>div>div>span:before {
     content: "";
     pointer-events: none;
     position: absolute;
@@ -315,4 +314,8 @@
     -webkit-mask-position: center;
     mask-position: center;
     transform-origin: calc(var(--dropdown-width) - (8px + 8px)/ 2) -50px;
+}
+
+#account-info>div.headerTop-3GPUSF.copiableNameTag-3f6roa>div.clickTarget-2uXro4>div>div.childWrapper-2wlp_S>div>div>span:hover:before {
+    background-color: var(--interactive-hover);
 }
