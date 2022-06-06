@@ -234,3 +234,85 @@
     position: fixed;
     right: 8px
 }
+
+#account-info>.headerTop-3GPUSF>.clickTarget-2uXro4>div>.childWrapper-2wlp_S>div>div>span:nth-child(2) {
+    display: none;
+}
+
+#account-info>.headerTop-3GPUSF>.clickTarget-2uXro4>div>.childWrapper-2wlp_S>div>div>div {
+    display: none;
+}
+
+#account-info>.headerTop-3GPUSF>.clickTarget-2uXro4>div>div:nth-child(2) {
+    display: none;
+}
+
+
+
+#account-info>.headerTop-3GPUSF>.clickTarget-2uXro4>div>.childWrapper-2wlp_S>div>div>span {
+
+    margin: 2px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: var(--menu-font-weight);
+    text-align: left;
+    font-family: var(--font-primary);
+    color: var(--interactive-normal);
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-bottom: 4px;
+    padding-left: 32px;
+    background-color: transparent;
+    display: block;
+}
+
+#account-info>.headerTop-3GPUSF>.clickTarget-2uXro4>div>.childWrapper-2wlp_S>div>div>span:hover {
+    background-color: var(--background-modifier-hover);
+    color: var(--interactive-active);
+
+}
+
+#account-info>.headerTop-3GPUSF>.profileBadges-2pItdR {
+    display: none;
+}
+
+#account-info {
+    height: 76px;
+}
+
+#account-info>.headerTop-3GPUSF>.clickTarget-2uXro4 {
+    position: relative;
+    bottom: 26px;
+    width: 208px;
+}
+
+#account-info>.headerTop-3GPUSF>.clickTarget-2uXro4>div>.childWrapper-2wlp_S>div>div {
+    position: relative;
+    right: 8px;
+}
+
+#account-info>.headerTop-3GPUSF>.clickTarget-2uXro4>div>.childWrapper-2wlp_S>div>div>span::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    left: 6px;
+    bottom: 10px;
+    transform-origin: 50% -50px;
+    background-color: var(--interactive-normal);
+    --size: 16px;
+    --mask-size: 100%;
+    --icon: var(--icon-copy);
+    width: var(--size);
+    height: var(--size);
+    -webkit-mask-size: var(--mask-size);
+    mask-size: var(--mask-size);
+    -webkit-mask-image: var(--icon);
+    mask-image: var(--icon);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    transform-origin: calc(var(--dropdown-width) - (8px + 8px)/ 2) -50px;
+}
