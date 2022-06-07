@@ -19,7 +19,7 @@
 }
 
 #app-mount .selectedBackground-1t6xXq {
-    visibility: hidden;
+    display: hidden;
 }
 
 #app-mount .bannerImage-ubW8K- {
@@ -318,4 +318,16 @@
 
 #account-info>div.headerTop-3GPUSF.copiableNameTag-3f6roa>div.clickTarget-2uXro4>div>div.childWrapper-2wlp_S>div>div>span:hover:before {
     background-color: var(--interactive-hover);
+}
+
+.premiumLabel-3HPvdB.selected-2Uns2B>img[alt*="Wumpus"] {
+    display: none
+}
+
+.auPromo-Gk5s48 {
+    display: none
+}
+
+.auPromoSelected-336Wc2 {
+    display: none
 }
