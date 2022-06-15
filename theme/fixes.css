@@ -61,7 +61,16 @@
 }
 
 #app-mount .footer-31IekZ>button {
-    color: #ffffff;
+    color: var(--interactive-hover);
+}
+
+#app-mount .footer-31IekZ>button:not(.colorBrand-I6CyqQ):not(.lowSaturationUnderline-Z6CW6z) {
+    background-color: var(--background-tertiary);
+}
+
+.content-2hZxGK>form>div>div>input {
+    color: #dedede;
+    background-color: #202225;
 }
 
 #app-mount .container-36u7Lw>div>div>div {
