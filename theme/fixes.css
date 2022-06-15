@@ -60,7 +60,7 @@
     height: calc(100% + var(--app-info-bar-height))
 }
 
-#app-mount .footer-31IekZ>button {
+#app-mount .footer-31IekZ>button:not(.colorBrand-I6CyqQ) {
     color: var(--interactive-hover);
 }
 
