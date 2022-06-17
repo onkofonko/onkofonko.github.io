@@ -3636,7 +3636,7 @@ html {
 html.platform-osx #app-mount .typeMacOS-3V4xXE,
 html.platform-osx #app-mount .typeWindows-2-g3UY {
     --frame-gap: 4px;
-    height: calc(var(--app-windowbar-height) - var(--frame-gap));
+    /*height: calc(var(--app-windowbar-height) - var(--frame-gap));*/
     margin-top: var(--frame-gap);
     user-select: none;
     pointer-events: none;
