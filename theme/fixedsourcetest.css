@@ -2972,17 +2972,17 @@ body.foldercontentopened .base-2jDfDU {
 
 .avatarSpeaking-33RRJU,
 .panels-3wFtMD .StatusEverywhere-avatar-speaking foreignObject:after {
-    position: fixed;
+    position: fixed !important;
     background: linear-gradient(90deg, rgba(59, 165, 93, 0), var(--avatar-speaking-color), rgba(59, 165, 92, 0));
     transition: width var(--sidebar-width-transition);
     --height: 2px;
     --width: 128px;
     --bottom: var(--control-area-bottom-margin);
     --left: calc(((var(--width) / 2) * -1) + (var(--sidebar-width) / 2));
-    height: var(--height);
-    width: var(--width);
-    top: calc((var(--height) + var(--bottom)) * -1 + 100vh + (-1 * (var(--server-outer-margin))));
-    left: calc(-100vw + var(--left) + (var(--user-avatar-size) + var(--usernamebutton-width) + var(--user-outer-right-margin)) + 32px + 8px)
+    height: var(--height) !important;
+    width: var(--width) !important;
+    top: calc((var(--height) + var(--bottom)) * -1 + 100vh + (-1 * (var(--server-outer-margin)))) !important;
+    left: calc(-100vw + var(--left) + (var(--user-avatar-size) + var(--usernamebutton-width) + var(--user-outer-right-margin)) + 32px + 8px) !important
 }
 
 .panels-3wFtMD .StatusEverywhere-avatar-speaking foreignObject:after {
