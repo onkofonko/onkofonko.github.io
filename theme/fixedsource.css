@@ -33,7 +33,7 @@
     --app-windowbar-height: var(--server-container);
     --app-corner-size: 0px;
     --server-size: var(--server-icon-size, var(--HSL-size, 35px));
-    --server-spacing: var(--server-spacing, var(--HSL-spacing, 10px));
+    --server-margin: var(--server-spacing, var(--HSL-spacing, 10px));
     --server-container: calc(var(--server-size) + (2 * var(--server-outer-margin)));
     --server-direction: var(--HSL-server-direction, column);
     --server-alignment: var(--HSL-server-alignment, flex-start);
@@ -684,10 +684,10 @@
 }
 
 #app-mount .guilds-2JjMmN .scrollerBase-_bVAAt {
-    padding: var(--server-spacing) 0 !important;
+    padding: var(--server-margin) 0 !important;
     display: flex;
     flex-direction: var(--server-direction);
-    gap: var(--server-spacing);
+    gap: var(--server-margin);
     align-items: var(--server-alignment);
     justify-content: var(--server-alignment);
 }
@@ -703,7 +703,7 @@
 #app-mount .guilds-2JjMmN .scrollerBase-_bVAAt>div[aria-label] {
     display: flex;
     flex-direction: var(--server-direction);
-    gap: var(--server-spacing);
+    gap: var(--server-margin);
 }
 
 #app-mount .guilds-2JjMmN .svg-2zuE5p,
@@ -907,13 +907,13 @@
     width: var(--server-container);
     display: flex;
     flex-direction: var(--server-direction);
-    gap: var(--server-spacing);
+    gap: var(--server-margin);
 }
 
 #app-mount .guilds-2JjMmN .wrapper-38slSD ul[role=group] {
     display: flex;
     flex-direction: var(--server-direction);
-    gap: var(--server-spacing);
+    gap: var(--server-margin);
 }
 
 #app-mount .guilds-2JjMmN [class*=listItem]:not([class*=listItemWrapper]) {
@@ -933,7 +933,7 @@
     left: 50%;
     border-radius: calc(var(--server-size)/ 2);
     transform: translateX(-50%);
-    height: calc(100% - var(--server-spacing)) !important;
+    height: calc(100% - var(--server-margin)) !important;
 }
 
 #app-mount .guilds-2JjMmN .folder-21wGz3 {
@@ -975,9 +975,9 @@
 #app-mount .friendsOnline-2JkivW {
     position: absolute;
     transform: translate(-50%, 50%);
-    top: calc(-50% + var(--server-spacing));
+    top: calc(-50% + var(--server-margin));
     left: -50%;
-    width: calc(var(--server-size) + var(--server-spacing));
+    width: calc(var(--server-size) + var(--server-margin));
     display: flex;
     justify-content: center;
 }
@@ -1099,7 +1099,7 @@ body.foldercontentopened .base-2jDfDU {
 }
 
 #app-mount .friendsOnlineWrap-0gZ63m {
-    margin-top: calc((var(--server-spacing) * -1) - var(--server-size)) !important;
+    margin-top: calc((var(--server-margin) * -1) - var(--server-size)) !important;
     padding-top: var(--server-size)
 }
 
