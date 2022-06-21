@@ -48,7 +48,8 @@
     --blur-header: blur(0px);
     --blur-sidebar: blur(0px);
     --button-blur: blur(0px);
-    --channel-icon: #787878
+    --channel-icon: #787878;
+    --new-popout: var(--new-profile-popout, block);
 }
 
 .app-focused {
@@ -1941,7 +1942,8 @@ body.foldercontentopened .base-2jDfDU {
     padding-left: 32px;
     background-color: transparent;
     transform-origin: 50% -50px;
-    cursor: default
+    cursor: default;
+    display: var(--new-popout);
 }
 
 .avatarWrapper-1B9FTW~.nameTag-sc-gpq .usernameContainer-3PPkWq:after {
@@ -1966,7 +1968,8 @@ body.foldercontentopened .base-2jDfDU {
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
     mask-position: center;
-    transform-origin: calc(var(--dropdown-width) - (8px + 8px)/ 2) -50px
+    transform-origin: calc(var(--dropdown-width) - (8px + 8px)/ 2) -50px;
+    display: var(--new-popout);
 }
 
 .avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Ajustes de usuario"],
