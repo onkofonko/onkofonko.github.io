@@ -49,7 +49,7 @@
 }
 
 #app-mount .container-2o3qEW>aside>div {
-    height: calc(100% + var(--app-info-bar-height))
+    height: calc(100vh - var(--app-info-bar-height) - var(--server-outer-margin) - 2px);
 }
 
 #app-mount .footer-31IekZ>button:not(.colorBrand-I6CyqQ) {
