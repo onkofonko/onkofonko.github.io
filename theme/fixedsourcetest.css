@@ -11874,6 +11874,10 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
     text-transform:capitalize
 }
 
+.container-1NXEtd[aria-label*="Alexis Modern Theme"]>#channels>ul>.container-2giAcK {
+    width: calc(var(--sidebar-width) - 16px);
+}
+
 .container-1NXEtd .scroller-1ox3I2.thin-31rlnD.scrollerBase-_bVAAt {
     --mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 24px);
     -webkit-mask-image: var(--mask-image);
