@@ -74,16 +74,16 @@
     font-weight: 400
 }
 
-body:lang(en) {
+:lang(en) {
     font-family: var(--font-primary)
 }
-body:lang(ko) {
+:lang(ko) {
     font-family: var(--font-korean);
 }
-body:lang(ja) {
+:lang(ja) {
     font-family: var(--font-japanese);
 }
-body:lang(zh) {
+:lang(zh) {
     font-family: var(--font-chinese-simplified), var(--font-chinese-traditiona);
 }
 
