@@ -74,6 +74,19 @@
     font-weight: 400
 }
 
+body:lang(en) {
+    font-family: var(--font-primary)
+}
+body:lang(ko) {
+    font-family: var(--font-korean);
+}
+body:lang(ja) {
+    font-family: var(--font-japanese);
+}
+body:lang(zh) {
+    font-family: var(--font-chinese-simplified), var(--font-chinese-traditiona);
+}
+
 .guild-profile,
 .theme-dark,
 .theme-dark .theme-light,
@@ -3670,19 +3683,6 @@ body,
 html {
     overflow: hidden !important;
     border-radius: var(--app-corner-size) !important
-}
-
-body:lang(en) {
-    font-family: var(--font-primary)
-}
-body:lang(ko) {
-    font-family: var(--font-korean);
-}
-body:lang(ja) {
-    font-family: var(--font-japanese);
-}
-body:lang(zh) {
-    font-family: var(--font-chinese-simplified), var(--font-chinese-traditiona);
 }
 
 .app-2CXKsg,
