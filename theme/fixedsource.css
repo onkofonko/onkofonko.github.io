@@ -84,7 +84,7 @@ body:lang(ja) {
     font-family: var(--font-japanese);
 }
 body:lang(zh) {
-    font-family: var(--font-chinese-simplified), var(--font-chinese-traditiona);
+    font-family: var(--font-chinese-simplified), var(--font-chinese-traditional);
 }
 
 .guild-profile,
@@ -10283,6 +10283,16 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
 .wrapper-1ZcZW-[class="wrapper-1ZcZW- mention interactive"] {
     font-family: dash2space, var(--font-primary);
     text-transform: capitalize
+}
+
+.channelName-3KPsGw:lang(ko) {
+    font-family: var(--font-korean) !important;
+}
+.channelName-3KPsGw:lang(ja) {
+    font-family: var(--font-japanese) !important;
+}
+.channelName-3KPsGw:lang(zh) {
+    font-family: var(--font-chinese-simplified), var(--font-chinese-traditional) !important;
 }
 
 .channelName-3KPsGw {
