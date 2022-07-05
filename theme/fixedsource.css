@@ -10275,6 +10275,10 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
     src: url(https://AlexisJonsson.github.io/BetterDiscordAddons/Themes/font/dash2space.ttf) format('truetype'), url(https://AlexisJonsson.github.io/BetterDiscordAddons/Themes/font/dash2space.woff2) format('woff2')
 }
 
+.channelName-3KPsGw:lang(ko) {
+    font-family: var(--font-korean);
+}
+
 .autocompleteRowVertical-EA9dCg[data-list-item-id*=channel-autocomplete] .autocompleteRowContentPrimary-1kUW9H .colorInteractiveActive-30E9n8,
 .content-2a4AW9 .emptyChannelIcon-1YdEz2~.size32-5yOQel,
 .quickswitcher-pKcM9U .result-u66Ywh .match-20K5f5,
@@ -10283,10 +10287,6 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
 .wrapper-1ZcZW-[class="wrapper-1ZcZW- mention interactive"] {
     font-family: dash2space, var(--font-primary);
     text-transform: capitalize
-}
-
-.channelName-3KPsGw:lang(ko) {
-    font-family: var(--font-korean);
 }
 
 .channelName-3KPsGw {
