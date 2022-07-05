@@ -65,19 +65,6 @@
     font-weight: 400
 }
 
-:lang(en) {
-    font-family: var(--font-primary)
-}
-:lang(ko) {
-    font-family: var(--font-korean);
-}
-:lang(ja) {
-    font-family: var(--font-japanese);
-}
-:lang(zh) {
-    font-family: var(--font-chinese-simplified), var(--font-chinese-traditiona);
-}
-
 .activity-2EQDZv,
 .header-2Kx1US,
 .item-3XjbnG,
@@ -85,6 +72,19 @@
 .topic-11NuQZ,
 .usernameFont-2oJxoI {
     font-weight: 400
+}
+
+body:lang(en) {
+    font-family: var(--font-primary)
+}
+body:lang(ko) {
+    font-family: var(--font-korean);
+}
+body:lang(ja) {
+    font-family: var(--font-japanese);
+}
+body:lang(zh) {
+    font-family: var(--font-chinese-simplified), var(--font-chinese-traditiona);
 }
 
 .guild-profile,
