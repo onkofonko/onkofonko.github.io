@@ -59,15 +59,6 @@
     --button-blur: blur(64px)
 }
 
-.activity-2EQDZv,
-.header-2Kx1US,
-.item-3XjbnG,
-.name-28HaxV,
-.topic-11NuQZ,
-.usernameFont-2oJxoI {
-    font-weight: 400
-}
-
 .name-3Vmqxm,
 .username-h_Y3Us {
     font-family: var(--font-display);
@@ -85,6 +76,15 @@
 }
 :lang(zh) {
     font-family: var(--font-chinese-simplified), var(--font-chinese-traditiona);
+}
+
+.activity-2EQDZv,
+.header-2Kx1US,
+.item-3XjbnG,
+.name-28HaxV,
+.topic-11NuQZ,
+.usernameFont-2oJxoI {
+    font-weight: 400
 }
 
 .guild-profile,
