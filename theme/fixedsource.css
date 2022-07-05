@@ -1921,7 +1921,6 @@ body.foldercontentopened .base-2jDfDU {
 }
 
 .nameTag-sc-gpq[aria-label="사용자명을 복사하려면 클릭하세요"] .usernameContainer-3PPkWq:before {
-    font-family: var(--font-korean);
     content: "내 이름 복사"
 }
 
@@ -3370,15 +3369,7 @@ body.foldercontentopened .base-2jDfDU {
 .button-1EGGcP.buttonColor-3bP3fX.buttonActive-Uc1jHx .contents-3ca1mk {
     transition: transform .25s ease
 }
-.button-12Fmur.enabled-9OeuTA:lang(ko) {
-    font-family: var(--font-korean);
-}
-.button-12Fmur.enabled-9OeuTA:lang(ja) {
-    font-family: var(--font-japanese);
-}
-.button-12Fmur.enabled-9OeuTA:lang(zh) {
-    font-family: var(--font-chinese-simplified), var(--font-chinese-traditiona);
-}
+
 .lookFilled-yCfaCM.colorBrand-I6CyqQ:active {
     background-color: transparent
 }
@@ -3684,16 +3675,16 @@ html {
     border-radius: var(--app-corner-size) !important
 }
 
-body:lang(en) {
+:lang(en) {
     font-family: var(--font-primary)
 }
-body:lang(ko) {
+:lang(ko) {
     font-family: var(--font-korean);
 }
-body:lang(ja) {
+:lang(ja) {
     font-family: var(--font-japanese);
 }
-body:lang(zh) {
+:lang(zh) {
     font-family: var(--font-chinese-simplified), var(--font-chinese-traditiona);
 }
 
