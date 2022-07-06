@@ -337,3 +337,9 @@
 #account-info>div.headerTop-3GPUSF.copiableNameTag-3f6roa>div.clickTarget-2uXro4>div>div.childWrapper-2wlp_S>div>div.textScroller-dc9_kz.creationDate-CJwdKT.date-YN6TCS.textRow-1sENuL {
     display: none !important
 }
+
+.animationWrapper-3DL_Ua{
+     top:-5px;
+     width: calc(var(--server-icon-size) + 5px);
+     height: calc(var(--server-icon-size) + 6px) 
+}
