@@ -4232,7 +4232,19 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     bottom: 0;
     background: rgba(0, 0, 0, .493) !important;
     opacity: 1;
-    backdrop-filter: blur(128px)
+    backdrop-filter: blur(128px);
+    visibility: visible;
+}
+
+#app-mount .popoutBannerPremium-3i5EEI:before,
+.bannerPremium-kkSkPv:before {
+    bottom: 0;
+    background-image: inherit !important;
+    opacity: 1;
+    filter: blur(128px);
+    width: 300px;
+    height: 98vh;
+    visibility: visible;
 }
 
 .banner-1YaD3N.profileBanner-1owKI5:after,
