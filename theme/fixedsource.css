@@ -4230,13 +4230,9 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
 .bannerNormal-22rPhb:before,
 .bannerUploaderInnerSquare-1ddxpx:before {
     bottom: 0;
-    background-image: inherit !important;
-    background-color: inherit !important;
+    background: rgba(0, 0, 0, .493) !important;
     opacity: 1;
-    filter: blur(128px);
-    visibility: visible;
-    height: 500px;
-    width: 300px;
+    backdrop-filter: blur(128px)
 }
 
 .banner-1YaD3N.profileBanner-1owKI5:after,
