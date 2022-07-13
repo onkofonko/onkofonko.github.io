@@ -4064,16 +4064,23 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
     background-image: var(--user-background, inherit)
 }
 
-
-.banner-1YaD3N:hover .bannerOverlay-1uIerX,
-.banner-1YaD3N:hover .pencilIcon-z04-c5 {
-    opacity: 0
+.connectedAccountContainer-SlCC-S {
+    background-color: rgba(196, 196, 196, .1);
 }
 
-.popoutBanner-3cqRD9 .pencilContainer-18TrEJ,
-.popoutBannerPremium-3i5EEI .pencilContainer-18TrEJ {
-    top: 10px;
-    right: 12px;
+.pencilIcon-z04-c5 {
+    color: rgba(196, 196, 196, .4);
+}
+
+.pencilIcon-z04-c5:hover {
+    color: rgba(196, 196, 196, .2);
+}
+
+.userPopout-2j1gM4>.headerWrapper-3iTlIT>.headerNormal-3Zn_yu>.banner-1YaD3N {
+    visibility: hidden;
+}
+
+.pencilContainer-18TrEJ {
     visibility: visible;
 }
 
@@ -4212,35 +4219,45 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     visibility: visible;
 }
 
-.topSection-13QKHs .banner-1YaD3N:after {
-    height: 260px
+.topSection-13QKHs>header>div:before {
+    width: 600px !important;
 }
 
-.headerNormal-3Zn_yu>.banner-1YaD3N {
-    visibility: hidden;
-}
-
-.bannerPremium-kkSkPv~.nameTag-H6kSJ0 {
-    margin-top: 0px;
-}
-
-.topSection-13QKHs>header>.banner-1YaD3N:not(.bannerPremium-kkSkPv):after {
+.topSection-13QKHs>header>.banner-1YaD3N:not(.bannerPremium-kkSkPv):after,
+.topSection-13QKHs>header>.banner-1YaD3N:not(.bannerPremium-kkSkPv):before {
     top: -200px;
+
+}
+
+.topSection-13QKHs>header>div>.pencilContainer-18TrEJ {
+    top: -190px;
+}
+
+.topSection-13QKHs .banner-1YaD3N:after {
+    height: 240px
 }
 
 .topSection-13QKHs>header>.bannerPremium-kkSkPv {
     visibility: hidden;
 }
 
+.topSection-13QKHs>header>.bannerPremium-kkSkPv:after,
 .topSection-13QKHs>header>.bannerPremium-kkSkPv:before {
-    width: 600px;
+    visibility: visible;
 }
 
-.accountProfileCard-lbN7n->.settingsBanner-1eDJ5w.bannerPremium-kkSkPv:before {
-    width: inherit;
+.bannerPremium-kkSkPv~.nameTag-H6kSJ0 {
+    margin-top: 0px;
 }
 
+.userPopout-2j1gM4>.headerWrapper-3iTlIT>.headerNormal-3Zn_yu>.popoutBannerPremium-3i5EEI.bannerPremium-kkSkPv {
+    margin-bottom: -10px;
+}
+
+.accountProfileCard-lbN7n->.settingsBanner-1eDJ5w.bannerPremium-kkSkPv:before,
 .accountProfileCard-lbN7n->.settingsBanner-1eDJ5w.bannerPremium-kkSkPv:after {
+    width: inherit;
+    visibility: visible;
     height: 500px;
 }
 
@@ -4252,31 +4269,23 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     margin-top: 0px;
 }
 
-.userPopout-2j1gM4>.headerWrapper-3iTlIT>.headerNormal-3Zn_yu>.popoutBannerPremium-3i5EEI.bannerPremium-kkSkPv {
-    margin-bottom: -10px;
-}
-
 #app-mount .popoutBanner-3cqRD9::before,
 #app-mount .profileBanner-1owKI5::before,
 .banner-1YaD3N:before,
 .bannerNormal-22rPhb:before,
 .bannerUploaderInnerSquare-1ddxpx:before {
     bottom: 0;
-    background: rgba(0, 0, 0, .493) !important;
     opacity: 1;
-    backdrop-filter: blur(128px);
+    height: calc(100vh - 20px);
+    width: 300px;
+    background-color: inherit !important;
+    background-image: inherit !important;
+    filter: blur(128px) grayscale(25%);
     visibility: visible;
 }
 
-#app-mount .popoutBannerPremium-3i5EEI:before,
-.bannerPremium-kkSkPv:before {
-    bottom: 0;
-    background-image: inherit !important;
-    opacity: 1;
-    filter: blur(128px);
-    width: 300px;
-    height: calc(100vh - 20px);
-    visibility: visible;
+.banner-1YaD3N:not(.bannerPremium-kkSkPv):before {
+    filter: blur(128px) grayscale(35%) brightness(0.4) !important;
 }
 
 .banner-1YaD3N.profileBanner-1owKI5:after,
@@ -4286,7 +4295,8 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     --mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 0.3) calc(var(--gradient-size) * .5), rgba(0, 0, 0, 0.15) calc(var(--gradient-size) * .65), rgba(0, 0, 0, 0.075) calc(var(--gradient-size) * .755), rgba(0, 0, 0, 0.037) calc(var(--gradient-size) * .8285), rgba(0, 0, 0, 0.019) calc(var(--gradient-size) * .88), rgba(0, 0, 0, 0) var(--gradient-size));
     background-color: inherit;
     height: calc(100vh - 20px);
-    visibility: visible
+    filter: brightness(0.86);
+    visibility: visible;
 }
 
 .banner-1YaD3N.profileBanner-1owKI5:before,
