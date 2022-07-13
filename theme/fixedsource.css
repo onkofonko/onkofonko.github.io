@@ -4220,8 +4220,36 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     visibility: hidden;
 }
 
-.headerWrapper-3iTlIT {
-    height: inherit;
+.bannerPremium-kkSkPv~.nameTag-H6kSJ0 {
+    margin-top: 0px;
+}
+
+.topSection-13QKHs>header>.banner-1YaD3N:not(.bannerPremium-kkSkPv):after {
+    top: -200px;
+}
+
+.topSection-13QKHs>header>.bannerPremium-kkSkPv {
+    visibility: hidden;
+}
+
+.topSection-13QKHs>header>.bannerPremium-kkSkPv:before {
+    width: 600px;
+}
+
+.accountProfileCard-lbN7n->.settingsBanner-1eDJ5w.bannerPremium-kkSkPv:before {
+    width: inherit;
+}
+
+.accountProfileCard-lbN7n->.settingsBanner-1eDJ5w.bannerPremium-kkSkPv:after {
+    height: 500px;
+}
+
+.accountProfileCard-lbN7n->.settingsBanner-1eDJ5w.bannerPremium-kkSkPv {
+    visibility: hidden;
+}
+
+.accountProfileCard-lbN7n->.userInfo-regn9W {
+    margin-top: 0px;
 }
 
 #app-mount .popoutBanner-3cqRD9::before,
