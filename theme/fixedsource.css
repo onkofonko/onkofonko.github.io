@@ -4068,10 +4068,7 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
     background-color: rgba(196, 196, 196, .1);
 }
 
-.pencilIcon-z04-c5 {
-    color: rgba(196, 196, 196, .4);
-}
-
+.pencilIcon-z04-c5,
 .pencilIcon-z04-c5:hover {
     color: rgba(196, 196, 196, .2);
 }
@@ -4082,6 +4079,12 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
 
 .pencilContainer-18TrEJ {
     visibility: visible;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.1)
+}
+
+.pencilContainer-18TrEJ:hover {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .bannerOverlayPopout-1clJ34 {
@@ -4230,7 +4233,7 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
 }
 
 .topSection-13QKHs>header>div>.pencilContainer-18TrEJ {
-    top: -190px;
+    top: -184px;
 }
 
 .topSection-13QKHs .banner-1YaD3N:after {
