@@ -4261,6 +4261,14 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     margin-bottom: -10px;
 }
 
+.popoutBannerPremium-3i5EEI.bannerPremium-kkSkPv:before,
+.profileBannerPremium-KD60EB.bannerPremium-kkSkPv:before {
+    transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    top: 120px;
+    height: calc(100vh - 140px);
+}
+
 .accountProfileCard-lbN7n->.settingsBanner-1eDJ5w.bannerPremium-kkSkPv:before,
 .accountProfileCard-lbN7n->.settingsBanner-1eDJ5w.bannerPremium-kkSkPv:after {
     width: inherit;
