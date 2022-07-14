@@ -338,8 +338,16 @@
     display: none !important
 }
 
-.animationWrapper-3DL_Ua{
-     top:-5px;
-     width: calc(var(--server-icon-size) + 5px);
-     height: calc(var(--server-icon-size) + 6px) 
+.animationWrapper-3DL_Ua {
+    top: -5px;
+    width: calc(var(--server-icon-size) + 5px);
+    height: calc(var(--server-icon-size) + 6px)
+}
+
+.theme-dark .perksModal-CLcR1c {
+    background-color: var(--background-primary)
+}
+
+.theme-dark .perk-19D_HN {
+    background-color: var(--background-secondary-alt)
 }
