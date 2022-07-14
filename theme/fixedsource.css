@@ -4295,12 +4295,8 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     width: 300px;
     background-color: inherit !important;
     background-image: inherit !important;
-    filter: blur(128px) grayscale(35%);
+    filter: blur(128px);
     visibility: visible;
-}
-
-.banner-1YaD3N:not(.bannerPremium-kkSkPv):before {
-    filter: blur(128px) grayscale(35%) brightness(0.4) !important;
 }
 
 .banner-1YaD3N.profileBanner-1owKI5:after,
@@ -4317,8 +4313,7 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
 .banner-1YaD3N.profileBanner-1owKI5:before,
 .banner-1YaD3N:not(.user-background):not(.bannerPremium-kkSkPv):before,
 .bannerNormal-22rPhb:before {
-    background-color: rgba(0, 0, 0, .35);
-    backdrop-filter: brightness(.4) saturate(1)
+    filter: blur(128px) brightness(0.2) saturate(1) !important;
 }
 
 .bodyInnerWrapper-2bQs1k,
