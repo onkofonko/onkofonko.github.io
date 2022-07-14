@@ -4217,7 +4217,7 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
 [class^=bannerNitroUpsell] {
     background-image: inherit !important;
     background-color: inherit !important;
-    --mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.3) 80%, rgba(0, 0, 0, 0.15) 85%, rgba(0, 0, 0, 0.075) 90.5%, rgba(0, 0, 0, 0.037) 94.85%, rgba(0, 0, 0, 0.019) 98%, rgba(0, 0, 0, 0) 100%);
+    --mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.32) 80%, rgba(0, 0, 0, 0.16) 84%, rgba(0, 0, 0, 0.08) 88%, rgba(0, 0, 0, 0.04) 92%, rgba(0, 0, 0, 0.02) 96%, rgba(0, 0, 0, 0) 100%);
     -webkit-mask-image: var(--mask-image);
     mask-image: var(--mask-image);
     height: 120px;
