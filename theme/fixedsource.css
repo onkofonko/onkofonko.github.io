@@ -5595,6 +5595,7 @@ button[class^=attachButton] {
     bottom: 0;
     z-index: 2;
     height: calc(100% + var(--app-info-bar-height));
+    max-height: calc(100% + var(--app-info-bar-height));;
     z-index: 3;
     display: var(--tiny-display, flex)
 }
