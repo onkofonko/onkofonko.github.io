@@ -347,3 +347,11 @@
 .theme-dark .perk-19D_HN {
     background-color: var(--background-secondary-alt)
 }
+
+.panel-2ZFCRb.activityPanel-9icbyU {
+    height: 0px;
+}
+
+.panel-2ZFCRb.activityPanel-9icbyU>.body-1FrnJD {
+    position: fixed;
+}
