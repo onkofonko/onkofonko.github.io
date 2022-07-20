@@ -34,10 +34,10 @@
     --app-corner-size: 0px;
     --server-size: var(--server-icon-size, var(--HSL-size, 35px));
     --server-margin: var(--server-spacing, var(--HSL-spacing, 10px));
-    --server-container: calc(var(--server-size) + (2 * var(--server-outer-margin)));
+    --server-container: calc(var(--server-size) + (2 * var(--server-outer-margin, 14px)));
     --server-direction: var(--HSL-server-direction, column);
     --server-alignment: var(--HSL-server-alignment, flex-start);
-    --user-outer-right-margin: calc(var(--username-button-right-margin) + (var(--windowcontrol-buttons-width) * 3));
+    --user-outer-right-margin: calc(var(--username-button-right-margin, 12px) + (var(--windowcontrol-buttons-width) * 3));
     --user-outer-left-margin: calc(100vw - var(--usernamebutton-width) - var(--user-outer-right-margin));
     --dropdown-button-width: calc(220px - (var(--menu-container-padding) * 2));
     --windowcontrol-buttons-width: 45px;
@@ -919,7 +919,7 @@
 #app-mount .guilds-2JjMmN [class*=listItem]:not([class*=listItemWrapper]) {
     width: var(--server-size);
     transform: rotate(90deg);
-    margin: 0 var(--server-outer-margin);
+    margin: 0 var(--server-outer-margin, 14px);
     position: unset;
 }
 
@@ -1091,7 +1091,7 @@ body.foldercontentopened .base-2jDfDU {
     border-radius: calc(var(--server-size)/ 2);
     transform: rotate(0) !important;
     writing-mode: vertical-lr;
-    margin: 0 var(--server-outer-margin) !important;
+    margin: 0 var(--server-outer-margin, 14px) !important;
     margin-bottom: 8px !important;
     pointer-events: none;
     z-index: -1;
@@ -1282,7 +1282,7 @@ body.foldercontentopened .base-2jDfDU {
         --sidebar-width: 270px;
         --server-title-fontsize: 18px;
         --chat-side-margin: 24px;
-        --usernamebutton-width: var(--username-button-width);
+        --usernamebutton-width: var(--username-button-width, 128px);
         --nameTag-content: ""
     }
 
@@ -1498,7 +1498,7 @@ body.foldercontentopened .base-2jDfDU {
 }
 
 .messagesPopoutWrap-3zryHW {
-    max-height: calc(100vh - var(--app-windowbar-height) - var(--app-info-bar-height) - 20px) !important
+    max-height: calc(100vh - var(--app-windowbar-height) - var(--app-info-bar-height, 48px) - 20px) !important
 }
 
 @media only screen and (max-width:600px) {
@@ -1509,7 +1509,7 @@ body.foldercontentopened .base-2jDfDU {
     .browser-mnQ1T7.container-18GwIk,
     .messagesPopoutWrap-3zryHW,
     .searchResultsWrap-5RVOkx {
-        top: calc(var(--app-info-bar-height) + var(--server-container))
+        top: calc(var(--app-info-bar-height, 48px) + var(--server-container))
     }
 
     .container-2ebMPP.recentMentionsPopout-2bI1ZN,
@@ -1680,12 +1680,12 @@ body.foldercontentopened .base-2jDfDU {
     pointer-events: none;
     user-select: none;
     box-sizing: border-box;
-    top: var(--server-outer-margin);
+    top: var(--server-outer-margin, 14px);
     width: calc(var(--usernamebutton-width) - 32px + 1000px);
     height: 32px;
     line-height: 32px;
     right: calc(var(--user-outer-right-margin) + 32px + 8px + 32px - 1000px);
-    padding-left: var(--username-button-padding);
+    padding-left: var(--username-button-padding, 6px);
     padding-right: 0
 }
 
@@ -1741,7 +1741,7 @@ body.foldercontentopened .base-2jDfDU {
     border-radius: calc(32px / 2);
     height: var(--avatar-dropdown-offset);
     width: var(--dropdown-width);
-    top: var(--server-outer-margin);
+    top: var(--server-outer-margin, 14px);
     right: calc(var(--user-outer-right-margin) + 32px + 8px);
     transition: background-color .15s ease;
     pointer-events: none
@@ -1924,7 +1924,7 @@ body.foldercontentopened .base-2jDfDU {
     position: fixed;
     --width: calc(var(--dropdown-width) - (var(--menu-container-padding) * 2));
     width: var(--width);
-    top: calc((var(--server-outer-margin) * 2) + var(--avatar-dropdown-offset) + var(--menu-container-padding) + 32px);
+    top: calc((var(--server-outer-margin, 14px) * 2) + var(--avatar-dropdown-offset) + var(--menu-container-padding) + 32px);
     right: calc(var(--dropdown-width) + var(--user-outer-right-margin) + 28px - var(--width) + var(--menu-container-padding));
     margin: 2px 0;
     box-sizing: border-box;
@@ -1948,7 +1948,7 @@ body.foldercontentopened .base-2jDfDU {
     content: "";
     position: fixed;
     --width: calc(var(--dropdown-width) - (var(--menu-container-padding) * 2));
-    top: calc((var(--server-outer-margin) * 2) + var(--avatar-dropdown-offset) + var(--menu-container-padding) + 32px + 10px);
+    top: calc((var(--server-outer-margin, 14px) * 2) + var(--avatar-dropdown-offset) + var(--menu-container-padding) + 32px + 10px);
     right: calc(var(--dropdown-width) + var(--width) + var(--user-outer-right-margin) - var(--menu-container-padding) + 18px - var(--width));
     pointer-events: none;
     transform-origin: 50% -50px;
@@ -2149,7 +2149,7 @@ body.foldercontentopened .base-2jDfDU {
     --user-settings-svg-size: 16px !important;
     --user-setting-margin-left: -3px;
     position: fixed;
-    top: calc((var(--server-outer-margin) * 2) + var(--avatar-dropdown-offset) + var(--menu-container-padding));
+    top: calc((var(--server-outer-margin, 14px) * 2) + var(--avatar-dropdown-offset) + var(--menu-container-padding));
     right: calc(-10000px + var(--dropdown-width) + var(--user-outer-right-margin) - var(--menu-container-padding) + 32px + 8px);
     width: 10000px;
     background-color: rgba(0, 0, 0, 0);
@@ -2982,7 +2982,7 @@ body.foldercontentopened .base-2jDfDU {
     --left: calc(((var(--width) / 2) * -1) + (var(--sidebar-width) / 2));
     height: var(--height) !important;
     width: var(--width) !important;
-    top: calc((var(--height) + var(--bottom)) * -1 + 100vh + (-1 * (var(--server-outer-margin)))) !important;
+    top: calc((var(--height) + var(--bottom)) * -1 + 100vh + (-1 * (var(--server-outer-margin, 14px)))) !important;
     left: calc(-100vw + var(--left) + (var(--user-avatar-size) + var(--usernamebutton-width) + var(--user-outer-right-margin)) + 32px + 8px) !important
 }
 
@@ -3589,7 +3589,7 @@ body.foldercontentopened .base-2jDfDU {
 
 .name-3Uvkvr {
     font-size: var(--server-title-fontsize);
-    line-height: var(--app-info-bar-height)
+    line-height: var(--app-info-bar-height, 48px)
 }
 
 .button-2BMPJJ {
@@ -3725,13 +3725,13 @@ html.platform-osx #app-mount .typeWindows-2-g3UY {
 }
 
 .header-3OsQeK {
-    height: var(--app-info-bar-height);
+    height: var(--app-info-bar-height, 48px);
     -webkit-box-shadow: unset;
     box-shadow: unset
 }
 
 .searchBar-3TnChZ {
-    height: var(--app-info-bar-height);
+    height: var(--app-info-bar-height, 48px);
     z-index: 3
 }
 
@@ -3750,7 +3750,7 @@ html.platform-osx #app-mount .typeWindows-2-g3UY {
 html.platform-osx {
     --mac-os-left-margin: 96px;
     --mac-os-right-margin: 200px;
-    --user-outer-right-margin: calc(var(--username-button-right-margin))
+    --user-outer-right-margin: calc(var(--username-button-right-margin, 12px))
 }
 
 .platform-osx .wrapper-1_HaEi {
@@ -3814,7 +3814,7 @@ button[aria-label="Enable Game Activity"] {
     --user-settings-svg-size: 16px !important;
     --user-setting-margin-left: -3px;
     position: fixed;
-    top: calc((var(--server-outer-margin) * 2) + var(--avatar-dropdown-offset) + var(--menu-container-padding) + 272px);
+    top: calc((var(--server-outer-margin, 14px) * 2) + var(--avatar-dropdown-offset) + var(--menu-container-padding) + 272px);
     right: calc(-10000px + var(--user-outer-right-margin) + 32px + 8px);
     width: calc(var(--dropdown-width) + 10000px);
     background: 0 0 !important;
@@ -4620,7 +4620,7 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
 }
 
 .container-ZMc96U.themed-Hp1KC_ {
-    height: var(--app-info-bar-height);
+    height: var(--app-info-bar-height, 48px);
     background-color: transparent
 }
 
@@ -4630,7 +4630,7 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     background-color: var(--background-secondary);
     backdrop-filter: var(--blur-header);
     width: 100%;
-    height: var(--app-info-bar-height);
+    height: var(--app-info-bar-height, 48px);
     z-index: 2;
     top: 0;
     left: 0;
@@ -4689,11 +4689,11 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
 }
 
 .scroller-kQBbkU {
-    top: calc(-1 * (var(--app-info-bar-height) + var(--app-windowbar-height)))
+    top: calc(-1 * (var(--app-info-bar-height, 48px) + var(--app-windowbar-height)))
 }
 
 .scrollerInner-2PPAp2 .container-1yy5xN {
-    margin-top: calc(var(--app-info-bar-height) + var(--app-windowbar-height));
+    margin-top: calc(var(--app-info-bar-height, 48px) + var(--app-windowbar-height));
     margin-left: var(--chat-side-margin);
     margin-right: var(--chat-side-margin)
 }
@@ -4720,7 +4720,7 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
 
 .chat-2ZfjoI .contentRegionScroller-2_GT_N::-webkit-scrollbar-track,
 .chat-2ZfjoI .scroller-kQBbkU::-webkit-scrollbar-track {
-    margin-top: calc(var(--app-info-bar-height) + var(--app-windowbar-height));
+    margin-top: calc(var(--app-info-bar-height, 48px) + var(--app-windowbar-height));
     margin-bottom: 12px
 }
 
@@ -4729,7 +4729,7 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
 }
 
 .root-22AK9z.idle-39sGPO .topControls-23RE3h {
-    height: var(--app-info-bar-height);
+    height: var(--app-info-bar-height, 48px);
     opacity: 1
 }
 
@@ -4743,7 +4743,7 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
 }
 
 .topControls-23RE3h .container-ZMc96U {
-    height: var(--app-info-bar-height)
+    height: var(--app-info-bar-height, 48px)
 }
 
 .topControls-23RE3h .divider-2keupe {
@@ -5248,7 +5248,7 @@ button[class^=attachButton] {
     --color: var(--interactive-normal);
     background-color: var(--bg-color);
     position: fixed;
-    top: var(--server-outer-margin);
+    top: var(--server-outer-margin, 14px);
     right: calc(var(--user-outer-right-margin));
     z-index: 10;
     margin: 0;
@@ -5591,11 +5591,11 @@ button[class^=attachButton] {
 .membersWrap-3NUR2t {
     width: var(--memberlist-width);
     transition: width var(--sidebar-width-transition);
-    top: calc(var(--app-info-bar-height) * -1);
+    top: calc(var(--app-info-bar-height, 48px) * -1);
     bottom: 0;
     z-index: 2;
-    height: calc(100% + var(--app-info-bar-height));
-    max-height: calc(100% + var(--app-info-bar-height));;
+    height: calc(100% + var(--app-info-bar-height, 48px));
+    max-height: calc(100% + var(--app-info-bar-height, 48px));;
     z-index: 3;
     display: var(--tiny-display, flex)
 }
@@ -5647,7 +5647,7 @@ button[class^=attachButton] {
     position: absolute;
     display: flex;
     width: var(--memberlist-width) !important;
-    height: var(--app-info-bar-height) !important;
+    height: var(--app-info-bar-height, 48px) !important;
     text-align: left !important;
     align-items: center;
     justify-content: center;
@@ -5661,14 +5661,14 @@ button[class^=attachButton] {
 #MemberCount .container-q97qHp {
     text-transform: uppercase;
     font-size: 11px;
-    line-height: var(--app-info-bar-height) !important;
+    line-height: var(--app-info-bar-height, 48px) !important;
     letter-spacing: 1px
 }
 
 #MemberCount .membersGroup-2eiWxl {
     padding: 0;
     padding-left: calc(8px + 8px);
-    height: var(--app-info-bar-height) !important
+    height: var(--app-info-bar-height, 48px) !important
 }
 
 .layer-86YKbF {
