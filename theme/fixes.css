@@ -355,3 +355,7 @@
 .panel-2ZFCRb.activityPanel-9icbyU>.body-1FrnJD {
     position: fixed;
 }
+
+[class^=UserDetails]>* {
+    z-index: 1;
+}
