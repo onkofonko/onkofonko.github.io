@@ -193,11 +193,11 @@
     padding-left: 5px
 }
 
-#status-picker>div>div.submenuContainer-3EVTeH>div.layer-2aCOJ3>div>div>div>div[id*="status-picker-switch-account"i] {
+#status-picker>div>div.submenuContainer-3EVTeH>div.layer-2aCOJ3>div>div>div>div[id*="status-picker-switch-account" i] {
     width: 100%
 }
 
-#app-mount .layer-2aCOJ3>div>div>div>div[id*="account-switch-account"i] {
+#app-mount .layer-2aCOJ3>div>div>div>div[id*="account-switch-account" i] {
     width: 100%
 }
 
