@@ -359,3 +359,12 @@
 [class^=UserDetails]>* {
     z-index: 1;
 }
+
+.theme-dark .container-KM8BU6,
+.theme-dark .reactors-1VXca7 {
+    background-color: var(--background-primary);
+}
+
+.theme-dark .scroller-2GkvCq {
+    background: var(--background-secondary);
+}
