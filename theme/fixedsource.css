@@ -2149,7 +2149,8 @@ body.foldercontentopened .base-2jDfDU {
     --user-settings-svg-size: 16px !important;
     --user-setting-margin-left: -3px;
     position: fixed;
-    top: calc((var(--server-outer-margin, 14px) * 2) + var(--avatar-dropdown-offset) + var(--menu-container-padding));
+    top: calc(var(--server-icon-size) - var(--server-outer-margin) *.11 + var(--server-outer-margin) + 10px);
+    ;
     right: calc(-10000px + var(--dropdown-width) + var(--user-outer-right-margin) - var(--menu-container-padding) + 32px + 8px);
     width: 10000px;
     background-color: rgba(0, 0, 0, 0);

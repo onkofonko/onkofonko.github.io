@@ -177,7 +177,11 @@
 }
 
 #account-set-custom-status {
-    padding-left: 7px
+    padding-left: 5px
+}
+
+#account-style-your-profile {
+    padding-left: 5px
 }
 
 #account-edit-custom-status {
@@ -275,23 +279,12 @@
     height: 76px;
 }
 
-#account-info>.headerTop-3GPUSF>.clickTarget-2uXro4 {
-    position: relative;
-    bottom: 24px;
-    width: 208px;
-}
-
-#account-info>.headerTop-3GPUSF>.clickTarget-2uXro4>div>.childWrapper-2wlp_S>div>div {
-    position: relative;
-    right: 8px;
-}
-
 #account-info>.headerTop-3GPUSF>.clickTarget-2uXro4>div>.childWrapper-2wlp_S>div>div>span:before {
     content: "";
     pointer-events: none;
     position: absolute;
     left: 6px;
-    bottom: 10px;
+    top: 10px;
     transform-origin: 50% -50px;
     background-color: var(--interactive-normal);
     --size: 16px;
@@ -312,6 +305,14 @@
 
 #account-info>div.headerTop-3GPUSF.copiableNameTag-3f6roa>div.clickTarget-2uXro4>div>div.childWrapper-2wlp_S>div>div>span:hover:before {
     background-color: var(--interactive-hover);
+}
+
+#account-info>div.headerTop-3GPUSF.copiableNameTag-3f6roa {
+    height: 38px;
+    top: 38px;
+    left: 8px;
+    width: 208px;
+    padding: 0;
 }
 
 .premiumLabel-3HPvdB.selected-2Uns2B>img[alt*="Wumpus"] {
