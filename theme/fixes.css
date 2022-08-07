@@ -313,3 +313,7 @@
 .theme-dark .scroller-2GkvCq {
     background: var(--background-secondary);
 }
+
+#community-tab>div>button {
+    z-index: 10
+}
