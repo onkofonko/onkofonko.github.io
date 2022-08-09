@@ -4230,10 +4230,9 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     width: 600px !important;
 }
 
-.topSection-13QKHs>header>.banner-1YaD3N:not(.bannerPremium-kkSkPv):after,
-.topSection-13QKHs>header>.banner-1YaD3N:not(.bannerPremium-kkSkPv):before {
+.banner-1YaD3N:not(.bannerPremium-kkSkPv):after,
+.banner-1YaD3N:not(.bannerPremium-kkSkPv):before {
     top: -200px;
-
 }
 
 .topSection-13QKHs>header>div>.pencilContainer-18TrEJ {
@@ -4253,11 +4252,12 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     visibility: visible;
 }
 
-.bannerPremium-kkSkPv~.nameTag-H6kSJ0 {
+.bannerPremium-kkSkPv~[class*="nameTag" i] {
     margin-top: 0px;
 }
 
-.userPopout-2j1gM4>.headerWrapper-3iTlIT>.headerNormal-3Zn_yu>.popoutBannerPremium-3i5EEI.bannerPremium-kkSkPv {
+.popoutBannerPremium-3i5EEI,
+.bannerPremium-kkSkPv {
     margin-bottom: -10px;
 }
 
@@ -4284,8 +4284,8 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     margin-top: 0px;
 }
 
-#app-mount .popoutBanner-3cqRD9::before,
-#app-mount .profileBanner-1owKI5::before,
+.popoutBanner-3cqRD9:before,
+.profileBanner-1owKI5:before,
 .banner-1YaD3N:before,
 .bannerNormal-22rPhb:before,
 .bannerUploaderInnerSquare-1ddxpx:before {
