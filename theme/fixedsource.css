@@ -4183,10 +4183,6 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     top: -75px
 }
 
-.nameTag-2Nlmsy.nameTag-H6kSJ0 {
-    margin-top: 200px
-}
-
 .customStatusActivity-WKWGD- {
     position: relative
 }
@@ -4230,30 +4226,18 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     width: 600px !important;
 }
 
-.banner-1YaD3N:not(.bannerPremium-kkSkPv):after,
-.banner-1YaD3N:not(.bannerPremium-kkSkPv):before {
-    top: -200px;
-}
-
-.topSection-13QKHs>header>div>.pencilContainer-18TrEJ {
-    top: -184px;
-}
-
 .topSection-13QKHs .banner-1YaD3N:after {
     height: 240px
 }
 
-.topSection-13QKHs>header>.bannerPremium-kkSkPv {
+.topSection-13QKHs>header>.bannerPremium-kkSkPv,
+.topSection-13QKHs>header>.profileBanner-1owKI5 {
     visibility: hidden;
 }
 
 .topSection-13QKHs>header>.bannerPremium-kkSkPv:after,
 .topSection-13QKHs>header>.bannerPremium-kkSkPv:before {
     visibility: visible;
-}
-
-.bannerPremium-kkSkPv~[class*="nameTag" i] {
-    margin-top: 0px;
 }
 
 .popoutBannerPremium-3i5EEI,
@@ -4321,9 +4305,12 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9 {
     background-color: transparent
 }
 
-#app-mount .root-8LYsGj .profileBanner-1owKI5 {
-    height: unset !important;
-    max-height: unset !important
+.topSection-13QKHs>header>.profileBanner-1owKI5 {
+    height: 200px !important;
+}
+
+.topSection-13QKHs>header>[class*="nameTag" i] {
+    margin-top: 0px;
 }
 
 .UserBackgrounds-banner-container .UserBackgrounds-banner-badge {
