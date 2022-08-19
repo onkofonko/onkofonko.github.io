@@ -126,7 +126,6 @@
 
 #app-mount .content-1jQy2l>div>div {
     padding-bottom: 0px;
-    height: calc(100% + var(--app-info-bar-height));
     background-color: var(--background-secondary) !important
 }
 
