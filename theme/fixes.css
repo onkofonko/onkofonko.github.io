@@ -1,46 +1,46 @@
-#app-mount .queryContainer-ZunrLZ {
+.queryContainer-ZunrLZ {
     background: transparent;
 }
 
-#app-mount .content-1jQy2l>.membersWrap-3NUR2t>.members-3WRCEx {
+.content-1jQy2l>.membersWrap-3NUR2t>.members-3WRCEx {
     background: var(--background-primary);
 }
 
-#app-mount .background-3iPORX {
+.background-3iPORX {
     visibility: hidden;
 }
 
-#app-mount .selectedBackground-1t6xXq {
+.selectedBackground-1t6xXq {
     display: none;
 }
 
-#app-mount .bannerImage-ubW8K- {
+.bannerImage-ubW8K- {
     top: var(--server-container);
 }
 
-#app-mount .bannerImg-2PzH6z {
+.bannerImg-2PzH6z {
     width: var(--sidebar-width);
 }
 
-#app-mount .actionButtons-2vEOUh {
+.actionButtons-2vEOUh {
     min-width: 64px;
     max-width: 128px;
     width: auto;
     grid-gap: 0px;
 }
 
-#app-mount .actionButtons-2vEOUh>button:nth-child(n) {
+.actionButtons-2vEOUh>button:nth-child(n) {
     width: 32px;
     height: 32px;
     min-width: 32px;
     min-height: 32px;
 }
 
-#app-mount .customStatusEmoji-1bFQdD {
+.customStatusEmoji-1bFQdD {
     margin-top: 0px
 }
 
-#app-mount .actionButtons-2vEOUh>span:nth-child(n),
+.actionButtons-2vEOUh>span:nth-child(n),
 .actionButtons-2vEOUh>span:nth-child(n)>button {
     width: 32px;
     height: 32px;
@@ -48,11 +48,11 @@
     min-height: 32px;
 }
 
-#app-mount .footer-31IekZ>button:not(.colorBrand-I6CyqQ) {
+.footer-31IekZ>button:not(.colorBrand-I6CyqQ) {
     color: var(--interactive-hover);
 }
 
-#app-mount .footer-31IekZ>button:not(.colorBrand-I6CyqQ):not(.lowSaturationUnderline-Z6CW6z) {
+.footer-31IekZ>button:not(.colorBrand-I6CyqQ):not(.lowSaturationUnderline-Z6CW6z) {
     background-color: var(--background-tertiary);
 }
 
@@ -61,55 +61,55 @@
     background-color: #202225;
 }
 
-#app-mount .container-36u7Lw>div>div>div {
+.container-36u7Lw>div>div>div {
     overflow: hidden
 }
 
-#app-mount .platformIcon-k3yytQ {
+.platformIcon-k3yytQ {
     visibility: hidden
 }
 
-#app-mount .sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] [data-list-item-id*="channels___upcoming-events-"]>div.iconContainer-21RCa3>svg {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] [data-list-item-id*="channels___upcoming-events-"]>div.iconContainer-21RCa3>svg {
     height: 32px;
     width: 32px;
     margin-left: calc(50% - 8px);
     margin-bottom: 12px
 }
 
-#app-mount .sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] [data-list-item-id*="channels___upcoming-events-"]>div.name-28HaxV {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] [data-list-item-id*="channels___upcoming-events-"]>div.name-28HaxV {
     text-align: center;
     font-size: 14px;
     font-family: dash2space, var(--font-primary);
     text-transform: capitalize
 }
 
-#app-mount div.icon-39rdLt {
+div.icon-39rdLt {
     border-radius: 50%;
 }
 
-#app-mount .scroller-2MALzE {
+.scroller-2MALzE {
     background-color: var(--background-secondary);
 }
 
-#app-mount .inspector-DFKXwB,
+.inspector-DFKXwB,
 .inspector-2A2Chb {
     background-color: var(--background-secondary);
 }
 
-#app-mount .unicodeShortcut-3N8oDe,
+.unicodeShortcut-3N8oDe,
 .standardStickerShortcut-ObSns3 {
     background-color: var(--background-secondary);
 }
 
-#app-mount .navButtonActive-1EqC5l {
+.navButtonActive-1EqC5l {
     background-color: #272727
 }
 
-#app-mount .container-1Bj0eq>svg {
+.container-1Bj0eq>svg {
     margin-left: 14px
 }
 
-#app-mount .container-1Bj0eq>ul>li>div>div.content-1gYQeQ {
+.container-1Bj0eq>ul>li>div>div.content-1gYQeQ {
     left: 14px !important;
     width: calc(var(--sidebar-width) - 66px)
 }
@@ -119,35 +119,35 @@
     left: calc(var(--sidebar-width) / 3.16);
 }
 
-#app-mount .roleName-2ZJJYR {
+.roleName-2ZJJYR {
     padding-top: 3px;
     padding-bottom: 3px
 }
 
-#app-mount .content-1jQy2l>div>div {
+.content-1jQy2l>div>div {
     padding-bottom: 0px;
     background-color: var(--background-secondary) !important
 }
 
-#app-mount .sidebar-1tnWFu .content-2a4AW9 .containerDefault-3TQ5YN .children-3MeUvj {
+.sidebar-1tnWFu .content-2a4AW9 .containerDefault-3TQ5YN .children-3MeUvj {
     display: flex
 }
 
-#app-mount .addButtonIcon-3rJeaD {
+.addButtonIcon-3rJeaD {
     height: 14px;
     width: 14px;
     padding-top: 2px
 }
 
-#app-mount .modeUnread-3Cxepe .channelInfo-3jN1ay {
+.modeUnread-3Cxepe .channelInfo-3jN1ay {
     display: flex !important
 }
 
-#app-mount .content-1jQy2l>main[aria-label=" (channel)"]>form>div>div.scrollableContainer-15eg7h.webkit-QgSAqd>div>div.textArea-2CLwUE.textAreaSlate-9-y-k2.slateContainer-3x9zil>div>div {
+.content-1jQy2l>main[aria-label=" (channel)"]>form>div>div.scrollableContainer-15eg7h.webkit-QgSAqd>div>div.textArea-2CLwUE.textAreaSlate-9-y-k2.slateContainer-3x9zil>div>div {
     position: absolute !important
 }
 
-#app-mount .videoGrid-1tZm-F {
+.videoGrid-1tZm-F {
     background-color: var(--background-primary)
 }
 
@@ -168,16 +168,16 @@
     padding-left: 5px
 }
 
-#app-mount .layer-2aCOJ3>div>div>div>div[id*="account-switch-account" i],
+.layer-2aCOJ3>div>div>div>div[id*="account-switch-account" i],
 #status-picker>div>div.submenuContainer-3EVTeH>div.layer-2aCOJ3>div>div>div>div[id*="status-picker-switch-account" i] {
     width: 100%
 }
 
-#app-mount .container-YkUktl>div.avatarWrapper-1B9FTW.withTagAsButton-OsgQ9L>div.nameTag-sc-gpq.canCopy-IgTwyV>div.defaultColor-24IHKz.text-sm-normal-3Zj3Iv.usernameContainer-3PPkWq>div {
+.container-YkUktl>div.avatarWrapper-1B9FTW.withTagAsButton-OsgQ9L>div.nameTag-sc-gpq.canCopy-IgTwyV>div.defaultColor-24IHKz.text-sm-normal-3Zj3Iv.usernameContainer-3PPkWq>div {
     line-height: 23px
 }
 
-#app-mount .container-YkUktl>div.avatarWrapper-1B9FTW.withTagAsButton-OsgQ9L>div.avatar-1EWyVD.wrapper-1VLyxH {
+.container-YkUktl>div.avatarWrapper-1B9FTW.withTagAsButton-OsgQ9L>div.avatar-1EWyVD.wrapper-1VLyxH {
     top: 4px !important
 }
 
@@ -187,8 +187,8 @@
     background-color: var(--background-floating)
 }
 
-#app-mount .chatSidebarOpen--YCxhs>div:nth-child(n)>section>.toolbar-3_r2xA,
-#app-mount .layerContainer-2v_Sit>div>div:nth-child(n)>section>.toolbar-3_r2xA {
+.chatSidebarOpen--YCxhs>div:nth-child(n)>section>.toolbar-3_r2xA,
+.layerContainer-2v_Sit>div>div:nth-child(n)>section>.toolbar-3_r2xA {
     z-index: 100;
     position: fixed;
     right: 8px
