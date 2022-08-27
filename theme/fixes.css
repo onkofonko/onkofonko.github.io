@@ -316,3 +316,12 @@
 #community-tab>div>button {
     z-index: 10
 }
+
+.PronounDB-pronouns-text {
+    opacity: 0;
+    transition: opacity .175s ease
+}
+
+.messageListItem-ZZ7v6g:hover .PronounDB-pronouns-text {
+    opacity: 1
+}
