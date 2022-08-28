@@ -5582,6 +5582,7 @@ button[class^=attachButton] {
 
 .membersWrap-3NUR2t {
     width: var(--memberlist-width);
+    min-width: var(--memberlist-width);
     transition: width var(--sidebar-width-transition);
     top: calc(var(--app-info-bar-height, 48px) * -1);
     bottom: 0;
