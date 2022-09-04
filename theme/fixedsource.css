@@ -4129,7 +4129,7 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
     pointer-events: none
 }
 
-.profileBadges-31rDHI{
+.profileBadges-31rDHI {
     margin-bottom: -8px;
 }
 
@@ -4358,6 +4358,15 @@ html #app-mount .userPopout-3fydSP .avatarPositionPremiumBanner-2nq2Fy {
 .profileColors-3Y0XaR {
     --profile-gradient-primary-color: var(--background-floating) !important;
     --profile-gradient-secondary-color: var(--background-floating) !important
+}
+
+.roles-3zC7MX {
+    color: var(--interactive-active)
+}
+
+.section-3FmfOT>.title-1r9MQ6,
+[class^=activity]>div>h3>.overflow-1wOqNV {
+    color: var(--header-secondary)
 }
 
 .messageInput-1KI8l8 {
