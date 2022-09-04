@@ -3963,7 +3963,7 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
 }
 
 .userPopout-2j1gM4 .input-2z42oC::placeholder,
-.userPopout-3fydSP .input-2z42oC {
+.userPopout-3fydSP .input-2z42oC::placeholder {
     color: var(--text-normal);
     opacity: .75
 }
