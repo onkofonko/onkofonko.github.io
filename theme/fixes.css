@@ -362,7 +362,7 @@ div.icon-39rdLt {
 #profile-customization-tab>div>.back-AQCDRl {
     --size: 36px;
     position: fixed;
-    top: 14px;
+    top: calc((var(--app-windowbar-height) - var(--size))/ 2);
     left: 13px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -394,7 +394,6 @@ div.icon-39rdLt {
     font-size: 24px;
     display: block;
     position: fixed;
-    z-index: 3003;
     color: var(--interactive-active);
     font-weight: 700;
     font-family: var(--font-display);
@@ -417,6 +416,7 @@ div.icon-39rdLt {
     width: var(--size);
     height: var(--size);
     background-color: var(--interactive-normal);
+    color: var(--interactive-normal);
     transition: background-color .25s ease;
     -webkit-mask-size: var(--mask-size);
     mask-size: var(--mask-size);
@@ -426,5 +426,10 @@ div.icon-39rdLt {
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
     mask-position: center;
-    transform: rotateX(90deg);
+    transform: rotate(0deg);
+}
+
+.back-AQCDRl:hover svg {
+    background-color: var(--interactive-hover);
+    color: var(--interactive-hover);
 }
