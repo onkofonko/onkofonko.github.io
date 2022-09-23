@@ -1479,11 +1479,6 @@ body.foldercontentopened .base-2jDfDU {
     animation: none
 }
 
-.layer-2aCOJ3 .animatorRight-xAUgTY .userPopout-2j1gM4 {
-    transform-origin: center left;
-    animation: var(--dialog-fade-in-from-right)
-}
-
 .layer-2aCOJ3 #manage-streams,
 .layer-2aCOJ3 #video-device-context,
 .layer-2aCOJ3 .noiseCancellationPopout-2-e5Xz {
@@ -2458,8 +2453,7 @@ body.foldercontentopened .base-2jDfDU {
 .root-g14mjS,
 .root-8LYsGj,
 .streamPreview-3qoMP4,
-.userPopout-2j1gM4,
-.userPopout-3fydSP,
+.userPopout-29jUdN,
 [class^=noiseCancellationPopout] {
     border-radius: var(--context-menu-border-radius)
 }
@@ -2512,8 +2506,7 @@ body.foldercontentopened .base-2jDfDU {
 .streamPreview-3qoMP4:before,
 .toolbar-37BrJ5:before,
 .uploadModal-2ie9O_:before,
-.userPopout-2j1gM4:before,
-.userPopout-3fydSP:before,
+.userPopout-29jUdN:before,
 .wrapper-2vIMkT:before {
     border: 1px var(--background-modifier-accent) solid;
     box-sizing: border-box;
@@ -3938,33 +3931,27 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
 .role-2TIOKu,
 .theme-dark .actionButton-1YKTU0,
 .theme-light .actionButton-1YKTU0,
-.userPopout-2j1gM4 .textarea-_59yqs:focus,
-.userPopout-3fydSP .textarea-_59yqs:focus {
+.userPopout-29jUdN .textarea-_59yqs:focus {
     background-color: rgba(196, 196, 196, .1);
     transition: filter .15s ease
 }
 
-.userPopout-2j1gM4 .input-2z42oC:focus,
-.userPopout-2j1gM4 .input-2z42oC:hover,
-.userPopout-3fydSP .input-2z42oC:focus,
-.userPopout-3fydSP .input-2z42oC:hover {
+.userPopout-29jUdN .input-2z42oC:focus,
+.userPopout-29jUdN .input-2z42oC:hover {
     background-color: rgba(196, 196, 196, .1)
 }
 
-.userPopout-2j1gM4 .input-2z42oC,
-.userPopout-3fydSP .input-2z42oC {
+.userPopout-29jUdN .input-2z42oC {
     background-color: rgba(196, 196, 196, .05);
     transition: background-color .15s ease
 }
 
-.userPopout-2j1gM4 .input-2z42oC,
-.userPopout-3fydSP .input-2z42oC {
+.userPopout-29jUdN .input-2z42oC {
     border: none !important;
     border-radius: 3px
 }
 
-.userPopout-2j1gM4 .input-2z42oC::placeholder,
-.userPopout-3fydSP .input-2z42oC::placeholder {
+.userPopout-29jUdN .input-2z42oC::placeholder {
     color: var(--text-normal);
     opacity: .75
 }
@@ -4085,10 +4072,6 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
     color: rgba(196, 196, 196, .2);
 }
 
-.userPopout-2j1gM4>.headerWrapper-3iTlIT>.headerNormal-3Zn_yu>.banner-1YaD3N {
-    visibility: hidden;
-}
-
 .premiumIconWrapper-32h0Ri,
 .premiumIconWrapper-yyGDql {
     visibility: visible;
@@ -4134,18 +4117,6 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
     margin-bottom: -8px;
 }
 
-html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9,
-html #app-mount .userPopout-3fydSP .avatarPositionPremiumBanner-2nq2Fy {
-    top: 76px !important
-}
-
-.profileBannerPreview-3_l0Wd .headerTop-3GPUSF,
-.userInfo-regn9W,
-html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9~.headerTop-3GPUSF {
-    margin-top: 100px;
-    position: relative
-}
-
 .background-3d_SjE,
 .popoutInfo-pKbpvG,
 .userInfo-regn9W {
@@ -4170,29 +4141,20 @@ html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9~.headerTop-3GPU
     margin-left: 16px
 }
 
-html #app-mount .userPopout-2j1gM4 .avatarPositionNormal-2jWoC2,
-html #app-mount .userPopout-3fydSP .avatarPositionNormal-V4Mjtq {
+html #app-mount .userPopout-29jUdN .avatarPositionNormal-V4Mjtq {
     top: 26px !important
 }
 
-.bannerNormal-22rPhb~.headerTop-3GPUSF,
-html #app-mount .userPopout-2j1gM4 .avatarPositionNormal-2jWoC2~.headerTop-3GPUSF {
-    margin-top: 50px
+html #app-mount .userPopout-29jUdN .avatarPositionPremiumBanner-2nq2Fy {
+    top: 76px !important
 }
 
-#app-mount .userPopout-2j1gM4 .headerTop-3GPUSF {
-    padding: 64px 16px 16px
+html #app-mount .userPopout-29jUdN .avatarPositionPremiumNoBanner-nWzERs {
+    top: 56px !important
 }
 
 .profileBannerPreview-3_l0Wd {
     background-color: transparent
-}
-
-html #app-mount .userPopout-2j1gM4 .avatarPositionNormal-2jWoC2,
-html #app-mount .userPopout-2j1gM4 .avatarPositionPremium-1zPBq9,
-html #app-mount .userPopout-3fydSP .avatarPositionNormal-V4Mjtq,
-html #app-mount .userPopout-3fydSP .avatarPositionPremiumBanner-2nq2Fy {
-    margin-top: unset !important
 }
 
 .avatar-3mTjvZ,
@@ -4200,6 +4162,46 @@ html #app-mount .userPopout-3fydSP .avatarPositionPremiumBanner-2nq2Fy {
 .avatar-3QF_VA,
 .avatarUploaderInner-Oiob_P {
     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, .205))
+}
+
+[class^="userPopoutInner"]>.bannerSVGWrapper-qc0szY {
+    height: 100%;
+    max-width: 300px;
+    z-index: 0;
+    min-width: 300px !important;
+    overflow: visible;
+    position: relative;
+}
+
+[class^="userPopoutInner"]>.bannerSVGWrapper-qc0szY foreignObject {
+    mask: none;
+    transform: translateY(-4px);
+}
+
+.userPopoutInnerWithBanner-24GX6I .bannerSVGWrapper-qc0szY foreignObject {
+    transform: translateY(-8px)
+}
+
+.topSection-13QKHs>header>.bannerSVGWrapper-qc0szY foreignobject {
+    mask: none;
+}
+
+.topSection-13QKHs>header>.header-S26rhB {
+    margin-top: 84px;
+    position: relative;
+}
+
+.topSection-13QKHs>header>.bannerSVGWrapper-qc0szY[viewBox="0 0 600 212"] {
+    margin-bottom: -40px;
+}
+
+.topSection-13QKHs>header>.bannerSVGWrapper-qc0szY {
+    height: 100%;
+    max-width: 600px;
+    min-width: 600px !important;
+    z-index: 0;
+    overflow: visible;
+    position: relative;
 }
 
 .header-S26rhB {
@@ -4227,10 +4229,10 @@ html #app-mount .userPopout-3fydSP .avatarPositionPremiumBanner-2nq2Fy {
     background-size: cover
 }
 
-.userPopout-2j1gM4,
-.userPopout-3fydSP {
+.userPopout-29jUdN {
     width: 300px !important;
-    position: relative
+    position: relative;
+    padding: 0
 }
 
 .banner-2boKnS:after,
@@ -4243,7 +4245,7 @@ html #app-mount .userPopout-3fydSP .avatarPositionPremiumBanner-2nq2Fy {
     --mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.32) 80%, rgba(0, 0, 0, 0.16) 84%, rgba(0, 0, 0, 0.08) 88%, rgba(0, 0, 0, 0.04) 92%, rgba(0, 0, 0, 0.02) 96%, rgba(0, 0, 0, 0) 100%);
     -webkit-mask-image: var(--mask-image);
     mask-image: var(--mask-image);
-    height: 120px;
+    height: 136px;
     width: 100%;
     pointer-events: none;
     visibility: visible;
@@ -4265,12 +4267,6 @@ html #app-mount .userPopout-3fydSP .avatarPositionPremiumBanner-2nq2Fy {
 .topSection-13QKHs>header>.bannerPremium-kkSkPv:after,
 .topSection-13QKHs>header>.bannerPremium-kkSkPv:before {
     visibility: visible;
-}
-
-.popoutBannerPremium-3i5EEI,
-.bannerPremium-kkSkPv,
-.bannerPremium-86naOf {
-    margin-bottom: -10px;
 }
 
 .popoutBannerPremium-3i5EEI.bannerPremium-kkSkPv:before,
@@ -4306,7 +4302,7 @@ html #app-mount .userPopout-3fydSP .avatarPositionPremiumBanner-2nq2Fy {
     bottom: 0;
     opacity: 1;
     height: calc(100vh - 20px);
-    width: 300px;
+    width: 100%;
     background-color: inherit !important;
     background-image: inherit !important;
     filter: blur(128px);
@@ -4332,7 +4328,7 @@ html #app-mount .userPopout-3fydSP .avatarPositionPremiumBanner-2nq2Fy {
     filter: blur(128px) brightness(0.2) saturate(1) !important;
 }
 
-[class^=userPopoutInner]>.overlayBackground-arbZMT {
+[class^=userPopoutInner]>.overlayBackground-2Zjm9f {
     background-color: unset;
 }
 
@@ -4340,11 +4336,19 @@ html #app-mount .userPopout-3fydSP .avatarPositionPremiumBanner-2nq2Fy {
     background-color: unset;
 }
 
+.profileBadges-31rDHI {
+    top: 12px
+}
+
+.avatarPositionPremiumBanner-2nq2Fy~.profileBadges-31rDHI {
+    top: 2px
+}
+
 .banner-2boKnS {
     visibility: hidden;
 }
 
-.userPopoutInner-PA9zkU::before {
+.userPopoutInner-1v4xcM:before {
     content: " ";
     position: absolute;
     height: 120px;
@@ -4355,6 +4359,7 @@ html #app-mount .userPopout-3fydSP .avatarPositionPremiumBanner-2nq2Fy {
     border-top-left-radius: var(--context-menu-border-radius);
     border-top-right-radius: var(--context-menu-border-radius);
 }
+
 
 .profileColors-3Y0XaR {
     --profile-gradient-primary-color: var(--background-floating) !important;
@@ -4378,6 +4383,10 @@ html #app-mount .userPopout-3fydSP .avatarPositionPremiumBanner-2nq2Fy {
     background-color: rgba(196, 196, 196, .1)
 }
 
+.connectedAccountContainer-3aLMHJ {
+    background-color: var(--background-modifier-accent);
+}
+
 .avatar-2OC07D {
     border: 0px;
     top: 0px;
@@ -4393,7 +4402,7 @@ html #app-mount .userPopout-3fydSP .avatarPositionPremiumBanner-2nq2Fy {
     background-color: var(--background-modifier-accent);
 }
 
-.overlayBackground-arbZMT {
+.overlayBackground-2Zjm9f {
     margin-left: 4px;
     margin-right: 4px;
 }
@@ -4483,26 +4492,6 @@ html #app-mount .userPopout-3fydSP .avatarPositionPremiumBanner-2nq2Fy {
 
 .UserBackgrounds-banner-arrow:hover svg {
     color: var(--interactive-hover)
-}
-
-.popoutInfo-pKbpvG .aboutMeTitle-3pjiS7,
-.popoutInfo-pKbpvG .bodyTitle-2Az3VQ,
-.popoutInfo-pKbpvG .headerText-3g1XK9,
-.userInfoSectionHeader-2mYYun,
-.userPopout-2j1gM4 .aboutMeTitle-3pjiS7,
-.userPopout-2j1gM4 .bodyTitle-2Az3VQ,
-.userPopout-2j1gM4 .headerText-3g1XK9 {
-    display: none
-}
-
-.popoutInfo-pKbpvG .aboutMeSection-PUghFQ:after,
-.userPopout-2j1gM4 .aboutMeSection-PUghFQ:after {
-    content: "";
-    height: 1px;
-    width: 100%;
-    margin: 12px 0;
-    display: block;
-    background-color: var(--background-modifier-accent)
 }
 
 .connections-pPr4as {
