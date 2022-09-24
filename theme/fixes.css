@@ -161,7 +161,8 @@ div.icon-39rdLt {
 #account-edit-custom-status,
 #status-picker-switch-account,
 #account-switch-account {
-    padding-left: 5px
+    padding-left: 5px;
+    width: 208px;
 }
 
 .layer-2aCOJ3>div>div>div>div[id*="account-switch-account" i],
@@ -432,4 +433,38 @@ div.icon-39rdLt {
 .back-AQCDRl:hover svg {
     background-color: var(--interactive-hover);
     color: var(--interactive-hover);
+}
+
+.avatarWrapper-3y0KZ1>div>div>svg>circle {
+    display: none;
+}
+
+.overlayBackground-2Zjm9f>.menu-1QACrS.styleFlexible-x0_sIC.menu-KSaHL1:before {
+    display: none;
+}
+
+.overlayBackground-2Zjm9f>.menu-1QACrS.styleFlexible-x0_sIC.menu-KSaHL1 {
+    right: 4px;
+    z-index: unset;
+}
+
+[id^=popout]>div>.userPopout-29jUdN>div>.overlayBackground-2Zjm9f>*:not(.menu-1QACrS),
+[id^=popout]>div>.userPopout-29jUdN>div>*:not(.overlayBackground-2Zjm9f) {
+    display: none;
+}
+
+[id^=popout]>div>.userPopout-29jUdN {
+    height: 170px;
+    width: 220px;
+}
+
+[id^=popout]>div>.userPopout-29jUdN>div>.overlayBackground-2Zjm9f {
+    margin-top: 28px;
+    margin-bottom: 0px;
+}
+
+[id^=popout]>div>.userPopout-29jUdN,
+[id^=popout]>div>.userPopout-29jUdN:before,
+.overlayBackground-2Zjm9f>.menu-1QACrS.styleFlexible-x0_sIC.menu-KSaHL1 {
+    width: 220px !important;
 }
