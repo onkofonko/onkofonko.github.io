@@ -4113,10 +4113,6 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
     pointer-events: none
 }
 
-.profileBadges-31rDHI {
-    margin-bottom: -8px;
-}
-
 .background-3d_SjE,
 .popoutInfo-pKbpvG,
 .userInfo-regn9W {
@@ -4191,7 +4187,7 @@ html #app-mount .userPopout-29jUdN .avatarPositionPremiumNoBanner-nWzERs {
     position: relative;
 }
 
-.topSection-13QKHs>header>.bannerSVGWrapper-qc0szY[viewBox="0 0 600 212"] {
+.topSection-13QKHs>header>.bannerSVGWrapper-qc0szY[viewBox*="212"] {
     margin-bottom: -40px;
 }
 
@@ -4342,6 +4338,10 @@ html #app-mount .userPopout-29jUdN .avatarPositionPremiumNoBanner-nWzERs {
 
 .avatarPositionPremiumBanner-2nq2Fy~.profileBadges-31rDHI {
     top: 2px
+}
+
+.profileBadges-31rDHI.containerWithContent-2_V0PM.container-5SvbtF{
+    margin-bottom: -8px;
 }
 
 .banner-2boKnS {
