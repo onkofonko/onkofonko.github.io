@@ -2453,7 +2453,7 @@ body.foldercontentopened .base-2jDfDU {
 .root-g14mjS,
 .root-8LYsGj,
 .streamPreview-3qoMP4,
-.userPopout-29jUdN,
+.userPopout-2VyFj_,
 [class^=noiseCancellationPopout] {
     border-radius: var(--context-menu-border-radius)
 }
@@ -2506,7 +2506,7 @@ body.foldercontentopened .base-2jDfDU {
 .streamPreview-3qoMP4:before,
 .toolbar-37BrJ5:before,
 .uploadModal-2ie9O_:before,
-.userPopout-29jUdN:before,
+.userPopout-2VyFj_:before,
 .wrapper-2vIMkT:before {
     border: 1px var(--background-modifier-accent) solid;
     box-sizing: border-box;
@@ -3931,27 +3931,27 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
 .role-2TIOKu,
 .theme-dark .actionButton-1YKTU0,
 .theme-light .actionButton-1YKTU0,
-.userPopout-29jUdN .textarea-_59yqs:focus {
+.userPopout-2VyFj_ .textarea-_59yqs:focus {
     background-color: rgba(196, 196, 196, .1);
     transition: filter .15s ease
 }
 
-.userPopout-29jUdN .input-2z42oC:focus,
-.userPopout-29jUdN .input-2z42oC:hover {
+.userPopout-2VyFj_ .input-2z42oC:focus,
+.userPopout-2VyFj_ .input-2z42oC:hover {
     background-color: rgba(196, 196, 196, .1)
 }
 
-.userPopout-29jUdN .input-2z42oC {
+.userPopout-2VyFj_ .input-2z42oC {
     background-color: rgba(196, 196, 196, .05);
     transition: background-color .15s ease
 }
 
-.userPopout-29jUdN .input-2z42oC {
+.userPopout-2VyFj_ .input-2z42oC {
     border: none !important;
     border-radius: 3px
 }
 
-.userPopout-29jUdN .input-2z42oC::placeholder {
+.userPopout-2VyFj_ .input-2z42oC::placeholder {
     color: var(--text-normal);
     opacity: .75
 }
@@ -4137,15 +4137,15 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
     margin-left: 16px
 }
 
-html #app-mount .userPopout-29jUdN .avatarPositionNormal-V4Mjtq {
+html #app-mount .userPopout-2VyFj_ .avatarPositionNormal-V4Mjtq {
     top: 26px !important
 }
 
-html #app-mount .userPopout-29jUdN .avatarPositionPremiumBanner-2nq2Fy {
+html #app-mount .userPopout-2VyFj_ .avatarPositionPremiumBanner-2nq2Fy {
     top: 76px !important
 }
 
-html #app-mount .userPopout-29jUdN .avatarPositionPremiumNoBanner-nWzERs {
+html #app-mount .userPopout-2VyFj_ .avatarPositionPremiumNoBanner-nWzERs {
     top: 56px !important
 }
 
@@ -4169,12 +4169,20 @@ html #app-mount .userPopout-29jUdN .avatarPositionPremiumNoBanner-nWzERs {
     position: relative;
 }
 
+.userPopoutInnerWithBanner-1jusp9>.bannerSVGWrapper-qc0szY {
+    margin-bottom: -10px;
+}
+
 [class^="userPopoutInner"]>.bannerSVGWrapper-qc0szY foreignObject {
     mask: none;
     transform: translateY(-4px);
 }
 
-.userPopoutInnerWithBanner-24GX6I .bannerSVGWrapper-qc0szY foreignObject {
+.userPopoutInnerPremiumWithoutBanner-36IBTh .bannerSVGWrapper-qc0szY foreignObject {
+    transform: translateY(-6px)
+}
+
+.userPopoutInnerWithBanner-1jusp9 .bannerSVGWrapper-qc0szY foreignObject {
     transform: translateY(-8px)
 }
 
@@ -4225,7 +4233,7 @@ html #app-mount .userPopout-29jUdN .avatarPositionPremiumNoBanner-nWzERs {
     background-size: cover
 }
 
-.userPopout-29jUdN {
+.userPopout-2VyFj_ {
     width: 300px !important;
     position: relative;
     padding: 0
@@ -4324,7 +4332,7 @@ html #app-mount .userPopout-29jUdN .avatarPositionPremiumNoBanner-nWzERs {
     filter: blur(128px) brightness(0.2) saturate(1) !important;
 }
 
-[class^=userPopoutInner]>.overlayBackground-2Zjm9f {
+[class^=userPopoutInner]>.overlayBackground-1KgwVi {
     background-color: unset;
 }
 
@@ -4336,11 +4344,7 @@ html #app-mount .userPopout-29jUdN .avatarPositionPremiumNoBanner-nWzERs {
     top: 12px
 }
 
-.avatarPositionPremiumBanner-2nq2Fy~.profileBadges-31rDHI {
-    top: 2px
-}
-
-.profileBadges-31rDHI.containerWithContent-2_V0PM.container-5SvbtF{
+.profileBadges-31rDHI.containerWithContent-2_V0PM.container-5SvbtF {
     margin-bottom: -8px;
 }
 
@@ -4348,7 +4352,7 @@ html #app-mount .userPopout-29jUdN .avatarPositionPremiumNoBanner-nWzERs {
     visibility: hidden;
 }
 
-.userPopoutInner-1v4xcM:before {
+.userPopoutInner-1hXSeY:before {
     content: " ";
     position: absolute;
     height: 120px;
@@ -4402,7 +4406,7 @@ html #app-mount .userPopout-29jUdN .avatarPositionPremiumNoBanner-nWzERs {
     background-color: var(--background-modifier-accent);
 }
 
-.overlayBackground-2Zjm9f {
+.overlayBackground-1KgwVi {
     margin-left: 4px;
     margin-right: 4px;
 }
