@@ -342,23 +342,23 @@ div.icon-39rdLt {
     z-index: 100;
 }
 
-[id^=popout]>div>.userPopout-2VyFj_>div>.overlayBackground-1KgwVi>*:not(.menu-1QACrS),
-[id^=popout]>div>.userPopout-2VyFj_>div>*:not(.overlayBackground-1KgwVi) {
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>.overlayBackground-1KgwVi>*:not(.menu-1QACrS),
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>*:not(.overlayBackground-1KgwVi) {
     display: none;
 }
 
-[id^=popout]>div>.userPopout-2VyFj_ {
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ {
     height: 170px;
     width: 220px;
 }
 
-[id^=popout]>div>.userPopout-2VyFj_>div>.overlayBackground-1KgwVi {
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>.overlayBackground-1KgwVi {
     margin-top: 28px;
     margin-bottom: 0px;
 }
 
-[id^=popout]>div>.userPopout-2VyFj_,
-[id^=popout]>div>.userPopout-2VyFj_:before,
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ,
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ:before,
 .overlayBackground-1KgwVi>.menu-1QACrS.styleFlexible-x0_sIC.menu-KSaHL1 {
     width: 220px !important;
 }
