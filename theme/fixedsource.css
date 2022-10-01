@@ -2665,6 +2665,11 @@ body.foldercontentopened .base-2jDfDU {
     width: 280px
 }
 
+.menu-1QACrS,
+.menu-1QACrS>div {
+    z-index: 2;
+}
+
 /*
 .menu-1QACrS div[role=group] {
     width: fit-content
