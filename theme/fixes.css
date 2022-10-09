@@ -361,3 +361,7 @@ div.icon-39rdLt {
 .overlayBackground-1KgwVi>.menu-1QACrS.styleFlexible-x0_sIC.menu-KSaHL1 {
     width: 220px !important;
 }
+
+.theme-dark .keyboardShortcutsModal-2CRmCm {
+    background-color: var(--background-primary);
+}
