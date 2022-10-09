@@ -4066,8 +4066,9 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
     background-image: var(--user-background, inherit)
 }
 
-.connectedAccountContainer-SlCC-S {
+.connectedAccountContainer-3aLMHJ {
     background-color: rgba(196, 196, 196, .1);
+    border: unset;
 }
 
 .pencilIcon-z04-c5,
@@ -4395,10 +4396,6 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
 
 .textarea-_59yqs:focus {
     background-color: rgba(196, 196, 196, .1)
-}
-
-.connectedAccountContainer-3aLMHJ {
-    background-color: var(--background-modifier-accent);
 }
 
 .avatar-2OC07D {
