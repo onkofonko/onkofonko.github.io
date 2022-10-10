@@ -365,3 +365,21 @@ div.icon-39rdLt {
 .theme-dark .keyboardShortcutsModal-2CRmCm {
     background-color: var(--background-primary);
 }
+
+.submenu-1apzyU.menu-1QACrS[aria-activedescendant^="message-apps"] {
+    width: var(--dropdown-width);
+}
+
+.submenu-1apzyU.menu-1QACrS[aria-activedescendant^="message-apps"]>div>.listItems-6eZzQ1 {
+    flex-wrap: wrap;
+    position: absolute;
+    margin-top: 6px;
+    margin-left: 4px;
+    margin-right: 4px;
+    width: calc(var(--dropdown-width) - 12px)
+}
+
+.submenu-1apzyU.menu-1QACrS[aria-activedescendant^="message-apps"]>div>.listHeight-3LiElf {
+    display: block;
+    margin-top: -4px;
+}
