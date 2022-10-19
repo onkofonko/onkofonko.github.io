@@ -3932,7 +3932,7 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
     display: none
 }
 
-.relationshipButtons-3ByBpj .lookFilled-yCfaCM.colorGreen-3y-Z79,
+.relationshipButtons-pZ_UWl .lookFilled-yCfaCM.colorGreen-3y-Z79,
 .role-2TIOKu,
 .theme-dark .actionButton-1YKTU0,
 .theme-light .actionButton-1YKTU0,
@@ -4242,12 +4242,20 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
 .userPopoutOuter-3AVBmJ {
     width: 300px !important;
     position: relative;
-    padding: 0
+}
+
+.userProfileOuterThemed-3EfHmv.userPopoutOuter-3AVBmJ,
+.userProfileOuterThemed-3EfHmv.userProfileOuter-1K_BYU {
+    padding: 0 !important
 }
 
 .accountProfilePopoutWrapper-3GskID {
     position: relative;
     left: 0;
+}
+
+.userProfileModalInner-3fh3QA:before {
+    display: none;
 }
 
 .banner-2boKnS:after,
@@ -4343,11 +4351,31 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     filter: blur(128px) brightness(0.2) saturate(1) !important;
 }
 
-[class^=userPopoutInner]>.overlayBackground-1KgwVi {
+.overlayBackground-1KgwVi {
+    margin-left: 4px;
+    margin-right: 4px;
     background-color: unset;
+    z-index: 1002;
+}
+
+[class^=userProfileModal]>.overlayBackground-1KgwVi {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.tabBarContainer-2UG0vy {
+    border-bottom: unset
+}
+
+.userInfoSection-1gptv0+.userInfoSection-1gptv0 {
+    border-top: unset
 }
 
 [class^=userPopoutInner]>.profileBadges-31rDHI {
+    background-color: unset;
+}
+
+.headerTop-212g15>[class^="badge"] {
     background-color: unset;
 }
 
@@ -4386,7 +4414,10 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
 }
 
 .section-3FmfOT>.title-1r9MQ6,
-[class^=activity]>div>h3>.overflow-1wOqNV {
+[class^=activity]>div>h1>.overflow-1wOqNV,
+[class^=activity]>div>h2>.overflow-1wOqNV,
+[class^=activity]>div>h3>.overflow-1wOqNV,
+.userInfoSectionHeader-48g5Qj {
     color: var(--header-secondary)
 }
 
@@ -4411,11 +4442,6 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
 
 .buttonColor-XIRMbp {
     background-color: var(--background-modifier-accent);
-}
-
-.overlayBackground-1KgwVi {
-    margin-left: 4px;
-    margin-right: 4px;
 }
 
 .divider-1tWBgZ {
