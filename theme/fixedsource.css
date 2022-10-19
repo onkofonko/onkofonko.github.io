@@ -4192,20 +4192,20 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     transform: translateY(-8px)
 }
 
-.topSection-13QKHs>header>.bannerSVGWrapper-qc0szY foreignobject {
+.topSection-1Khgkv>header>.bannerSVGWrapper-qc0szY foreignobject {
     mask: none;
 }
 
-.topSection-13QKHs>header>.header-S26rhB {
+.topSection-1Khgkv>header>.header-S26rhB {
     margin-top: 84px;
     position: relative;
 }
 
-.topSection-13QKHs>header>.bannerSVGWrapper-qc0szY[viewBox*="212"] {
+.topSection-1Khgkv>header>.bannerSVGWrapper-qc0szY[viewBox*="212"] {
     margin-bottom: -40px;
 }
 
-.topSection-13QKHs>header>.bannerSVGWrapper-qc0szY {
+.topSection-1Khgkv>header>.bannerSVGWrapper-qc0szY {
     height: 100%;
     max-width: 600px;
     min-width: 600px !important;
@@ -4266,21 +4266,21 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     visibility: visible;
 }
 
-.topSection-13QKHs>header>div:before {
+.topSection-1Khgkv>header>div:before {
     width: 600px !important;
 }
 
-.topSection-13QKHs .banner-1YaD3N:after {
+.topSection-1Khgkv .banner-1YaD3N:after {
     height: 240px
 }
 
-.topSection-13QKHs>header>.bannerPremium-kkSkPv,
-.topSection-13QKHs>header>.profileBanner-1owKI5 {
+.topSection-1Khgkv>header>.bannerPremium-kkSkPv,
+.topSection-1Khgkv>header>.profileBanner-1owKI5 {
     visibility: hidden;
 }
 
-.topSection-13QKHs>header>.bannerPremium-kkSkPv:after,
-.topSection-13QKHs>header>.bannerPremium-kkSkPv:before {
+.topSection-1Khgkv>header>.bannerPremium-kkSkPv:after,
+.topSection-1Khgkv>header>.bannerPremium-kkSkPv:before {
     visibility: visible;
 }
 
@@ -4432,8 +4432,8 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     background-color: transparent
 }
 
-.topSection-13QKHs>header>.profileBanner-1owKI5,
-.topSection-13QKHs>header>.profileBanner-2zIsK7 {
+.topSection-1Khgkv>header>.profileBanner-1owKI5,
+.topSection-1Khgkv>header>.profileBanner-2zIsK7 {
     height: 200px !important;
 }
 
@@ -4442,7 +4442,7 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     height: 240px !important;
 }
 
-.topSection-13QKHs>header>[class*="nameTag" i] {
+.topSection-1Khgkv>header>[class*="nameTag" i] {
     margin-top: 0px;
 }
 
