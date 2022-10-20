@@ -2665,11 +2665,6 @@ body.foldercontentopened .base-2jDfDU {
     width: 280px
 }
 
-.menu-1QACrS,
-.menu-1QACrS>div {
-    z-index: 2;
-}
-
 /*
 .menu-1QACrS div[role=group] {
     width: fit-content
@@ -4363,18 +4358,19 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     margin-right: 8px;
 }
 
+.divider-1NpGam {
+    border-top: 1px solid var(--background-modifier-accent)
+}
+
 .tabBarContainer-2UG0vy {
-    border-bottom: unset
+    border-bottom: 1px solid var(--background-modifier-accent)
 }
 
 .userInfoSection-1gptv0+.userInfoSection-1gptv0 {
     border-top: unset
 }
 
-[class^=userPopoutInner]>.profileBadges-31rDHI {
-    background-color: unset;
-}
-
+[class^=userPopoutInner]>.profileBadges-31rDHI,
 .headerTop-212g15>[class^="badge"] {
     background-color: unset;
 }
