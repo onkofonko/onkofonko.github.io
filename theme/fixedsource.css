@@ -4760,10 +4760,6 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     transition: var(--app-focused-transition)
 }
 
-.app-focused .container-ZMc96U.themed-Hp1KC_:after {
-    background-color: var(--background-secondary-alpha)
-}
-
 .children-3xh0VB:after {
     display: none
 }
