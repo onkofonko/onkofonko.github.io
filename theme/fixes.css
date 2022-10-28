@@ -124,11 +124,6 @@ div.icon-39rdLt {
     padding-bottom: 3px
 }
 
-.content-1jQy2l>div>div {
-    padding-bottom: 0px;
-    background-color: var(--background-secondary) !important
-}
-
 .sidebar-1tnWFu .content-2a4AW9 .containerDefault-3TQ5YN .children-3MeUvj {
     display: flex
 }
@@ -382,4 +377,53 @@ div.icon-39rdLt {
 .submenu-1apzyU.menu-1QACrS[aria-activedescendant^="message-apps"]>div>.listHeight-3LiElf {
     display: block;
     margin-top: -4px;
+}
+
+/* guild (home/browse/etc) tabs (buttons) */
+.actionButton-2ae9DJ {
+    background: var(--background-modifier-selected);
+}
+
+/* home tab */
+.homeContainer-r4Hvv1 {
+    background-color: var(--background-primary);
+}
+
+.widgetsContainer-nTESfL > div {
+    background: var(--background-secondary);
+}
+
+/* browse channels tab*/
+.search-kg4MrS.container-2oNtJn.medium-2NClDM {
+    background: var(--background-secondary);
+}
+
+/* forums */
+.list-3FIpnh.auto-2K3UW5.scrollerBase-_bVAAt {
+    background-color: var(--background-primary);
+}
+
+.container-2qVG6q.mainCard-3KBsBI {
+    background-color: var(--background-secondary);
+}
+
+.mainCard-3KBsBI.header-1Uy0p6 {
+    background-color: var(--background-secondary);
+}
+
+.tagListInner-35MqcW > div {
+    background-color: var(--background-secondary);
+}
+
+.select-1Ia3hD.sortContainer-33Xf0u.lookFilled-1GseHa {
+    background-color: var(--background-secondary);
+}
+
+button.tagsButton-4pwOKH {
+    background: var(--background-secondary);
+}
+
+/* discover > student hubs */
+.container-1wv6C6 {
+    background: var(--background-secondary);
 }
