@@ -4174,21 +4174,21 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     margin-bottom: -10px;
 }
 
-[class^="userPopoutInner"]>.bannerSVGWrapper-qc0szY foreignObject {
+[class^="userPopoutInner"]>.bannerSVGWrapper-qc0szY foreignObject,
+.topSection-1Khgkv>header>.bannerSVGWrapper-qc0szY foreignobject {
     mask: none;
-    transform: translateY(-4px);
 }
 
-.userProfileInnerPremiumWithoutBanner-37uB4Q .bannerSVGWrapper-qc0szY foreignObject {
+[class*="NonPremium"] .bannerSVGWrapper-qc0szY foreignObject {
+    transform: translateY(-4px)
+}
+
+[class*="PremiumWithoutBanner"] .bannerSVGWrapper-qc0szY foreignObject {
     transform: translateY(-6px)
 }
 
-.userProfileInnerWithBanner-3CJ1Og .bannerSVGWrapper-qc0szY foreignObject {
+[class*="WithBanner"] .bannerSVGWrapper-qc0szY foreignObject {
     transform: translateY(-8px)
-}
-
-.topSection-1Khgkv>header>.bannerSVGWrapper-qc0szY foreignobject {
-    mask: none;
 }
 
 .topSection-1Khgkv>header>.header-S26rhB {
