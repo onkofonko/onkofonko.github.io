@@ -4304,7 +4304,7 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
 }
 
 .accountProfileCard-lbN7n->.userInfo-regn9W {
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 .popoutBanner-3cqRD9:before,
@@ -4422,9 +4422,9 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
 }
 
 .avatar-2OC07D {
-    border: 0px;
-    top: 0px;
-    left: 0px;
+    border: 0;
+    top: 0;
+    left: 0;
     background-color: unset;
 }
 
@@ -4442,7 +4442,7 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
 }
 
 .userPopoutThemed-3BZ4by {
-    padding: 0px;
+    padding: 0;
 }
 
 .bodyInnerWrapper-2bQs1k,
@@ -4461,7 +4461,7 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
 }
 
 .topSection-1Khgkv>header>[class*="nameTag" i] {
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 .UserBackgrounds-banner-container .UserBackgrounds-banner-badge {

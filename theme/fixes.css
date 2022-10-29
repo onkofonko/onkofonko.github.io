@@ -22,7 +22,7 @@
     min-width: 64px;
     max-width: 128px;
     width: auto;
-    grid-gap: 0px;
+    grid-gap: 0;
 }
 
 .actionButtons-2vEOUh>button:nth-child(n) {
@@ -33,7 +33,7 @@
 }
 
 .customStatusEmoji-1bFQdD {
-    margin-top: 0px
+    margin-top: 0;
 }
 
 .actionButtons-2vEOUh>span:nth-child(n),
@@ -281,7 +281,7 @@ div.icon-39rdLt {
 }
 
 .panel-2ZFCRb.activityPanel-9icbyU {
-    height: 0px;
+    height: 0;
 }
 
 .panel-2ZFCRb.activityPanel-9icbyU>.body-1FrnJD {
@@ -344,7 +344,7 @@ div.icon-39rdLt {
 
 [id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>.overlayBackground-1KgwVi {
     margin-top: 28px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 [id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ,
