@@ -1051,7 +1051,6 @@ body.foldercontentopened .base-2jDfDU {
 }
 
 .dragRegion-147xxt {
-    height: var(--server-container);
     height: 0
 }
 
@@ -1208,7 +1207,6 @@ body.foldercontentopened .base-2jDfDU {
 #app-mount .pulsingEllipsisItem-3pNmEc {
     width: 5px;
     height: 5px;
-    margin-right: 0;
     background-color: hsl(180, calc(var(--saturation-factor, 1)*7.7%), 97.5%);
     border-radius: 2.5px;
     display: inline-block;
@@ -1930,7 +1928,6 @@ body.foldercontentopened .base-2jDfDU {
     top: calc((var(--server-outer-margin, 14px) * 2) + var(--avatar-dropdown-offset) + var(--menu-container-padding) + 32px + 10px);
     right: calc(var(--dropdown-width) + var(--width) + var(--user-outer-right-margin) - var(--menu-container-padding) + 18px - var(--width));
     pointer-events: none;
-    transform-origin: 50% -50px;
     background-color: var(--interactive-normal);
     --size: 16px;
     --mask-size: 100%;
@@ -2785,8 +2782,6 @@ body.foldercontentopened .base-2jDfDU {
 #textarea-context-copy .hintContainer-2UwhLP,
 #textarea-context-cut .hintContainer-2UwhLP,
 #textarea-context-paste .hintContainer-2UwhLP {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
     padding-left: 1px;
     border-radius: 0 5px 5px 0;
     border-left: 0 transparent solid;
@@ -2942,7 +2937,6 @@ body.foldercontentopened .base-2jDfDU {
 
 .avatarSpeaking-33RRJU {
     box-shadow: none !important;
-    border-radius: 0;
     z-index: -1;
     border-radius: 0 0 8px 8px;
 }
@@ -5065,7 +5059,6 @@ button[class^=attachButton] {
     transition: opacity .15s;
     opacity: 1;
     cursor: default;
-    padding: 0;
     user-select: none;
     pointer-events: none;
     border-radius: 0
@@ -5825,7 +5818,6 @@ button[class^=attachButton] {
     --size: 36px;
     position: fixed;
     left: 12px;
-    top: 0;
     z-index: 4000;
     pointer-events: all;
     -webkit-user-drag: none;

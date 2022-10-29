@@ -223,7 +223,6 @@ div.icon-39rdLt {
     position: absolute;
     left: 6px;
     top: 10px;
-    transform-origin: 50% -50px;
     background-color: var(--interactive-normal);
     --size: 16px;
     --mask-size: 100%;
