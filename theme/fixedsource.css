@@ -1578,6 +1578,13 @@ body.foldercontentopened .base-2jDfDU {
     padding-left: 16px
 }
 
+/* fixes channel list scroll */
+.scroller-1ox3I2.thin-31rlnD.scrollerBase-_bVAAt.fade-1R6FHN:hover {
+    overflow-x: hidden !important;
+    overflow-y: overlay !important
+}
+
+/* part of channel list scroll fix */
 .scroller-1ox3I2.thin-31rlnD.scrollerBase-_bVAAt.fade-1R6FHN {
     overflow-x: hidden !important;
     overflow-y: hidden !important;
