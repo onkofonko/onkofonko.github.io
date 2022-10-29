@@ -198,10 +198,7 @@ div.icon-39rdLt {
     text-align: left;
     font-family: var(--font-primary);
     color: var(--interactive-normal);
-    padding-top: 4px;
-    padding-right: 8px;
-    padding-bottom: 4px;
-    padding-left: 32px;
+    padding: 4px 8px 4px 32px;
     background-color: transparent;
     display: block;
 }

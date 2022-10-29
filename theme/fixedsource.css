@@ -1339,8 +1339,7 @@ body.foldercontentopened .base-2jDfDU {
     -webkit-mask-position: center;
     mask-position: center;
     color: var(--color);
-    background: 0 0 !important;
-    background-color: var(--color) !important;
+    background: var(--color) 0 0 !important;
     width: 24px;
     height: 24px;
     margin-left: 8px;
@@ -1538,10 +1537,7 @@ body.foldercontentopened .base-2jDfDU {
     .container-ZMc96U.themed-Hp1KC_ {
         width: 100vw !important;
         margin-left: 0 !important;
-        padding-top: 0 !important;
-        padding-right: 8px !important;
-        padding-bottom: 0 !important;
-        padding-left: 8px !important
+        padding: 0 8px !important;
     }
 }
 
@@ -1569,10 +1565,7 @@ body.foldercontentopened .base-2jDfDU {
 }
 
 .content-1gYQeQ {
-    padding-top: 0;
-    padding-right: 8px;
-    padding-bottom: 0;
-    padding-left: 12px;
+    padding: 0 8px 0 12px;
     margin-left: 16px;
     margin-right: 8px
 }
@@ -1615,10 +1608,7 @@ body.foldercontentopened .base-2jDfDU {
 .bd-sidebar-header .bd-changelog-button {
     display: flex;
     align-items: center;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding: 6px 10px;
     margin-bottom: 2px;
     border-radius: 4px;
     position: relative;
@@ -1927,10 +1917,7 @@ body.foldercontentopened .base-2jDfDU {
     text-align: left;
     color: var(--interactive-normal);
     pointer-events: all;
-    padding-top: 4px;
-    padding-right: 8px;
-    padding-bottom: 4px;
-    padding-left: 32px;
+    padding: 4px 8px 4px 32px;
     background-color: transparent;
     transform-origin: 50% -50px;
     cursor: default
@@ -2957,10 +2944,7 @@ body.foldercontentopened .base-2jDfDU {
     box-shadow: none !important;
     border-radius: 0;
     z-index: -1;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px
+    border-radius: 0 0 8px 8px;
 }
 
 .avatarSpeaking-33RRJU,
@@ -3765,10 +3749,7 @@ html.platform-osx #app-mount .guilds-2JjMmN:after {
 .macButtons-eIdy0e {
     width: var(--mac-os-left-margin);
     height: 100%;
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-left: calc(var(--user-outer-right-margin));
-    padding-right: calc(var(--user-outer-right-margin));
+    padding: 0 calc(var(--user-outer-right-margin));
     pointer-events: all;
     margin-left: calc(var(--frame-gap) * -1)
 }
@@ -4128,10 +4109,7 @@ button[aria-label="Disable Game Activity"] .contents-3ca1mk:after {
     border-radius: 8px;
     background-color: var(--background-secondary);
     padding: 16px;
-    margin-top: 8px;
-    margin-right: 16px;
-    margin-bottom: 16px;
-    margin-left: 16px
+    margin: 8px 16px 16px;
 }
 
 html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionNormal-V4Mjtq {
@@ -4389,10 +4367,7 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     height: 120px;
     width: 300px;
     background-color: var(--background-floating);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-top-left-radius: var(--context-menu-border-radius);
-    border-top-right-radius: var(--context-menu-border-radius);
+    border-radius: var(--context-menu-border-radius) var(--context-menu-border-radius) 0 0;
 }
 
 
@@ -4478,9 +4453,7 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     -webkit-transform: translate3d(0, -5px, 0);
     transform: translate3d(0, -5px, 0);
     -webkit-transition: opacity .15s ease-out, -webkit-transform .15s ease-out;
-    transition: opacity .15s ease-out, -webkit-transform .15s ease-out;
-    transition: opacity .15s ease-out, transform .15s ease-out;
-    transition: opacity .15s ease-out, transform .15s ease-out, -webkit-transform .15s ease-out
+    transition: opacity .15s ease-out, transform .15s ease-out, transform .15s ease-out
 }
 
 .UserBackgrounds-banner-container:hover .UserBackgrounds-banner-arrow,
@@ -4898,8 +4871,7 @@ html:hover~.app-3xd6d0 .topControls-23RE3h {
 
 .channelTextArea-1FufC0.channelTextArea-1VQBuV.channelTextAreaDisabled-1p2fQv,
 .channelTextArea-1FufC0.channelTextArea-1VQBuV.channelTextAreaDisabled-1p2fQv .scrollableContainer-15eg7h {
-    background-color: transparent;
-    background: 0 0
+    background: transparent 0 0;
 }
 
 .channelTextArea-1FufC0.channelTextArea-1VQBuV.channelTextAreaDisabled-1p2fQv .scrollableContainer-15eg7h {
@@ -5756,8 +5728,7 @@ button[class^=attachButton] {
 }
 
 #MemberCount {
-    background-color: var(--background-secondary) !important;
-    background: linear-gradient(to top, transparent, var(--background-secondary) 15px) !important;
+    background: var(--background-secondary) linear-gradient(to top, transparent, var(--background-secondary) 15px) !important;
     position: absolute;
     display: flex;
     width: var(--memberlist-width) !important;
@@ -5780,8 +5751,7 @@ button[class^=attachButton] {
 }
 
 #MemberCount .membersGroup-2eiWxl {
-    padding: 0;
-    padding-left: calc(8px + 8px);
+    padding: 0 0 0 calc(8px + 8px);
     height: var(--app-info-bar-height, 48px) !important
 }
 
@@ -10126,10 +10096,7 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
 
 .sidebar-nqHbhN {
     position: absolute;
-    padding-top: 22px;
-    padding-right: 0;
-    padding-bottom: 32px;
-    padding-left: 8px;
+    padding: 22px 0 32px 8px;
     width: 100%;
     box-sizing: border-box
 }
@@ -12056,10 +12023,7 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
     background-size: cover;
     opacity: .64;
     transition: opacity .45s ease;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+    border-radius: 0;
     --gradient-offset: 100px;
     --gradient-pos: 0px;
     --mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) var(--gradient-pos), rgb(0, 0, 0) var(--gradient-offset), rgb(0, 0, 0) 100%);
