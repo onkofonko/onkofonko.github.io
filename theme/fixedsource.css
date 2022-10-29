@@ -109,6 +109,7 @@
     --background-modifier-active: rgba(87, 87, 87, 0.24);
     --background-modifier-selected: rgba(100, 100, 100, 0.2);
     --background-modifier-accent: rgba(255, 255, 255, 0.06);
+    --input-background: #333333;
     --deprecated-text-input-border-hover: #050505;
     --deprecated-text-input-border-disabled: #242424;
     --deprecated-text-input-prefix: #dedede;
