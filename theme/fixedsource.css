@@ -4325,7 +4325,8 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     margin-left: 4px;
     margin-right: 4px;
     background-color: unset;
-    z-index: 1002;
+    /* z-index: 1002; */
+    z-index: 101;
 }
 
 [class^=userProfileModal]>.overlayBackground-1KgwVi {
@@ -4374,7 +4375,7 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
 
 .profileColors-3Y0XaR {
     --profile-gradient-primary-color: var(--background-floating) !important;
-    --profile-gradient-secondary-color: var(--background-floating) !important
+    --profile-gradient-secondary-color: var(--background-floating) !important;
 }
 
 .roles-3zC7MX {
