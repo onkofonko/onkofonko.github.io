@@ -22,7 +22,7 @@
     min-width: 64px;
     max-width: 128px;
     width: auto;
-    grid-gap: 0px;
+    grid-gap: 0;
 }
 
 .actionButtons-2vEOUh>button:nth-child(n) {
@@ -33,7 +33,7 @@
 }
 
 .customStatusEmoji-1bFQdD {
-    margin-top: 0px
+    margin-top: 0;
 }
 
 .actionButtons-2vEOUh>span:nth-child(n),
@@ -198,10 +198,7 @@ div.icon-39rdLt {
     text-align: left;
     font-family: var(--font-primary);
     color: var(--interactive-normal);
-    padding-top: 4px;
-    padding-right: 8px;
-    padding-bottom: 4px;
-    padding-left: 32px;
+    padding: 4px 8px 4px 32px;
     background-color: transparent;
     display: block;
 }
@@ -226,7 +223,6 @@ div.icon-39rdLt {
     position: absolute;
     left: 6px;
     top: 10px;
-    transform-origin: 50% -50px;
     background-color: var(--interactive-normal);
     --size: 16px;
     --mask-size: 100%;
@@ -281,7 +277,7 @@ div.icon-39rdLt {
 }
 
 .panel-2ZFCRb.activityPanel-9icbyU {
-    height: 0px;
+    height: 0;
 }
 
 .panel-2ZFCRb.activityPanel-9icbyU>.body-1FrnJD {
@@ -344,7 +340,7 @@ div.icon-39rdLt {
 
 [id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>.overlayBackground-1KgwVi {
     margin-top: 28px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 [id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ,
