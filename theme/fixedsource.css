@@ -415,7 +415,7 @@
 }
 
 .base-2jDfDU .content-1SgpWY .pageWrapper-2PwDoS:after {
-    background-color: var(--background-transparent-header) !important;
+    background-color: var(--background-header) !important;
     backdrop-filter: var(--blur-header);
     height: var(--app-windowbar-height);
     position: fixed;
