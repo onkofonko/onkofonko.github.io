@@ -595,7 +595,7 @@
     font-weight: 500;
     font-size: 11px;
     line-height: 16px;
-    max-width: 190px;
+   /*max-width: 190px;*/
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     word-wrap: break-word;
