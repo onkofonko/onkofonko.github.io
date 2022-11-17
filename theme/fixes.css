@@ -381,7 +381,7 @@ div.icon-39rdLt {
     background-color: var(--background-primary);
 }
 
-.widgetsContainer-nTESfL > div {
+.widgetsContainer-nTESfL>div {
     background: var(--background-secondary);
 }
 
@@ -403,7 +403,7 @@ div.icon-39rdLt {
     background-color: var(--background-secondary);
 }
 
-.tagListInner-35MqcW > div {
+.tagListInner-35MqcW>div {
     background-color: var(--background-secondary);
 }
 
@@ -418,4 +418,9 @@ button.tagsButton-4pwOKH {
 /* discover > student hubs */
 .container-1wv6C6 {
     background: var(--background-secondary);
+}
+
+.customColorPicker-C_jddW {
+    background: var(--background-floating) !important;
+    border-color: var(--background-modifier-accent) !important;
 }
