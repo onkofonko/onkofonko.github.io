@@ -2604,7 +2604,7 @@ body.foldercontentopened .base-2jDfDU {
     overflow-y: overlay !important
 }
 
-.styleFlexible-x0_sIC {
+.flexible-1UoeVa {
     min-width: 220px;
     max-width: 320px
 }
@@ -2647,7 +2647,7 @@ body.foldercontentopened .base-2jDfDU {
     width: calc(var(--dropdown-width) - (var(--menu-container-padding) * 2))
 }
 
-.menu-1QACrS.styleFlexible-x0_sIC {
+.menu-1QACrS.flexible-1UoeVa {
     --dropdown-width: 280px;
     width: var(--dropdown-width)
 }
