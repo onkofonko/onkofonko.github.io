@@ -324,13 +324,18 @@ div.icon-39rdLt {
     display: none;
 }
 
-.overlayBackground-1KgwVi>.menu-1QACrS.flexible-1UoeVa.menu-KSaHL1 {
-    right: 4px;
-}
-
-[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>.overlayBackground-1KgwVi>*:not(.menu-1QACrS),
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>.overlayBackground-1KgwVi>*:not(.menu-1QACrS):not(.divider-1i5sVV),
 [id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>*:not(.overlayBackground-1KgwVi) {
     display: none;
+}
+
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>.overlayBackground-1KgwVi>.divider-1i5sVV {
+    margin-top: 16px;
+}
+
+#account>div>.separator-1So4YB {
+    width: 196px;
+    margin-left: 6px;
 }
 
 [id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ {
@@ -339,8 +344,7 @@ div.icon-39rdLt {
 }
 
 [id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>.overlayBackground-1KgwVi {
-    margin-top: 28px;
-    margin-bottom: 0;
+    margin: 28px 0px 0px 0px;
 }
 
 [id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ,
