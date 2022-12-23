@@ -428,3 +428,16 @@ button.tagsButton-4pwOKH {
     background: var(--background-floating) !important;
     border-color: var(--background-modifier-accent) !important;
 }
+
+.theme-dark .container-1um7CU {
+    background-color: var(--background-primary);
+}
+
+.chatHeaderBar-31g1mU {
+    z-index: 2;
+    background-color: var(--background-secondary);
+}
+
+.channelRow-4X_3fi {
+    background-color: var(--background-secondary);
+}
