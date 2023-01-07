@@ -4165,12 +4165,24 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     position: relative;
 }
 
+.accountProfileCard-lbN7n->.bannerSVGWrapper-qc0szY {
+    z-index: 0;
+    overflow: visible;
+    position: absolute;
+    width: 100%;
+}
+
+.PI-indicatorContainer {
+    z-index: 1;
+}
+
 .userProfileInnerWithBanner-3CJ1Og>.bannerSVGWrapper-qc0szY {
     margin-bottom: -10px;
 }
 
 [class^="userPopoutInner"]>.bannerSVGWrapper-qc0szY foreignObject,
-.topSection-1Khgkv>header>.bannerSVGWrapper-qc0szY foreignobject {
+.topSection-1Khgkv>header>.bannerSVGWrapper-qc0szY foreignobject,
+.accountProfileCard-lbN7n->.bannerSVGWrapper-qc0szY foreignObject {
     mask: none;
 }
 
@@ -4303,7 +4315,7 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
 }
 
 .accountProfileCard-lbN7n->.userInfo-regn9W {
-    margin-top: 0;
+    margin-top: 70px
 }
 
 .popoutBanner-3cqRD9:before,
@@ -4339,6 +4351,11 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
 .banner-1YaD3N:not(.user-background):not(.bannerPremium-kkSkPv):before,
 .bannerNormal-22rPhb:before {
     filter: blur(128px) brightness(0.2) saturate(1) !important;
+}
+
+.settingsBanner-2E5fAp:after,
+.settingsBanner-2E5fAp:before {
+    height: 380px;
 }
 
 .overlayBackground-1KgwVi {
