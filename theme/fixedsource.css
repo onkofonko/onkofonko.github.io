@@ -2668,10 +2668,6 @@ body.foldercontentopened .base-2jDfDU {
     min-width: 180px;
 }
 
-.separator-1So4YB {
-    width: 100%;
-}
-
 /*
 .menu-1QACrS div[role=group] {
     width: fit-content
@@ -2714,6 +2710,10 @@ body.foldercontentopened .base-2jDfDU {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap
+}
+
+#textarea-context .separator-1So4YB {
+    width: 100%;
 }
 
 #textarea-context-Create-Hastebin:before,
