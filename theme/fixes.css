@@ -157,16 +157,7 @@ div.icon-39rdLt {
     width: 208px;
 }
 
-.layer-2aCOJ3>div>div>div>div[id*="account-switch-account" i],
-#status-picker>div>div.submenuContainer-3EVTeH>div.layer-2aCOJ3>div>div>div>div[id*="status-picker-switch-account" i] {
-    width: 100%
-}
-
-.container-YkUktl>div.avatarWrapper-1B9FTW.withTagAsButton-OsgQ9L>div.nameTag-sc-gpq.canCopy-IgTwyV>div.defaultColor-24IHKz.text-sm-normal-3Zj3Iv.usernameContainer-3PPkWq>div {
-    line-height: 23px
-}
-
-.container-YkUktl>div.avatarWrapper-1B9FTW.withTagAsButton-OsgQ9L>div.avatar-1EWyVD.wrapper-1VLyxH {
+.container-YkUktl .wrapper-3Un6-K.avatar-1EWyVD {
     top: 4px !important
 }
 
@@ -321,11 +312,11 @@ div.icon-39rdLt {
     display: none;
 }
 
-.overlayBackground-1KgwVi>.menu-1QACrS.flexible-1UoeVa.menu-KSaHL1:before {
+.overlayBackground-1KgwVi>.menu-2TXYjN.flexible-3B4jwn.menu-KSaHL1:before {
     display: none;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>.overlayBackground-1KgwVi>*:not(.menu-1QACrS):not(.divider-1i5sVV),
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>.overlayBackground-1KgwVi>*:not(.menu-2TXYjN):not(.divider-1i5sVV),
 [id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>*:not(.overlayBackground-1KgwVi) {
     display: none;
 }
@@ -350,7 +341,7 @@ div.icon-39rdLt {
 
 [id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ,
 [id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ:before,
-.overlayBackground-1KgwVi>.menu-1QACrS.flexible-1UoeVa.menu-KSaHL1 {
+.overlayBackground-1KgwVi>.menu-2TXYjN.flexible-3B4jwn.menu-KSaHL1 {
     width: 220px !important;
 }
 
@@ -358,11 +349,11 @@ div.icon-39rdLt {
     background-color: var(--background-primary);
 }
 
-.submenu-1apzyU.menu-1QACrS[aria-activedescendant^="message-apps"] {
+.submenu-3ycVEH.menu-2TXYjN[aria-activedescendant^="message-apps"] {
     width: var(--dropdown-width);
 }
 
-.submenu-1apzyU.menu-1QACrS[aria-activedescendant^="message-apps"]>div>.listItems-6eZzQ1 {
+.submenu-3ycVEH.menu-2TXYjN[aria-activedescendant^="message-apps"]>div>.listItems-6eZzQ1 {
     flex-wrap: wrap;
     position: absolute;
     margin-top: 6px;
@@ -371,7 +362,7 @@ div.icon-39rdLt {
     width: calc(var(--dropdown-width) - 12px)
 }
 
-.submenu-1apzyU.menu-1QACrS[aria-activedescendant^="message-apps"]>div>.listHeight-3LiElf {
+.submenu-3ycVEH.menu-2TXYjN[aria-activedescendant^="message-apps"]>div>.listHeight-3LiElf {
     display: block;
     margin-top: -4px;
 }
