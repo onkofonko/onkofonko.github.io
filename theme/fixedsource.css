@@ -59,8 +59,8 @@
 }
 
 .activity-2EQDZv,
-.header-2Kx1US,
-.item-3XjbnG,
+.header-2F5_LB,
+.item-2GWPIy,
 .name-28HaxV,
 .topic-11NuQZ,
 .usernameFont-2oJxoI {
@@ -290,7 +290,7 @@
 }
 
 .clickable-2AoIYN,
-.item-3XjbnG,
+.item-2GWPIy,
 .mainContent-20q_Hp {
     cursor: default
 }
@@ -560,7 +560,7 @@
 }
 
 /*
-.tooltip-33Jwqe.tooltipTop-CgYHUZ.tooltipPrimary-3qLMbS.tooltipDisablePointerEvents-1huO19 {
+.tooltip-33Jwqe.tooltipTop-CgYHUZ.tooltipPrimary-2466a2.tooltipDisablePointerEvents-1huO19 {
     margin-left: calc(50% - 20px);
     margin-right: calc(-50% + 20px)
 }*/
@@ -569,14 +569,14 @@
     padding: 7px 10px
 }
 
-.tooltipPointer-3L49xb {
+.tooltipPointer-sMBQqe {
     display: none
 }
 
 .theme-dark .tooltipGrey-lpLZjh,
-.theme-dark .tooltipPrimary-3qLMbS,
+.theme-dark .tooltipPrimary-2466a2,
 .theme-light .tooltipGrey-lpLZjh,
-.theme-light .tooltipPrimary-3qLMbS {
+.theme-light .tooltipPrimary-2466a2 {
     background-color: var(--background-floating);
     color: var(--text-normal)
 }
@@ -1789,7 +1789,7 @@ body.foldercontentopened .base-2jDfDU {
     width: var(--dropdown-width)
 }
 
-.scroller-1bVxF5 {
+.scroller-nxCRu_ {
     padding-top: 6px;
     padding-bottom: 6px;
     padding-left: 8px
@@ -2525,16 +2525,16 @@ body.foldercontentopened .base-2jDfDU {
     border-radius: var(--context-menu-border-radius)
 }
 
-.side-2ur1Qk .themed-2-lozF.item-3XjbnG:hover:not(.disabled-1nofHP),
-.topPill-3DJJNV .themed-2-lozF.item-3XjbnG:hover:not(.disabled-1nofHP) {
+.side-1lrxIh .themed-2-lozF.item-2GWPIy:hover:not(.disabled-2G98Nl),
+.topPill-3DJJNV .themed-2-lozF.item-2GWPIy:hover:not(.disabled-2G98Nl) {
     background-color: var(--background-modifier-hover)
 }
 
 .premiumTabItem-1QTfBr[aria-selected=true],
-.side-2ur1Qk .themed-2-lozF.selected-g-kMVV.item-3XjbnG,
-.side-2ur1Qk .themed-2-lozF.selected-g-kMVV.item-3XjbnG:hover,
-.topPill-3DJJNV .themed-2-lozF.selected-g-kMVV.item-3XjbnG,
-.topPill-3DJJNV .themed-2-lozF.selected-g-kMVV.item-3XjbnG:hover {
+.side-1lrxIh .themed-2-lozF.selected-1sf9UK.item-2GWPIy,
+.side-1lrxIh .themed-2-lozF.selected-1sf9UK.item-2GWPIy:hover,
+.topPill-3DJJNV .themed-2-lozF.selected-1sf9UK.item-2GWPIy,
+.topPill-3DJJNV .themed-2-lozF.selected-1sf9UK.item-2GWPIy:hover {
     background-color: var(--background-modifier-selected) !important
 }
 
@@ -2544,7 +2544,7 @@ body.foldercontentopened .base-2jDfDU {
 }
 
 .menu-2TXYjN#status-picker:after,
-.separator-1So4YB {
+.separator-12G2Op {
     margin: var(--menu-container-padding) 0;
     border-bottom: 1px solid var(--background-modifier-accent);
     width: auto;
@@ -2569,7 +2569,7 @@ body.foldercontentopened .base-2jDfDU {
     z-index: unset !important
 }
 
-#status-picker-online+.separator-1So4YB {
+#status-picker-online+.separator-12G2Op {
     display: none
 }
 
@@ -2591,24 +2591,24 @@ body.foldercontentopened .base-2jDfDU {
     z-index: 2
 }
 
-.menu-2TXYjN .scroller-1bVxF5 {
+.menu-2TXYjN .scroller-nxCRu_ {
     padding: var(--menu-container-padding) !important
 }
 
-.menu-2TXYjN .scroller-1bVxF5::-webkit-scrollbar {
+.menu-2TXYjN .scroller-nxCRu_::-webkit-scrollbar {
     width: var(--menu-container-padding)
 }
 
-.menu-2TXYjN .scroller-1bVxF5::-webkit-scrollbar-thumb {
+.menu-2TXYjN .scroller-nxCRu_::-webkit-scrollbar-thumb {
     background: var(--scrollbar-auto-thumb)
 }
 
-.menu-2TXYjN .scroller-1bVxF5::-webkit-scrollbar-button {
+.menu-2TXYjN .scroller-nxCRu_::-webkit-scrollbar-button {
     height: 12px;
     width: 0
 }
 
-.menu-2TXYjN .scroller-1bVxF5 {
+.menu-2TXYjN .scroller-nxCRu_ {
     overflow-x: hidden;
     overflow-y: overlay !important
 }
@@ -2710,13 +2710,13 @@ body.foldercontentopened .base-2jDfDU {
     --display: none
 }
 
-#textarea-context .scroller-1bVxF5 {
+#textarea-context .scroller-nxCRu_ {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap
 }
 
-#textarea-context .separator-1So4YB {
+#textarea-context .separator-12G2Op {
     width: 100%;
 }
 
@@ -3121,7 +3121,7 @@ body.foldercontentopened .base-2jDfDU {
     -webkit-mask-image: var(--mask);
 }
 
-.avatar-1EWyVD.wrapper-3Un6-K svg foreignObject .avatarStack-3vfSFa .avatar-b5OQ1N {
+.avatar-1EWyVD.wrapper-3Un6-K svg foreignObject .avatarStack-3vfSFa .avatar-6qzftW {
     position: absolute;
     --size: 32px;
     --border: 2px;
@@ -10165,11 +10165,11 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
     transition: var(--app-focused-transition)
 }
 
-.sidebar-nqHbhN .themed-2-lozF.selected-g-kMVV.item-3XjbnG {
+.sidebar-nqHbhN .themed-2-lozF.selected-1sf9UK.item-2GWPIy {
     position: initial
 }
 
-.side-2ur1Qk>.item-3XjbnG:not(.role-3pGE29),
+.side-1lrxIh>.item-2GWPIy:not(.role-3pGE29),
 .sidebar-nqHbhN .ui-tab-bar-item {
     display: flex;
     align-items: center
