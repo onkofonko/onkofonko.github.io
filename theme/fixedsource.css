@@ -2512,7 +2512,7 @@ body.foldercontentopened .base-2jDfDU {
     top: 0;
     bottom: 0;
     content: "";
-    z-index: 2;
+    z-index: auto;
     pointer-events: none;
     border-radius: var(--context-menu-border-radius)
 }

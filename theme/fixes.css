@@ -345,6 +345,10 @@ div.icon-39rdLt {
     width: 220px !important;
 }
 
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ:before {
+    z-index: 2;
+}
+
 .theme-dark .keyboardShortcutsModal-2CRmCm {
     background-color: var(--background-primary);
 }
