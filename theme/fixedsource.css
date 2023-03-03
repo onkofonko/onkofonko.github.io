@@ -2646,7 +2646,7 @@ body.foldercontentopened .base-2jDfDU {
     font-weight: var(--menu-font-weight)
 }
 
-.menu-2TXYjN .labelContainer-2vJzYL {
+.menu-2TXYjN .labelContainer-35-WEd {
     padding: 5px 14px;
     box-sizing: border-box;
     display: flex;
@@ -3615,11 +3615,11 @@ body.foldercontentopened .base-2jDfDU {
     margin-right: calc((-1 * var(--width)) + 4px + 16px)
 }
 
-#guild-header-popout .labelContainer-2vJzYL .label-2gNW3x {
+#guild-header-popout .labelContainer-35-WEd .label-2gNW3x {
     order: 2
 }
 
-#guild-header-popout .labelContainer-2vJzYL .iconContainer-Ksy8Oj {
+#guild-header-popout .labelContainer-35-WEd .iconContainer-Ksy8Oj {
     order: 1;
     margin-left: 0;
     margin-right: 8px
