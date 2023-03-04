@@ -473,10 +473,6 @@
     box-shadow: 0 0 0 8px var(--background-primary)
 }
 
-.searchHeader-1r_ZSh {
-    background-color: unset;
-}
-
 .pageWrapper-2PwDoS {
     background-color: var(--background-primary) !important;
     color: #fff
@@ -529,7 +525,7 @@
     background-color: var(--background-floating)
 }
 
-.theme-dark .footer-IubaaS {
+.theme-dark .footer-IubaaS, .theme-dark .footer-5ji8u1 {
     background-color: var(--background-secondary)
 }
 
