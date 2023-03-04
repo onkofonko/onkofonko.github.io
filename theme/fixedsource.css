@@ -544,14 +544,14 @@
 }
 
 .theme-dark .lookFilled-1H2Jvj.colorPrimary-2-Lusz {
-    color: var(--interactive-hover);
-    background-color: rgba(255, 255, 255, .15)
+    color: var(--interactive-hover) !important;
+    background-color: rgba(255, 255, 255, .15) !important
 }
 
 .theme-dark .lookFilled-1H2Jvj.colorPrimary-2-Lusz:active,
 .theme-dark .lookFilled-1H2Jvj.colorPrimary-2-Lusz:hover {
-    background-color: rgba(255, 255, 255, .2);
-    filter: brightness(1.2)
+    background-color: rgba(255, 255, 255, .2) !important;
+    filter: brightness(1.2) !important
 }
 
 .theme-light .lookFilled-1H2Jvj.colorPrimary-2-Lusz {
@@ -1547,7 +1547,7 @@ body.foldercontentopened .base-2jDfDU {
     }
 }
 
-.sidebar-1tnWFu .content-2a4AW9 .containerDefault-3TQ5YN .children-3MeUvj {
+.sidebar-1tnWFu .content-yjf30S .containerDefault-3TQ5YN .children-3MeUvj {
     display: none
 }
 
@@ -4021,7 +4021,7 @@ button[aria-label="Disable Game Activity"] .contents-3NembX:after {
     cursor: pointer
 }
 
-.roleCircle-1EgnFN {
+.roleCircle-3TFUOr {
     border-radius: 50%;
     width: 24px;
     height: 24px;
@@ -4034,11 +4034,11 @@ button[aria-label="Disable Game Activity"] .contents-3NembX:after {
     cursor: pointer
 }
 
-.roleCircle-1EgnFN svg {
+.roleCircle-3TFUOr svg {
     transition: opacity .15s ease
 }
 
-.roleCircle-1EgnFN:hover svg {
+.roleCircle-3TFUOr:hover svg {
     opacity: 1
 }
 
@@ -4566,7 +4566,7 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     margin: 0 4px 10px 0
 }
 
-.toolbar-3_r2xA a.anchor-1MIwyf[href^="https://support.discord.com"] {
+.toolbar-3_r2xA a.anchor-1X4H4q[href^="https://support.discord.com"] {
     display: none
 }
 
@@ -5071,7 +5071,7 @@ button[class^=attachButton] {
     background-color: var(--background-tertiary) !important
 }
 
-.buttons-uaqb-5>.button-f2h6uQ>:not(.translateButton-DhP9x8) {
+.buttons-uaqb-5>.button-ejjZWC>:not(.translateButton-DhP9x8) {
     display: none
 }
 
@@ -10423,7 +10423,7 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
 }
 
 .autocompleteRowVertical-EA9dCg[data-list-item-id*=channel-autocomplete] .autocompleteRowContentPrimary-1kUW9H .colorInteractiveActive-30E9n8,
-.content-2a4AW9 .emptyChannelIcon-1YdEz2~.size32-5yOQel,
+.content-yjf30S .emptyChannelIcon-1YdEz2~.size32-5yOQel,
 .quickswitcher-pKcM9U .result-u66Ywh .match-20K5f5,
 .sidebar-1tnWFu .mainContent-20q_Hp[href] .channelName-3KPsGw,
 .title-31SJ6t .iconWrapper-2awDjA+.title-17SveM,
@@ -11933,63 +11933,63 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
     z-index: 4
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 a .iconContainer-21RCa3 {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S a .iconContainer-21RCa3 {
     --size: 32px;
     left: calc(50% - 16px);
     margin-bottom: 12px
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 a .name-28HaxV {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S a .name-28HaxV {
     text-align: center;
     font-size: 14px
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 .containerDefault-YUSmu3 {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3 {
     width: 50%;
     margin-left: 8px;
     margin-bottom: 8px
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 .containerDefault-YUSmu3 .content-1gYQeQ {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3 .content-1gYQeQ {
     padding: 8px;
     margin: 0
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 .containerDefault-3TQ5YN {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-3TQ5YN {
     width: 100%
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 .containerDefault-3TQ5YN~.containerDefault-YUSmu3 {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-3TQ5YN~.containerDefault-YUSmu3 {
     width: 100%
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 .containerDefault-YUSmu3:nth-child(odd) {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3:nth-child(odd) {
     width: calc(50% - 8px)
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 .containerDefault-YUSmu3:nth-child(even) {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3:nth-child(even) {
     width: calc(50% - 8px)
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 .containerDefault-YUSmu3 .content-1gYQeQ .mainContent-20q_Hp .iconContainer-21RCa3 {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3 .content-1gYQeQ .mainContent-20q_Hp .iconContainer-21RCa3 {
     transition: transform 45ms ease
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 .containerDefault-YUSmu3 .content-1gYQeQ:active .mainContent-20q_Hp .iconContainer-21RCa3 {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3 .content-1gYQeQ:active .mainContent-20q_Hp .iconContainer-21RCa3 {
     transform: translate(0, 2px)
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 .containerDefault-YUSmu3 .mainContent-20q_Hp {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3 .mainContent-20q_Hp {
     display: block
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row
@@ -11999,11 +11999,11 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
     padding: 0
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 .content-1gYQeQ {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .content-1gYQeQ {
     background-color: var(--background-transparent-header)
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-2a4AW9 .content-1gYQeQ:hover {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .content-1gYQeQ:hover {
     background-color: var(--background-modifier-hover)
 }
 
