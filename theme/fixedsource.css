@@ -608,14 +608,14 @@
     animation: var(--tooltip-fade-in)
 }
 
-.theme-light .footer-31IekZ {
+.theme-light .footer-IubaaS {
     background-color: #f6f6f7;
     -webkit-box-shadow: inset 0 1px 0 rgba(246, 246, 247, .6);
     box-shadow: inset 0 1px 0 rgba(246, 246, 247, .6)
 }
 
-.theme-dark .footer-31IekZ,
-.theme-dark .theme-light .footer-31IekZ {
+.theme-dark .footer-IubaaS,
+.theme-dark .theme-light .footer-IubaaS {
     background-color: transparent;
     -webkit-box-shadow: none;
     box-shadow: none
