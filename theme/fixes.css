@@ -48,10 +48,6 @@
     color: var(--interactive-hover);
 }
 
-.footer-IubaaS>button:not(.colorBrand-I6CyqQ):not(.lowSaturationUnderline-Z6CW6z) {
-    background-color: var(--background-tertiary);
-}
-
 .content-2hZxGK>form>div>div>input {
     color: #dedede;
     background-color: #202225;
@@ -438,6 +434,6 @@ button.tagsButton-4pwOKH {
     background-color: var(--background-secondary);
 }
 
-.caret-1TZU-U{
+.caret-1TZU-U {
     margin-left: 4px;
 }
