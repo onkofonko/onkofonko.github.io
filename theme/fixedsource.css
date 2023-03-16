@@ -525,7 +525,8 @@
     background-color: var(--background-floating)
 }
 
-.theme-dark .footer-IubaaS, .theme-dark .footer-5ji8u1 {
+.theme-dark .footer-IubaaS,
+.theme-dark .footer-5ji8u1 {
     background-color: var(--background-secondary)
 }
 
@@ -2968,13 +2969,13 @@ body.foldercontentopened .base-2jDfDU {
     transition: width var(--sidebar-width-transition)
 }
 
-.avatarSpeaking-33RRJU {
+.avatarSpeaking-36V2PN {
     box-shadow: none !important;
     z-index: -1;
     border-radius: 0 0 8px 8px;
 }
 
-.avatarSpeaking-33RRJU,
+.avatarSpeaking-36V2PN,
 .panels-3wFtMD .StatusEverywhere-avatar-speaking foreignObject:after {
     position: fixed !important;
     background: linear-gradient(90deg, rgba(59, 165, 93, 0), var(--avatar-speaking-color), rgba(59, 165, 92, 0));
@@ -2982,7 +2983,7 @@ body.foldercontentopened .base-2jDfDU {
     --height: 2px;
     --width: 128px;
     --bottom: var(--control-area-bottom-margin);
-    --left: calc(((var(--width) / 2) * -1) + (var(--sidebar-width) / 2));
+    --left: calc(((var(--width) / 2) * -1) + (var(--sidebar-width) / 2) - 2px);
     height: var(--height) !important;
     width: var(--width) !important;
     top: calc((var(--height) + var(--bottom)) * -1 + 100vh + (-1 * (var(--server-outer-margin, 14px)))) !important;
