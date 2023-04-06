@@ -2445,7 +2445,7 @@ body.foldercontentopened .base-2jDfDU {
 .root-1CAIjD,
 .root-8LYsGj,
 .streamPreview-I7itZ6,
-.userPopoutOuter-3AVBmJ,
+.userPopoutOuter-1OHwPL,
 [class^=noiseCancellationPopout] {
     border-radius: var(--context-menu-border-radius)
 }
@@ -2498,7 +2498,7 @@ body.foldercontentopened .base-2jDfDU {
 .streamPreview-I7itZ6:before,
 .toolbar-37BrJ5:before,
 .uploadModal-2ie9O_:before,
-.userPopoutOuter-3AVBmJ:before,
+.userPopoutOuter-1OHwPL:before,
 .wrapper-2vIMkT:before {
     border: 1px var(--background-modifier-accent) solid;
     box-sizing: border-box;
@@ -3936,27 +3936,27 @@ button[aria-label="Disable Game Activity"] .contents-3NembX:after {
 .role-2TIOKu,
 .theme-dark .actionButton-1YKTU0,
 .theme-light .actionButton-1YKTU0,
-.userPopoutOuter-3AVBmJ .textarea-_59yqs:focus {
+.userPopoutOuter-1OHwPL .textarea-_59yqs:focus {
     background-color: rgba(196, 196, 196, .1);
     transition: filter .15s ease
 }
 
-.userPopoutOuter-3AVBmJ .input-2z42oC:focus,
-.userPopoutOuter-3AVBmJ .input-2z42oC:hover {
+.userPopoutOuter-1OHwPL .input-2z42oC:focus,
+.userPopoutOuter-1OHwPL .input-2z42oC:hover {
     background-color: rgba(196, 196, 196, .1)
 }
 
-.userPopoutOuter-3AVBmJ .input-2z42oC {
+.userPopoutOuter-1OHwPL .input-2z42oC {
     background-color: rgba(196, 196, 196, .05);
     transition: background-color .15s ease
 }
 
-.userPopoutOuter-3AVBmJ .input-2z42oC {
+.userPopoutOuter-1OHwPL .input-2z42oC {
     border: none !important;
     border-radius: 3px
 }
 
-.userPopoutOuter-3AVBmJ .input-2z42oC::placeholder {
+.userPopoutOuter-1OHwPL .input-2z42oC::placeholder {
     color: var(--text-normal);
     opacity: .75
 }
@@ -4140,15 +4140,15 @@ button[aria-label="Disable Game Activity"] .contents-3NembX:after {
     margin: 8px 16px 16px;
 }
 
-html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionNormal-V4Mjtq {
+html #app-mount .userPopoutOuter-1OHwPL .avatarPositionNormal-V4Mjtq {
     top: 26px !important
 }
 
-html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumBanner-2nq2Fy {
+html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumBanner-2nq2Fy {
     top: 76px !important
 }
 
-html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
+html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-nWzERs {
     top: 56px !important
 }
 
@@ -4248,12 +4248,12 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     background-size: cover
 }
 
-.userPopoutOuter-3AVBmJ {
+.userPopoutOuter-1OHwPL {
     width: 300px !important;
     position: relative;
 }
 
-.userProfileOuterThemed-3EfHmv.userPopoutOuter-3AVBmJ,
+.userProfileOuterThemed-3EfHmv.userPopoutOuter-1OHwPL,
 .userProfileOuterThemed-3EfHmv.userProfileOuter-1K_BYU {
     padding: 0 !important
 }
@@ -4365,7 +4365,7 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     height: 380px;
 }
 
-.overlayBackground-1KgwVi {
+.overlayBackground-2aa7wt {
     margin-left: 4px;
     margin-right: 4px;
     background-color: unset;
@@ -4373,7 +4373,7 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     z-index: 101;
 }
 
-[class^=userProfileModal]>.overlayBackground-1KgwVi {
+[class^=userProfileModal]>.overlayBackground-2aa7wt {
     margin-left: 8px;
     margin-right: 8px;
 }
@@ -4390,16 +4390,16 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     border-top: unset
 }
 
-[class^=userPopoutInner]>.profileBadges-31rDHI,
+[class^=userPopoutInner]>.profileBadges-2pItdR,
 .headerTop-212g15>[class^="badge"] {
     background-color: unset;
 }
 
-.profileBadges-31rDHI {
+.profileBadges-2pItdR {
     top: 12px
 }
 
-.profileBadges-31rDHI.containerWithContent-2_V0PM.container-5SvbtF {
+.profileBadges-2pItdR.containerWithContent-2_V0PM.container-5SvbtF {
     margin-bottom: -8px;
 }
 
@@ -4407,7 +4407,7 @@ html #app-mount .userPopoutOuter-3AVBmJ .avatarPositionPremiumNoBanner-nWzERs {
     visibility: hidden;
 }
 
-.userPopoutInner-1hXSeY:before {
+.userPopoutInner-nv9Y92:before {
     content: " ";
     position: absolute;
     height: 120px;

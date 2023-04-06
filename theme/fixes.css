@@ -308,16 +308,16 @@ div.icon-39rdLt {
     display: none;
 }
 
-.overlayBackground-1KgwVi>.menu-2TXYjN.flexible-3B4jwn.menu-KSaHL1:before {
+.overlayBackground-2aa7wt>.menu-2TXYjN.flexible-3B4jwn.menu-KSaHL1:before {
     display: none;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>.overlayBackground-1KgwVi>*:not(.menu-2TXYjN):not(.divider-1i5sVV),
-[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>*:not(.overlayBackground-1KgwVi) {
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL>div>.overlayBackground-2aa7wt>*:not(.menu-2TXYjN):not(.divider-1i5sVV),
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL>div>*:not(.overlayBackground-2aa7wt) {
     display: none;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>.overlayBackground-1KgwVi>.divider-1i5sVV {
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL>div>.overlayBackground-2aa7wt>.divider-1i5sVV {
     margin-top: 16px;
 }
 
@@ -326,22 +326,22 @@ div.icon-39rdLt {
     margin-left: 6px;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ {
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL {
     height: 170px;
     width: 220px;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ>div>.overlayBackground-1KgwVi {
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL>div>.overlayBackground-2aa7wt {
     margin: 28px 0px 0px 0px;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ,
-[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ:before,
-.overlayBackground-1KgwVi>.menu-2TXYjN.flexible-3B4jwn.menu-KSaHL1 {
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL,
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL:before,
+.overlayBackground-2aa7wt>.menu-2TXYjN.flexible-3B4jwn.menu-KSaHL1 {
     width: 220px !important;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-3AVBmJ:before {
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL:before {
     z-index: 2;
 }
 
