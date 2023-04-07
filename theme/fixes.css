@@ -308,16 +308,17 @@ div.icon-39rdLt {
     display: none;
 }
 
-.overlayBackground-2aa7wt>.menu-2TXYjN.flexible-3B4jwn.menu-KSaHL1:before {
+.overlayBackground-2aa7wt>.menu-2TXYjN.flexible-3B4jwn.menu-2-eHMB:before {
     display: none;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL>div>.overlayBackground-2aa7wt>*:not(.menu-2TXYjN):not(.divider-1i5sVV),
-[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL>div>*:not(.overlayBackground-2aa7wt) {
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL>div>.overlayBackground-2aa7wt>*:not(.menu-2TXYjN):not(.divider-2dDziJ),
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL>div>*:not(.overlayBackground-2aa7wt),
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL>div>.overlayBackground-2aa7wt>.divider-2dDziJ.divider-1QVlfF {
     display: none;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL>div>.overlayBackground-2aa7wt>.divider-1i5sVV {
+[id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL>div>.overlayBackground-2aa7wt>.divider-2dDziJ {
     margin-top: 16px;
 }
 
@@ -337,7 +338,7 @@ div.icon-39rdLt {
 
 [id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL,
 [id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL:before,
-.overlayBackground-2aa7wt>.menu-2TXYjN.flexible-3B4jwn.menu-KSaHL1 {
+.overlayBackground-2aa7wt>.menu-2TXYjN.flexible-3B4jwn.menu-2-eHMB {
     width: 220px !important;
 }
 

@@ -3928,7 +3928,7 @@ button[aria-label="Disable Game Activity"] .contents-3NembX:after {
     display: none
 }
 
-.relationshipButtons-pZ_UWl .lookFilled-1H2Jvj.colorGreen-3y-Z79,
+.relationshipButtons-3ByBpj>button,
 .role-2TIOKu,
 .theme-dark .actionButton-1YKTU0,
 .theme-light .actionButton-1YKTU0,
@@ -3975,14 +3975,14 @@ button[aria-label="Disable Game Activity"] .contents-3NembX:after {
     filter: brightness(.8) !important
 }
 
-.relationshipButtons-3ByBpj .lookFilled-1H2Jvj.colorGreen-3y-Z79:hover,
+.relationshipButtons-3ByBpj>button:hover,
 .theme-dark .lookFilled-1H2Jvj.colorGrey-2iAG-B:hover,
 .theme-light .lookFilled-1H2Jvj.colorGrey-2iAG-B:hover {
     background-color: rgba(196, 196, 196, .1) !important;
     filter: brightness(1.3)
 }
 
-.relationshipButtons-3ByBpj .lookFilled-1H2Jvj.colorGreen-3y-Z79:active {
+.relationshipButtons-3ByBpj>button:active {
     filter: brightness(1.2)
 }
 
@@ -4062,7 +4062,7 @@ button[aria-label="Disable Game Activity"] .contents-3NembX:after {
     background-image: var(--user-background, inherit)
 }
 
-.connectedAccountContainer-2TWiXT {
+.connectedAccountContainer-3aLMHJ {
     background-color: rgba(196, 196, 196, .1);
     border: unset;
 }
@@ -4136,15 +4136,15 @@ button[aria-label="Disable Game Activity"] .contents-3NembX:after {
     margin: 8px 16px 16px;
 }
 
-html #app-mount .userPopoutOuter-1OHwPL .avatarPositionNormal-V4Mjtq {
+html #app-mount .userPopoutOuter-1OHwPL .avatarPositionNormal-2jWoC2 {
     top: 26px !important
 }
 
-html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumBanner-2nq2Fy {
+html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumBanner-2EAbSH {
     top: 76px !important
 }
 
-html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-nWzERs {
+html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-2u3xDC {
     top: 56px !important
 }
 
@@ -4159,64 +4159,69 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-nWzERs {
     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, .205))
 }
 
-[class^="userPopoutInner"]>.bannerSVGWrapper-qc0szY {
+[class^="userPopoutInner"]>.bannerSVGWrapper-2CLfzN {
     height: 100%;
     max-width: 300px;
     z-index: 0;
     min-width: 300px !important;
     overflow: visible;
     position: relative;
+    contain: none;
 }
 
-.accountProfileCard-lbN7n->.bannerSVGWrapper-qc0szY {
+.accountProfileCard-lbN7n->.bannerSVGWrapper-2CLfzN {
     z-index: 0;
     overflow: visible;
     position: absolute;
     width: 100%;
+    contain: none;
 }
 
 .PI-indicatorContainer {
     z-index: 1;
 }
 
-.userProfileInnerWithBanner-3CJ1Og>.bannerSVGWrapper-qc0szY {
+.userProfileInnerWithBanner-3CJ1Og>.bannerSVGWrapper-2CLfzN,
+.userProfileInnerThemedWithBanner-25XGmz>.bannerSVGWrapper-2CLfzN {
     margin-bottom: -10px;
 }
 
-[class^="userPopoutInner"]>.bannerSVGWrapper-qc0szY foreignObject,
-.topSection-1Khgkv>header>.bannerSVGWrapper-qc0szY foreignobject,
-.accountProfileCard-lbN7n->.bannerSVGWrapper-qc0szY foreignObject {
+[class^="userPopoutInner"]>.bannerSVGWrapper-2CLfzN foreignObject,
+.topSection-13QKHs>header>.bannerSVGWrapper-2CLfzN foreignobject,
+.accountProfileCard-lbN7n->.bannerSVGWrapper-2CLfzN foreignObject {
     mask: none;
 }
 
-[class*="NonPremium"] .bannerSVGWrapper-qc0szY foreignObject {
+[class*="NonPremium"] .bannerSVGWrapper-2CLfzN foreignObject {
     transform: translateY(-4px)
 }
 
-[class*="PremiumWithoutBanner"] .bannerSVGWrapper-qc0szY foreignObject {
+[class*="PremiumWithoutBanner"] .bannerSVGWrapper-2CLfzN foreignObject {
     transform: translateY(-6px)
 }
 
-[class*="WithBanner"] .bannerSVGWrapper-qc0szY foreignObject {
+[class*="WithBanner"] .bannerSVGWrapper-2CLfzN foreignObject {
     transform: translateY(-8px)
 }
 
-.topSection-1Khgkv>header>.header-S26rhB {
+.topSection-13QKHs>header>.header-S26rhB {
     margin-top: 84px;
+    margin-bottom: -84px;
     position: relative;
 }
 
-.topSection-1Khgkv>header>.bannerSVGWrapper-qc0szY[viewBox*="212"] {
+.topSection-13QKHs>header>.bannerSVGWrapper-2CLfzN[viewBox*="212"] {
     margin-bottom: -40px;
 }
 
-.topSection-1Khgkv>header>.bannerSVGWrapper-qc0szY {
+.topSection-13QKHs>header>.bannerSVGWrapper-2CLfzN {
     height: 100%;
     max-width: 600px;
     min-width: 600px !important;
     z-index: 0;
     overflow: visible;
     position: relative;
+    contain: none;
 }
 
 .header-S26rhB {
@@ -4249,8 +4254,8 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-nWzERs {
     position: relative;
 }
 
-.userProfileOuterThemed-3EfHmv.userPopoutOuter-1OHwPL,
-.userProfileOuterThemed-3EfHmv.userProfileOuter-1K_BYU {
+.userProfileOuterThemed-2BgJCM.userPopoutOuter-1OHwPL,
+.userProfileOuterThemed-2BgJCM.userProfileOuter-2tQwNf {
     padding: 0 !important
 }
 
@@ -4279,21 +4284,21 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-nWzERs {
     visibility: visible;
 }
 
-.topSection-1Khgkv>header>div:before {
+.topSection-13QKHs>header>div:before {
     width: 600px !important;
 }
 
-.topSection-1Khgkv .banner-1YaD3N:after {
+.topSection-13QKHs .banner-1YaD3N:after {
     height: 240px
 }
 
-.topSection-1Khgkv>header>.bannerPremium-kkSkPv,
-.topSection-1Khgkv>header>.profileBanner-1owKI5 {
+.topSection-13QKHs>header>.bannerPremium-kkSkPv,
+.topSection-13QKHs>header>.profileBanner-1owKI5 {
     visibility: hidden;
 }
 
-.topSection-1Khgkv>header>.bannerPremium-kkSkPv:after,
-.topSection-1Khgkv>header>.bannerPremium-kkSkPv:before {
+.topSection-13QKHs>header>.bannerPremium-kkSkPv:after,
+.topSection-13QKHs>header>.bannerPremium-kkSkPv:before {
     visibility: visible;
 }
 
@@ -4378,7 +4383,7 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-nWzERs {
     border-top: 1px solid var(--background-modifier-accent)
 }
 
-.tabBarContainer-2UG0vy {
+.tabBarContainer-sCZC4w {
     border-bottom: 1px solid var(--background-modifier-accent)
 }
 
@@ -4387,7 +4392,7 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-nWzERs {
 }
 
 [class^=userPopoutInner]>.profileBadges-2pItdR,
-.headerTop-212g15>[class^="badge"] {
+.headerTop-1PNKck>[class^="badge"] {
     background-color: unset;
 }
 
@@ -4399,7 +4404,7 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-nWzERs {
     margin-bottom: -8px;
 }
 
-.banner-2boKnS {
+.banner-1YaD3N {
     visibility: hidden;
 }
 
@@ -4413,9 +4418,10 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-nWzERs {
 }
 
 
-.profileColors-3Y0XaR {
+.profileColors-2AgAV4 {
     --profile-gradient-primary-color: var(--background-floating) !important;
     --profile-gradient-secondary-color: var(--background-floating) !important;
+    --profile-gradient-overlay-color: var(--background-floating) !important;
 }
 
 .roles-3zC7MX {
@@ -4445,15 +4451,15 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-nWzERs {
     background-color: unset;
 }
 
-.messageInputContainer-2rGDH8 {
+.messageInputContainer-24qqTx {
     border: 1px solid var(--background-modifier-accent)
 }
 
-.buttonColor-XIRMbp {
+.buttonColor-_0gSD_ {
     background-color: var(--background-modifier-accent);
 }
 
-.divider-1tWBgZ {
+.divider-2dDziJ {
     background-color: var(--background-modifier-accent);
     opacity: 1
 }
@@ -4467,8 +4473,8 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-nWzERs {
     background-color: transparent
 }
 
-.topSection-1Khgkv>header>.profileBanner-1owKI5,
-.topSection-1Khgkv>header>.profileBanner-2zIsK7 {
+.topSection-13QKHs>header>.profileBanner-1owKI5,
+.topSection-13QKHs>header>.profileBanner-2zIsK7 {
     height: 200px !important;
 }
 
@@ -4477,7 +4483,7 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-nWzERs {
     height: 240px !important;
 }
 
-.topSection-1Khgkv>header>[class*="nameTag" i] {
+.topSection-13QKHs>header>[class*="nameTag" i] {
     margin-top: 0;
 }
 
