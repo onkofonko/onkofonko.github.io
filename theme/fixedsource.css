@@ -3933,7 +3933,7 @@ button[aria-label="Disable Game Activity"] .contents-3NembX:after {
 .theme-dark .actionButton-1YKTU0,
 .theme-light .actionButton-1YKTU0,
 .userPopoutOuter-1OHwPL .textarea-_59yqs:focus {
-    background-color: rgba(196, 196, 196, .1);
+    background-color: rgba(196, 196, 196, .1) !important;
     transition: filter .15s ease
 }
 
@@ -4186,9 +4186,7 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-2u3xDC {
     margin-bottom: -10px;
 }
 
-[class^="userPopoutInner"]>.bannerSVGWrapper-2CLfzN foreignObject,
-.topSection-13QKHs>header>.bannerSVGWrapper-2CLfzN foreignobject,
-.accountProfileCard-lbN7n->.bannerSVGWrapper-2CLfzN foreignObject {
+.bannerSVGWrapper-2CLfzN foreignObject {
     mask: none;
 }
 
@@ -4361,8 +4359,8 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-2u3xDC {
     filter: blur(128px) brightness(0.2) saturate(1) !important;
 }
 
-.settingsBanner-2E5fAp:after,
-.settingsBanner-2E5fAp:before {
+.settingsBanner-1eDJ5w:after,
+.settingsBanner-1eDJ5w:before {
     height: 380px;
 }
 
