@@ -442,3 +442,22 @@ button.tagsButton-4pwOKH {
 .theme-dark .textContentFooter-2JnNv8 {
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 100%);
 }
+
+.wrapper-3Ivhtz>.badge-370Op6 {
+    background: var(--background-secondary);
+    border-radius: 50%;
+    padding: 2px;
+    right: -8px;
+    bottom: -4px;
+}
+
+.gameWrapper-2TFy7F>.wrapper-3Ivhtz>.svg-lIB-lq {
+    width: 24px;
+    height: 24px;
+    margin-left: 4px;
+    margin-top: 4px;
+}
+
+.gameWrapper-2TFy7F>.wrapper-3Ivhtz>.svg-lIB-lq>foreignObject {
+    mask: none
+}
