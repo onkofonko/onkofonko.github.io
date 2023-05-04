@@ -443,7 +443,7 @@ button.tagsButton-4pwOKH {
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.wrapper-3Ivhtz>.badge-370Op6 {
+.gameWrapper-2TFy7F>.wrapper-3Ivhtz>.badge-370Op6 {
     background: var(--background-secondary);
     border-radius: 50%;
     padding: 2px;
@@ -460,4 +460,25 @@ button.tagsButton-4pwOKH {
 
 .gameWrapper-2TFy7F>.wrapper-3Ivhtz>.svg-lIB-lq>foreignObject {
     mask: none
+}
+
+.activityPanel-9icbyU>div>.actions-zk2vB_:has(button:nth-child(n+2)) {
+    flex-direction: column-reverse;
+    bottom: 19px;
+    position: relative;
+}
+
+.activityPanel-9icbyU>div>.actions-zk2vB_:has(button:nth-child(n+3)) {
+    bottom: 35px
+}
+
+.activityPanel-9icbyU>div>.actions-zk2vB_:has(button:nth-child(n+2)) {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 40px, #111111 40px, #111111 100%);
+    border-radius: 50px 50px 0 0;
+    padding: 6px;
+    margin: -6px;
+}
+
+.activityPanel-9icbyU>div>.actions-zk2vB_:has(button:nth-child(n+2))>button:nth-child(2) {
+    margin-bottom: 6px;
 }
