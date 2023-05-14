@@ -482,3 +482,26 @@ button.tagsButton-4pwOKH {
 .activityPanel-9icbyU>div>.actions-zk2vB_:has(button:nth-child(n+2))>button:nth-child(2) {
     margin-bottom: 6px;
 }
+
+.container-mAkQVR {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 7px;
+    margin-bottom: 1px;
+}
+
+.akaBadge-ep3q0P {
+    color: var(--header-primary);
+    background-color: unset;
+    font-weight: 600;
+    margin-right: 0px;
+    margin-left: -6px !important;
+}
+
+.container-mAkQVR>.nicknames-3g5AJ9 {
+    color: var(--text-normal) !important;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 8px;
+}
