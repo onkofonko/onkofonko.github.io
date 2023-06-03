@@ -148,9 +148,10 @@ div.icon-39rdLt {
 #account-style-your-profile,
 #account-edit-custom-status,
 #status-picker-switch-account,
-#account-switch-account {
-    padding-left: 5px;
-    width: 208px;
+#account-switch-account,
+[id^=account-devmode-copy-id] {
+    padding-left: 5px !important;
+    width: 208px !important;
 }
 
 .container-YkUktl .wrapper-3Un6-K.avatar-1EWyVD {
@@ -328,7 +329,6 @@ div.icon-39rdLt {
 }
 
 [id^=popout]>div>.accountProfilePopoutWrapper-3GskID>.userPopoutOuter-1OHwPL {
-    height: 170px;
     width: 220px;
 }
 
@@ -509,4 +509,14 @@ button.tagsButton-4pwOKH {
 .avatarWrapper-1B9FTW>.nameTag-sc-gpq.canCopy-IgTwyV {
     font-size: 14px;
     line-height: 23px
+}
+
+.popout-2Is9aQ>.titleBar-1it3bQ {
+    position: relative;
+    height: 32px;
+    margin: var(--frame-gap) 0 calc(-1 * var(--frame-gap)) 0;
+}
+
+.popout-2Is9aQ>.content-2qc4CV>.wrapper-1gVUIN>.callContainer-HtHELf>div>.videoControls-353CsJ>.topControls-23RE3h>div>div>section>.toolbar-3_r2xA>.recentsIcon-F3eO1o>.iconWrapper-2awDjA {
+    display: none
 }
