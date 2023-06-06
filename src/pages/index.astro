@@ -1,45 +1,70 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Socials from "../components/Socials.astro";
+import Discord from "../components/Discord.astro";
 ---
 
 <Layout title="Ondrej Michal's Site">
-	<main>
-		<h1>Hello, I'm <span class="text-gradient">Ondrej Michal</span></h1>
-		<p class="wip">
-			WIP<br />
-		</p>
-	</main>
+	<body>
+		<section>
+			<h1>
+				Hello, I'm <span class="text-gradient">Ondrej Michal</span>
+			</h1>
+			<p class="maincontent">
+				I'm a 20-year-old university student studying Management who
+				enjoys HTML/CSS. I'm planning to start learning Kotlin soon™.
+				<br />
+			</p>
+		</section>
+		<section>
+			<h2>Projects:</h2>
+			<Card
+				href="https://github.com/onkofonko/onkofonko.github.io/tree/main/public/theme"
+				title="Alexis Modern Discord theme fixes"
+				body="My attempt to keep Alexis Modern Discord Theme alive."
+			/>
+		</section>
+		<section>
+			<h2>Socials:</h2>
+			<div class="socials">
+				<Socials
+					icon="ri:twitter-fill"
+					href="https://twitter.com/OnkoOfTheWired"
+					username="@OnkoOfTheWired"
+				/>
+				<Socials
+					icon="ri:github-fill"
+					href="https://github.com/onkofonko"
+					username="onkofonko"
+				/>
+				<Discord icon="ri:discord-fill" username="Onko#6132" />
+			</div>
+		</section>
+	</body>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
+	section {
+		margin: 1rem 0;
 	}
 	h1 {
 		font-size: 3rem;
 		font-weight: 800;
-		margin: 0;
-		color: white;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.wip {
-		line-height: 1.6;
 		margin: 1rem 0;
-		background: #181818;
-		padding: 1rem;
-		border-radius: 0.4rem;
-		text-align: center;
-		font-weight: 600;
 		color: white;
 	}
 
+	@media only screen and (max-width: 395px) {
+		h1 {
+			font-size: 2.6rem;
+		}
+	}
+
+	h2 {
+		font-size: 2rem;
+		font-weight: 800;
+		margin: 1rem 0;
+		color: white;
+	}
 </style>

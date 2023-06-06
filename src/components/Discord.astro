@@ -1,0 +1,75 @@
+---
+export interface Props {
+	username: string;
+	icon: string;
+}
+import { Icon } from "astro-icon";
+
+const { username, icon } = Astro.props;
+---
+
+<div class="discord-card">
+	<div class="wrap" id="clickableDiv">
+		<Icon name={icon} />
+		<p id="discord-username">{username}</p>
+	</div>
+</div>
+
+<style>
+	svg {
+		--icon-size: 24px;
+		width: var(--icon-size);
+		height: var(--icon-size);
+		color: white;
+		margin: 0 0.4rem;
+	}
+
+	.wrap:hover > * {
+		color: rgb(var(--accent));
+	}
+
+	.wrap {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		background-color: var(--background-secondary);
+		padding: 0 1.3rem;
+		border-radius: 0.35rem;
+		flex-grow: 1;
+		width: 100%;
+	}
+
+	p {
+		color: white;
+		font-weight: 600;
+	}
+
+	.discord-card {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		line-height: 1.6;
+		margin: 1rem 0;
+		background: var(--background-secondary);
+		padding: 0.25rem;
+		border-radius: 0.6rem;
+		background-color: var(--background-secondary);
+		background-image: none;
+		background-size: 400%;
+		background-position: 100%;
+		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+			0 2px 4px -2px rgba(0, 0, 0, 0.1);
+	}
+
+	.discord-card:is(:hover, :focus-within) {
+		background-position: 0;
+		background-image: var(--accent-gradient);
+	}
+
+	#discord-username {
+		width: 91.69px;
+	}
+</style>
+
+<script src="../scripts/copytext.js"></script>

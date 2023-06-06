@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout title="404: Lost in the Wired">
+	<body>
+		<h1>
+			The page you seek is lost within <span class="text-gradient"
+				>the Wired</span>
+		</h1>
+		<img src="./lain.gif" alt="Lain Iwakura" loading="lazy" />
+	</body>
+</Layout>
+
+<style>
+	section {
+		margin: 1rem 0;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 1rem 0;
+		color: white;
+	}
+
+	@media only screen and (max-width: 600px) {
+		h1 {
+			font-size: 2.5rem;
+		}
+	}
+
+	img {
+		max-width: 256px;
+		height: auto;
+		padding: 1rem 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	body {
+		text-align: center;
+	}
+</style>

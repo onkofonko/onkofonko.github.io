@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+  --background-primary: #111111;
+  --background-secondary: #181818;
+  --accent: 102, 103, 171;
+  --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #F23DAA 30%, var(--background-secondary) 60%);
+}
+
+html {
+
+  font-family: Poppins, system-ui, sans-serif;
+  background-color: var(--background-primary);
+}
+
+.text-gradient {
+  background-image: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 400%;
+  background-position: 0%;
+}
+
+.maincontent {
+  line-height: 1.6;
+  margin: 3rem 0;
+  background: var(--background-secondary);
+  padding: 1rem;
+  border-radius: 0.4rem;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+  font-size: 1.2rem;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+header,
+footer {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+main {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+a {
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(var(--accent));
+  text-decoration: underline;
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px
+}
+
+
+@media only screen and (max-width:826px) {
+  .socials {
+    flex-direction: column;
+    gap: 8px
+  }
+}
