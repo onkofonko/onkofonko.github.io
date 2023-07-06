@@ -1570,7 +1570,9 @@ body.foldercontentopened .base-2jDfDU {
 .link-1_kTxV {
     padding: 0 8px 0 12px;
     margin-left: 16px;
-    margin-right: 8px
+    margin-right: 8px;
+    flex-direction: row;
+    align-items: center;
 }
 
 .wrapper-1S43wv {
@@ -11900,8 +11902,6 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
 .containerDefault-YUSmu3:hover a:after {
     opacity: 1;
     transform: translateX(0) scale(1);
-    position: relative;
-    right: 0
 }
 
 .containerDefault-YUSmu3 a:hover:after {
