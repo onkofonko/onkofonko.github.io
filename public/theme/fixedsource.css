@@ -271,7 +271,8 @@
     left: 0;
     border-radius: 1.5px;
     animation: selection-indicator 333ms cubic-bezier(.1, .9, .2, 1);
-    transform: scaleY(1)
+    transform: scaleY(1);
+    top: 8px
 }
 
 @keyframes selection-indicator {
@@ -1571,8 +1572,6 @@ body.foldercontentopened .base-2jDfDU {
     padding: 0 8px 0 12px;
     margin-left: 16px;
     margin-right: 8px;
-    flex-direction: row;
-    align-items: center;
 }
 
 .wrapper-1S43wv {
@@ -11885,6 +11884,7 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
     border-radius: 4px;
     margin-left: 6px;
     right: 8px;
+    top: 6px;
     padding: 4px 8px;
     align-items: center;
     justify-content: center;
