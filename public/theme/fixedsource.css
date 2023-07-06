@@ -262,7 +262,7 @@
     --brand-experiment-95a: hsla(calc(var(--accent-hue) + 0), calc(var(--saturation-factor, 1)*85.6%), 64.7%, 0.95)
 }
 
-.modeSelected-3DmyhH .content-1gYQeQ:before {
+.modeSelected-3DmyhH .link-1_kTxV:before {
     content: "";
     width: 3px;
     height: 16px;
@@ -291,7 +291,7 @@
 
 .clickable-2AoIYN,
 .item-2GWPIy,
-.mainContent-20q_Hp {
+.linkTop-1W1aK6 {
     cursor: default
 }
 
@@ -1562,12 +1562,12 @@ body.foldercontentopened .base-2jDfDU {
     cursor: default
 }
 
-.modeLocked-3sToxd .content-1gYQeQ a:after {
+.modeLocked-3sToxd .link-1_kTxV a:after {
     content: "Locked" !important;
     cursor: not-allowed
 }
 
-.content-1gYQeQ {
+.link-1_kTxV {
     padding: 0 8px 0 12px;
     margin-left: 16px;
     margin-right: 8px
@@ -10423,18 +10423,18 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
 .autocompleteRowVertical-EA9dCg[data-list-item-id*=channel-autocomplete] .autocompleteRowContentPrimary-1kUW9H .colorInteractiveActive-30E9n8,
 .content-yjf30S .emptyChannelIcon-1YdEz2~.size32-5yOQel,
 .quickswitcher-pKcM9U .result-u66Ywh .match-20K5f5,
-.sidebar-1tnWFu .mainContent-20q_Hp[href] .channelName-3KPsGw,
+.sidebar-1tnWFu .linkTop-1W1aK6 .name-28HaxV,
 .title-31SJ6t .iconWrapper-2awDjA+.title-17SveM,
 .wrapper-1ZcZW-[class="wrapper-1ZcZW- mention interactive"] {
     font-family: dash2space, var(--font-primary);
     text-transform: capitalize
 }
 
-.channelName-3KPsGw {
+.linkTop-1W1aK6 .name-28HaxV{
     font-size: 14px
 }
 
-.mainContent-20q_Hp {
+.linkTop-1W1aK6 {
     padding: 6px 0
 }
 
@@ -10447,7 +10447,7 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
     cursor: pointer
 }
 
-.container-1NXEtd .containerDefault-YUSmu3.selected-2TbFuo .mainContent-20q_Hp {
+.container-1NXEtd .containerDefault-YUSmu3.selected-2TbFuo .linkTop-1W1aK6 {
     cursor: default !important
 }
 
@@ -11954,7 +11954,7 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
     margin-bottom: 8px
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3 .content-1gYQeQ {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3 .link-1_kTxV {
     padding: 8px;
     margin: 0
 }
@@ -11975,15 +11975,15 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
     width: calc(50% - 8px)
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3 .content-1gYQeQ .mainContent-20q_Hp .iconContainer-21RCa3 {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3 .link-1_kTxV .linkTop-1W1aK6 .iconContainer-21RCa3 {
     transition: transform 45ms ease
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3 .content-1gYQeQ:active .mainContent-20q_Hp .iconContainer-21RCa3 {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3 .link-1_kTxV:active .linkTop-1W1aK6 .iconContainer-21RCa3 {
     transform: translate(0, 2px)
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3 .mainContent-20q_Hp {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .containerDefault-YUSmu3 .linkTop-1W1aK6 {
     display: block
 }
 
@@ -11997,11 +11997,11 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
     padding: 0
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .content-1gYQeQ {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .link-1_kTxV {
     background-color: var(--background-transparent-header)
 }
 
-.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .content-1gYQeQ:hover {
+.sidebar-1tnWFu .container-1NXEtd[aria-label*="Alexis Modern Theme"] .content-yjf30S .link-1_kTxV:hover {
     background-color: var(--background-modifier-hover)
 }
 
