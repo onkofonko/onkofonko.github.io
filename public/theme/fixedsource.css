@@ -10431,11 +10431,12 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
     text-transform: capitalize
 }
 
-.linkTop-1W1aK6 .name-28HaxV{
+.linkTop-1W1aK6 .name-28HaxV {
     font-size: 14px
 }
 
-.linkTop-1W1aK6 {
+.linkTop-1W1aK6,
+.link-1_kTxV .content-2V2neN {
     padding: 6px 0
 }
 
