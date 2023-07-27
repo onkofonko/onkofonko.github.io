@@ -422,7 +422,10 @@ button.tagsButton-4pwOKH {
     border-color: var(--background-modifier-accent) !important;
 }
 
-.theme-dark .container-1um7CU {
+.theme-dark .container-1um7CU,
+.theme-dark .container-2IKOsH,
+.theme-dark .scrollerContainer-y16Rs9,
+.background-12kWdX {
     background-color: var(--background-primary);
 }
 
@@ -431,8 +434,16 @@ button.tagsButton-4pwOKH {
     background-color: var(--background-secondary);
 }
 
-.channelRow-4X_3fi {
+.channelRow-4X_3fi,
+.prompt-1sE27N,
+.profile-3xd-Cg .profileCard-2gVmvm,
+.action-3oG-si,
+.sidebarCardWrapper-34oCuK {
     background-color: var(--background-secondary);
+}
+
+.userCardInner-3c42YR {
+    background: var(--background-secondary);
 }
 
 .caret-1TZU-U {
@@ -521,6 +532,10 @@ button.tagsButton-4pwOKH {
     display: none
 }
 
-.iconItem-1EjiK0.alwaysShown-1uoOYf{
+.iconItem-1EjiK0.alwaysShown-1uoOYf {
     display: none;
+}
+
+.side-1lrxIh>.item-2GWPIy:not(.role-3pGE29)>div {
+    flex: 1;
 }
