@@ -528,7 +528,7 @@ button.tagsButton-4pwOKH {
     margin: var(--frame-gap) 0 calc(-1 * var(--frame-gap)) 0;
 }
 
-.popout-2Is9aQ>.content-2qc4CV>.wrapper-1gVUIN>.callContainer-HtHELf>div>.videoControls-353CsJ>.topControls-23RE3h>div>div>section>.toolbar-3_r2xA>.recentsIcon-F3eO1o>.iconWrapper-2awDjA {
+.popout-2Is9aQ .recentsIcon-F3eO1o>.iconWrapper-2awDjA {
     display: none
 }
 
@@ -538,4 +538,17 @@ button.tagsButton-4pwOKH {
 
 .side-1lrxIh>.item-2GWPIy:not(.role-3pGE29)>div {
     flex: 1;
+}
+
+.container-2rzSkx>* {
+    max-width: 100%
+}
+
+.container-3XgAHv .scroller-kQBbkU,
+.chat-25x62K .scroller-kQBbkU {
+    top: 0;
+}
+
+.chat-25x62K .scrollerInner-2PPAp2 .container-1yy5xN {
+    margin-top: 0
 }
