@@ -5323,7 +5323,7 @@ button[class^=attachButton] {
 }
 
 .textContainer-36wgKK {
-    background: var(--background-transparent-header)
+    background: unset
 }
 
 .theme-dark .header-1Fx4D1 {
