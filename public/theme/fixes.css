@@ -552,3 +552,8 @@ button.tagsButton-4pwOKH {
 .chat-25x62K .scrollerInner-2PPAp2 .container-1yy5xN {
     margin-top: 0
 }
+
+.linkBottom-128lIB:has(.statusDiv-19yyN4) {
+    padding: 0 0 6px 6px;
+    margin-top: -4px;
+}
