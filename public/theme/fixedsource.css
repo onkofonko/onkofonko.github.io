@@ -1958,69 +1958,69 @@ body.foldercontentopened .base-2jDfDU {
     transform-origin: calc(var(--dropdown-width) - (8px + 8px)/ 2) -50px
 }
 
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Ajustes de usuario"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Användarinställningar"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Configurações de Usuário"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Cài đặt người dùng"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Felhasználói beállítások"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Impostazioni utente"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Korisničke postavke"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Kullanıcı Ayarları"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Käyttäjäasetukset"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Naudotojo Nustatymai"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Paramètres utilisateur"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Setări utilizator"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="User Settings"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="User settings"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Ustawienia użytkownika"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Uživatelská nastavení"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Ρυθμίσεις χρήστη"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Користувацькі налаштування"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Настройки пользователя"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Потребителски настройки"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="यूज़र सेटिंग"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="ตั้งค่าผู้ใช้"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="ユーザー設定"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="使用者設定"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="用户设置"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="사용자 설정"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label=Benutzereinstellungen],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label=Brugerindstillinger],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label=Brukerinnstillinger],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label=Gebruikersinstellingen] {
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Ajustes de usuario"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Användarinställningar"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Configurações de Usuário"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Cài đặt người dùng"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Felhasználói beállítások"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Impostazioni utente"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Korisničke postavke"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Kullanıcı Ayarları"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Käyttäjäasetukset"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Naudotojo Nustatymai"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Paramètres utilisateur"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Setări utilizator"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="User Settings"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="User settings"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Ustawienia użytkownika"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Uživatelská nastavení"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Ρυθμίσεις χρήστη"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Користувацькі налаштування"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Настройки пользователя"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Потребителски настройки"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="यूज़र सेटिंग"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="ตั้งค่าผู้ใช้"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="ユーザー設定"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="使用者設定"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="用户设置"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="사용자 설정"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Benutzereinstellungen],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Brugerindstillinger],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Brukerinnstillinger],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Gebruikersinstellingen] {
     display: block
 }
 
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Ajustes de usuario"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Användarinställningar"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Configurações de Usuário"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Cài đặt người dùng"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Felhasználói beállítások"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Impostazioni utente"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Korisničke postavke"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Kullanıcı Ayarları"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Käyttäjäasetukset"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Naudotojo Nustatymai"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Paramètres utilisateur"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Setări utilizator"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="User Settings"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="User settings"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Ustawienia użytkownika"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Uživatelská nastavení"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Ρυθμίσεις χρήστη"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Користувацькі налаштування"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Настройки пользователя"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Потребителски настройки"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="यूज़र सेटिंग"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="ตั้งค่าผู้ใช้"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="ユーザー設定"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="使用者設定"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="用户设置"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="사용자 설정"],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label=Benutzereinstellungen],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label=Brugerindstillinger],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label=Brukerinnstillinger],
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label=Gebruikersinstellingen],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Ajustes de usuario"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Användarinställningar"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Configurações de Usuário"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Cài đặt người dùng"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Felhasználói beállítások"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Impostazioni utente"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Korisničke postavke"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Kullanıcı Ayarları"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Käyttäjäasetukset"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Naudotojo Nustatymai"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Paramètres utilisateur"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Setări utilizator"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="User Settings"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="User settings"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Ustawienia użytkownika"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Uživatelská nastavení"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Ρυθμίσεις χρήστη"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Користувацькі налаштування"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Настройки пользователя"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Потребителски настройки"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="यूज़र सेटिंग"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="ตั้งค่าผู้ใช้"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="ユーザー設定"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="使用者設定"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="用户设置"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="사용자 설정"],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label=Benutzereinstellungen],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label=Brugerindstillinger],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label=Brukerinnstillinger],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label=Gebruikersinstellingen],
 .avatarWrapper-1B9FTW[aria-expanded=false]~.nameTag-sc-gpq .usernameContainer-3PPkWq:after,
 .avatarWrapper-1B9FTW[aria-expanded=false]~.nameTag-sc-gpq .usernameContainer-3PPkWq:before {
     display: block;
@@ -2028,36 +2028,36 @@ body.foldercontentopened .base-2jDfDU {
     pointer-events: none
 }
 
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Ajustes de usuario"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Användarinställningar"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Configurações de Usuário"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Cài đặt người dùng"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Felhasználói beállítások"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Impostazioni utente"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Korisničke postavke"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Kullanıcı Ayarları"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Käyttäjäasetukset"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Naudotojo Nustatymai"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Paramètres utilisateur"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Setări utilizator"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="User Settings"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="User settings"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Ustawienia użytkownika"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Uživatelská nastavení"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Ρυθμίσεις χρήστη"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Користувацькі налаштування"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Настройки пользователя"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Потребителски настройки"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="यूज़र सेटिंग"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="ตั้งค่าผู้ใช้"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="ユーザー設定"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="使用者設定"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="用户设置"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="사용자 설정"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label=Benutzereinstellungen] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label=Brugerindstillinger] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label=Brukerinnstillinger] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label=Gebruikersinstellingen] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Ajustes de usuario"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Användarinställningar"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Configurações de Usuário"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Cài đặt người dùng"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Felhasználói beállítások"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Impostazioni utente"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Korisničke postavke"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Kullanıcı Ayarları"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Käyttäjäasetukset"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Naudotojo Nustatymai"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Paramètres utilisateur"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Setări utilizator"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="User Settings"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="User settings"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Ustawienia użytkownika"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Uživatelská nastavení"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Ρυθμίσεις χρήστη"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Користувацькі налаштування"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Настройки пользователя"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Потребителски настройки"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="यूज़र सेटिंग"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="ตั้งค่าผู้ใช้"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="ユーザー設定"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="使用者設定"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="用户设置"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="사용자 설정"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Benutzereinstellungen] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Brugerindstillinger] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Brukerinnstillinger] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Gebruikersinstellingen] .contents-3NembX,
 .avatarWrapper-1B9FTW[aria-expanded=true]~.nameTag-sc-gpq .usernameContainer-3PPkWq:after,
 .avatarWrapper-1B9FTW[aria-expanded=true]~.nameTag-sc-gpq .usernameContainer-3PPkWq:before {
     opacity: 1;
@@ -2065,36 +2065,36 @@ body.foldercontentopened .base-2jDfDU {
     animation: var(--dialog-fade-in-from-top)
 }
 
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Ajustes de usuario"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Användarinställningar"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Configurações de Usuário"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Cài đặt người dùng"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Felhasználói beállítások"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Impostazioni utente"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Korisničke postavke"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Kullanıcı Ayarları"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Käyttäjäasetukset"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Naudotojo Nustatymai"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Paramètres utilisateur"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Setări utilizator"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="User Settings"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="User settings"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Ustawienia użytkownika"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Uživatelská nastavení"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Ρυθμίσεις χρήστη"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Користувацькі налаштування"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Настройки пользователя"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="Потребителски настройки"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="यूज़र सेटिंग"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="ตั้งค่าผู้ใช้"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="ユーザー設定"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="使用者設定"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="用户设置"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label="사용자 설정"] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label=Benutzereinstellungen] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label=Brugerindstillinger] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label=Brukerinnstillinger] .contents-3NembX,
-.avatarWrapper-1B9FTW[aria-expanded=false]~.directionRow-2Iu2A9 button[aria-label=Gebruikersinstellingen] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Ajustes de usuario"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Användarinställningar"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Configurações de Usuário"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Cài đặt người dùng"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Felhasználói beállítások"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Impostazioni utente"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Korisničke postavke"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Kullanıcı Ayarları"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Käyttäjäasetukset"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Naudotojo Nustatymai"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Paramètres utilisateur"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Setări utilizator"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="User Settings"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="User settings"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Ustawienia użytkownika"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Uživatelská nastavení"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Ρυθμίσεις χρήστη"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Користувацькі налаштування"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Настройки пользователя"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="Потребителски настройки"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="यूज़र सेटिंग"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="ตั้งค่าผู้ใช้"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="ユーザー設定"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="使用者設定"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="用户设置"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label="사용자 설정"] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label=Benutzereinstellungen] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label=Brugerindstillinger] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label=Brukerinnstillinger] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label=Gebruikersinstellingen] .contents-3NembX,
 .avatarWrapper-1B9FTW[aria-expanded=false]~.nameTag-sc-gpq .usernameContainer-3PPkWq:after,
 .avatarWrapper-1B9FTW[aria-expanded=false]~.nameTag-sc-gpq .usernameContainer-3PPkWq:before {
     opacity: 0
@@ -2105,36 +2105,36 @@ body.foldercontentopened .base-2jDfDU {
     overflow: hidden
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ajustes de usuario"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Användarinställningar"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Configurações de Usuário"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Cài đặt người dùng"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Felhasználói beállítások"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Impostazioni utente"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Korisničke postavke"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Kullanıcı Ayarları"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Käyttäjäasetukset"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Naudotojo Nustatymai"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Paramètres utilisateur"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Setări utilizator"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="User Settings"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="User settings"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ustawienia użytkownika"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Uživatelská nastavení"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ρυθμίσεις χρήστη"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Користувацькі налаштування"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Настройки пользователя"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Потребителски настройки"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="यूज़र सेटिंग"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="ตั้งค่าผู้ใช้"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="ユーザー設定"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="使用者設定"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="用户设置"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="사용자 설정"],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Benutzereinstellungen],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Brugerindstillinger],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Brukerinnstillinger],
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Gebruikersinstellingen] {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ajustes de usuario"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Användarinställningar"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Configurações de Usuário"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Cài đặt người dùng"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Felhasználói beállítások"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Impostazioni utente"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Korisničke postavke"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Kullanıcı Ayarları"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Käyttäjäasetukset"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Naudotojo Nustatymai"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Paramètres utilisateur"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Setări utilizator"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="User Settings"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="User settings"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ustawienia użytkownika"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Uživatelská nastavení"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ρυθμίσεις χρήστη"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Користувацькі налаштування"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Настройки пользователя"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Потребителски настройки"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="यूज़र सेटिंग"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="ตั้งค่าผู้ใช้"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="ユーザー設定"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="使用者設定"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="用户设置"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="사용자 설정"],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Benutzereinstellungen],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brugerindstillinger],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brukerinnstillinger],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen] {
     --user-settings-svg-size: 16px !important;
     --user-setting-margin-left: -3px;
     position: fixed;
@@ -2155,76 +2155,76 @@ body.foldercontentopened .base-2jDfDU {
     clip: rect(0, var(--dropdown-button-width), 32px, 0)
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button svg {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button svg {
     margin-left: var(--user-setting-margin-left);
     width: var(--user-settings-svg-size);
     height: var(--user-settings-svg-size)
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ajustes de usuario"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Användarinställningar"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Configurações de Usuário"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Cài đặt người dùng"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Felhasználói beállítások"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Impostazioni utente"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Korisničke postavke"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Kullanıcı Ayarları"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Käyttäjäasetukset"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Naudotojo Nustatymai"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Paramètres utilisateur"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Setări utilizator"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="User Settings"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="User settings"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ustawienia użytkownika"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Uživatelská nastavení"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ρυθμίσεις χρήστη"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Користувацькі налаштування"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Настройки пользователя"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Потребителски настройки"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="यूज़र सेटिंग"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="ตั้งค่าผู้ใช้"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="ユーザー設定"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="使用者設定"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="用户设置"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="사용자 설정"]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Benutzereinstellungen]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Brugerindstillinger]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Brukerinnstillinger]:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Gebruikersinstellingen]:hover {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ajustes de usuario"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Användarinställningar"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Configurações de Usuário"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Cài đặt người dùng"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Felhasználói beállítások"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Impostazioni utente"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Korisničke postavke"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Kullanıcı Ayarları"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Käyttäjäasetukset"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Naudotojo Nustatymai"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Paramètres utilisateur"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Setări utilizator"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="User Settings"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="User settings"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ustawienia użytkownika"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Uživatelská nastavení"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ρυθμίσεις χρήστη"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Користувацькі налаштування"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Настройки пользователя"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Потребителски настройки"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="यूज़र सेटिंग"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="ตั้งค่าผู้ใช้"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="ユーザー設定"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="使用者設定"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="用户设置"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="사용자 설정"]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Benutzereinstellungen]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brugerindstillinger]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brukerinnstillinger]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen]:hover {
     background-color: transparent;
     color: var(--interactive-normal)
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ajustes de usuario"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Användarinställningar"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Configurações de Usuário"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Cài đặt người dùng"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Felhasználói beállítások"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Impostazioni utente"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Korisničke postavke"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Kullanıcı Ayarları"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Käyttäjäasetukset"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Naudotojo Nustatymai"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Paramètres utilisateur"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Setări utilizator"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="User Settings"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="User settings"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ustawienia użytkownika"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Uživatelská nastavení"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ρυθμίσεις χρήστη"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Користувацькі налаштування"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Настройки пользователя"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Потребителски настройки"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="यूज़र सेटिंग"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="ตั้งค่าผู้ใช้"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="ユーザー設定"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="使用者設定"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="用户设置"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="사용자 설정"] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Benutzereinstellungen] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Brugerindstillinger] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Brukerinnstillinger] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Gebruikersinstellingen] .contents-3NembX {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ajustes de usuario"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Användarinställningar"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Configurações de Usuário"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Cài đặt người dùng"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Felhasználói beállítások"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Impostazioni utente"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Korisničke postavke"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Kullanıcı Ayarları"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Käyttäjäasetukset"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Naudotojo Nustatymai"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Paramètres utilisateur"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Setări utilizator"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="User Settings"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="User settings"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ustawienia użytkownika"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Uživatelská nastavení"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ρυθμίσεις χρήστη"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Користувацькі налаштування"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Настройки пользователя"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Потребителски настройки"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="यूज़र सेटिंग"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="ตั้งค่าผู้ใช้"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="ユーザー設定"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="使用者設定"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="用户设置"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="사용자 설정"] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Benutzereinstellungen] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brugerindstillinger] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brukerinnstillinger] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen] .contents-3NembX {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     display: grid;
@@ -2243,36 +2243,36 @@ body.foldercontentopened .base-2jDfDU {
 }
 
 .avatarWrapper-1B9FTW~.nameTag-sc-gpq .usernameContainer-3PPkWq:hover:before,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ajustes de usuario"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Användarinställningar"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Configurações de Usuário"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Cài đặt người dùng"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Felhasználói beállítások"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Impostazioni utente"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Korisničke postavke"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Kullanıcı Ayarları"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Käyttäjäasetukset"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Naudotojo Nustatymai"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Paramètres utilisateur"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Setări utilizator"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="User Settings"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="User settings"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ustawienia użytkownika"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Uživatelská nastavení"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ρυθμίσεις χρήστη"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Користувацькі налаштування"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Настройки пользователя"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Потребителски настройки"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="यूज़र सेटिंग"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="ตั้งค่าผู้ใช้"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="ユーザー設定"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="使用者設定"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="用户设置"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="사용자 설정"] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Benutzereinstellungen] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Brugerindstillinger] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Brukerinnstillinger] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Gebruikersinstellingen] .contents-3NembX:hover {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ajustes de usuario"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Användarinställningar"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Configurações de Usuário"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Cài đặt người dùng"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Felhasználói beállítások"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Impostazioni utente"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Korisničke postavke"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Kullanıcı Ayarları"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Käyttäjäasetukset"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Naudotojo Nustatymai"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Paramètres utilisateur"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Setări utilizator"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="User Settings"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="User settings"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ustawienia użytkownika"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Uživatelská nastavení"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ρυθμίσεις χρήστη"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Користувацькі налаштування"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Настройки пользователя"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Потребителски настройки"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="यूज़र सेटिंग"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="ตั้งค่าผู้ใช้"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="ユーザー設定"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="使用者設定"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="用户设置"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="사용자 설정"] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Benutzereinstellungen] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brugerindstillinger] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brukerinnstillinger] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen] .contents-3NembX:hover {
     background-color: var(--background-modifier-hover);
     color: var(--interactive-active);
     transform: unset !important
@@ -2282,156 +2282,156 @@ body.foldercontentopened .base-2jDfDU {
     background-color: var(--interactive-hover)
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Brugerindstillinger] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brugerindstillinger] .contents-3NembX:after {
     content: "Brugerindstillinger"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Benutzereinstellungen] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Benutzereinstellungen] .contents-3NembX:after {
     content: "Benutzereinstellungen"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="User settings"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="User settings"] .contents-3NembX:after {
     content: "User settings"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="User Settings"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="User Settings"] .contents-3NembX:after {
     content: "User Settings"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ajustes de usuario"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ajustes de usuario"] .contents-3NembX:after {
     content: "Ajustes de usuario"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Paramètres utilisateur"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Paramètres utilisateur"] .contents-3NembX:after {
     content: "Paramètres utilisateur"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Korisničke postavke"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Korisničke postavke"] .contents-3NembX:after {
     content: "Korisničke postavke"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Impostazioni utente"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Impostazioni utente"] .contents-3NembX:after {
     content: "Impostazioni utente"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Naudotojo Nustatymai"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Naudotojo Nustatymai"] .contents-3NembX:after {
     content: "Naudotojo Nustatymai"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Felhasználói beállítások"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Felhasználói beállítások"] .contents-3NembX:after {
     content: "Felhasználói beállítások"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Gebruikersinstellingen] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen] .contents-3NembX:after {
     content: "Gebruikersinstellingen"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Brukerinnstillinger] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brukerinnstillinger] .contents-3NembX:after {
     content: "Brukerinnstillinger"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ustawienia użytkownika"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ustawienia użytkownika"] .contents-3NembX:after {
     content: "Ustawienia użytkownika"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Configurações de Usuário"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Configurações de Usuário"] .contents-3NembX:after {
     content: "Configurações de Usuário"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Setări utilizator"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Setări utilizator"] .contents-3NembX:after {
     content: "Setări utilizator"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Käyttäjäasetukset"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Käyttäjäasetukset"] .contents-3NembX:after {
     content: "Käyttäjäasetukset"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Användarinställningar"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Användarinställningar"] .contents-3NembX:after {
     content: "Användarinställningar"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Cài đặt người dùng"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Cài đặt người dùng"] .contents-3NembX:after {
     content: "Cài đặt người dùng"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Kullanıcı Ayarları"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Kullanıcı Ayarları"] .contents-3NembX:after {
     content: "Kullanıcı Ayarları"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Uživatelská nastavení"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Uživatelská nastavení"] .contents-3NembX:after {
     content: "Uživatelská nastavení"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ρυθμίσεις χρήστη"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ρυθμίσεις χρήστη"] .contents-3NembX:after {
     content: "Ρυθμίσεις χρήστη"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Потребителски настройки"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Потребителски настройки"] .contents-3NembX:after {
     content: "Потребителски настройки"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Настройки пользователя"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Настройки пользователя"] .contents-3NembX:after {
     content: "Настройки пользователя"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Користувацькі налаштування"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Користувацькі налаштування"] .contents-3NembX:after {
     content: "Користувацькі налаштування"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="यूज़र सेटिंग"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="यूज़र सेटिंग"] .contents-3NembX:after {
     content: "यूज़र सेटिंग"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="ตั้งค่าผู้ใช้"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="ตั้งค่าผู้ใช้"] .contents-3NembX:after {
     content: "ตั้งค่าผู้ใช้"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="用户设置"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="用户设置"] .contents-3NembX:after {
     content: "用户设置"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="ユーザー設定"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="ユーザー設定"] .contents-3NembX:after {
     content: "ユーザー設定"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="使用者設定"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="使用者設定"] .contents-3NembX:after {
     content: "使用者設定"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="사용자 설정"] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="사용자 설정"] .contents-3NembX:after {
     content: "사용자 설정"
 }
 
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ajustes de usuario"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Användarinställningar"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Configurações de Usuário"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Cài đặt người dùng"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Felhasználói beállítások"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Impostazioni utente"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Korisničke postavke"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Kullanıcı Ayarları"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Käyttäjäasetukset"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Naudotojo Nustatymai"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Paramètres utilisateur"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Setări utilizator"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="User Settings"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="User settings"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ustawienia użytkownika"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Uživatelská nastavení"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Ρυθμίσεις χρήστη"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Користувацькі налаштування"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Настройки пользователя"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="Потребителски настройки"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="यूज़र सेटिंग"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="ตั้งค่าผู้ใช้"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="ユーザー設定"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="使用者設定"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="用户设置"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label="사용자 설정"] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Benutzereinstellungen] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Brugerindstillinger] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Brukerinnstillinger] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .directionRow-2Iu2A9 button[aria-label=Gebruikersinstellingen] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ajustes de usuario"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Användarinställningar"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Configurações de Usuário"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Cài đặt người dùng"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Felhasználói beállítások"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Impostazioni utente"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Korisničke postavke"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Kullanıcı Ayarları"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Käyttäjäasetukset"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Naudotojo Nustatymai"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Paramètres utilisateur"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Setări utilizator"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="User Settings"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="User settings"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ustawienia użytkownika"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Uživatelská nastavení"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Ρυθμίσεις χρήστη"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Користувацькі налаштування"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Настройки пользователя"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="Потребителски настройки"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="यूज़र सेटिंग"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="ตั้งค่าผู้ใช้"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="ユーザー設定"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="使用者設定"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="用户设置"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label="사용자 설정"] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Benutzereinstellungen] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brugerindstillinger] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brukerinnstillinger] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen] .contents-3NembX:after {
     grid-area: span 2;
     line-height: 18px
 }
@@ -3029,7 +3029,7 @@ body.foldercontentopened .base-2jDfDU {
 }
 
 .panels-3wFtMD .wrapper-3Hk9OB .container-1zzFcN:after,
-.panels-3wFtMD .wrapper-3Hk9OB~.container-YkUktl .directionRow-2Iu2A9:after {
+.panels-3wFtMD .wrapper-3Hk9OB~.container-YkUktl .horizontal-112GEH:after {
     content: "";
     position: absolute;
     background-color: var(--background-primary);
@@ -3045,15 +3045,15 @@ body.foldercontentopened .base-2jDfDU {
     left: -8px
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB~.container-YkUktl .directionRow-2Iu2A9:after {
+.panels-3wFtMD .wrapper-3Hk9OB~.container-YkUktl .horizontal-112GEH:after {
     right: -8px
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB~.container-YkUktl .directionRow-2Iu2A9 {
+.panels-3wFtMD .wrapper-3Hk9OB~.container-YkUktl .horizontal-112GEH {
     position: relative
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB~.container-YkUktl .directionRow-2Iu2A9:before {
+.panels-3wFtMD .wrapper-3Hk9OB~.container-YkUktl .horizontal-112GEH:before {
     display: none;
     content: "";
     background: linear-gradient(to bottom, transparent, var(--background-secondary) 30px, var(--background-secondary));
@@ -3401,13 +3401,13 @@ body.foldercontentopened .base-2jDfDU {
     color: var(--text-danger)
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB~.container-YkUktl .directionRow-2Iu2A9 {
+.panels-3wFtMD .wrapper-3Hk9OB~.container-YkUktl .horizontal-112GEH {
     display: flex
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB:empty~.container-YkUktl .directionRow-2Iu2A9 button:not(:last-child),
-.panels-3wFtMD .wrapper-3Hk9OB:empty~.container-YkUktl .directionRow-2Iu2A9:after,
-.panels-3wFtMD .wrapper-3Hk9OB:empty~.container-YkUktl .directionRow-2Iu2A9:before {
+.panels-3wFtMD .wrapper-3Hk9OB:empty~.container-YkUktl .horizontal-112GEH button:not(:last-child),
+.panels-3wFtMD .wrapper-3Hk9OB:empty~.container-YkUktl .horizontal-112GEH:after,
+.panels-3wFtMD .wrapper-3Hk9OB:empty~.container-YkUktl .horizontal-112GEH:before {
     display: none
 }
 
@@ -3887,8 +3887,8 @@ button[aria-label="Disable Game Activity"] .contents-3NembX:after {
     content: "Game Activity Visible"
 }
 
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Disable Game Activity"],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.directionRow-2Iu2A9 button[aria-label="Enable Game Activity"] {
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Disable Game Activity"],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label="Enable Game Activity"] {
     display: block !important;
     opacity: 1;
     transition: transform .12s ease-out, opacity .12s ease-out;
@@ -4892,18 +4892,18 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-2u3xDC {
 .wrapper-1gVUIN.minimum-fXpVNc {
     z-index: 10
 }
-
-.root-22AK9z.idle-39sGPO .flex-2S1XBF.flex-3BkGQD.horizontal-112GEH.horizontal-1Piu5-.flex-3BkGQD.directionRow-2Iu2A9.justifyEnd-2G0m6w.alignStretch-Uwowzr.noWrap-hBpHBz {
+/*
+.root-22AK9z.idle-39sGPO .flex-2S1XBF.flex-3BkGQD.horizontal-112GEH.horizontal-1Piu5-.flex-3BkGQD.horizontal-112GEH.justifyEnd-2G0m6w.alignStretch-Uwowzr.noWrap-hBpHBz {
     opacity: 0
 }
 
-.root-22AK9z .flex-2S1XBF.flex-3BkGQD.horizontal-112GEH.horizontal-1Piu5-.flex-3BkGQD.directionRow-2Iu2A9.justifyEnd-2G0m6w.alignStretch-Uwowzr.noWrap-hBpHBz {
+.root-22AK9z .flex-2S1XBF.flex-3BkGQD.horizontal-112GEH.horizontal-1Piu5-.flex-3BkGQD.horizontal-112GEH.justifyEnd-2G0m6w.alignStretch-Uwowzr.noWrap-hBpHBz {
     opacity: 1
 }
 
-.flex-2S1XBF.flex-3BkGQD.horizontal-112GEH.horizontal-1Piu5-.flex-3BkGQD.directionRow-2Iu2A9.justifyEnd-2G0m6w.alignStretch-Uwowzr.noWrap-hBpHBz {
+.flex-2S1XBF.flex-3BkGQD.horizontal-112GEH.horizontal-1Piu5-.flex-3BkGQD.horizontal-112GEH.justifyEnd-2G0m6w.alignStretch-Uwowzr.noWrap-hBpHBz {
     padding-top: 16px
-}
+}*/
 
 html:hover~.app-3xd6d0 .topControls-23RE3h {
     opacity: 1
