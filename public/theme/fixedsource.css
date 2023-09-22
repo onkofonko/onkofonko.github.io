@@ -1987,7 +1987,8 @@ body.foldercontentopened .base-2jDfDU {
 .avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Benutzereinstellungen],
 .avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Brugerindstillinger],
 .avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Brukerinnstillinger],
-.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Gebruikersinstellingen] {
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Gebruikersinstellingen],
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button:nth-child(3) {
     display: block
 }
 
@@ -2021,6 +2022,7 @@ body.foldercontentopened .base-2jDfDU {
 .avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label=Brugerindstillinger],
 .avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label=Brukerinnstillinger],
 .avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label=Gebruikersinstellingen],
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button:nth-child(3),
 .avatarWrapper-1B9FTW[aria-expanded=false]~.nameTag-sc-gpq .usernameContainer-3PPkWq:after,
 .avatarWrapper-1B9FTW[aria-expanded=false]~.nameTag-sc-gpq .usernameContainer-3PPkWq:before {
     display: block;
@@ -2058,6 +2060,7 @@ body.foldercontentopened .base-2jDfDU {
 .avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Brugerindstillinger] .contents-3NembX,
 .avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Brukerinnstillinger] .contents-3NembX,
 .avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button[aria-label=Gebruikersinstellingen] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=true]~.horizontal-112GEH button:nth-child(3) .contents-3NembX,
 .avatarWrapper-1B9FTW[aria-expanded=true]~.nameTag-sc-gpq .usernameContainer-3PPkWq:after,
 .avatarWrapper-1B9FTW[aria-expanded=true]~.nameTag-sc-gpq .usernameContainer-3PPkWq:before {
     opacity: 1;
@@ -2095,6 +2098,7 @@ body.foldercontentopened .base-2jDfDU {
 .avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label=Brugerindstillinger] .contents-3NembX,
 .avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label=Brukerinnstillinger] .contents-3NembX,
 .avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button[aria-label=Gebruikersinstellingen] .contents-3NembX,
+.avatarWrapper-1B9FTW[aria-expanded=false]~.horizontal-112GEH button:nth-child(3) .contents-3NembX,
 .avatarWrapper-1B9FTW[aria-expanded=false]~.nameTag-sc-gpq .usernameContainer-3PPkWq:after,
 .avatarWrapper-1B9FTW[aria-expanded=false]~.nameTag-sc-gpq .usernameContainer-3PPkWq:before {
     opacity: 0
@@ -2134,7 +2138,8 @@ body.foldercontentopened .base-2jDfDU {
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Benutzereinstellungen],
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brugerindstillinger],
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brukerinnstillinger],
-.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen] {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen],
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button:nth-child(3) {
     --user-settings-svg-size: 16px !important;
     --user-setting-margin-left: -3px;
     position: fixed;
@@ -2190,7 +2195,8 @@ body.foldercontentopened .base-2jDfDU {
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Benutzereinstellungen]:hover,
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brugerindstillinger]:hover,
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brukerinnstillinger]:hover,
-.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen]:hover {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen]:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button:nth-child(3):hover {
     background-color: transparent;
     color: var(--interactive-normal)
 }
@@ -2224,7 +2230,8 @@ body.foldercontentopened .base-2jDfDU {
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Benutzereinstellungen] .contents-3NembX,
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brugerindstillinger] .contents-3NembX,
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brukerinnstillinger] .contents-3NembX,
-.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen] .contents-3NembX {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen] .contents-3NembX,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button:nth-child(3) .contents-3NembX {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     display: grid;
@@ -2272,7 +2279,8 @@ body.foldercontentopened .base-2jDfDU {
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Benutzereinstellungen] .contents-3NembX:hover,
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brugerindstillinger] .contents-3NembX:hover,
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brukerinnstillinger] .contents-3NembX:hover,
-.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen] .contents-3NembX:hover {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen] .contents-3NembX:hover,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button:nth-child(3) .contents-3NembX:hover {
     background-color: var(--background-modifier-hover);
     color: var(--interactive-active);
     transform: unset !important
@@ -2431,7 +2439,8 @@ body.foldercontentopened .base-2jDfDU {
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Benutzereinstellungen] .contents-3NembX:after,
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brugerindstillinger] .contents-3NembX:after,
 .panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Brukerinnstillinger] .contents-3NembX:after,
-.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen] .contents-3NembX:after {
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button[aria-label=Gebruikersinstellingen] .contents-3NembX:after,
+.panels-3wFtMD .container-YkUktl .horizontal-112GEH button:nth-child(3) .contents-3NembX:after {
     grid-area: span 2;
     line-height: 18px
 }
@@ -4892,6 +4901,7 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-2u3xDC {
 .wrapper-1gVUIN.minimum-fXpVNc {
     z-index: 10
 }
+
 /*
 .root-22AK9z.idle-39sGPO .flex-2S1XBF.flex-3BkGQD.horizontal-112GEH.horizontal-1Piu5-.flex-3BkGQD.horizontal-112GEH.justifyEnd-2G0m6w.alignStretch-Uwowzr.noWrap-hBpHBz {
     opacity: 0
