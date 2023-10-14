@@ -3355,7 +3355,7 @@ body.foldercontentopened .base-2jDfDU {
     background: 0 0;
     color: var(--interactive-normal);
     z-index: 100;
-    border-radius: 16px
+    border-radius: 16px !important
 }
 
 .button-12Fmur.enabled-9OeuTA:hover,

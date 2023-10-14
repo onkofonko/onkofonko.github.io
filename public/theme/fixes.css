@@ -557,3 +557,8 @@ button.tagsButton-4pwOKH {
     padding: 0 0 6px 6px;
     margin-top: -4px;
 }
+
+.tooltip-33Jwqe:has(.tooltipBodyContainer-OhZt72):has(.tooltipPremiumFooterContainer-3Z8jwf),
+.tooltip-33Jwqe:has(.tooltipContent-38tm3I):has(.tooltipRemovePadding-1zEoQp) {
+    left: 86px
+}
