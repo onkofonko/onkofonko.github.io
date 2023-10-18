@@ -647,7 +647,7 @@
     top: 0 !important
 }
 
-#app-mount .app-3xd6d0 .base-2jDfDU {
+#app-mount .app-1BipOi .base-2jDfDU {
     top: var(--server-container) !important;
     position: absolute !important;
     left: 0 !important;
@@ -3433,7 +3433,7 @@ body.foldercontentopened .base-2jDfDU {
     order: 1
 }
 
-#app-mount .app-3xd6d0 .base-2jDfDU {
+#app-mount .app-1BipOi .base-2jDfDU {
     flex-direction: column
 }
 
@@ -4692,7 +4692,7 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-2u3xDC {
     margin: 8px 0 8px 0
 }
 
-.wordmarkWindows-2dq6rw {
+.wordmarkWindows-1rsity {
     padding: 8px 9px 6px;
     display: none
 }
@@ -4915,7 +4915,7 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-2u3xDC {
     padding-top: 16px
 }*/
 
-html:hover~.app-3xd6d0 .topControls-23RE3h {
+html:hover~.app-1BipOi .topControls-23RE3h {
     opacity: 1
 }
 
