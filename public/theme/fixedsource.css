@@ -2967,7 +2967,7 @@ body.foldercontentopened .base-2jDfDU {
     pointer-events: none
 }
 
-.panels-3wFtMD .gameWrapper-1gvhsy .info-88fTUI {
+.panels-3wFtMD .gameWrapper-1gvhsy .info-2PZl4A {
     display: none
 }
 
@@ -3281,7 +3281,7 @@ body.foldercontentopened .base-2jDfDU {
     justify-content: normal
 }
 
-.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .actionButtons-1DmM2g .button-1EGGcP {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .actionButtons-1DmM2g .button-2gNyE9 {
     font-size: 0;
     margin: 0;
     width: 32px;
@@ -3293,7 +3293,7 @@ body.foldercontentopened .base-2jDfDU {
     flex-basis: auto
 }
 
-.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .actionButtons-1DmM2g .button-1EGGcP .contents-3NembX {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .actionButtons-1DmM2g .button-2gNyE9 .contents-3NembX {
     margin: 0;
     max-height: 20px;
     max-width: 20px;
@@ -3301,7 +3301,7 @@ body.foldercontentopened .base-2jDfDU {
     width: 20px
 }
 
-.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .actionButtons-1DmM2g .button-1EGGcP svg {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .actionButtons-1DmM2g .button-2gNyE9 svg {
     margin: 0
 }
 
@@ -3348,10 +3348,10 @@ body.foldercontentopened .base-2jDfDU {
 }
 
 .button-12Fmur,
-.button-1EGGcP .buttonColor-3bP3fX,
-.button-1EGGcP .buttonColor-3bP3fX.buttonActive-Uc1jHx,
-.button-1EGGcP.buttonColor-3bP3fX,
-.button-1EGGcP.buttonColor-3bP3fX.buttonActive-Uc1jHx {
+.button-2gNyE9 .buttonColor-3bP3fX,
+.button-2gNyE9 .buttonColor-3bP3fX.buttonActive-Uc1jHx,
+.button-2gNyE9.buttonColor-3bP3fX,
+.button-2gNyE9.buttonColor-3bP3fX.buttonActive-Uc1jHx {
     background: 0 0;
     color: var(--interactive-normal);
     z-index: 100;
@@ -3359,19 +3359,19 @@ body.foldercontentopened .base-2jDfDU {
 }
 
 .button-12Fmur.enabled-9OeuTA:hover,
-.button-1EGGcP .buttonColor-3bP3fX.buttonActive-Uc1jHx:hover,
-.button-1EGGcP .buttonColor-3bP3fX:hover,
-.button-1EGGcP.buttonColor-3bP3fX.buttonActive-Uc1jHx:hover,
-.button-1EGGcP.buttonColor-3bP3fX:hover {
+.button-2gNyE9 .buttonColor-3bP3fX.buttonActive-Uc1jHx:hover,
+.button-2gNyE9 .buttonColor-3bP3fX:hover,
+.button-2gNyE9.buttonColor-3bP3fX.buttonActive-Uc1jHx:hover,
+.button-2gNyE9.buttonColor-3bP3fX:hover {
     color: var(--interactive-hover);
     background-color: var(--background-modifier-selected)
 }
 
 .button-12Fmur.enabled-9OeuTA .contents-3NembX,
-.button-1EGGcP .buttonColor-3bP3fX .contents-3NembX,
-.button-1EGGcP .buttonColor-3bP3fX.buttonActive-Uc1jHx .contents-3NembX,
-.button-1EGGcP.buttonColor-3bP3fX .contents-3NembX,
-.button-1EGGcP.buttonColor-3bP3fX.buttonActive-Uc1jHx .contents-3NembX {
+.button-2gNyE9 .buttonColor-3bP3fX .contents-3NembX,
+.button-2gNyE9 .buttonColor-3bP3fX.buttonActive-Uc1jHx .contents-3NembX,
+.button-2gNyE9.buttonColor-3bP3fX .contents-3NembX,
+.button-2gNyE9.buttonColor-3bP3fX.buttonActive-Uc1jHx .contents-3NembX {
     transition: transform .25s ease
 }
 
