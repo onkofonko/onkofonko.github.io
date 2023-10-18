@@ -3278,7 +3278,8 @@ body.foldercontentopened .base-2jDfDU {
     padding: 0;
     margin: 0;
     -webkit-box-pack: justify;
-    justify-content: normal
+    justify-content: normal;
+    z-index: 3;
 }
 
 .panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .actionButtons-1DmM2g .button-2gNyE9 {
@@ -3348,10 +3349,10 @@ body.foldercontentopened .base-2jDfDU {
 }
 
 .button-12Fmur,
-.button-2gNyE9 .buttonColor-3bP3fX,
-.button-2gNyE9 .buttonColor-3bP3fX.buttonActive-Uc1jHx,
-.button-2gNyE9.buttonColor-3bP3fX,
-.button-2gNyE9.buttonColor-3bP3fX.buttonActive-Uc1jHx {
+.button-2gNyE9 .buttonColor-1PCuWq,
+.button-2gNyE9 .buttonColor-1PCuWq.buttonActive-Uc1jHx,
+.button-2gNyE9.buttonColor-1PCuWq,
+.button-2gNyE9.buttonColor-1PCuWq.buttonActive-Uc1jHx {
     background: 0 0;
     color: var(--interactive-normal);
     z-index: 100;
@@ -3359,19 +3360,19 @@ body.foldercontentopened .base-2jDfDU {
 }
 
 .button-12Fmur.enabled-9OeuTA:hover,
-.button-2gNyE9 .buttonColor-3bP3fX.buttonActive-Uc1jHx:hover,
-.button-2gNyE9 .buttonColor-3bP3fX:hover,
-.button-2gNyE9.buttonColor-3bP3fX.buttonActive-Uc1jHx:hover,
-.button-2gNyE9.buttonColor-3bP3fX:hover {
+.button-2gNyE9 .buttonColor-1PCuWq.buttonActive-Uc1jHx:hover,
+.button-2gNyE9 .buttonColor-1PCuWq:hover,
+.button-2gNyE9.buttonColor-1PCuWq.buttonActive-Uc1jHx:hover,
+.button-2gNyE9.buttonColor-1PCuWq:hover {
     color: var(--interactive-hover);
     background-color: var(--background-modifier-selected)
 }
 
 .button-12Fmur.enabled-9OeuTA .contents-3NembX,
-.button-2gNyE9 .buttonColor-3bP3fX .contents-3NembX,
-.button-2gNyE9 .buttonColor-3bP3fX.buttonActive-Uc1jHx .contents-3NembX,
-.button-2gNyE9.buttonColor-3bP3fX .contents-3NembX,
-.button-2gNyE9.buttonColor-3bP3fX.buttonActive-Uc1jHx .contents-3NembX {
+.button-2gNyE9 .buttonColor-1PCuWq .contents-3NembX,
+.button-2gNyE9 .buttonColor-1PCuWq.buttonActive-Uc1jHx .contents-3NembX,
+.button-2gNyE9.buttonColor-1PCuWq .contents-3NembX,
+.button-2gNyE9.buttonColor-1PCuWq.buttonActive-Uc1jHx .contents-3NembX {
     transition: transform .25s ease
 }
 
