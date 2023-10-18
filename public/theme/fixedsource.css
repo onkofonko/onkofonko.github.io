@@ -1047,7 +1047,7 @@ body.foldercontentopened .base-2jDfDU {
     transition: 0.2s ease !important;
 }
 
-.accountProfilePopoutWrapper-3GskID {
+.accountProfilePopoutWrapper-Ag_Fip {
     left: 0;
 }
 
@@ -2934,16 +2934,16 @@ body.foldercontentopened .base-2jDfDU {
     position: relative
 }
 
-.connection-3k9QeF .inner-llGtyq {
+.connection-3k9QeF .inner-C_MH0f {
     display: none
 }
 
-.connection-3k9QeF:hover .inner-llGtyq {
+.connection-3k9QeF:hover .inner-C_MH0f {
     display: block;
     animation: var(--dialog-fade-in-from-top)
 }
 
-.connection-3k9QeF .inner-llGtyq {
+.connection-3k9QeF .inner-C_MH0f {
     position: absolute;
     bottom: 0;
     left: -38px;
@@ -2953,7 +2953,7 @@ body.foldercontentopened .base-2jDfDU {
     box-sizing: border-box
 }
 
-.connection-3k9QeF .inner-llGtyq>div {
+.connection-3k9QeF .inner-C_MH0f>div {
     box-shadow: var(--elevation-high);
     background: var(--background-floating);
     padding: 12px;
@@ -3274,14 +3274,14 @@ body.foldercontentopened .base-2jDfDU {
     border: none !important
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-2vEOUh {
+.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-1DmM2g {
     padding: 0;
     margin: 0;
     -webkit-box-pack: justify;
     justify-content: normal
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-2vEOUh .button-1EGGcP {
+.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-1DmM2g .button-1EGGcP {
     font-size: 0;
     margin: 0;
     width: 32px;
@@ -3293,7 +3293,7 @@ body.foldercontentopened .base-2jDfDU {
     flex-basis: auto
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-2vEOUh .button-1EGGcP .contents-3NembX {
+.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-1DmM2g .button-1EGGcP .contents-3NembX {
     margin: 0;
     max-height: 20px;
     max-width: 20px;
@@ -3301,11 +3301,11 @@ body.foldercontentopened .base-2jDfDU {
     width: 20px
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-2vEOUh .button-1EGGcP svg {
+.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-1DmM2g .button-1EGGcP svg {
     margin: 0
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-2vEOUh,
+.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-1DmM2g,
 .panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .horizontal-112GEH {
     flex-grow: 0 !important;
     flex-shrink: 0 !important;
@@ -3511,7 +3511,7 @@ body.foldercontentopened .base-2jDfDU {
     background-color: var(--bg-color-hover)
 }
 
-.title-31SJ6t {
+.title-5wgnIa {
     z-index: unset
 }
 
@@ -3701,9 +3701,9 @@ html {
     margin: unset !important
 }
 
-.titleBar-1it3bQ,
-.typeMacOS-3V4xXE.titleBar-1it3bQ,
-.typeWindows-3ILlhq.titleBar-1it3bQ,
+.titleBar-3AIemB,
+.typeMacOS-3V4xXE.titleBar-3AIemB,
+.typeWindows-3ILlhq.titleBar-3AIemB,
 html.platform-osx #app-mount .typeMacOS-3V4xXE,
 html.platform-osx #app-mount .typeWindows-3ILlhq {
     --frame-gap: 4px;
@@ -3719,7 +3719,7 @@ html.platform-osx #app-mount .typeWindows-3ILlhq {
     width: calc(100vw - (var(--frame-gap) * 2))
 }
 
-.winButton-3UMjdg {
+.winButton-3SigSb {
     top: calc((-1 * var(--frame-gap)) + 0px);
     width: var(--windowcontrol-buttons-width);
     height: var(--windowcontrol-buttons-height);
@@ -3807,7 +3807,7 @@ html.platform-osx #app-mount .guilds-2JjMmN:after {
     transition: opacity .15s ease
 }
 
-.typeMacOS-3V4xXE.titleBar-1it3bQ.focused-Xb9BI5 .macButton-2M5W_9:hover svg {
+.typeMacOS-3V4xXE.titleBar-3AIemB.focused-Xb9BI5 .macButton-2M5W_9:hover svg {
     opacity: 1
 }
 
@@ -4268,7 +4268,7 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-2u3xDC {
     padding: 0 !important
 }
 
-.accountProfilePopoutWrapper-3GskID {
+.accountProfilePopoutWrapper-Ag_Fip {
     position: relative;
     left: 0;
 }
@@ -4721,7 +4721,7 @@ html #app-mount .userPopoutOuter-1OHwPL .avatarPositionPremiumNoBanner-2u3xDC {
     margin-bottom: 32px !important
 }
 
-.chat-9g_3Xj .title-31SJ6t .children-3xh0VB .title-17SveM {
+.chat-9g_3Xj .title-5wgnIa .children-3xh0VB .title-17SveM {
     margin: 0 8px 0 8px
 }
 
@@ -4923,16 +4923,16 @@ html:hover~.app-3xd6d0 .topControls-23RE3h {
     background-color: var(--background-secondary);
 }
 
-.channelTextArea-1FufC0.channelTextArea-1VQBuV.channelTextAreaDisabled-1p2fQv .buttons-uaqb-5 {
+.channelTextArea-1deLlK.channelTextArea-1VQBuV.channelTextAreaDisabled-1p2fQv .buttons-uaqb-5 {
     display: none
 }
 
-.channelTextArea-1FufC0.channelTextArea-1VQBuV.channelTextAreaDisabled-1p2fQv,
-.channelTextArea-1FufC0.channelTextArea-1VQBuV.channelTextAreaDisabled-1p2fQv .scrollableContainer-15eg7h {
+.channelTextArea-1deLlK.channelTextArea-1VQBuV.channelTextAreaDisabled-1p2fQv,
+.channelTextArea-1deLlK.channelTextArea-1VQBuV.channelTextAreaDisabled-1p2fQv .scrollableContainer-15eg7h {
     background: transparent 0 0;
 }
 
-.channelTextArea-1FufC0.channelTextArea-1VQBuV.channelTextAreaDisabled-1p2fQv .scrollableContainer-15eg7h {
+.channelTextArea-1deLlK.channelTextArea-1VQBuV.channelTextAreaDisabled-1p2fQv .scrollableContainer-15eg7h {
     backdrop-filter: blur(0);
     background-color: var(--background-primary)
 }
@@ -4954,11 +4954,11 @@ html:hover~.app-3xd6d0 .topControls-23RE3h {
     margin-right: var(--chat-side-margin)
 }
 
-.channelTextArea-1FufC0.channelTextArea-1VQBuV {
+.channelTextArea-1deLlK.channelTextArea-1VQBuV {
     border-radius: 0
 }
 
-.channelTextArea-1FufC0 {
+.channelTextArea-1deLlK {
     background: 0 0;
     margin-bottom: var(--text-area-bottom-margin)
 }
@@ -4967,7 +4967,7 @@ html:hover~.app-3xd6d0 .topControls-23RE3h {
     border-radius: 0
 }
 
-.channelTextArea-1FufC0 .scrollableContainer-15eg7h {
+.channelTextArea-1deLlK .scrollableContainer-15eg7h {
     background: var(--background-secondary);
     border-radius: 22px
 }
@@ -4992,18 +4992,18 @@ html:hover~.app-3xd6d0 .topControls-23RE3h {
     display: none
 }
 
-.channelTextArea-1FufC0.channelTextArea-1VQBuV .attachWrapper-3slhXI,
-.channelTextArea-1FufC0.channelTextArea-1VQBuV .buttons-uaqb-5 {
+.channelTextArea-1deLlK.channelTextArea-1VQBuV .attachWrapper-3slhXI,
+.channelTextArea-1deLlK.channelTextArea-1VQBuV .buttons-uaqb-5 {
     opacity: .5;
     transition: opacity .35s ease
 }
 
-.channelTextArea-1FufC0.channelTextArea-1VQBuV:hover .attachWrapper-3slhXI,
-.channelTextArea-1FufC0.channelTextArea-1VQBuV:hover .buttons-uaqb-5 {
+.channelTextArea-1deLlK.channelTextArea-1VQBuV:hover .attachWrapper-3slhXI,
+.channelTextArea-1deLlK.channelTextArea-1VQBuV:hover .buttons-uaqb-5 {
     opacity: 1
 }
 
-.channelTextArea-1FufC0.channelTextArea-1VQBuV .buttons-uaqb-5 {
+.channelTextArea-1deLlK.channelTextArea-1VQBuV .buttons-uaqb-5 {
     order: 3
 }
 
@@ -5019,10 +5019,10 @@ html:hover~.app-3xd6d0 .topControls-23RE3h {
 }
 
 .attachButton-_ACFSu .attachButtonInner-2mwer8,
-.channelTextArea-1FufC0 .icon-1d5zch,
-.channelTextArea-1FufC0 .sprite-2lxwfc,
-.channelTextArea-1FufC0 .stickerIcon-3Jx5SE,
-.channelTextArea-1FufC0 [class^=InvisibleTyping-typingButton] svg,
+.channelTextArea-1deLlK .icon-1d5zch,
+.channelTextArea-1deLlK .sprite-2lxwfc,
+.channelTextArea-1deLlK .stickerIcon-3Jx5SE,
+.channelTextArea-1deLlK [class^=InvisibleTyping-typingButton] svg,
 .timestamp-button svg {
     transform: scale(.82) !important;
     transition: color .2s ease
@@ -5802,7 +5802,7 @@ button[class^=attachButton] {
     letter-spacing: 1px
 }
 
-#MemberCount .membersGroup-2eiWxl {
+#MemberCount membersGroup-2YoqY- {
     padding: 0 0 0 calc(8px + 8px);
     height: var(--app-info-bar-height, 48px) !important
 }
@@ -5844,7 +5844,7 @@ button[class^=attachButton] {
     max-height: 80vh
 }
 
-.chat-9g_3Xj .title-31SJ6t .children-3xh0VB .iconWrapper-2awDjA {
+.chat-9g_3Xj .title-5wgnIa .children-3xh0VB .iconWrapper-2awDjA {
     display: none
 }
 
@@ -10431,7 +10431,7 @@ html:not(.app-focused) .sidebarRegionScroller-FXiQOh {
 .content-yjf30S .emptyChannelIcon-1YdEz2~.size32-5yOQel,
 .quickswitcher-pKcM9U .result-u66Ywh .match-20K5f5,
 .sidebar-1tnWFu .linkTop-1W1aK6 .name-28HaxV,
-.title-31SJ6t .iconWrapper-2awDjA+.title-17SveM,
+.title-5wgnIa .iconWrapper-2awDjA+.title-17SveM,
 .wrapper-1ZcZW-[class="wrapper-1ZcZW- mention interactive"] {
     font-family: dash2space, var(--font-primary);
     text-transform: capitalize
