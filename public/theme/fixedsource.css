@@ -2967,7 +2967,7 @@ body.foldercontentopened .base-2jDfDU {
     pointer-events: none
 }
 
-.panels-3wFtMD .gameWrapper-2TFy7F .info-88fTUI {
+.panels-3wFtMD .gameWrapper-1gvhsy .info-88fTUI {
     display: none
 }
 
@@ -3188,9 +3188,9 @@ body.foldercontentopened .base-2jDfDU {
     margin-right: 512px
 }
 
-.panels-3wFtMD .activityPanel-9icbyU .body-1FrnJD,
-.panels-3wFtMD .activityPanel-9icbyU .body-1FrnJD .gameIconWrapper-zXQ03M,
-.panels-3wFtMD .activityPanel-9icbyU .body-1FrnJD .gameWrapper-2TFy7F {
+.panels-3wFtMD .activityPanel-9icbyU .body-OADsbV,
+.panels-3wFtMD .activityPanel-9icbyU .body-OADsbV .gameIconWrapper-zXQ03M,
+.panels-3wFtMD .activityPanel-9icbyU .body-OADsbV .gameWrapper-1gvhsy {
     width: 32px;
     max-width: 32px;
     height: 32px;
@@ -3202,18 +3202,18 @@ body.foldercontentopened .base-2jDfDU {
     display: flex
 }
 
-.panels-3wFtMD .activityPanel-9icbyU .actions-zk2vB_ {
+.panels-3wFtMD .activityPanel-9icbyU .actions-_dBVGH {
     margin: 0
 }
 
-.panels-3wFtMD .activityPanel-9icbyU .gameWrapper-2TFy7F .gameIconWrapper-zXQ03M,
-.panels-3wFtMD .activityPanel-9icbyU .gameWrapper-2TFy7F .icon-10cLkJ {
+.panels-3wFtMD .activityPanel-9icbyU .gameWrapper-1gvhsy .gameIconWrapper-zXQ03M,
+.panels-3wFtMD .activityPanel-9icbyU .gameWrapper-1gvhsy .icon-10cLkJ {
     border-radius: 50%;
     box-sizing: border-box
 }
 
-.panels-3wFtMD .activityPanel-9icbyU .body-1FrnJD:hover .gameWrapper-2TFy7F .gameIconWrapper-zXQ03M,
-.panels-3wFtMD .activityPanel-9icbyU .body-1FrnJD:hover .gameWrapper-2TFy7F .icon-10cLkJ {
+.panels-3wFtMD .activityPanel-9icbyU .body-OADsbV:hover .gameWrapper-1gvhsy .gameIconWrapper-zXQ03M,
+.panels-3wFtMD .activityPanel-9icbyU .body-OADsbV:hover .gameWrapper-1gvhsy .icon-10cLkJ {
     border-radius: 16px;
     opacity: 1;
     margin: 0;
@@ -3221,12 +3221,12 @@ body.foldercontentopened .base-2jDfDU {
     color: transparent
 }
 
-.panels-3wFtMD .activityPanel-9icbyU .body-1FrnJD:hover .gameWrapper-2TFy7F * {
+.panels-3wFtMD .activityPanel-9icbyU .body-OADsbV:hover .gameWrapper-1gvhsy * {
     opacity: 0
 }
 
-.panels-3wFtMD .activityPanel-9icbyU .body-1FrnJD:hover .gameWrapper-2TFy7F .gameIcon-2BIUJ3,
-.panels-3wFtMD .activityPanel-9icbyU .body-1FrnJD:hover .gameWrapper-2TFy7F .icon-10cLkJ {
+.panels-3wFtMD .activityPanel-9icbyU .body-OADsbV:hover .gameWrapper-1gvhsy .gameIcon-1mDo1J,
+.panels-3wFtMD .activityPanel-9icbyU .body-OADsbV:hover .gameWrapper-1gvhsy .icon-10cLkJ {
     opacity: .25;
     margin: 0;
     --size: 32px;
@@ -3234,16 +3234,16 @@ body.foldercontentopened .base-2jDfDU {
     border-radius: calc(var(--size)/ 2)
 }
 
-.panels-3wFtMD .activityPanel-9icbyU .body-1FrnJD .actions-zk2vB_ {
+.panels-3wFtMD .activityPanel-9icbyU .body-OADsbV .actions-_dBVGH {
     opacity: 0;
     transition: opacity .25s ease
 }
 
-.panels-3wFtMD .activityPanel-9icbyU .body-1FrnJD:hover .actions-zk2vB_ {
+.panels-3wFtMD .activityPanel-9icbyU .body-OADsbV:hover .actions-_dBVGH {
     opacity: 1
 }
 
-.gameIcon-2BIUJ3,
+.gameIcon-1mDo1J,
 .icon-10cLkJ {
     margin: 4px;
     --size: 24px;
