@@ -2926,7 +2926,7 @@ body.foldercontentopened .base-2jDfDU {
     --control-area-bottom-margin: var(--text-area-bottom-margin)
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .horizontal-112GEH button[aria-label*=Krisp] {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .horizontal-112GEH button[aria-label*=Krisp] {
     display: none
 }
 
@@ -3017,7 +3017,7 @@ body.foldercontentopened .base-2jDfDU {
     max-width: 100%
 }
 
-.panels-3wFtMD>div:not(.wrapper-3Hk9OB):not(.container-1CH86i):not(.activityPanel-9icbyU) {
+.panels-3wFtMD>div:not(.wrapper-VSquwh):not(.container-1CH86i):not(.activityPanel-9icbyU) {
     margin-bottom: 12px;
     width: 100%
 }
@@ -3029,16 +3029,16 @@ body.foldercontentopened .base-2jDfDU {
     z-index: 1
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB {
+.panels-3wFtMD .wrapper-VSquwh {
     margin-bottom: 0
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg {
     margin-bottom: 30px !important
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg:after,
-.panels-3wFtMD .wrapper-3Hk9OB~.container-1CH86i .horizontal-112GEH:after {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg:after,
+.panels-3wFtMD .wrapper-VSquwh~.container-1CH86i .horizontal-112GEH:after {
     content: "";
     position: absolute;
     background-color: var(--background-primary);
@@ -3050,19 +3050,19 @@ body.foldercontentopened .base-2jDfDU {
     box-sizing: border-box
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg:after {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg:after {
     left: -8px
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB~.container-1CH86i .horizontal-112GEH:after {
+.panels-3wFtMD .wrapper-VSquwh~.container-1CH86i .horizontal-112GEH:after {
     right: -8px
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB~.container-1CH86i .horizontal-112GEH {
+.panels-3wFtMD .wrapper-VSquwh~.container-1CH86i .horizontal-112GEH {
     position: relative
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB~.container-1CH86i .horizontal-112GEH:before {
+.panels-3wFtMD .wrapper-VSquwh~.container-1CH86i .horizontal-112GEH:before {
     display: none;
     content: "";
     background: linear-gradient(to bottom, transparent, var(--background-secondary) 30px, var(--background-secondary));
@@ -3156,7 +3156,7 @@ body.foldercontentopened .base-2jDfDU {
     border-color: var(--interactive-hover) !important
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB {
+.panels-3wFtMD .wrapper-VSquwh {
     order: 97
 }
 
@@ -3184,7 +3184,7 @@ body.foldercontentopened .base-2jDfDU {
     display: none
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB:empty {
+.panels-3wFtMD .wrapper-VSquwh:empty {
     margin-right: 512px
 }
 
@@ -3261,27 +3261,27 @@ body.foldercontentopened .base-2jDfDU {
     color: var(--header-primary)
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg {
     flex-direction: row;
     align-content: flex-start;
     text-align: left
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg,
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .horizontal-112GEH {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg,
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .horizontal-112GEH {
     padding: 0;
     margin: 0;
     border: none !important
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-1DmM2g {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .actionButtons-1DmM2g {
     padding: 0;
     margin: 0;
     -webkit-box-pack: justify;
     justify-content: normal
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-1DmM2g .button-1EGGcP {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .actionButtons-1DmM2g .button-1EGGcP {
     font-size: 0;
     margin: 0;
     width: 32px;
@@ -3293,7 +3293,7 @@ body.foldercontentopened .base-2jDfDU {
     flex-basis: auto
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-1DmM2g .button-1EGGcP .contents-3NembX {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .actionButtons-1DmM2g .button-1EGGcP .contents-3NembX {
     margin: 0;
     max-height: 20px;
     max-width: 20px;
@@ -3301,12 +3301,12 @@ body.foldercontentopened .base-2jDfDU {
     width: 20px
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-1DmM2g .button-1EGGcP svg {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .actionButtons-1DmM2g .button-1EGGcP svg {
     margin: 0
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .actionButtons-1DmM2g,
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg .horizontal-112GEH {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .actionButtons-1DmM2g,
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg .horizontal-112GEH {
     flex-grow: 0 !important;
     flex-shrink: 0 !important;
     flex-basis: auto;
@@ -3317,7 +3317,7 @@ body.foldercontentopened .base-2jDfDU {
 }
 
 .panels-3wFtMD .container-1CH86i,
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg {
     margin: 0;
     padding: 0;
     max-height: 32px;
@@ -3328,16 +3328,16 @@ body.foldercontentopened .base-2jDfDU {
     max-width: fit-content
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg {
     min-width: unset;
     width: unset
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB .container-2NLBJg {
+.panels-3wFtMD .wrapper-VSquwh .container-2NLBJg {
     display: flex
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB {
+.panels-3wFtMD .wrapper-VSquwh {
     display: flex;
     flex: 3;
     max-width: fit-content
@@ -3410,13 +3410,13 @@ body.foldercontentopened .base-2jDfDU {
     color: var(--text-danger)
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB~.container-1CH86i .horizontal-112GEH {
+.panels-3wFtMD .wrapper-VSquwh~.container-1CH86i .horizontal-112GEH {
     display: flex
 }
 
-.panels-3wFtMD .wrapper-3Hk9OB:empty~.container-1CH86i .horizontal-112GEH button:not(:last-child),
-.panels-3wFtMD .wrapper-3Hk9OB:empty~.container-1CH86i .horizontal-112GEH:after,
-.panels-3wFtMD .wrapper-3Hk9OB:empty~.container-1CH86i .horizontal-112GEH:before {
+.panels-3wFtMD .wrapper-VSquwh:empty~.container-1CH86i .horizontal-112GEH button:not(:last-child),
+.panels-3wFtMD .wrapper-VSquwh:empty~.container-1CH86i .horizontal-112GEH:after,
+.panels-3wFtMD .wrapper-VSquwh:empty~.container-1CH86i .horizontal-112GEH:before {
     display: none
 }
 
