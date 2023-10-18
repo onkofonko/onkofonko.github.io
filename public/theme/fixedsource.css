@@ -2930,20 +2930,20 @@ body.foldercontentopened .base-2jDfDU {
     display: none
 }
 
-.connection-3k9QeF {
+.connection-3wznVd {
     position: relative
 }
 
-.connection-3k9QeF .inner-C_MH0f {
+.connection-3wznVd .inner-C_MH0f {
     display: none
 }
 
-.connection-3k9QeF:hover .inner-C_MH0f {
+.connection-3wznVd:hover .inner-C_MH0f {
     display: block;
     animation: var(--dialog-fade-in-from-top)
 }
 
-.connection-3k9QeF .inner-C_MH0f {
+.connection-3wznVd .inner-C_MH0f {
     position: absolute;
     bottom: 0;
     left: -38px;
@@ -2953,7 +2953,7 @@ body.foldercontentopened .base-2jDfDU {
     box-sizing: border-box
 }
 
-.connection-3k9QeF .inner-C_MH0f>div {
+.connection-3wznVd .inner-C_MH0f>div {
     box-shadow: var(--elevation-high);
     background: var(--background-floating);
     padding: 12px;
