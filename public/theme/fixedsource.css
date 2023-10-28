@@ -4111,18 +4111,18 @@ button[aria-label="Disable Game Activity"] .contents_fb6220:after {
 
 .profileBannerPreview-3_l0Wd .avatarUploaderHint-2ZdBlc,
 .profileBannerPreview-3_l0Wd .avatarUploaderIndicator-2G-aIZ,
-.profileBannerPreview-3_l0Wd .avatarUploaderInner-yEhTv5 [class^=fileInput],
+.profileBannerPreview-3_l0Wd .avatarUploaderInner_c81617 [class^=fileInput],
 .profileBannerPreview-3_l0Wd .bannerUploaderInnerSquare-1ddxpx [class^=fileInput] {
     display: none !important
 }
 
-.avatarUploaderInner-yEhTv5:focus-within,
-.avatarUploaderInner-yEhTv5:hover {
+.avatarUploaderInner_c81617:focus-within,
+.avatarUploaderInner_c81617:hover {
     -webkit-box-shadow: none;
     box-shadow: none
 }
 
-.avatarUploaderInner-yEhTv5,
+.avatarUploaderInner_c81617,
 .bannerOverlay-1uIerX {
     pointer-events: none
 }
@@ -4214,17 +4214,17 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
     transform: translateY(-8px)
 }
 
-.topSection-13QKHs>header>.header-S26rhB {
+.topSection_dfb73b>header>.header__7da4f {
     margin-top: 84px;
     margin-bottom: -84px;
     position: relative;
 }
 
-.topSection-13QKHs>header>.bannerSVGWrapper__3e7b0[viewBox*="212"] {
+.topSection_dfb73b>header>.bannerSVGWrapper__3e7b0[viewBox*="212"] {
     margin-bottom: -40px;
 }
 
-.topSection-13QKHs>header>.bannerSVGWrapper__3e7b0 {
+.topSection_dfb73b>header>.bannerSVGWrapper__3e7b0 {
     height: 100%;
     max-width: 600px;
     min-width: 600px !important;
@@ -4234,7 +4234,7 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
     contain: none;
 }
 
-.header-S26rhB {
+.header__7da4f {
     top: -75px
 }
 
@@ -4242,8 +4242,6 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
     position: relative
 }
 
-.banner-2boKnS:after,
-.banner-2boKnS:before,
 .banner__6d414:after,
 .banner__6d414:before,
 .bannerNormal-22rPhb:after,
@@ -4278,7 +4276,6 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
     display: none;
 }
 
-.banner-2boKnS:after,
 .banner__6d414:after,
 .bannerNormal-22rPhb:after,
 .bannerUploaderInnerSquare-1ddxpx:after,
@@ -4294,21 +4291,21 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
     visibility: visible;
 }
 
-.topSection-13QKHs>header>div:before {
+.topSection_dfb73b>header>div:before {
     width: 600px !important;
 }
 
-.topSection-13QKHs .banner__6d414:after {
+.topSection_dfb73b .banner__6d414:after {
     height: 240px
 }
 
-.topSection-13QKHs>header>.bannerPremium__42693,
-.topSection-13QKHs>header>.profileBanner__8414b {
+.topSection_dfb73b>header>.bannerPremium__42693,
+.topSection_dfb73b>header>.profileBanner__8414b {
     visibility: hidden;
 }
 
-.topSection-13QKHs>header>.bannerPremium__42693:after,
-.topSection-13QKHs>header>.bannerPremium__42693:before {
+.topSection_dfb73b>header>.bannerPremium__42693:after,
+.topSection_dfb73b>header>.bannerPremium__42693:before {
     visibility: visible;
 }
 
@@ -4339,7 +4336,6 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
 .popoutBanner__9f5b9:before,
 .profileBanner__8414b:before,
 .banner__6d414:before,
-.banner-2boKnS:before,
 .bannerNormal-22rPhb:before,
 .bannerUploaderInnerSquare-1ddxpx:before {
     bottom: 0;
@@ -4353,7 +4349,6 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
 }
 
 .banner__6d414.profileBanner__8414b:after,
-.banner-2boKnS:not(.bannerPremium-86naOf):after,
 .banner__6d414:not(.user-background):not(.bannerPremium__42693):after,
 .bannerNormal-22rPhb:after {
     --gradient-size: 100%;
@@ -4365,7 +4360,6 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
 }
 
 .banner__6d414.profileBanner__8414b:before,
-.banner-2boKnS:not(.bannerPremium-86naOf):before,
 .banner__6d414:not(.user-background):not(.bannerPremium__42693):before,
 .bannerNormal-22rPhb:before {
     filter: blur(128px) brightness(0.2) saturate(1) !important;
@@ -4483,8 +4477,8 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
     background-color: transparent
 }
 
-.topSection-13QKHs>header>.profileBanner__8414b,
-.topSection-13QKHs>header>.profileBanner-2zIsK7 {
+.topSection_dfb73b>header>.profileBanner__8414b,
+.topSection_dfb73b>header>.profileBanner-2zIsK7 {
     height: 200px !important;
 }
 
@@ -4493,7 +4487,7 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
     height: 240px !important;
 }
 
-.topSection-13QKHs>header>[class*="nameTag" i] {
+.topSection_dfb73b>header>[class*="nameTag" i] {
     margin-top: 0;
 }
 
