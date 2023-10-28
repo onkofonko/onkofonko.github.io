@@ -4396,7 +4396,7 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
 }
 
 [class^=userPopoutInner]>.profileBadges__7a7cb,
-.headerTop-1PNKck>[class^="badge"] {
+.headerTop__6628b>[class^="badge"] {
     background-color: unset;
 }
 
@@ -4404,7 +4404,7 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
     top: 12px
 }
 
-.profileBadges__7a7cb.containerWithContent-2_V0PM.container-5SvbtF {
+.profileBadges__7a7cb.containerWithContent__7e98f.container__5bda1 {
     margin-bottom: -8px;
 }
 
@@ -4436,11 +4436,11 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
 [class^=activity]>div>h1>.overflow__87fe8,
 [class^=activity]>div>h2>.overflow__87fe8,
 [class^=activity]>div>h3>.overflow__87fe8,
-.userInfoSectionHeader-48g5Qj {
+.userInfoSectionHeader__31b66 {
     color: var(--header-secondary)
 }
 
-.messageInput-1KI8l8 {
+.messageInput__3b049 {
     background-color: rgba(196, 196, 196, .1);
 }
 
