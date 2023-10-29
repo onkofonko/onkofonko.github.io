@@ -3586,7 +3586,6 @@ body.foldercontentopened .base__3e6af {
 
 .bannerImage__39c51 {
     height: calc(var(--server-banner-height) * 2);
-    top: unset;
     bottom: 0
 }
 
