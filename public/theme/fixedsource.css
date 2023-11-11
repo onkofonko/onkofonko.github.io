@@ -2060,12 +2060,9 @@ body.foldercontentopened .base__3e6af {
 .avatarWrapper_ba5175[aria-expanded=true]~.horizontal__992f6 button[aria-label=Brugerindstillinger] .contents_fb6220,
 .avatarWrapper_ba5175[aria-expanded=true]~.horizontal__992f6 button[aria-label=Brukerinnstillinger] .contents_fb6220,
 .avatarWrapper_ba5175[aria-expanded=true]~.horizontal__992f6 button[aria-label=Gebruikersinstellingen] .contents_fb6220,
-.avatarWrapper_ba5175[aria-expanded=true]~.horizontal__992f6 button:nth-child(3) .contents_fb6220,
-.avatarWrapper_ba5175[aria-expanded=true]~.nameTag__0e320 .usernameContainer__750f9:after,
-.avatarWrapper_ba5175[aria-expanded=true]~.nameTag__0e320 .usernameContainer__750f9:before {
+.avatarWrapper_ba5175[aria-expanded=true]~.horizontal__992f6 button:nth-child(3) .contents_fb6220 {
     opacity: 1;
     transition: transform .12s ease-out, opacity .12s ease-out;
-    animation: var(--dialog-fade-in-from-top)
 }
 
 .avatarWrapper_ba5175[aria-expanded=false]~.horizontal__992f6 button[aria-label="Ajustes de usuario"] .contents_fb6220,
@@ -4427,7 +4424,7 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
     --profile-gradient-overlay-color: var(--background-floating) !important;
 }
 
-.roles__74a2b{
+.roles__74a2b {
     color: var(--interactive-active)
 }
 
@@ -5801,7 +5798,7 @@ button[class^=attachButton] {
     height: var(--app-info-bar-height, 48px) !important
 }
 
-.layer__2efaa  {
+.layer__2efaa {
     transform: none !important;
     opacity: 1 !important
 }
@@ -10118,7 +10115,7 @@ html:not(.app-focused) .sidebarRegionScroller__1fa7e {
     top: 0
 }
 
-.platform-win .layer__2efaa  {
+.platform-win .layer__2efaa {
     top: 0;
     padding-top: 0
 }
