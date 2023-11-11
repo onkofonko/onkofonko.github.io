@@ -310,13 +310,13 @@ div.icon_c1b424 {
     display: none;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper_af829a>.popoutContainer__3d17d>.userPopoutOuter_d739b2>div>.overlayBackground__86b78>*:not(.menu_dc52c6):not(.divider_ed0c1d),
+[id^=popout]>div>.accountProfilePopoutWrapper_af829a>.popoutContainer__3d17d>.userPopoutOuter_d739b2>div>.overlayBackground__86b78>*:not(.menu_dc52c6):not(.divider__2bbbc),
 [id^=popout]>div>.accountProfilePopoutWrapper_af829a>.popoutContainer__3d17d>.userPopoutOuter_d739b2>div>*:not(.overlayBackground__86b78),
-[id^=popout]>div>.accountProfilePopoutWrapper_af829a>.popoutContainer__3d17d>.userPopoutOuter_d739b2>div>.overlayBackground__86b78>.divider_ed0c1d.divider__56f26 {
+[id^=popout]>div>.accountProfilePopoutWrapper_af829a>.popoutContainer__3d17d>.userPopoutOuter_d739b2>div>.overlayBackground__86b78>.divider__2bbbc.divider__56f26 {
     display: none;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper_af829a>.popoutContainer__3d17d>.userPopoutOuter_d739b2>div>.overlayBackground__86b78>.divider_ed0c1d {
+[id^=popout]>div>.accountProfilePopoutWrapper_af829a>.popoutContainer__3d17d>.userPopoutOuter_d739b2>div>.overlayBackground__86b78>.divider__2bbbc {
     margin-top: 16px;
 }
 
