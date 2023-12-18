@@ -559,3 +559,10 @@ button.tagsButton_e96762 {
 .tooltip__01384:has(.tooltipContent__79a2d):has(.tooltipRemovePadding__43c95) {
     left: 86px
 }
+
+[id^=popout]>div>.accountProfilePopoutWrapper_af829a>.popoutContainer__3d17d>.container__0ec3c{
+    height: 710px!important;
+    position: absolute;
+    top: 0px;
+    left: -332px;
+}
