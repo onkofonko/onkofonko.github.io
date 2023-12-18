@@ -1990,7 +1990,7 @@ body.foldercontentopened .base__3e6af {
     --user-settings-svg-size: 16px !important;
     --user-setting-margin-left: -3px;
     position: fixed;
-    top: calc(14px + var(--server-outer-margin) + var(--avatar-dropdown-offset) + var(--menu-container-padding));
+    top: calc(14px + var(--server-outer-margin, 14px) + var(--avatar-dropdown-offset) + var(--menu-container-padding));
     right: calc(-10000px + var(--dropdown-width) + var(--user-outer-right-margin) - var(--menu-container-padding) + 32px + 8px);
     width: 10000px;
     background-color: rgba(0, 0, 0, 0);
