@@ -1989,10 +1989,11 @@ body.foldercontentopened .base__3e6af {
 .panels__58331 .container_ca50b9 .horizontal__992f6 button:nth-child(3) {
     --user-settings-svg-size: 16px !important;
     --user-setting-margin-left: -3px;
+    --button-width: 208px;
     position: fixed;
     top: calc(14px + var(--server-outer-margin, 14px) + var(--avatar-dropdown-offset) + var(--menu-container-padding));
-    right: calc(-10000px + var(--dropdown-width) + var(--user-outer-right-margin) - var(--menu-container-padding) + 32px + 8px);
-    width: 10000px;
+    right: calc(var(--button-width) * -1 + var(--dropdown-width) + var(--user-outer-right-margin) - var(--menu-container-padding) + 32px + 8px);
+    width: var(--button-width);
     background-color: rgba(0, 0, 0, 0);
     z-index: 1002;
     box-sizing: border-box;
