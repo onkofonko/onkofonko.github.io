@@ -64,6 +64,12 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
+      - name: Install CSSO
+        run: npm install -g csso
+      - name: Install CSSO-cli
+        run: npm install -g csso-cli
+      - name: Optimize CSS
+        run: csso public/theme/source.css --output public/theme/fixedsource.css
       - name: Build with Astro
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
