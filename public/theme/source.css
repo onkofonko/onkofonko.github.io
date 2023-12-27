@@ -1961,6 +1961,7 @@ body.foldercontentopened .base__3e6af {
 .avatarWrapper_ba5175[aria-expanded=true]~.horizontal__992f6 button:nth-child(3) .contents_fb6220 {
     opacity: 1;
     transition: transform .12s ease-out, opacity .12s ease-out;
+    animation: var(--dialog-fade-in-from-top)
 }
 
 .avatarWrapper_ba5175[aria-expanded=false]~.horizontal__992f6 button:nth-child(3) .contents_fb6220,
