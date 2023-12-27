@@ -11963,13 +11963,7 @@ div.icon_c1b424 {
     background-color: var(--background-secondary);
 }
 
-.inspector__993e1,
 .inspector__17331 {
-    background-color: var(--background-secondary);
-}
-
-.unicodeShortcut__1dd6b,
-.standardStickerShortcut__5254d {
     background-color: var(--background-secondary);
 }
 
@@ -12161,10 +12155,6 @@ div.icon_c1b424 {
 .theme-dark .container_dc03c3,
 .theme-dark .reactors__20ab0 {
     background-color: var(--background-primary);
-}
-
-.theme-dark .scroller__5fda0 {
-    background: var(--background-secondary);
 }
 
 #community-tab>div>button {
