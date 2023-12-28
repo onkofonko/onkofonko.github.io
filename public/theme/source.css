@@ -98,7 +98,7 @@
     --background-secondary: #181818;
     --background-secondary-alpha: rgba(24, 24, 24, 0.7);
     --background-secondary-alt: #333333;
-    --background-tertiary: hsl(0, 0%, 19%);
+    --background-tertiary: #303030;
     --background-accent: hsl(0, 0%, 34%);
     --background-floating: #1a1a1a;
     --background-floating-alt: rgba(10, 10, 10, 0.8);
@@ -528,7 +528,10 @@
     background-color: var(--background-floating)
 }
 
-.theme-dark .footer__89240,
+.theme-dark .footer__89240 {
+    background-color: var(--background-primary)
+}
+
 .theme-dark .footer_a3029c {
     background-color: var(--background-secondary)
 }
@@ -613,15 +616,6 @@
 
 .theme-light .footer__89240 {
     background-color: #f6f6f7;
-    -webkit-box-shadow: inset 0 1px 0 rgba(246, 246, 247, .6);
-    box-shadow: inset 0 1px 0 rgba(246, 246, 247, .6)
-}
-
-.theme-dark .footer__89240,
-.theme-dark .theme-light .footer__89240 {
-    background-color: transparent;
-    -webkit-box-shadow: none;
-    box-shadow: none
 }
 
 .folder__17546 .folderIconWrapper__72239 {
@@ -11631,4 +11625,10 @@ button.tagsButton_e96762 {
 
 .avatarWrapper_ba5175.withTagAsButton_cc125f>div>.avatarDecoration_ae35e3 {
     left: -3px;
+}
+
+.modalHeaderCustomGift_af2c51,
+.content__764ce {
+    background-image: unset;
+    background-color: var(--background-floating)
 }
