@@ -2022,7 +2022,8 @@ body.foldercontentopened .base__3e6af {
 .uploadModal_eae2a0:before,
 .userPopoutOuter_d739b2:before,
 .wrapper_c727b6:before,
-.container__0ec3c:before {
+.container__0ec3c:before,
+.addGamePopout_e4ca8f:before {
     border: 1px var(--background-modifier-accent) solid;
     box-sizing: border-box;
     width: 100%;
@@ -11635,4 +11636,8 @@ button.tagsButton_e96762 {
 
 .shop_b31ed2 {
     background-color: var(--background-primary);
+}
+
+.addGamePopout_e4ca8f {
+    background-color: var(--background-floating);
 }
