@@ -405,6 +405,7 @@
     -webkit-box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow)
 }
+
 /*
 .container-3O_wAf {
     background-color: transparent
@@ -505,6 +506,7 @@
     background-clip: padding-box;
     border-radius: 8px
 }
+
 /*
 .appMount_fae9dd>.layerContainer_d5a653 .layer_ec16dd {
     -webkit-user-drag: none;
@@ -516,13 +518,12 @@
     z-index: 1001 !important
 }
 */
-/*
-.css-3vaxre-menu {
+.popout_a6e77f:has(.option_be8b2e) {
     background-color: var(--background-floating);
     border-radius: 0 0 var(--context-menu-border-radius) var(--context-menu-border-radius);
-    border-color: var(--background-modifier-accent)
+    border-color: var(--background-modifier-accent);
 }
-*/
+
 .theme-dark .root_a28985 {
     background-color: var(--background-floating)
 }
@@ -976,45 +977,6 @@
     z-index: 1;
 }
 
-#app-mount .friendsOnline-2JkivW {
-    position: absolute;
-    transform: translate(-50%, 50%);
-    top: calc(-50% + var(--server-margin));
-    left: -50%;
-    width: calc(var(--server-size) + var(--server-margin));
-    display: flex;
-    justify-content: center;
-}
-
-#app-mount .guilds__2b93a.content-Pph8t6,
-#app-mount .BF-folderSidebar {
-    position: absolute !important;
-    top: calc(var(--server-container) * 2) !important;
-}
-
-#app-mount .guilds__2b93a.content-Pph8t6:not(.closed-j55_T-)+.base__3e6af,
-#app-mount .BF-folderSidebar:not(.closed-j55_T-)+.base__3e6af {
-    top: calc(var(--server-container) * 2.5) !important;
-}
-
-#app-mount .guilds__2b93a .frame-oXWS21[class*=listItem] {
-    height: var(--server-size) !important;
-}
-
-#app-mount .guilds__2b93a .frame-oXWS21[class*=listItem] .wrapper_d281dd {
-    height: 100% !important;
-}
-
-#app-mount .guilds__2b93a .frame-oXWS21[class*=listItem] .button-Jt-tIg {
-    width: 100%;
-    height: 100% !important;
-    border-radius: 50%;
-    padding: 2px;
-    font-size: 10px;
-    box-sizing: border-box;
-    text-align: center;
-}
-
 #app-mount .BF-folderSidebar {
     top: calc(var(--server-container)) !important;
 }
@@ -1065,73 +1027,6 @@ body.foldercontentopened .base__3e6af {
 .listItemWrapper__1f93b:active {
     -webkit-transform: translateY(1px) translateZ(0) !important;
     transform: translateY(1px) translateZ(0) !important
-}
-
-.theme-dark #app-mount .friendsOnlineWrap-0gZ63m {
-    background-color: rgba(255, 255, 255, .1)
-}
-
-.theme-dark #app-mount .friendsOnlineWrap-0gZ63m:hover {
-    background-color: rgba(255, 255, 255, .15)
-}
-
-.theme-light #app-mount .friendsOnlineWrap-0gZ63m {
-    background-color: rgba(0, 0, 0, .1)
-}
-
-.theme-light #app-mount .friendsOnlineWrap-0gZ63m:hover {
-    background-color: rgba(66, 32, 32, .15)
-}
-
-#app-mount .friendsOnlineWrap-0gZ63m,
-#app-mount .serverCountWrap-k8F5De {
-    width: var(--server-size);
-    height: unset;
-    border-radius: calc(var(--server-size)/ 2);
-    transform: rotate(0) !important;
-    writing-mode: vertical-lr;
-    margin: 0 var(--server-outer-margin, 14px) !important;
-    margin-bottom: 8px !important;
-    pointer-events: none;
-    z-index: -1;
-    transition: background-color .25s ease
-}
-
-#app-mount .friendsOnlineWrap-0gZ63m {
-    margin-top: calc((var(--server-margin) * -1) - var(--server-size)) !important;
-    padding-top: var(--server-size)
-}
-
-#app-mount .friendsOnline-2JkivW,
-#app-mount .serverCount-FsTTs1 {
-    width: unset;
-    height: unset;
-    line-height: var(--server-size);
-    font-size: 11px;
-    transition: color .15s ease;
-    pointer-events: all
-}
-
-#app-mount .friendsOnline-2JkivW {
-    padding: 8px 0 12px 0;
-    color: var(--interactive-hover)
-}
-
-#app-mount .serverCount-FsTTs1 {
-    color: var(--interactive-normal)
-}
-
-#app-mount .friendsOnline-2JkivW:hover {
-    color: var(--interactive-active)
-}
-
-#app-mount .friendsOnline-2JkivW:active {
-    color: var(--interactive-active)
-}
-
-.StatusEverywhere-avatar-userPopout {
-    background: 0 0 !important;
-    border: none !important
 }
 
 .uploadModal_eae2a0 .inner__7afe9 .file_f309f6 .icon__25b13.image__00ac0 {
@@ -1452,13 +1347,11 @@ body.foldercontentopened .base__3e6af {
 }
 
 .container_d6dad3,
-.css-1x99fvh-menu,
-.css-3vaxre-menu,
 .drawerSizingWrapper__30274,
 .layer_ec16dd div[role=dialog],
 .layer_ec16dd div[role=menu],
 .messagesPopoutWrap_b3b384,
-.popout-1KHNAq[role=listbox] {
+.popout_a6e77f[role=listbox] {
     animation: var(--dialog-fade-in-from-top)
 }
 
@@ -1626,13 +1519,13 @@ body.foldercontentopened .base__3e6af {
     margin-right: 8px
 }
 
-.containerDefault__3187b.selected__3b4cb .userLimit-VbEkeM,
-.iconVisibility__62ab5:focus .userLimit-VbEkeM,
-.iconVisibility__62ab5:focus-within .userLimit-VbEkeM {
+.containerDefault__3187b.selected__3b4cb .channelInfo_b7ab2e,
+.iconVisibility__62ab5:focus .channelInfo_b7ab2e,
+.iconVisibility__62ab5:focus-within .channelInfo_b7ab2e {
     display: block
 }
 
-.iconVisibility__62ab5:hover .userLimit-VbEkeM {
+.iconVisibility__62ab5:hover .channelInfo_b7ab2e {
     display: none
 }
 
@@ -1779,126 +1672,6 @@ body.foldercontentopened .base__3e6af {
     padding-top: 6px;
     padding-bottom: 6px;
     padding-left: 8px
-}
-
-.nameTag__0e320[aria-label="Klik for at kopiere brugernavnet"] .usernameContainer__750f9:before {
-    content: "Kopier Mit Discord-Tag"
-}
-
-.nameTag__0e320[aria-label="Klicken, um Benutzernamen zu kopieren"] .usernameContainer__750f9:before {
-    content: "Kopiere Mein Nutzername"
-}
-
-.nameTag__0e320[aria-label="Click to copy username"] .usernameContainer__750f9:before {
-    content: "Copy My Username"
-}
-
-.nameTag__0e320[aria-label="Click to copy username"] .usernameContainer__750f9:before {
-    content: "Copy My Username"
-}
-
-.nameTag__0e320[aria-label="Haz clic para copiar el nombre de usuario"] .usernameContainer__750f9:before {
-    content: "Copiar mi etiqueta"
-}
-
-.nameTag__0e320[aria-label="Clique pour copier le nom d'utilisateur"] .usernameContainer__750f9:before {
-    content: "Copier mon tag Discord"
-}
-
-.nameTag__0e320[aria-label="Klikni i tako kopiraj korisničko ime"] .usernameContainer__750f9:before {
-    content: "Kopiraj moju značku"
-}
-
-.nameTag__0e320[aria-label="Fai clic per copiare il nome utente"] .usernameContainer__750f9:before {
-    content: "Copia il mio tag Discord"
-}
-
-.nameTag__0e320[aria-label="Spustelėk, kad nukopijuotum slapyvardį"] .usernameContainer__750f9:before {
-    content: "Nukopijuok mano vardą"
-}
-
-.nameTag__0e320[aria-label="Kattints ide a felhasználónév másolásához"] .usernameContainer__750f9:before {
-    content: "Másolja a nevemet"
-}
-
-.nameTag__0e320[aria-label="Klik om gebruikersnaam te kopiëren"] .usernameContainer__750f9:before {
-    content: "Kopieer mijn naam"
-}
-
-.nameTag__0e320[aria-label="Klikk for å kopiere brukernavnet"] .usernameContainer__750f9:before {
-    content: "Kopier Discord-taggen min"
-}
-
-.nameTag__0e320[aria-label="Kliknij, by skopiować nazwę użytkownika"] .usernameContainer__750f9:before {
-    content: "Skopiuj mój tag Discord"
-}
-
-.nameTag__0e320[aria-label="Copiar nome de usuário"] .usernameContainer__750f9:before {
-    content: "Copiar minha discord-tag"
-}
-
-.nameTag__0e320[aria-label="Dă clic pentru a copia numele de utilizator"] .usernameContainer__750f9:before {
-    content: "Copiază-mi numele"
-}
-
-.nameTag__0e320[aria-label="Kopioi käyttäjänimi klikkaamalla"] .usernameContainer__750f9:before {
-    content: "Kopioi Discord -tunnisteeni"
-}
-
-.nameTag__0e320[aria-label="Klicka för att kopiera användarnamn"] .usernameContainer__750f9:before {
-    content: "Kopiera Användarnamn"
-}
-
-.nameTag__0e320[aria-label="Nhấn để sao chép tên người dùng"] .usernameContainer__750f9:before {
-    content: "Sao chép tên của tôi"
-}
-
-.nameTag__0e320[aria-label="Kullanıcı adını kopyalamak için tıkla"] .usernameContainer__750f9:before {
-    content: "Kullanıcı adımı kopyala"
-}
-
-.nameTag__0e320[aria-label="Klikni a zkopíruj uživatelské jméno"] .usernameContainer__750f9:before {
-    content: "Zkopírujte můj Discord-tag"
-}
-
-.nameTag__0e320[aria-label="Κλικ για αντιγραφή ονόματος χρήστη"] .usernameContainer__750f9:before {
-    content: "Αντιγραφή ονόματος"
-}
-
-.nameTag__0e320[aria-label="Натисни, за да копираш потребителското име"] .usernameContainer__750f9:before {
-    content: "Копирай името ми"
-}
-
-.nameTag__0e320[aria-label="Щёлкните, чтобы скопировать имя пользователя"] .usernameContainer__750f9:before {
-    content: "Скопируйте мое имя"
-}
-
-.nameTag__0e320[aria-label="Натисні, щоб скопіювати ім'я користувача"] .usernameContainer__750f9:before {
-    content: "Скопіюйте моє ім'я"
-}
-
-.nameTag__0e320[aria-label="यूज़रनेम को कॉपी करने के लिए क्लिक करें"] .usernameContainer__750f9:before {
-    content: "मेरा नाम कॉपी करें"
-}
-
-.nameTag__0e320[aria-label="คลิกเพื่อคัดลอกชื่อผู้ใช้"] .usernameContainer__750f9:before {
-    content: "คัดลอกชื่อของฉัน"
-}
-
-.nameTag__0e320[aria-label="点击复制用户名"] .usernameContainer__750f9:before {
-    content: "复制我的名字"
-}
-
-.nameTag__0e320[aria-label="クリックでユーザー名をコピー"] .usernameContainer__750f9:before {
-    content: "私の名前をコピーする"
-}
-
-.nameTag__0e320[aria-label="按一下可複製使用者名稱"] .usernameContainer__750f9:before {
-    content: "複製我的名字"
-}
-
-.nameTag__0e320[aria-label="사용자명을 복사하려면 클릭하세요"] .usernameContainer__750f9:before {
-    content: "내 이름 복사"
 }
 
 .avatarWrapper_ba5175~.nameTag__0e320 .usernameContainer__750f9:before {
@@ -2254,7 +2027,8 @@ body.foldercontentopened .base__3e6af {
 .toolbar_c7b525:before,
 .uploadModal_eae2a0:before,
 .userPopoutOuter_d739b2:before,
-.wrapper_c727b6:before, .container__0ec3c:before {
+.wrapper_c727b6:before,
+.container__0ec3c:before {
     border: 1px var(--background-modifier-accent) solid;
     box-sizing: border-box;
     width: 100%;
@@ -2277,12 +2051,12 @@ body.foldercontentopened .base__3e6af {
     border-radius: var(--context-menu-border-radius)
 }
 
-.side_b4b3f6 .themed_b957e8.item__48dda:hover:not(.disabled__85bca){
+.side_b4b3f6 .themed_b957e8.item__48dda:hover:not(.disabled__85bca) {
     background-color: var(--background-modifier-hover)
 }
 
 .side_b4b3f6 .themed_b957e8.selected__5711d.item__48dda,
-.side_b4b3f6 .themed_b957e8.selected__5711d.item__48dda:hover{
+.side_b4b3f6 .themed_b957e8.selected__5711d.item__48dda:hover {
     background-color: var(--background-modifier-selected) !important
 }
 
@@ -2419,11 +2193,6 @@ body.foldercontentopened .base__3e6af {
     width: var(--dropdown-width);
     min-width: 180px;
 }
-
-/*
-.menu_dc52c6 div[role=group] {
-    width: fit-content
-}*/
 
 .menu_dc52c6 .listHeight_d99a96 {
     display: none
@@ -2811,28 +2580,8 @@ body.foldercontentopened .base__3e6af {
     margin-top: -6px
 }
 
-.maximized-vv2Wr0 .cover-SwJ-ck {
-    border-radius: 12px
-}
-
-.grabber-2GQyvM {
-    cursor: default
-}
-
-.popoutArrow-g8f4Ss::before {
-    content: none
-}
-
-.coverWrapper-YAplwJ {
-    transition: border-radius .3s ease, margin .3s ease, width .3s ease, height .3s ease
-}
-
 .listeningAlong_f20fb2 .icons__9ad68 {
     display: none
-}
-
-.spotifyIcon-2J9kSv {
-    display: none !important
 }
 
 .panels__58331:before {
@@ -2940,13 +2689,13 @@ body.foldercontentopened .base__3e6af {
 }
 
 .panels__58331 .activityPanel__22355 .gameWrapper__5b041 .gameIconWrapper__499e0,
-.panels__58331 .activityPanel__22355 .gameWrapper__5b041 .icon-10cLkJ {
+.panels__58331 .activityPanel__22355 .gameWrapper__5b041 .svg__7900e {
     border-radius: 50%;
     box-sizing: border-box
 }
 
 .panels__58331 .activityPanel__22355 .body__709f6:hover .gameWrapper__5b041 .gameIconWrapper__499e0,
-.panels__58331 .activityPanel__22355 .body__709f6:hover .gameWrapper__5b041 .icon-10cLkJ {
+.panels__58331 .activityPanel__22355 .body__709f6:hover .gameWrapper__5b041 .svg__7900e {
     border-radius: 16px;
     opacity: 1;
     margin: 0;
@@ -2959,7 +2708,7 @@ body.foldercontentopened .base__3e6af {
 }
 
 .panels__58331 .activityPanel__22355 .body__709f6:hover .gameWrapper__5b041 .gameIcon__90c32,
-.panels__58331 .activityPanel__22355 .body__709f6:hover .gameWrapper__5b041 .icon-10cLkJ {
+.panels__58331 .activityPanel__22355 .body__709f6:hover .gameWrapper__5b041 .svg__7900e {
     opacity: .25;
     margin: 0;
     --size: 32px;
@@ -2977,7 +2726,7 @@ body.foldercontentopened .base__3e6af {
 }
 
 .gameIcon__90c32,
-.icon-10cLkJ {
+.gameWrapper__5b041 .svg__7900e {
     margin: 4px;
     --size: 24px;
     width: var(--size);
@@ -3109,7 +2858,7 @@ body.foldercontentopened .base__3e6af {
     transition: transform .25s ease
 }
 
-.lookFilled__19298.colorBrand-I6CyqQ:active {
+.lookFilled__19298.colorBrand_b2253e:active {
     background-color: transparent
 }
 
@@ -3627,8 +3376,6 @@ button[aria-label="Disable Game Activity"] .contents_fb6220:after {
 } */
 
 .avatar__6c108,
-.avatar-2Vndt_,
-.avatar-3QF_VA,
 .avatarUploaderInner_c81617 {
     border: none !important;
     background-color: transparent !important
@@ -3689,22 +3436,22 @@ button[aria-label="Disable Game Activity"] .contents_fb6220:after {
     border-radius: 50%
 }
 
-.theme-dark .lookFilled__19298.colorGrey-2iAG-B,
-.theme-light .lookFilled__19298.colorGrey-2iAG-B {
+.theme-dark .lookFilled__19298.grey__8bf88,
+.theme-light .lookFilled__19298.grey__8bf88 {
     color: var(--text-normal);
     background-color: rgba(196, 196, 196, .1) !important;
     transition: filter .15s ease
 }
 
-.theme-dark .lookFilled__19298.colorGrey-2iAG-B:disabled,
-.theme-light .lookFilled__19298.colorGrey-2iAG-B:disabled {
+.theme-dark .lookFilled__19298.grey__8bf88:disabled,
+.theme-light .lookFilled__19298.grey__8bf88:disabled {
     background-color: rgba(196, 196, 196, .1) !important;
     filter: brightness(.8) !important
 }
 
 .relationshipButtons__5efdd>button:hover,
-.theme-dark .lookFilled__19298.colorGrey-2iAG-B:hover,
-.theme-light .lookFilled__19298.colorGrey-2iAG-B:hover {
+.theme-dark .lookFilled__19298.grey__8bf88:hover,
+.theme-light .lookFilled__19298.grey__8bf88:hover {
     background-color: rgba(196, 196, 196, .1) !important;
     filter: brightness(1.3)
 }
@@ -3852,9 +3599,7 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
 }
 
 .avatar__6c108,
-.avatar-2Vndt_,
-.avatar-3QF_VA,
-.avatarUploaderInner-Oiob_P {
+.avatarUploaderInner_c81617 {
     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, .205))
 }
 
@@ -4279,7 +4024,6 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
 #app-mount .guilds__2b93a [class*=expandedFolderBackground],
 .app_de4237 button,
 .avatar_f8541f.wrapper_edb6e0,
-.closeIcon-3_iQ6l,
 .listItem_fa7b36,
 .listItem__3876c,
 .listItemWrapper__1f93b,
@@ -4853,23 +4597,23 @@ button[class^=attachButton] {
     z-index: 1;
 }
 
-.theme-dark .lookFilled__19298.colorGrey-2iAG-B {
+.theme-dark .lookFilled__19298.grey__8bf88 {
     color: var(--text-normal);
     background-color: var(--background-tertiary);
     transition: filter .15s ease
 }
 
-.theme-dark .lookFilled__19298.colorGrey-2iAG-B:hover {
+.theme-dark .lookFilled__19298.grey__8bf88:hover {
     background-color: var(--background-tertiary);
     filter: brightness(1.3)
 }
 
-.theme-dark .lookFilled__19298.colorGrey-2iAG-B:active {
+.theme-dark .lookFilled__19298.grey__8bf88:active {
     background-color: var(--background-tertiary);
     filter: brightness(1.1)
 }
 
-.theme-dark .lookFilled__19298.colorGrey-2iAG-B:disabled {
+.theme-dark .lookFilled__19298.grey__8bf88:disabled {
     background-color: var(--background-tertiary);
     filter: brightness(.8)
 }
@@ -5055,62 +4799,6 @@ button[class^=attachButton] {
 
 .iconWrapper_af9215[aria-label="Notification Settings"] {
     display: none
-}
-
-.childWrapper__01b9c.button-Jt-tIg:after {
-    content: "";
-    position: absolute;
-    --size: 32px;
-    width: var(--size) !important;
-    height: var(--size) !important;
-    --icon: var(--icon-checklist);
-    --mask-size: 50%;
-    --color: var(--interactive-normal);
-    transition: background-color .15s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 1 !important;
-    -webkit-mask-size: var(--mask-size);
-    mask-size: var(--mask-size);
-    -webkit-mask-image: var(--icon);
-    mask-image: var(--icon);
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-    color: var(--color);
-    background-color: var(--color);
-    pointer-events: all;
-    top: calc(-1 * var(--offset))
-}
-
-.wrapper_d281dd.innerFrame-8Hg64E .childWrapper__01b9c.button-Jt-tIg,
-.wrapper_d281dd.innerFrame-8Hg64E .childWrapper__01b9c.button-Jt-tIg:hover {
-    --offset: 40px;
-    pointer-events: none;
-    font-size: 12px !important;
-    background-color: rgba(0, 0, 0, 0) !important;
-    position: fixed;
-    top: var(--offset)
-}
-
-.wrapper_d281dd.innerFrame-8Hg64E {
-    color: #fff;
-    background-color: transparent;
-    border-radius: 32px;
-    transition: color .15s ease-out, background-color .15s ease-out
-}
-
-.wrapper_d281dd.innerFrame-8Hg64E .childWrapper__01b9c.button-Jt-tIg,
-.wrapper_d281dd.innerFrame-8Hg64E:hover .childWrapper__01b9c.button-Jt-tIg {
-    background-color: transparent !important
-}
-
-.wrapper_d281dd.innerFrame-8Hg64E.selected_f5ec8e,
-.wrapper_d281dd.innerFrame-8Hg64E:hover {
-    color: var(--interactive-hover);
-    background-color: var(--bg-color-hover)
 }
 
 .channel_c21703 {
@@ -11530,10 +11218,6 @@ html:not(.app-focused) .sidebarRegionScroller__1fa7e {
     background: transparent !important;
 }
 
-.background-3iPORX {
-    visibility: hidden;
-}
-
 .selectedBackground_d847da {
     display: none;
 }
@@ -11568,17 +11252,8 @@ html:not(.app-focused) .sidebarRegionScroller__1fa7e {
     min-height: 32px;
 }
 
-.footer__89240>button:not(.colorBrand-I6CyqQ) {
+.footer__89240>button:not(.colorBrand_b2253e) {
     color: var(--interactive-hover);
-}
-
-.content-2hZxGK>form>div>div>input {
-    color: #dedede;
-    background-color: #202225;
-}
-
-.container-36u7Lw>div>div>div {
-    overflow: hidden
 }
 
 .platformIcon__05c5e {
@@ -11673,86 +11348,9 @@ div.icon_c1b424 {
 }
 
 .theme-dark.authBox__7196a,
-.toast-q3Y4wI,
-.theme-dark.navRow-dG-XX8 {
+.toast_f06316,
+.theme-dark.navRow_bb8efc {
     background-color: var(--background-floating)
-}
-
-.chatSidebarOpen_dfaa6a>div:nth-child(n)>section>.toolbar__88c63,
-.layerContainer-2v_Sit>div>div:nth-child(n)>section>.toolbar__88c63 {
-    z-index: 100;
-    position: fixed;
-    right: 8px
-}
-
-#account-info>.headerTop-3GPUSF>.clickTarget__440f0>div>.childWrapper__13f3d>div>div>span:nth-child(2),
-#account-info>.headerTop-3GPUSF>.clickTarget__440f0>div>.childWrapper__13f3d>div>div>div,
-#account-info>.headerTop-3GPUSF>.clickTarget__440f0>div>div:nth-child(2) {
-    display: none;
-}
-
-#account-info>.headerTop-3GPUSF>.clickTarget__440f0>div>.childWrapper__13f3d>div>div>span {
-    margin: 2px 0;
-    box-sizing: border-box;
-    border-radius: 4px;
-    font-size: 14px;
-    line-height: 24px;
-    font-weight: var(--menu-font-weight);
-    text-align: left;
-    font-family: var(--font-primary);
-    color: var(--interactive-normal);
-    padding: 4px 8px 4px 32px;
-    background-color: transparent;
-    display: block;
-}
-
-#account-info>.headerTop-3GPUSF>.clickTarget__440f0>div>.childWrapper__13f3d>div>div>span:hover {
-    background-color: var(--background-modifier-hover);
-    color: var(--interactive-active);
-
-}
-
-#account-info>.headerTop-3GPUSF>.profileBadges__7a7cb {
-    display: none;
-}
-
-#account-info {
-    height: 76px;
-}
-
-#account-info>.headerTop-3GPUSF>.clickTarget__440f0>div>.childWrapper__13f3d>div>div>span:before {
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    left: 6px;
-    top: 10px;
-    background-color: var(--interactive-normal);
-    --size: 16px;
-    --mask-size: 100%;
-    --icon: var(--icon-copy);
-    width: var(--size);
-    height: var(--size);
-    -webkit-mask-size: var(--mask-size);
-    mask-size: var(--mask-size);
-    -webkit-mask-image: var(--icon);
-    mask-image: var(--icon);
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-    transform-origin: calc(var(--dropdown-width) - (8px + 8px)/ 2) -50px;
-}
-
-#account-info>div.headerTop-3GPUSF.copiableNameTag-3f6roa>div.clickTarget__440f0>div>div.childWrapper__13f3d>div>div>span:hover:before {
-    background-color: var(--interactive-hover);
-}
-
-#account-info>div.headerTop-3GPUSF.copiableNameTag-3f6roa {
-    height: 36px;
-    top: 38px;
-    left: 8px;
-    width: 208px;
-    padding: 0;
 }
 
 .premiumLabel_f2cd55.selected_d25ad4>img[alt*="Wumpus"],
@@ -11761,22 +11359,11 @@ div.icon_c1b424 {
     display: none
 }
 
-#account-info>div.headerTop-3GPUSF.copiableNameTag-3f6roa>div.clickTarget__440f0>div>div.childWrapper__13f3d>div>div.textScroller-dc9_kz.creationDate-CJwdKT.date-YN6TCS.textRow__4750e {
-    display: none !important
-}
-
-.animationWrapper-3DL_Ua {
-    top: -5px;
-    width: calc(var(--server-icon-size) + 5px);
-    height: calc(var(--server-icon-size) + 6px)
-}
-
-.theme-dark .perksModal-CLcR1c,
 .theme-dark .container__0a30f {
     background-color: var(--background-primary)
 }
 
-.theme-dark .perk-19D_HN {
+.theme-dark .topPerksCard__9fc01 {
     background-color: var(--background-secondary-alt)
 }
 
@@ -11814,10 +11401,6 @@ div.icon_c1b424 {
     position: relative;
     z-index: 0;
     padding: var(--settings-top) 40px 80px;
-}
-
-.avatarWrapper-3y0KZ1>div>div>svg>circle {
-    display: none;
 }
 
 .overlayBackground__86b78>.menu_dc52c6.flexible__7055b.menu__5cf7f:before {
@@ -11879,11 +11462,6 @@ div.icon_c1b424 {
     margin-top: -4px;
 }
 
-/* guild (home/browse/etc) tabs (buttons) */
-.actionButton-2ae9DJ {
-    background: var(--background-modifier-selected);
-}
-
 /* home tab */
 .homeContainer__6bec1 {
     background-color: var(--background-primary);
@@ -11915,7 +11493,7 @@ div.icon_c1b424 {
     background-color: var(--background-secondary);
 }
 
-.sortDropdown_ec3016.lookFilled__19298{
+.sortDropdown_ec3016.lookFilled__19298 {
     background-color: var(--background-secondary);
 }
 
@@ -11973,13 +11551,6 @@ button.tagsButton_e96762 {
     bottom: -4px;
 }
 
-.gameWrapper__5b041>.wrapper__2c808>.svg__7900e {
-    width: 24px;
-    height: 24px;
-    margin-left: 4px;
-    margin-top: 4px;
-}
-
 .gameWrapper__5b041>.wrapper__2c808>.svg__7900e>foreignObject {
     mask: none
 }
@@ -12003,29 +11574,6 @@ button.tagsButton_e96762 {
 
 .activityPanel__22355>div>.actions__9256d:has(button:nth-child(n+2))>button:nth-child(2) {
     margin-bottom: 6px;
-}
-
-.container-mAkQVR {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 7px;
-    margin-bottom: 1px;
-}
-
-.akaBadge-ep3q0P {
-    color: var(--header-primary);
-    background-color: unset;
-    font-weight: 600;
-    margin-right: 0px;
-    margin-left: -6px !important;
-}
-
-.container-mAkQVR>.nicknames-3g5AJ9 {
-    color: var(--text-normal) !important;
-    font-size: 14px;
-    font-weight: 400;
-    margin-top: 8px;
 }
 
 .avatarWrapper_ba5175>.nameTag__0e320.canCopy__81263 {
@@ -12074,9 +11622,13 @@ button.tagsButton_e96762 {
     left: 86px
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper_af829a>.popoutContainer__3d17d>.container__0ec3c{
-    height: 710px!important;
+[id^=popout]>div>.accountProfilePopoutWrapper_af829a>.popoutContainer__3d17d>.container__0ec3c {
+    height: 710px !important;
     position: absolute;
     top: 0px;
     left: -332px;
+}
+
+.avatarWrapper_ba5175.withTagAsButton_cc125f>div>.avatarDecoration_ae35e3 {
+    left: -3px;
 }
