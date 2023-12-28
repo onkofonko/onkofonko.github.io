@@ -11632,3 +11632,7 @@ button.tagsButton_e96762 {
     background-image: unset;
     background-color: var(--background-floating)
 }
+
+.shop_b31ed2 {
+    background-color: var(--background-primary);
+}
