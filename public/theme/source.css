@@ -103,6 +103,7 @@
     --background-floating: #1a1a1a;
     --background-floating-alt: rgba(10, 10, 10, 0.8);
     --background-mobile-primary: #3b3b3b;
+    --modal-background: var(--background-floating);
     --background-mobile-secondary: #333333;
     --activity-card-background: #242424;
     --background-modifier-hover: rgba(87, 87, 87, 0.2);
@@ -11644,4 +11645,69 @@ button.tagsButton_e96762 {
 
 .spinner_caad3a {
     background-color: var(--background-floating)
+}
+
+#vc-spotify-titles {
+    width: calc(var(--sidebar-width) - 164px)
+}
+
+#vc-spotify-titles>div:nth-child(3),
+[class*=vc-spotify-repeat],
+[class*=vc-spotify-shuffle],
+#vc-spotify-progress-bar .grabber_d2868c {
+    display: none
+}
+
+#vc-spotify-player {
+    background: linear-gradient(to bottom, transparent, var(--background-secondary) 30px, var(--background-secondary)) !important;
+    height: 68px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-bottom: unset
+}
+
+#vc-spotify-info-wrapper img {
+    height: 65%;
+    pointer-events: none
+}
+
+#vc-spotify-info-wrapper {
+    gap: 4px
+}
+
+#vc-spotify-song-title {
+    font-size: 14px
+}
+
+#vc-spotify-titles>div:nth-child(2) {
+    font-size: 12px;
+    line-height: 14px
+}
+
+.vc-spotify-button-row {
+    gap: 0;
+    display: flex;
+    position: relative;
+    top: -55px;
+    left: calc(var(--sidebar-width) - 134px + 8px);
+    width: 96px
+}
+
+#vc-spotify-progress-bar .barFill__30e17 {
+    background: var(--interactive-hover);
+    border-radius: 12px
+}
+
+#vc-spotify-progress-bar .bar_e58961 {
+    height: 4px;
+    background: var(--scrollbar-thin-thumb)
+}
+
+#vc-spotify-progress-bar {
+    margin: -5px 0 0
+}
+
+.vc-spotify-button svg {
+    height: 20px;
+    width: 20px
 }
