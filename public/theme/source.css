@@ -1618,11 +1618,19 @@ body.foldercontentopened .base__3e6af {
 
 .avatar_f8541f.wrapper_edb6e0 {
     --compensation: calc(((var(--usernamebutton-width) + var(--user-avatar-size)) - var(--dropdown-width)) * -1);
+    left: var(--compensation);
+    pointer-events: all;
+    top: 4px !important
+}
+
+.wrapper_edb6e0.avatar_f8541f:before{
+    content:"";
+    --compensation: calc(((var(--usernamebutton-width) + var(--user-avatar-size)) - var(--dropdown-width)) * -1);
+    height: 32px;
     width: calc(var(--usernamebutton-width) + var(--user-avatar-size)) !important;
     background-color: var(--bg-color);
     border-radius: calc(32px / 2) !important;
-    left: var(--compensation);
-    pointer-events: all
+    position: absolute;
 }
 
 .avatar_f8541f.wrapper_edb6e0:hover {
@@ -11339,10 +11347,6 @@ div.icon_c1b424 {
     width: 208px !important;
 }
 
-.container_ca50b9 .wrapper_edb6e0.avatar_f8541f {
-    top: 4px !important
-}
-
 .theme-dark.authBox__7196a,
 .toast_f06316,
 .theme-dark.navRow_bb8efc {
@@ -11623,10 +11627,6 @@ button.tagsButton_e96762 {
     position: absolute;
     top: 0px;
     left: -332px;
-}
-
-.avatarWrapper_ba5175.withTagAsButton_cc125f>div>.avatarDecoration_ae35e3 {
-    left: -3px;
 }
 
 .modalHeaderCustomGift_af2c51,
