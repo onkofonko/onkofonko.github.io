@@ -11641,3 +11641,7 @@ button.tagsButton_e96762 {
 .addGamePopout_e4ca8f {
     background-color: var(--background-floating);
 }
+
+.spinner_caad3a {
+    background-color: var(--background-floating)
+}
