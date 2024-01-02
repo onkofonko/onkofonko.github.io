@@ -1554,7 +1554,7 @@ body.foldercontentopened .base__3e6af {
     height: 32px;
     line-height: 32px;
     right: calc(var(--user-outer-right-margin) + 32px + 8px + 32px - 1000px);
-    padding-left: var(--username-button-padding, 6px);
+    padding-left: var(--username-button-padding, 6px) !important;
     padding-right: 0
 }
 
