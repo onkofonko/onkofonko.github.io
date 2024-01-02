@@ -1623,8 +1623,8 @@ body.foldercontentopened .base__3e6af {
     top: 4px !important
 }
 
-.wrapper_edb6e0.avatar_f8541f:before{
-    content:"";
+.wrapper_edb6e0.avatar_f8541f:before {
+    content: "";
     --compensation: calc(((var(--usernamebutton-width) + var(--user-avatar-size)) - var(--dropdown-width)) * -1);
     height: 32px;
     width: calc(var(--usernamebutton-width) + var(--user-avatar-size)) !important;
@@ -11653,8 +11653,7 @@ button.tagsButton_e96762 {
 
 #vc-spotify-titles>div:nth-child(3),
 [class*=vc-spotify-repeat],
-[class*=vc-spotify-shuffle],
-#vc-spotify-progress-bar .grabber_d2868c {
+[class*=vc-spotify-shuffle] {
     display: none
 }
 
@@ -11710,4 +11709,9 @@ button.tagsButton_e96762 {
 .vc-spotify-button svg {
     height: 20px;
     width: 20px
+}
+
+#vc-spotify-progress-bar .grabber_d2868c {
+    opacity: 0;
+    cursor: pointer;
 }
