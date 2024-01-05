@@ -2551,7 +2551,7 @@ body.foldercontentopened .base__3e6af {
     content: "";
     position: absolute;
     background-color: var(--background-primary);
-    border-radius: var(--border-radius);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
     height: 44px;
     width: 148px;
     z-index: 2;
@@ -2560,7 +2560,8 @@ body.foldercontentopened .base__3e6af {
 }
 
 .panels__58331 .wrapper__0ed4a .container_d667ff:after {
-    left: -8px
+    left: -8px;
+    border-radius: var(--border-radius) 0 0 var(--border-radius)
 }
 
 .panels__58331 .wrapper__0ed4a~.container_ca50b9 .horizontal__992f6:after {
@@ -2744,7 +2745,7 @@ body.foldercontentopened .base__3e6af {
 .badge__1a553,
 .liveBadge_b936d2 {
     background-color: var(--background-secondary);
-    color: var(--header-primary)
+    color: var(--header-secondary)
 }
 
 .panels__58331 .wrapper__0ed4a .container_d667ff {
