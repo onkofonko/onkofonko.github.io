@@ -2551,7 +2551,7 @@ body.foldercontentopened .base__3e6af {
     content: "";
     position: absolute;
     background-color: var(--background-primary);
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    border-radius: var(--border-radius);
     height: 44px;
     width: 148px;
     z-index: 2;
@@ -2560,8 +2560,7 @@ body.foldercontentopened .base__3e6af {
 }
 
 .panels__58331 .wrapper__0ed4a .container_d667ff:after {
-    left: -8px;
-    border-radius: var(--border-radius) 0 0 var(--border-radius)
+    left: -8px
 }
 
 .panels__58331 .wrapper__0ed4a~.container_ca50b9 .horizontal__992f6:after {
@@ -2745,7 +2744,7 @@ body.foldercontentopened .base__3e6af {
 .badge__1a553,
 .liveBadge_b936d2 {
     background-color: var(--background-secondary);
-    color: var(--header-secondary)
+    color: var(--header-primary)
 }
 
 .panels__58331 .wrapper__0ed4a .container_d667ff {
@@ -4810,11 +4809,67 @@ button[class^=attachButton] {
     max-width: unset
 }
 
-.toolbar__88c63 >.iconWrapper_af9215.clickable_d23a1a:nth-child(4):hover {
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Danh sách thành viên" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Jäsenluettelo" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="listę członków" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Lista de membros" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Lista de miembros" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Lista dei membri" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Lista membrilor" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Liste des membres" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Member List" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Member list" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="narių sąrašo" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Popis članova" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Seznam členů" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Taglista elrejtése" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Üye Listesini" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Διαγραφή αναζήτησης" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="список учасників" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="список участников" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="списъка с членове" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="मेम्बर लिस्ट" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="รายชื่อสมาชิก" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="メンバーリスト" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="成员名单" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="成員名單" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="멤버 목록" i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*=Ledenlijst i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*=Medlemslista i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*=Medlemsliste i]:hover,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*=Mitgliederliste i]:hover {
     --color: var(--interactive-hover)
 }
 
-.toolbar__88c63 >.iconWrapper_af9215.clickable_d23a1a:nth-child(4) {
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Danh sách thành viên" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Jäsenluettelo" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="listę członków" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Lista de membros" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Lista de miembros" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Lista dei membri" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Lista membrilor" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Liste des membres" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Member List" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Member list" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="narių sąrašo" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Popis članova" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Seznam členů" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Taglista elrejtése" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Üye Listesini" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Διαγραφή αναζήτησης" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="список учасників" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="список участников" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="списъка с членове" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="मेम्बर लिस्ट" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="รายชื่อสมาชิก" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="メンバーリスト" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="成员名单" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="成員名單" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="멤버 목록" i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*=Ledenlijst i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*=Medlemslista i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*=Medlemsliste i],
+.iconWrapper_af9215.clickable_d23a1a[aria-label*=Mitgliederliste i] {
     order: 99;
     margin-right: 8px;
     transition: margin var(--memberlist-anim-speed) var(--memberlist-anim-ease);
@@ -4823,7 +4878,35 @@ button[class^=attachButton] {
     display: var(--tiny-display, block)
 }
 
-.toolbar__88c63 >.iconWrapper_af9215.clickable_d23a1a:nth-child(4) svg {
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Danh sách thành viên" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Jäsenluettelo" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="listę członków" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Lista de membros" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Lista de miembros" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Lista dei membri" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Lista membrilor" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Liste des membres" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Member List" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Member list" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="narių sąrašo" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Popis članova" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Seznam členů" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Taglista elrejtése" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Üye Listesini" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="Διαγραφή αναζήτησης" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="список учасників" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="список участников" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="списъка с членове" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="मेम्बर लिस्ट" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="รายชื่อสมาชิก" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="メンバーリスト" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="成员名单" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="成員名單" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*="멤버 목록" i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*=Ledenlijst i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*=Medlemslista i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*=Medlemsliste i] svg,
+.iconWrapper_af9215.clickable_d23a1a[aria-label*=Mitgliederliste i] svg {
     --mask-size: 120%;
     -webkit-mask-size: var(--mask-size);
     mask-size: var(--mask-size);
@@ -4837,11 +4920,67 @@ button[class^=attachButton] {
     background-color: var(--color)
 }
 
-.toolbar__88c63 >.iconWrapper_af9215.clickable_d23a1a.selected_be2668:nth-child(4) svg {
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Danh sách thành viên" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Jäsenluettelo" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="listę członków" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Lista de membros" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Lista de miembros" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Lista dei membri" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Lista membrilor" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Liste des membres" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Member List" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Member list" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="narių sąrašo" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Popis članova" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Seznam členů" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Taglista elrejtése" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Üye Listesini" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Διαγραφή αναζήτησης" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="список учасників" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="список участников" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="списъка с членове" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="मेम्बर लिस्ट" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="รายชื่อสมาชิก" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="メンバーリスト" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="成员名单" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="成員名單" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="멤버 목록" i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*=Ledenlijst i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*=Medlemslista i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*=Medlemsliste i] svg,
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*=Mitgliederliste i] svg {
     transform: rotate(180deg)
 }
 
-.toolbar__88c63 >.iconWrapper_af9215.clickable_d23a1a.selected_be2668:nth-child(4) {
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Danh sách thành viên" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Jäsenluettelo" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="listę członków" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Lista de membros" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Lista de miembros" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Lista dei membri" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Lista membrilor" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Liste des membres" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Member List" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Member list" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="narių sąrašo" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Popis članova" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Seznam členů" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Taglista elrejtése" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Üye Listesini" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="Διαγραφή αναζήτησης" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="список учасників" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="список участников" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="списъка с членове" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="मेम्बर लिस्ट" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="รายชื่อสมาชิก" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="メンバーリスト" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="成员名单" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="成員名單" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*="멤버 목록" i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*=Ledenlijst i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*=Medlemslista i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*=Medlemsliste i],
+.iconWrapper_af9215.clickable_d23a1a.selected_be2668[aria-label*=Mitgliederliste i] {
     margin-right: calc(var(--memberlist-width) + 8px + 8px)
 }
 
