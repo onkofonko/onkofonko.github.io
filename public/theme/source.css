@@ -3592,15 +3592,16 @@ button[aria-label="Disable Game Activity"] .contents_fb6220:after {
 }
 
 html #app-mount .userPopoutOuter_d739b2 .avatarPositionNormal__1797c {
-    top: 26px !important
+    top: 26px
 }
 
-html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumBanner__1e83d {
+[class*="NonPremium"]:has([class*="bannerPremium"]) [class*="avatarPositionNormal"],
+[class*="PremiumWithoutBanner"]:has([class*="bannerPremium"]) [class*="avatarPositionPremiumNoBanner"] {
     top: 76px !important
 }
 
 html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
-    top: 56px !important
+    top: 56px
 }
 
 .avatar__6c108,
