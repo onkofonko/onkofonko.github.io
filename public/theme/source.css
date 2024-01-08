@@ -5170,13 +5170,16 @@ button[class^=attachButton] {
 }
 
 .sidebarRegionScroller__1fa7e::after,
-.sidebarRegionScroller__1fa7e::before {
+.sidebarRegionScroller__1fa7e::before,
+.directoryContainer_d3edd9::after,
+.directoryContainer_d3edd9::before {
     content: "";
     display: inline-block;
     position: fixed
 }
 
-.sidebarRegionScroller__1fa7e::after {
+.sidebarRegionScroller__1fa7e::after,
+.directoryContainer_d3edd9::after {
     width: 100%;
     top: 0;
     left: 0;
@@ -11644,8 +11647,9 @@ button.tagsButton_e96762 {
     background-color: var(--background-floating)
 }
 
-.shop_b31ed2 {
-    background-color: var(--background-primary);
+.shop_b31ed2,
+.directoryContainer_d3edd9 {
+    background-color: var(--background-primary) !important;
 }
 
 .addGamePopout_e4ca8f {
@@ -11727,4 +11731,36 @@ button.tagsButton_e96762 {
 
 .option_b5597b {
     line-height: 20px;
+}
+
+.closeWrapper_be93cb {
+    z-index: 3001
+}
+
+.closeButton__34341 {
+    --size: 36px;
+    margin: 0;
+    width: var(--size);
+    height: var(--size);
+    padding: 0
+}
+
+.closeWrapper_be93cb .keybind__57645 {
+    display: none
+}
+
+.directoryContainer_d3edd9 .header__6240a {
+    margin-top: 80px
+}
+
+.closeIconNotMobile__673ba {
+    top: 14px;
+    left: 12px;
+    right: unset
+}
+
+.closeContent__2be93 {
+    justify-content: flex-start !important;
+    min-width: unset;
+    max-width: unset;
 }
