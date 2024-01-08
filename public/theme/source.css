@@ -5256,7 +5256,8 @@ button[class^=attachButton] {
     padding-top: 80px
 }
 
-.sidebar__9e3e2 [class*=selected]::after {
+.sidebar__9e3e2 [class*=selected]::after,
+.directoryContainer_d3edd9 .header__32541>h1 {
     top: 0;
     left: 60px;
     width: auto;
@@ -5266,7 +5267,7 @@ button[class^=attachButton] {
     display: block;
     position: fixed;
     z-index: 3003;
-    color: var(--interactive-active);
+    color: var(--interactive-active) !important;
     font-weight: 700;
     font-family: var(--font-display);
     animation: settings-header .4s ease
