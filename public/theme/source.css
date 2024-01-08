@@ -3638,15 +3638,15 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
     mask: none;
 }
 
-[class*="NonPremium"] .bannerSVGWrapper__3e7b0 foreignObject {
+.bannerSVGWrapper__3e7b0[viewBox*="60"] foreignObject {
     transform: translateY(-4px)
 }
 
-[class*="PremiumWithoutBanner"] .bannerSVGWrapper__3e7b0 foreignObject {
+.bannerSVGWrapper__3e7b0[viewBox*="90"] foreignObject {
     transform: translateY(-6px)
 }
 
-[class*="WithBanner"] .bannerSVGWrapper__3e7b0 foreignObject {
+.bannerSVGWrapper__3e7b0[viewBox*="120"] foreignObject {
     transform: translateY(-8px)
 }
 
@@ -11448,7 +11448,8 @@ div.icon_c1b424 {
     width: 220px !important;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper_af829a>.popoutContainer__3d17d>div>.userPopoutOuter_d739b2:before {
+[id^=popout]>div>.accountProfilePopoutWrapper_af829a>.popoutContainer__3d17d>div>.userPopoutOuter_d739b2:before,
+[id^=popout]>div>div>.userPopoutOuter_d739b2:before {
     z-index: 2;
 }
 
