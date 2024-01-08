@@ -9192,8 +9192,16 @@ html[lang=hi] .sidebar__9e3e2 [class*=selected][aria-controls*=OUTBOUND] {
     content: "Theme Repository"
 }
 
-.contentColumn_dc7d36 {
-    max-width: 100%
+.contentColumn_dc7d36,
+.content__3d283,
+.content__23cab,
+[class*=settingsColumn],
+[class*=customColumn] {
+    max-width: 100% !important
+}
+
+.container__7b3c6 {
+    width: auto;
 }
 
 .sidebarRegionScroller__1fa7e {
@@ -11641,7 +11649,7 @@ button.tagsButton_e96762 {
 }
 
 .addGamePopout_e4ca8f {
-    background-color: var(--background-floating);
+    background-color: var(--background-floating) !important;
 }
 
 .spinner_caad3a {
@@ -11715,4 +11723,8 @@ button.tagsButton_e96762 {
 #vc-spotify-progress-bar .grabber_d2868c {
     opacity: 0;
     cursor: pointer;
+}
+
+.option_b5597b {
+    line-height: 20px;
 }
