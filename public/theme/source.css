@@ -9201,7 +9201,8 @@ html[lang=hi] .sidebar__9e3e2 [class*=selected][aria-controls*=OUTBOUND] {
 .content__3d283,
 .content__23cab,
 [class*=settingsColumn],
-[class*=customColumn] {
+[class*=customColumn],
+.directoryContainer_d3edd9 .content__4560d {
     max-width: 100% !important
 }
 
@@ -11766,4 +11767,8 @@ button.tagsButton_e96762 {
     justify-content: flex-start !important;
     min-width: unset;
     max-width: unset;
+}
+
+.directoryContainer_d3edd9 {
+    padding: 32px 64px 64px 64px !important
 }
