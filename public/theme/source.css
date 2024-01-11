@@ -3631,7 +3631,7 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
     z-index: 1;
 }
 
-.userProfileInnerThemedWithBanner_d5f991>.bannerSVGWrapper__3e7b0 {
+.bannerSVGWrapper__3e7b0[viewBox*="120"]  {
     margin-bottom: -10px;
 }
 
@@ -7541,6 +7541,42 @@ html[lang=el] .sidebar__9e3e2 [class*=selected][aria-controls=hypesquad-online-t
 
 .sidebar__9e3e2 [class*=selected][aria-controls=developer-options-tab]::after {
     content: "Developer Options" !important
+}
+
+.sidebar__9e3e2 [class*=selected][aria-controls=vencordsettings-tab]::after {
+    content: "Vencord Settings"
+}
+
+.sidebar__9e3e2 [class*=selected][aria-controls=vencordplugins-tab]::after {
+    content: "Plugins"
+}
+
+.sidebar__9e3e2 [class*=selected][aria-controls=vencordthemes-tab]::after {
+    content: "Themes"
+}
+
+.sidebar__9e3e2 [class*=selected][aria-controls=vencordupdater-tab]::after {
+    content: "Vencord Updater"
+}
+
+.sidebar__9e3e2 [class*=selected][aria-controls=vencordcloud-tab]::after {
+    content: "Vencord Cloud"
+}
+
+.sidebar__9e3e2 [class*=selected][aria-controls=vencordsettingssync-tab]::after {
+    content: "Backup & Restore"
+}
+
+.sidebar__9e3e2 [class*=selected][aria-controls=friend-requests-tab]::after {
+    content: "Friend Requests"
+}
+
+.sidebar__9e3e2 [class*=selected][aria-controls=activity-privacy-tab]::after {
+    content: "Activity Privacy"
+}
+
+.sidebar__9e3e2 [class*=selected][aria-controls=vanity_url-tab]::after {
+    content: "Custom Invite Link"
 }
 
 html[lang^=en-] .sidebar__9e3e2 [class*=selected][aria-controls=overview-tab]::after {
