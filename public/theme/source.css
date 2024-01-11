@@ -2553,7 +2553,7 @@ body.foldercontentopened .base__3e6af {
     background-color: var(--background-primary);
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
     height: 44px;
-    width: 148px;
+    width: calc(var(--sidebar-width) / 2 + 18px);
     z-index: 2;
     margin-top: -6px;
     box-sizing: border-box
