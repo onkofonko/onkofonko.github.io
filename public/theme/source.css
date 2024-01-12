@@ -2551,7 +2551,7 @@ body.foldercontentopened .base__3e6af {
     content: "";
     position: absolute;
     background-color: var(--background-primary);
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    border-radius: var(--border-radius);
     height: 44px;
     width: calc(var(--sidebar-width) / 2 + 18px);
     z-index: 2;
@@ -2560,8 +2560,7 @@ body.foldercontentopened .base__3e6af {
 }
 
 .panels__58331 .wrapper__0ed4a .container_d667ff:after {
-    left: -8px;
-    border-radius: var(--border-radius) 0 0 var(--border-radius)
+    left: -8px
 }
 
 .panels__58331 .wrapper__0ed4a~.container_ca50b9 .horizontal__992f6:after {
