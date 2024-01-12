@@ -2553,7 +2553,7 @@ body.foldercontentopened .base__3e6af {
     background-color: var(--background-primary);
     border-radius: var(--border-radius);
     height: 44px;
-    width: calc(var(--sidebar-width) / 2 + 18px);
+    width: 148px;
     z-index: 2;
     margin-top: -6px;
     box-sizing: border-box
@@ -2565,6 +2565,10 @@ body.foldercontentopened .base__3e6af {
 
 .panels__58331 .wrapper__0ed4a~.container_ca50b9 .horizontal__992f6:after {
     right: -8px
+}
+
+.panels__58331 .wrapper__0ed4a~.container_ca50b9 .horizontal__992f6:has(> :nth-child(4)):after {
+    width: 180px;
 }
 
 .panels__58331 .wrapper__0ed4a~.container_ca50b9 .horizontal__992f6 {
@@ -3630,7 +3634,7 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
     z-index: 1;
 }
 
-.bannerSVGWrapper__3e7b0[viewBox*="120"]  {
+.bannerSVGWrapper__3e7b0[viewBox*="120"] {
     margin-bottom: -10px;
 }
 
