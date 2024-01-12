@@ -2551,12 +2551,21 @@ body.foldercontentopened .base__3e6af {
     content: "";
     position: absolute;
     background-color: var(--background-primary);
-    border-radius: var(--border-radius);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
     height: 44px;
     width: calc(var(--sidebar-width) / 2 + 18px);
     z-index: 2;
-    margin: -6px -8px 0 -8px;
+    margin-top: -6px;
     box-sizing: border-box
+}
+
+.panels__58331 .wrapper__0ed4a .container_d667ff:after {
+    left: -8px;
+    border-radius: var(--border-radius) 0 0 var(--border-radius)
+}
+
+.panels__58331 .wrapper__0ed4a~.container_ca50b9 .horizontal__992f6:after {
+    right: -8px
 }
 
 .panels__58331 .wrapper__0ed4a~.container_ca50b9 .horizontal__992f6 {
