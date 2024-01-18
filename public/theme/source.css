@@ -3594,7 +3594,7 @@ button[aria-label="Disable Game Activity"] .contents_fb6220:after {
     margin: 8px 16px 16px;
 }
 
-html #app-mount .userPopoutOuter_d739b2 .avatarPositionNormal__1797c {
+.avatarPositionNormal__1797c, .avatarUploaderNormal__2388b {
     top: 26px
 }
 
@@ -3603,7 +3603,7 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionNormal__1797c {
     top: 76px !important
 }
 
-html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
+.avatarPositionPremiumNoBanner__8bf3b {
     top: 56px
 }
 
@@ -3680,6 +3680,8 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
 
 .banner__6d414:after,
 .banner__6d414:before,
+.banner_b7f1fb:after,
+.banner_b7f1fb:before,
 .bannerUploaderInnerSquare_b9c04e:after,
 .bannerUploaderInnerSquare_b9c04e:before {
     content: "";
@@ -3711,6 +3713,7 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
 }
 
 .banner__6d414:after,
+.banner_b7f1fb:after,
 .bannerUploaderInnerSquare_b9c04e:after,
 [class^=bannerNitroUpsell] {
     background-image: inherit !important;
@@ -3743,7 +3746,8 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
 }
 
 .popoutBannerPremium__942db.bannerPremium__42693:before,
-.profileBannerPremium__9ca8f.bannerPremium__42693:before {
+.profileBannerPremium__9ca8f.bannerPremium__42693:before,
+.imageUploaderInner_da8332.banner_b7f1fb:before {
     transform: scaleY(-1);
     -webkit-transform: scaleY(-1);
     top: 120px;
@@ -3768,6 +3772,7 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
 .popoutBanner__9f5b9:before,
 .profileBanner__8414b:before,
 .banner__6d414:before,
+.banner_b7f1fb:before,
 .bannerUploaderInnerSquare_b9c04e:before {
     bottom: 0;
     opacity: 1;
@@ -3780,7 +3785,8 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
 }
 
 .banner__6d414.profileBanner__8414b:after,
-.banner__6d414:not(.user-background):not(.bannerPremium__42693):after {
+.banner__6d414:not(.user-background):not(.bannerPremium__42693):after,
+.banner_b7f1fb:not(.imageUploaderInner_da8332):after {
     --gradient-size: 100%;
     --mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 0.3) calc(var(--gradient-size) * .5), rgba(0, 0, 0, 0.15) calc(var(--gradient-size) * .65), rgba(0, 0, 0, 0.075) calc(var(--gradient-size) * .755), rgba(0, 0, 0, 0.037) calc(var(--gradient-size) * .8285), rgba(0, 0, 0, 0.019) calc(var(--gradient-size) * .88), rgba(0, 0, 0, 0) var(--gradient-size));
     background-color: inherit;
@@ -3829,7 +3835,8 @@ html #app-mount .userPopoutOuter_d739b2 .avatarPositionPremiumNoBanner__8bf3b {
     margin-bottom: -8px;
 }
 
-.banner__6d414 {
+.banner__6d414,
+.banner_b7f1fb {
     visibility: hidden;
 }
 
@@ -11491,7 +11498,7 @@ div.icon_c1b424 {
 }
 
 [id^=popout]>div>.accountProfilePopoutWrapper_af829a>.popoutContainer__3d17d>div>.userPopoutOuter_d739b2:before,
-[id^=popout]>div>div>.userPopoutOuter_d739b2:before {
+.userPopoutOuter_d739b2:before {
     z-index: 2;
 }
 
