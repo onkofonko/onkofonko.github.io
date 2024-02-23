@@ -683,7 +683,7 @@
     width: calc(100% + 30px);
 }
 
-#app-mount .guilds__2b93a .scrollerBase_dc3aa9 {
+#app-mount .guilds__2b93a .scrollerBase__2b744 {
     padding: var(--server-margin) 0 !important;
     display: flex;
     flex-direction: var(--server-direction);
@@ -692,15 +692,15 @@
     justify-content: var(--server-alignment);
 }
 
-#app-mount .guilds__2b93a .scrollerBase_dc3aa9>div[style]:not(.listItem-2P_4kh) {
+#app-mount .guilds__2b93a .scrollerBase__2b744>div[style]:not(.listItem-2P_4kh) {
     height: auto !important;
 }
 
-#app-mount .guilds__2b93a .scrollerBase_dc3aa9>div[style]:not(.listItem-2P_4kh)[style*="height: 0px"] {
+#app-mount .guilds__2b93a .scrollerBase__2b744>div[style]:not(.listItem-2P_4kh)[style*="height: 0px"] {
     padding-top: 1px;
 }
 
-#app-mount .guilds__2b93a .scrollerBase_dc3aa9>div[aria-label] {
+#app-mount .guilds__2b93a .scrollerBase__2b744>div[aria-label] {
     display: flex;
     flex-direction: var(--server-direction);
     gap: var(--server-margin);
@@ -1461,13 +1461,13 @@ body.foldercontentopened .base__3e6af {
 }
 
 /* fixes channel list scroll */
-.scroller_f0f183.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0:hover {
+.scroller_f0f183.thin_b1c063.scrollerBase__2b744.fade_ba0fa0:hover {
     overflow-x: hidden !important;
     overflow-y: overlay !important
 }
 
 /* part of channel list scroll fix */
-.scroller_f0f183.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0 {
+.scroller_f0f183.thin_b1c063.scrollerBase__2b744.fade_ba0fa0 {
     overflow-x: hidden !important;
     overflow-y: hidden !important;
     padding-right: 8px !important
@@ -2086,7 +2086,7 @@ body.foldercontentopened .base__3e6af {
     margin-bottom: 0
 }
 
-.menu_dc52c6#status-picker .scrollerBase_dc3aa9 {
+.menu_dc52c6#status-picker .scrollerBase__2b744 {
     flex-basis: auto
 }
 
@@ -4048,8 +4048,8 @@ button[aria-label="Disable Game Activity"] .contents_fb6220:after {
     -webkit-app-region: no-drag
 }
 
-.scroller__3d071.none__51a8f.scrollerBase_dc3aa9 .tutorialContainer__90eac+.listItem_fa7b36,
-.scroller__3d071.none__51a8f.scrollerBase_dc3aa9 .tutorialContainer__90eac+.listItem__3876c {
+.scroller__3d071.none__51a8f.scrollerBase__2b744 .tutorialContainer__90eac+.listItem_fa7b36,
+.scroller__3d071.none__51a8f.scrollerBase__2b744 .tutorialContainer__90eac+.listItem__3876c {
     margin-bottom: 32px !important
 }
 
@@ -11170,7 +11170,7 @@ html:not(.app-focused) .sidebarRegionScroller__1fa7e {
     height: 24px
 }
 
-.container__590e2[aria-label*="Alexis Modern Theme"] .scroller_f0f183.thin_b1c063.scrollerBase_dc3aa9 {
+.container__590e2[aria-label*="Alexis Modern Theme"] .scroller_f0f183.thin_b1c063.scrollerBase__2b744 {
     --mask-image: none
 }
 
@@ -11188,7 +11188,7 @@ html:not(.app-focused) .sidebarRegionScroller__1fa7e {
     text-transform: capitalize
 }
 
-.container__590e2 .scroller_f0f183.thin_b1c063.scrollerBase_dc3aa9 {
+.container__590e2 .scroller_f0f183.thin_b1c063.scrollerBase__2b744 {
     --mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 24px);
     -webkit-mask-image: var(--mask-image);
     mask-image: var(--mask-image)
