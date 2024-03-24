@@ -1242,13 +1242,15 @@ body.foldercontentopened .base__3e6af {
 }
 
 .timestamp_cdbd93,
-.timestampInline__470e0 {
+.timestampInline__470e0,
+.badgesContainer_af6255 {
     opacity: 0;
     transition: opacity .175s ease
 }
 
 .messageListItem__6a4fb:hover .timestamp_cdbd93,
-.messageListItem__6a4fb:hover .timestampInline__470e0 {
+.messageListItem__6a4fb:hover .timestampInline__470e0,
+.messageListItem__6a4fb:hover .badgesContainer_af6255 {
     opacity: 1
 }
 
@@ -9343,6 +9345,16 @@ html:not(.app-focused) .sidebarRegionScroller__1fa7e {
     flex: 1 1 100%
 }
 
+.contentColumn_dc7d36,
+.customColumn_e22a6e {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-width: unset;
+    min-height: 100%;
+    max-width: 1024px
+}
+
 [class*=pictureInPictureVideo-],
 [class*=pictureInPictureVideo-] [class*=media-],
 [class*=pictureInPictureVideo-] [class*=video-],
@@ -11808,4 +11820,16 @@ button.tagsButton_e96762 {
 
 .directoryContainer_d3edd9 {
     padding: 32px 64px 64px 64px !important
+}
+
+.container__3ca24{
+    background-color: var(--background-secondary);
+}
+
+.badge_b37eda{
+    background-color: var(--background-tertiary);
+}
+
+.answerInner_a3bc8e{
+    background-color: hsl(0deg 0% 19% / 30%);
 }
