@@ -9584,7 +9584,7 @@ html:not(.app-focused) .sidebarRegionScroller__8113e {
 @font-face {
     font-family: dash2space;
     unicode-range: U+002D;
-    src: url(https://AlexisJonsson.github.io/BetterDiscordAddons/Themes/font/dash2space.ttf) format('truetype'), url(https://AlexisJonsson.github.io/BetterDiscordAddons/Themes/font/dash2space.woff2) format('woff2')
+    src: url(https://onkofonko.github.io/theme/dash2space.ttf) format('truetype'), url(https://onkofonko.github.io/theme/dash2space.woff2) format('woff2')
 }
 
 .autocompleteRowVertical__90217[data-list-item-id*=channel-autocomplete] .autocompleteRowContentPrimary__5db7d .colorInteractiveActive-30E9n8,
