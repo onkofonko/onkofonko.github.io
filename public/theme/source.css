@@ -3658,17 +3658,17 @@ button[aria-label="Disable Game Activity"] .contents__322f4:after {
     transform: translateY(-8px)
 }
 
-[class^="topSection"]>header>.header_dda341 {
+[class^="topSection"]>.header_dda341 {
     margin-top: 84px;
     margin-bottom: -84px;
     position: relative;
 }
 
-[class^="topSection"]>header>[class^="bannerSVGWrapper"][viewBox*="212"] {
+[class^="topSection"]>[class^="bannerSVGWrapper"][viewBox*="212"] {
     margin-bottom: -40px;
 }
 
-[class^="topSection"]>header>[class^="bannerSVGWrapper"] {
+[class^="topSection"]>[class^="bannerSVGWrapper"] {
     height: 100%;
     max-width: 600px;
     min-width: 600px !important;
@@ -3731,22 +3731,8 @@ button[aria-label="Disable Game Activity"] .contents__322f4:after {
     visibility: visible;
 }
 
-[class^="topSection"]>header>div:before {
-    width: 600px !important;
-}
-
 [class^="topSection"] .banner__6d414:after {
     height: 240px
-}
-
-[class^="topSection"]>header>.bannerPremium__69560,
-[class^="topSection"]>header>.profileBanner_f0f36c {
-    visibility: hidden;
-}
-
-[class^="topSection"]>header>.bannerPremium__69560:after,
-[class^="topSection"]>header>.bannerPremium__69560:before {
-    visibility: visible;
 }
 
 .popoutBannerPremium__84487.bannerPremium__69560:before,
@@ -3897,17 +3883,9 @@ button[aria-label="Disable Game Activity"] .contents__322f4:after {
     opacity: 1
 }
 
-[class^="topSection"]>header>.profileBanner_f0f36c {
-    height: 200px !important;
-}
-
 .profileBannerPremium__6fb42,
 .profileBannerPremium__6fb42:after {
     height: 240px !important;
-}
-
-[class^="topSection"]>header>[class*="nameTag" i] {
-    margin-top: 0;
 }
 
 .toolbar__62fb5 a.anchor_c8ddc0[href^="https://support.discord.com"] {
