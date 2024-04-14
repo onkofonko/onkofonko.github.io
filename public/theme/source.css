@@ -9571,7 +9571,7 @@ html:not(.app-focused) .sidebarRegionScroller__8113e {
 .quickswitcher_b5bb0a .result__25f11 .match_a540b5,
 .sidebar_e031be .linkTop_c8969d .name__4eb92,
 .title_d4ba1a .iconWrapper_de6cd1+.title__84e16,
-.wrapper_f5f4c9[class="wrapper_f5f4c9 mention interactive"] {
+.wrapper__4ef2e[class="wrapper__4ef2e mention interactive"] {
     font-family: dash2space, var(--font-primary);
     text-transform: capitalize
 }
