@@ -2175,7 +2175,7 @@ body.foldercontentopened .base_c0676e {
     font-weight: var(--menu-font-weight)
 }
 
-.menu__088f7 .labelContainer__4f869:not(#account-status-picker--quiet-mode) {
+.menu__088f7 .labelContainer__4f869 {
     padding: 5px 14px;
     box-sizing: border-box;
     display: flex;
@@ -11387,6 +11387,13 @@ div.icon__493c1 {
 [id^=account-devmode-copy-id] {
     padding-left: 5px !important;
     width: 208px !important;
+}
+
+#account-status-picker--quiet-mode {
+    width: 100% !important;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 !important;
 }
 
 .theme-dark.authBox__6f336,
