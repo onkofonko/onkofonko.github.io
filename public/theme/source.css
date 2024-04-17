@@ -3827,6 +3827,10 @@ button[aria-label="Disable Game Activity"] .contents__322f4:after {
     visibility: hidden;
 }
 
+.userPopoutInner_ac0960 {
+    background: var(--background-floating) !important;
+}
+
 .userPopoutInner_ac0960:before {
     content: " ";
     position: absolute;
