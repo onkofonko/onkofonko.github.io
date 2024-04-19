@@ -11840,8 +11840,8 @@ button.tagsButton__34537 {
     background-color: var(--background-tertiary) !important;
 }
 
-.userProfileModalInner__84e47 {
-    background: var(--background-primary)
+.userProfileModalInner__84e47, .userProfileModalOuter__90b4a {
+    background: var(--background-primary);
 }
 
 .container__532be::-webkit-scrollbar {
