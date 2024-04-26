@@ -3813,7 +3813,7 @@ button[aria-label="Disable Game Activity"] .contents__322f4:after {
 }
 
 [class^=userPopoutInner]>[class^="profileBadges"],
-[class^="headerTop"]>[class^="badge"] {
+.userInfo_fb7651>div:nth-child(2)>[class^="badge"] {
     background-color: unset;
 }
 
@@ -11795,7 +11795,7 @@ button.tagsButton__34537 {
     margin-top: 80px
 }
 
-.closeIconNotMobile__82a4e {
+.directoryContainer__36395 .closeContent__42d26 {
     top: 14px;
     left: 12px;
     right: unset
