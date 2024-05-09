@@ -3741,7 +3741,9 @@ button[aria-label="Disable Game Activity"] .contents__322f4:after {
     transform: scaleY(-1);
     -webkit-transform: scaleY(-1);
     top: 120px;
-    height: calc(100vh - 140px);
+    height: calc(100vh - 12px);
+    background-color: unset!important;
+    background-size: 100% 100%
 }
 
 .accountProfileCard__744d8>.settingsBanner__01382.bannerPremium__69560:before,
