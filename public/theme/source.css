@@ -2076,6 +2076,7 @@ body.foldercontentopened .base_c0676e {
 .separator__174fc {
     margin: var(--menu-container-padding) 0;
     border-bottom: 1px solid var(--background-modifier-accent);
+    border-color: var(--background-modifier-accent) !important;
     width: auto;
     height: 1px;
     -webkit-box-sizing: border-box;
@@ -3742,7 +3743,7 @@ button[aria-label="Disable Game Activity"] .contents__322f4:after {
     -webkit-transform: scaleY(-1);
     top: 120px;
     height: calc(100vh - 12px);
-    background-color: unset!important;
+    background-color: unset !important;
     background-size: 100% 100%
 }
 
@@ -3815,7 +3816,8 @@ button[aria-label="Disable Game Activity"] .contents__322f4:after {
 }
 
 [class^=userPopoutInner]>[class^="profileBadges"],
-.userInfo_fb7651>div:nth-child(2)>[class^="badge"] {
+.userInfo_fb7651>div:nth-child(2)>[class^="badge"],
+.headerTop_e82f16>.badgeList__126b0 {
     background-color: unset;
 }
 
@@ -11842,10 +11844,16 @@ button.tagsButton__34537 {
     background-color: var(--background-tertiary) !important;
 }
 
-.userProfileModalInner__84e47, .userProfileModalOuter__90b4a {
+.userProfileModalInner__84e47,
+.userProfileModalOuter__90b4a {
     background: var(--background-primary);
 }
 
 .container__532be::-webkit-scrollbar {
     display: none;
+}
+
+.userPanelInner__3184c.userProfileInner__8ff35 .banner__6d414:after,
+.userPanelInner__3184c.userProfileInner__8ff35 .banner_b7f1fb:after {
+    height: calc(100vh - 100px);
 }
