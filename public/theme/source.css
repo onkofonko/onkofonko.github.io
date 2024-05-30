@@ -692,11 +692,11 @@
     justify-content: var(--server-alignment);
 }
 
-#app-mount .guilds__2b93a .scrollerBase__65223>div[style]:not(.listItem-2P_4kh) {
+#app-mount .guilds__2b93a .scrollerBase__65223>div[style]:not(.listItem__48528) {
     height: auto !important;
 }
 
-#app-mount .guilds__2b93a .scrollerBase__65223>div[style]:not(.listItem-2P_4kh)[style*="height: 0px"] {
+#app-mount .guilds__2b93a .scrollerBase__65223>div[style]:not(.listItem__48528)[style*="height: 0px"] {
     padding-top: 1px;
 }
 
@@ -3418,7 +3418,8 @@ button[aria-label="Disable Game Activity"] .contents__322f4:after {
 .role_d81130,
 .theme-dark .actionButton__96742,
 .theme-light .actionButton__96742,
-.userPopoutOuter_d67f56 .textarea__0461c:focus {
+.userPopoutOuter_d67f56 .textarea__0461c:focus,
+.actionColor_db400e {
     background-color: rgba(196, 196, 196, .1) !important;
     transition: filter .15s ease
 }
@@ -11651,10 +11652,6 @@ button.tagsButton__34537 {
 
 .iconItem__56989.alwaysShown_c7a3fc {
     display: none;
-}
-
-.side_b4b3f6>.item__48dda:not(.role-3pGE29)>div {
-    flex: 1;
 }
 
 .container_db1b74>* {
