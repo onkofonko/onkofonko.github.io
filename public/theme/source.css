@@ -597,17 +597,8 @@
 }
 
 .tooltip__7b090 {
-    position: relative;
-    border-radius: 5px;
-    font-weight: 500;
     font-size: 11px;
     line-height: 16px;
-    /*max-width: 190px;*/
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    z-index: 1002;
-    will-change: opacity, transform
 }
 
 .tooltip__7b090,
@@ -11668,7 +11659,7 @@ button.tagsButton__34537 {
     margin-top: 0
 }
 
-.linkBottom__942a1:has(.statusDiv__1f955) {
+.containerDefault_ae2ea4 .linkBottom__942a1 {
     padding: 0 0 6px 6px;
     margin-top: -4px;
 }
