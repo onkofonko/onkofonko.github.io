@@ -3826,17 +3826,18 @@ button[aria-label="Disable Game Activity"] .contents__322f4:after {
 
 .userPopoutInner_ac0960 {
     background: var(--background-floating) !important;
+    overflow: hidden;
+    border-radius: var(--context-menu-border-radius)
 }
 
 .userPopoutInner_ac0960:before {
     content: " ";
     position: absolute;
-    height: 120px;
-    width: 300px;
+    height: 100%;
+    width: 100%;
     background-color: var(--background-floating);
-    border-radius: var(--context-menu-border-radius) var(--context-menu-border-radius) 0 0;
+    border-radius: var(--context-menu-border-radius)
 }
-
 
 .profileColors_ac6ab4 {
     --profile-gradient-primary-color: var(--background-floating) !important;
