@@ -3407,7 +3407,7 @@ button[aria-label="Disable Game Activity"] .contents__322f4:after {
 }
 
 .relationshipButtons_b880ad>button,
-.role__18ec9,
+.role_d81130,
 .theme-dark .actionButton__96742,
 .theme-light .actionButton__96742,
 .userPopoutOuter_d67f56 .textarea__0461c:focus,
@@ -3436,7 +3436,7 @@ button[aria-label="Disable Game Activity"] .contents__322f4:after {
     opacity: .75
 }
 
-.role__18ec9.addButton__6f12b {
+.role_d81130.addButton__6f12b {
     background-color: transparent;
     border-radius: 50%
 }
@@ -3465,7 +3465,7 @@ button[aria-label="Disable Game Activity"] .contents__322f4:after {
     filter: brightness(1.2)
 }
 
-.role__18ec9 {
+.role_d81130 {
     font-size: 12px;
     font-weight: 500;
     border: 0 solid;
@@ -3479,8 +3479,8 @@ button[aria-label="Disable Game Activity"] .contents__322f4:after {
     filter: brightness(.8)
 }
 
-.role__18ec9.addButton__6f12b[aria-expanded=true],
-.role__18ec9:hover {
+.role_d81130.addButton__6f12b[aria-expanded=true],
+.role_d81130:hover {
     background-color: rgba(255, 255, 255, .1);
     filter: brightness(1)
 }
