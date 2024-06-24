@@ -11847,3 +11847,7 @@ button.tagsButton_a6d69a {
 .userPanelInner_c69a7b.userProfileInner_c69a7b .banner_ab876d:after {
     height: calc(100vh - 100px);
 }
+
+.dot_ccd671 {
+    background-color: var(--interactive-normal)
+}
