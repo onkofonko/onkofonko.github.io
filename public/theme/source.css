@@ -547,14 +547,14 @@
 }
 
 .theme-dark .lookFilled_dd4f85.colorPrimary_dd4f85 {
-    color: var(--interactive-hover) !important;
-    background-color: rgba(255, 255, 255, .15) !important
+    color: var(--interactive-hover);
+    background-color: rgba(255, 255, 255, .15)
 }
 
 .theme-dark .lookFilled_dd4f85.colorPrimary_dd4f85:active,
 .theme-dark .lookFilled_dd4f85.colorPrimary_dd4f85:hover {
-    background-color: rgba(255, 255, 255, .2) !important;
-    filter: brightness(1.2) !important
+    background-color: rgba(255, 255, 255, .2);
+    filter: brightness(1.2)
 }
 
 .theme-light .lookFilled_dd4f85.colorPrimary_dd4f85 {
@@ -2113,7 +2113,7 @@ body.foldercontentopened .base_a4d4d9 {
     z-index: 2
 }
 
-.menu_d90b3d .scroller_d90b3d {
+.menu_d90b3d .scroller_d90b3d:not(.menus_d4e7c2>.menu_d90b3d>div) {
     padding: var(--menu-container-padding) !important
 }
 
@@ -3610,6 +3610,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, .205))
 }
 
+[class^="userPopoutInner"]>header>[class^="bannerSVGWrapper"],
 [class^="userPopoutInner"]>[class^="bannerSVGWrapper"] {
     height: 100%;
     max-width: 300px;
@@ -3620,7 +3621,64 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     contain: none;
 }
 
-[class^="accountProfileCard"]>[class^="bannerSVGWrapper"] {
+.header_b07019 {
+    z-index: 1;
+}
+
+.body_b07019>div:nth-child(2) {
+    padding-top: 14px;
+    border-top: 1px solid var(--background-modifier-accent);
+}
+
+.activityBiteSizePopout_d5089b.activity_cd74cc {
+    padding: 0;
+    background: unset !important
+}
+
+.button_edead5 {
+    border: 0;
+    border-radius: 50%
+}
+
+.statusBubbleOuter_d0a252:before {
+    border-radius: 19px 19px 0 0;
+    height: 9.5px;
+    transform: translateY(1px) translateX(1px)
+}
+
+.statusBubbleOuter_d0a252,
+.statusBubble_d0a252,
+.statusBubbleOuter_d0a252:before,
+.statusBubbleOuter_d0a252:after {
+    border: unset !important;
+    box-shadow: none
+}
+
+.statusBubbleOuter_d0a252 {
+    background: unset !important
+}
+
+.statusBubble_d0a252,
+.statusBubbleOuter_d0a252:before,
+.statusBubbleOuter_d0a252:after {
+    background: var(--bg-mod-faint) !important
+}
+
+.overlayBackground_c69a7b {
+    border: none;
+    background: unset !important;
+}
+
+[class^="userPopoutInner"]>.footer_b07019 .inner_dc0b43,
+[class^="userPopoutInner"]>.footer_b07019>div>button,
+.wrapper_cb78f1.biteSize_cb78f1 button,
+.headerInner_bc9cc2 .buttons_d181d8 button,
+.wrapper_cb78f1.fullSize_cb78f1 button {
+    background: var(--bg-mod-faint) !important;
+    background-color: var(--bg-mod-faint) !important;
+}
+
+[class^="accountProfileCard"] [class^="bannerSVGWrapper"] {
     z-index: 0;
     overflow: visible;
     position: absolute;
@@ -3662,14 +3720,16 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     margin-bottom: -40px;
 }
 
-[class^="topSection"]>[class^="bannerSVGWrapper"] {
-    height: 100%;
-    max-width: 600px;
-    min-width: 600px !important;
+.fullSizeInnerThemed_c69a7b>header>[class^="bannerSVGWrapper"],
+.topSection_b9fccc>[class^="bannerSVGWrapper"] {
     z-index: 0;
     overflow: visible;
     position: relative;
     contain: none;
+}
+
+.topSection_b9fccc {
+    z-index: 0;
 }
 
 .header_ec3b75 {
@@ -3725,8 +3785,12 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     visibility: visible;
 }
 
-[class^="topSection"] .banner_c3e427:after {
-    height: 240px
+.fullSizeInnerThemed_c69a7b .banner_c3e427:after {
+    height: 210px
+}
+
+.fullSizeOuter_c69a7b.userProfileOuter_c69a7b, .fullSizeInnerThemed_c69a7b .banner_c3e427:before {
+    height: 650px
 }
 
 .popoutBannerPremium_c3e427.bannerPremium_c3e427:before,
@@ -3791,27 +3855,20 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     height: 380px;
 }
 
-[class*="overlayBackground"] {
-    margin-left: 4px;
-    margin-right: 4px;
-    background-color: unset;
-    /* z-index: 1002; */
-    z-index: 101;
-}
-
-[class^=userProfileModal]>[class*="overlayBackground"] {
-    margin-left: 8px;
-    margin-right: 8px;
-}
 
 .userInfoSection_a24910+.userInfoSection_a24910 {
     border-top: unset
 }
 
-[class^=userPopoutInner]>[class^="profileBadges"],
-.userInfo_b69b77>div:nth-child(2)>[class^="badge"],
-.headerTop_ec3b75>.badgeList_ec3b75 {
+.body_b07019 .container_e5a42d,
+.body_bc9cc2 .container_e5a42d {
     background-color: unset;
+    border: none
+}
+
+.pill_f9575e,
+.button_edead5 {
+    border: none
 }
 
 [class^="profileBadges"] {
@@ -3883,11 +3940,6 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
 .divider_ae36e5 {
     background-color: var(--background-modifier-accent);
     opacity: 1
-}
-
-.profileBannerPremium__6fb42,
-.profileBannerPremium__6fb42:after {
-    height: 240px !important;
 }
 
 .toolbar_e44302 a.anchor_af404b[href^="https://support.discord.com"] {
@@ -11380,8 +11432,12 @@ div.icon_c07d45 {
     background-color: var(--background-primary)
 }
 
-#account-status-picker,
-#account-set-custom-status,
+.menu_d90b3d.flexible_d90b3d.menu_d4e7c2 {
+    background: unset;
+}
+
+#status-status-picker,
+#status-set-custom-status,
 #account-style-your-profile,
 #account-edit-custom-status,
 #status-picker-switch-account,
@@ -11391,7 +11447,7 @@ div.icon_c07d45 {
     width: 208px !important;
 }
 
-#account-status-picker--quiet-mode {
+#status-status-picker--quiet-mode {
     width: 100% !important;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -11454,18 +11510,15 @@ div.icon_c07d45 {
     padding: var(--settings-top) 40px 80px;
 }
 
-[class*="overlayBackground"]>.menu_d90b3d.flexible_d90b3d.menu_ad5fac:before {
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>header,
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>.body_d4e7c2>*:not(.menus_d4e7c2),
+.accountProfilePopoutWrapper_b2ca13 .menus_d4e7c2>.menu_d90b3d.flexible_d90b3d:before,
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b .wrapper_cb78f1.biteSize_cb78f1 {
     display: none;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>.popoutContainer_ad5fac>div>.userPopoutOuter_c69a7b>div>[class*="overlayBackground"]>*:not(.menu_d90b3d):not(.divider_ae36e5),
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>.popoutContainer_ad5fac>div>.userPopoutOuter_c69a7b>div>*:not([class*="overlayBackground"]),
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>.popoutContainer_ad5fac>div>.userPopoutOuter_c69a7b>div>[class*="overlayBackground"]>.divider_ae36e5.divider_d2b491 {
-    display: none;
-}
-
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>.popoutContainer_ad5fac>div>.userPopoutOuter_c69a7b>div>[class*="overlayBackground"]>.divider_ae36e5 {
-    margin-top: 16px;
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>.body_d4e7c2 {
+    padding: 38px 0 0 0;
 }
 
 #account>div>.separator_d90b3d {
@@ -11473,23 +11526,30 @@ div.icon_c07d45 {
     margin-left: 6px;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>.popoutContainer_ad5fac>div>.userPopoutOuter_c69a7b {
-    width: 220px;
+
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>.body_d4e7c2>.menus_d4e7c2>.menu_d90b3d>div {
+    padding: 0px 6px 0px 6px;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>.popoutContainer_ad5fac>div>.userPopoutOuter_c69a7b>div>[class*="overlayBackground"] {
-    margin: 28px 0px 0px 0px;
+.menus_d4e7c2>div:nth-child(2)>div {
+    padding-bottom: 2px !important
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>.popoutContainer_ad5fac>div>.userPopoutOuter_c69a7b,
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>.popoutContainer_ad5fac>div>.userPopoutOuter_c69a7b:before,
-[class*="overlayBackground"]>.menu_d90b3d.flexible_d90b3d.menu_ad5fac {
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b,
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b:before,
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>.body_d4e7c2>.menus_d4e7c2,
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>.body_d4e7c2>.menus_d4e7c2>.menu_d90b3d {
     width: 220px !important;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>.popoutContainer_ad5fac>div>.userPopoutOuter_c69a7b:before,
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b:before,
 .userPopoutOuter_c69a7b:before {
-    z-index: 2;
+    z-index: 1;
+}
+
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>.body_d4e7c2>.menus_d4e7c2 {
+    margin: 0px;
+    gap: 0px;
 }
 
 .theme-dark .keyboardShortcutsModal_ad95dc {
@@ -11670,12 +11730,13 @@ button.tagsButton_a6d69a {
     left: 86px
 }
 
+/*
 [id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>.popoutContainer_ad5fac>.container__0ec3c {
     height: 710px !important;
     position: absolute;
     top: 0px;
     left: -332px;
-}
+}*/
 
 .modalHeaderCustomGift_a27f2f,
 .content_f9a4c9 {
@@ -11841,11 +11902,6 @@ button.tagsButton_a6d69a {
 
 .container_f51af4::-webkit-scrollbar {
     display: none;
-}
-
-.userPanelInner_c69a7b.userProfileInner_c69a7b .banner_c3e427:after,
-.userPanelInner_c69a7b.userProfileInner_c69a7b .banner_ab876d:after {
-    height: calc(100vh - 100px);
 }
 
 .dot_ccd671 {
