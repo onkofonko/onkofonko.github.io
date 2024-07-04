@@ -1232,16 +1232,16 @@ body.foldercontentopened .base_a4d4d9 {
     padding-left: 8px
 }
 
-.timestamp_ec86aa,
-.timestampInline_ec86aa,
-.badgesContainer_ec86aa {
+.timestamp_f9f2ca,
+.timestampInline_f9f2ca,
+.badgesContainer_ecdcb9 {
     opacity: 0;
     transition: opacity .175s ease
 }
 
-.messageListItem_d5deea:hover .timestamp_ec86aa,
-.messageListItem_d5deea:hover .timestampInline_ec86aa,
-.messageListItem_d5deea:hover .badgesContainer_ec86aa {
+.messageListItem_d5deea:hover .timestamp_f9f2ca,
+.messageListItem_d5deea:hover .timestampInline_f9f2ca,
+.messageListItem_d5deea:hover .badgesContainer_ecdcb9 {
     opacity: 1
 }
 
