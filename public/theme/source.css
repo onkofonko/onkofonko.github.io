@@ -11443,9 +11443,8 @@ div.icon_c07d45 {
 }
 
 #status-status-picker,
-#status-set-custom-status,
+[id*=custom-status],
 #account-style-your-profile,
-#account-edit-custom-status,
 #status-picker-switch-account,
 #account-switch-account,
 [id^=account-devmode-copy-id] {
