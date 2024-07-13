@@ -3669,6 +3669,14 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     background: unset !important;
 }
 
+.container_c1519f .tabBar_c1519f {
+    margin: 16px 0 0 0
+}
+
+.container_c1519f .scroller_c2dcc6, .userProfileActivity_fc39e7 {
+    padding: 16px 0 16px 0
+}
+
 [class^="userPopoutInner"]>.footer_b07019 .inner_dc0b43,
 [class^="userPopoutInner"]>.footer_b07019>button,
 .wrapper_cb78f1.biteSize_cb78f1 button,
