@@ -130,7 +130,8 @@
     --bg-color-hover: rgba(0, 0, 0, .4);
     --bg-color-selected: rgba(0, 0, 0, .6);
     --search-bar: rgba(255, 255, 255, .05);
-    --search-bar-cat: rgba(255, 255, 255, 0.125)
+    --search-bar-cat: rgba(255, 255, 255, 0.125);
+    --home-background: #111111
 }
 
 .theme-light {
@@ -3673,7 +3674,8 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     margin: 16px 0 0 0
 }
 
-.container_c1519f .scroller_c2dcc6, .userProfileActivity_fc39e7 {
+.container_c1519f .scroller_c2dcc6,
+.userProfileActivity_fc39e7 {
     padding: 16px 0 16px 0
 }
 
