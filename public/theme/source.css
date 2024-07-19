@@ -2602,6 +2602,10 @@ body.foldercontentopened .base_a4d4d9 {
     pointer-events: none
 }
 
+.overlay_cd377c {
+    background: linear-gradient(to bottom, transparent, var(--background-secondary))!important
+}
+
 .avatar_b2ca13.wrapper_c51b4e svg,
 .avatar_b2ca13.wrapper_c51b4e svg foreignObject,
 .avatar_b2ca13.wrapper_c51b4e svg foreignObject div {
