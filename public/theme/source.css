@@ -1799,7 +1799,8 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .avatarWrapper_b2ca13~.nameTag_b2ca13 .usernameContainer__22048:hover:before,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button:last-child .contents_dd4f85:hover, .menu_d90b3d .labelContainer_d90b3d:active:not(.hideInteraction_d90b3d) {
+.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button:last-child .contents_dd4f85:hover,
+.menu_d90b3d .labelContainer_d90b3d:active:not(.hideInteraction_d90b3d) {
     background-color: var(--background-modifier-hover);
     color: var(--interactive-active);
     transform: unset !important
@@ -2067,7 +2068,7 @@ body.foldercontentopened .base_a4d4d9 {
 
 .menu_d90b3d#status-picker:after,
 .separator_d90b3d {
-    margin: var(--menu-container-padding) 0;
+    margin: 5px 4px !important;
     border-bottom: 1px solid var(--background-modifier-accent);
     border-color: var(--background-modifier-accent) !important;
     width: auto;
@@ -2603,7 +2604,7 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .overlay_cd377c {
-    background: linear-gradient(to bottom, transparent, var(--background-secondary))!important
+    background: linear-gradient(to bottom, transparent, var(--background-secondary)) !important
 }
 
 .avatar_b2ca13.wrapper_c51b4e svg,
@@ -11539,12 +11540,12 @@ div.icon_c07d45 {
 
 [id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>.body_ad5fac {
     padding: 38px 0 0 0;
-    overflow: unset!important;
+    overflow: unset !important;
 }
 
-#account>div>.separator_d90b3d {
+#account .separator_d90b3d,
+#status .separator_d90b3d {
     width: 196px;
-    margin-left: 6px;
 }
 
 
