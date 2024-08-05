@@ -1235,14 +1235,16 @@ body.foldercontentopened .base_a4d4d9 {
 
 .timestamp_f9f2ca,
 .timestampInline_f9f2ca,
-.badgesContainer_ecdcb9 {
+.badgesContainer_ecdcb9,
+.badge_ba89c1 {
     opacity: 0;
     transition: opacity .175s ease
 }
 
 .messageListItem_d5deea:hover .timestamp_f9f2ca,
 .messageListItem_d5deea:hover .timestampInline_f9f2ca,
-.messageListItem_d5deea:hover .badgesContainer_ecdcb9 {
+.messageListItem_d5deea:hover .badgesContainer_ecdcb9,
+.messageListItem_d5deea:hover .badge_ba89c1 {
     opacity: 1
 }
 
