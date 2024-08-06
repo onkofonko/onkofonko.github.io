@@ -63,11 +63,11 @@
 .item_a0,
 .name_d8bfb3,
 .topic_bf3bbb,
-.usernameFont_cdc675 {
+.usernameFont_d80634 {
     font-weight: 400
 }
 
-.name_e9f61e,
+.name_d808b0,
 .username_f9f2ca {
     font-family: var(--font-display);
     font-weight: 400
@@ -402,7 +402,7 @@
     border-radius: 3px
 }
 
-.avatarSpeaking_cdc675 {
+.avatarSpeaking_d80634 {
     --box-shadow: inset 0 0 0 2px var(--avatar-speaking-color), inset 0 0 0 3px var(--background-secondary);
     -webkit-box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow)
@@ -1027,7 +1027,7 @@ body.foldercontentopened .base_a4d4d9 {
     -webkit-app-region: none
 }
 
-.button_ef319f {
+.button_f7e168 {
     border-radius: 4px !important;
     min-width: 32px;
     height: 32px;
@@ -1035,7 +1035,7 @@ body.foldercontentopened .base_a4d4d9 {
     box-sizing: border-box
 }
 
-.wrapper_ef319f {
+.wrapper_f7e168 {
     height: unset;
     border-radius: var(--context-menu-border-radius);
     padding: 6px;
@@ -1140,7 +1140,7 @@ body.foldercontentopened .base_a4d4d9 {
         --nameTag-content: none
     }
 
-    .nameTag_b2ca13 .title_d1da5f {
+    .nameTag_b2ca13 .title_b97bdb {
         display: none
     }
 }
@@ -1162,7 +1162,7 @@ body.foldercontentopened .base_a4d4d9 {
         --nameTag-content: ""
     }
 
-    .nameTag_b2ca13 .title_d1da5f {
+    .nameTag_b2ca13 .title_b97bdb {
         display: unset
     }
 }
@@ -1474,17 +1474,17 @@ body.foldercontentopened .base_a4d4d9 {
     padding-right: 8px
 }
 
-.listDefault_cdc675 .avatarContainer_cdc675 {
+.listDefault_d80634 .avatarContainer_d80634 {
     margin-right: 8px;
     margin-left: 12px
 }
 
-.avatarSmall_cdc675 {
+.avatarSmall_d80634 {
     width: 24px;
     height: 24px
 }
 
-.voiceUser_cdc675 {
+.voiceUser_d80634 {
     cursor: default
 }
 
@@ -1506,7 +1506,7 @@ body.foldercontentopened .base_a4d4d9 {
     cursor: default
 }
 
-.content_cdc675 .ownerIcon_a31c43 {
+.content_d80634 .ownerIcon_a31c43 {
     margin-right: 8px
 }
 
@@ -1527,7 +1527,7 @@ body.foldercontentopened .base_a4d4d9 {
     display: none
 }
 
-.theme-dark .inset_c0f6a6 {
+.theme-dark .inset_ac5d22 {
     background-color: var(--background-primary)
 }
 
@@ -1554,12 +1554,12 @@ body.foldercontentopened .base_a4d4d9 {
     padding-right: 0
 }
 
-.nameTag_b2ca13 .title_d1da5f {
+.nameTag_b2ca13 .title_b97bdb {
     font-size: 14px;
     line-height: 23px;
 }
 
-.nameTag_b2ca13 .title_d1da5f {
+.nameTag_b2ca13 .title_b97bdb {
     width: calc(var(--usernamebutton-width) - 32px) !important
 }
 
@@ -1589,7 +1589,7 @@ body.foldercontentopened .base_a4d4d9 {
     --icon: var(--icon-drop-up)
 }
 
-.nameTag_b2ca13 .subtext_e06aad {
+.nameTag_b2ca13 .subtext_be40e6 {
     display: none
 }
 
@@ -1719,11 +1719,11 @@ body.foldercontentopened .base_a4d4d9 {
     transform-origin: calc(var(--dropdown-width) - (8px + 8px)/ 2) -50px
 }
 
-.avatarWrapper_b2ca13[aria-expanded=true]~.horizontal_bba380 button:last-child {
+.avatarWrapper_b2ca13[aria-expanded=true]~.horizontal_dc333f button:last-child {
     display: block
 }
 
-.avatarWrapper_b2ca13[aria-expanded=false]~.horizontal_bba380 button:last-child,
+.avatarWrapper_b2ca13[aria-expanded=false]~.horizontal_dc333f button:last-child,
 .avatarWrapper_b2ca13[aria-expanded=false]~.nameTag_b2ca13 .usernameContainer__22048:after,
 .avatarWrapper_b2ca13[aria-expanded=false]~.nameTag_b2ca13 .usernameContainer__22048:before {
     display: block;
@@ -1731,13 +1731,13 @@ body.foldercontentopened .base_a4d4d9 {
     pointer-events: none
 }
 
-.avatarWrapper_b2ca13[aria-expanded=true]~.horizontal_bba380 button:last-child .contents_dd4f85 {
+.avatarWrapper_b2ca13[aria-expanded=true]~.horizontal_dc333f button:last-child .contents_dd4f85 {
     opacity: 1;
     transition: transform .12s ease-out, opacity .12s ease-out;
     animation: var(--dialog-fade-in-from-top)
 }
 
-.avatarWrapper_b2ca13[aria-expanded=false]~.horizontal_bba380 button:last-child .contents_dd4f85,
+.avatarWrapper_b2ca13[aria-expanded=false]~.horizontal_dc333f button:last-child .contents_dd4f85,
 .avatarWrapper_b2ca13[aria-expanded=false]~.nameTag_b2ca13 .usernameContainer__22048:after,
 .avatarWrapper_b2ca13[aria-expanded=false]~.nameTag_b2ca13 .usernameContainer__22048:before {
     opacity: 0
@@ -1748,7 +1748,7 @@ body.foldercontentopened .base_a4d4d9 {
     overflow: hidden
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button:last-child {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button:last-child {
     --user-settings-svg-size: 16px !important;
     --user-setting-margin-left: -3px;
     --button-width: 208px;
@@ -1770,19 +1770,19 @@ body.foldercontentopened .base_a4d4d9 {
     clip: rect(0, var(--dropdown-button-width), 32px, 0)
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button svg {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button svg {
     margin-left: var(--user-setting-margin-left);
     width: var(--user-settings-svg-size);
     height: var(--user-settings-svg-size)
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button:last-child:hover {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button:last-child:hover {
     background-color: transparent;
     color: var(--interactive-normal)
 }
 
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button:last-child .contents_dd4f85 {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button:last-child .contents_dd4f85 {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     display: grid;
@@ -1801,7 +1801,7 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .avatarWrapper_b2ca13~.nameTag_b2ca13 .usernameContainer__22048:hover:before,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button:last-child .contents_dd4f85:hover,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button:last-child .contents_dd4f85:hover,
 .menu_d90b3d .labelContainer_d90b3d:active:not(.hideInteraction_d90b3d) {
     background-color: var(--background-modifier-hover);
     color: var(--interactive-active);
@@ -1812,157 +1812,157 @@ body.foldercontentopened .base_a4d4d9 {
     background-color: var(--interactive-hover)
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label=Brugerindstillinger] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label=Brugerindstillinger] .contents_dd4f85:after {
     content: "Brugerindstillinger"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label=Benutzereinstellungen] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label=Benutzereinstellungen] .contents_dd4f85:after {
     content: "Benutzereinstellungen"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="User settings"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="User settings"] .contents_dd4f85:after {
     content: "User settings"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="User Settings"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="User Settings"] .contents_dd4f85:after {
     content: "User Settings"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Ajustes de usuario"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Ajustes de usuario"] .contents_dd4f85:after {
     content: "Ajustes de usuario"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Paramètres utilisateur"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Paramètres utilisateur"] .contents_dd4f85:after {
     content: "Paramètres utilisateur"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Korisničke postavke"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Korisničke postavke"] .contents_dd4f85:after {
     content: "Korisničke postavke"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Impostazioni utente"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Impostazioni utente"] .contents_dd4f85:after {
     content: "Impostazioni utente"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Naudotojo Nustatymai"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Naudotojo Nustatymai"] .contents_dd4f85:after {
     content: "Naudotojo Nustatymai"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Felhasználói beállítások"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Felhasználói beállítások"] .contents_dd4f85:after {
     content: "Felhasználói beállítások"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label=Gebruikersinstellingen] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label=Gebruikersinstellingen] .contents_dd4f85:after {
     content: "Gebruikersinstellingen"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label=Brukerinnstillinger] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label=Brukerinnstillinger] .contents_dd4f85:after {
     content: "Brukerinnstillinger"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Ustawienia użytkownika"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Ustawienia użytkownika"] .contents_dd4f85:after {
     content: "Ustawienia użytkownika"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Configurações de Usuário"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Configurações de Usuário"] .contents_dd4f85:after {
     content: "Configurações de Usuário"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Setări utilizator"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Setări utilizator"] .contents_dd4f85:after {
     content: "Setări utilizator"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Käyttäjäasetukset"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Käyttäjäasetukset"] .contents_dd4f85:after {
     content: "Käyttäjäasetukset"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Användarinställningar"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Användarinställningar"] .contents_dd4f85:after {
     content: "Användarinställningar"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Cài đặt người dùng"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Cài đặt người dùng"] .contents_dd4f85:after {
     content: "Cài đặt người dùng"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Kullanıcı Ayarları"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Kullanıcı Ayarları"] .contents_dd4f85:after {
     content: "Kullanıcı Ayarları"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Uživatelská nastavení"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Uživatelská nastavení"] .contents_dd4f85:after {
     content: "Uživatelská nastavení"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Ρυθμίσεις χρήστη"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Ρυθμίσεις χρήστη"] .contents_dd4f85:after {
     content: "Ρυθμίσεις χρήστη"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Потребителски настройки"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Потребителски настройки"] .contents_dd4f85:after {
     content: "Потребителски настройки"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Настройки пользователя"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Настройки пользователя"] .contents_dd4f85:after {
     content: "Настройки пользователя"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Користувацькі налаштування"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Користувацькі налаштування"] .contents_dd4f85:after {
     content: "Користувацькі налаштування"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="यूज़र सेटिंग"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="यूज़र सेटिंग"] .contents_dd4f85:after {
     content: "यूज़र सेटिंग"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="ตั้งค่าผู้ใช้"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="ตั้งค่าผู้ใช้"] .contents_dd4f85:after {
     content: "ตั้งค่าผู้ใช้"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="用户设置"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="用户设置"] .contents_dd4f85:after {
     content: "用户设置"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="ユーザー設定"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="ユーザー設定"] .contents_dd4f85:after {
     content: "ユーザー設定"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="使用者設定"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="使用者設定"] .contents_dd4f85:after {
     content: "使用者設定"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="사용자 설정"] .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="사용자 설정"] .contents_dd4f85:after {
     content: "사용자 설정"
 }
 
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Ajustes de usuario"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Användarinställningar"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Configurações de Usuário"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Cài đặt người dùng"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Felhasználói beállítások"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Impostazioni utente"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Korisničke postavke"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Kullanıcı Ayarları"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Käyttäjäasetukset"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Naudotojo Nustatymai"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Paramètres utilisateur"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Setări utilizator"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="User Settings"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="User settings"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Ustawienia użytkownika"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Uživatelská nastavení"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Ρυθμίσεις χρήστη"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Користувацькі налаштування"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Настройки пользователя"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="Потребителски настройки"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="यूज़र सेटिंग"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="ตั้งค่าผู้ใช้"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="ユーザー設定"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="使用者設定"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="用户设置"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label="사용자 설정"] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label=Benutzereinstellungen] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label=Brugerindstillinger] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label=Brukerinnstillinger] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button[aria-label=Gebruikersinstellingen] .contents_dd4f85:after,
-.panels_a4d4d9 .container_b2ca13 .horizontal_bba380 button:last-child .contents_dd4f85:after {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Ajustes de usuario"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Användarinställningar"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Configurações de Usuário"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Cài đặt người dùng"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Felhasználói beállítások"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Impostazioni utente"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Korisničke postavke"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Kullanıcı Ayarları"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Käyttäjäasetukset"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Naudotojo Nustatymai"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Paramètres utilisateur"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Setări utilizator"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="User Settings"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="User settings"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Ustawienia użytkownika"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Uživatelská nastavení"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Ρυθμίσεις χρήστη"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Користувацькі налаштування"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Настройки пользователя"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="Потребителски настройки"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="यूज़र सेटिंग"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="ตั้งค่าผู้ใช้"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="ユーザー設定"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="使用者設定"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="用户设置"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label="사용자 설정"] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label=Benutzereinstellungen] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label=Brugerindstillinger] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label=Brukerinnstillinger] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button[aria-label=Gebruikersinstellingen] .contents_dd4f85:after,
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button:last-child .contents_dd4f85:after {
     grid-area: span 2;
     line-height: 18px
 }
@@ -2029,7 +2029,7 @@ body.foldercontentopened .base_a4d4d9 {
 .toolbar_de3e42:before,
 .uploadModal_f82cc7:before,
 .userPopoutOuter_c69a7b:before,
-.wrapper_ef319f:before,
+.wrapper_f7e168:before,
 .container__0ec3c:before,
 .addGamePopout_fd966d:before {
     border: 1px var(--background-modifier-accent) solid;
@@ -2148,7 +2148,7 @@ body.foldercontentopened .base_a4d4d9 {
     display: none
 }
 
-.menu_d90b3d .listItems_dcade6 {
+.menu_d90b3d .listItems_d53d65 {
     top: unset !important;
     left: unset !important;
     right: unset !important;
@@ -2198,7 +2198,7 @@ body.foldercontentopened .base_a4d4d9 {
     min-width: 180px;
 }
 
-.menu_d90b3d .listHeight_dcade6 {
+.menu_d90b3d .listHeight_d53d65 {
     display: none
 }
 
@@ -2436,7 +2436,7 @@ body.foldercontentopened .base_a4d4d9 {
     --control-area-bottom-margin: var(--text-area-bottom-margin)
 }
 
-.panels_a4d4d9 .wrapper_adcaac .container_adcaac .horizontal_bba380 button[aria-label*=Krisp] {
+.panels_a4d4d9 .wrapper_adcaac .container_adcaac .horizontal_dc333f button[aria-label*=Krisp] {
     display: none
 }
 
@@ -2532,7 +2532,7 @@ body.foldercontentopened .base_a4d4d9 {
     width: 100%
 }
 
-.listeningAlong_cfdc9f {
+.listeningAlong_d4626d {
     padding-left: 20px;
     padding-right: 20px;
     z-index: 1
@@ -2547,7 +2547,7 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .panels_a4d4d9 .wrapper_adcaac .container_adcaac:after,
-.panels_a4d4d9 .wrapper_adcaac~.container_b2ca13 .horizontal_bba380:after {
+.panels_a4d4d9 .wrapper_adcaac~.container_b2ca13 .horizontal_dc333f:after {
     content: "";
     position: absolute;
     background-color: var(--background-primary);
@@ -2563,19 +2563,19 @@ body.foldercontentopened .base_a4d4d9 {
     left: -8px
 }
 
-.panels_a4d4d9 .wrapper_adcaac~.container_b2ca13 .horizontal_bba380:after {
+.panels_a4d4d9 .wrapper_adcaac~.container_b2ca13 .horizontal_dc333f:after {
     right: -8px
 }
 
-.panels_a4d4d9 .wrapper_adcaac~.container_b2ca13 .horizontal_bba380:has(> :nth-child(4)):after {
+.panels_a4d4d9 .wrapper_adcaac~.container_b2ca13 .horizontal_dc333f:has(> :nth-child(4)):after {
     width: 180px;
 }
 
-.panels_a4d4d9 .wrapper_adcaac~.container_b2ca13 .horizontal_bba380 {
+.panels_a4d4d9 .wrapper_adcaac~.container_b2ca13 .horizontal_dc333f {
     position: relative
 }
 
-.panels_a4d4d9 .wrapper_adcaac~.container_b2ca13 .horizontal_bba380:before {
+.panels_a4d4d9 .wrapper_adcaac~.container_b2ca13 .horizontal_dc333f:before {
     display: none;
     content: "";
     background: linear-gradient(to bottom, transparent, var(--background-secondary) 30px, var(--background-secondary));
@@ -2588,7 +2588,7 @@ body.foldercontentopened .base_a4d4d9 {
     margin-top: -6px
 }
 
-.listeningAlong_cfdc9f .icons_cfdc9f {
+.listeningAlong_d4626d .icons_d4626d {
     display: none
 }
 
@@ -2621,7 +2621,7 @@ body.foldercontentopened .base_a4d4d9 {
     -webkit-mask-image: var(--mask);
 }
 
-.avatar_b2ca13.wrapper_c51b4e svg foreignObject .avatarStack_c51b4e .avatar_e9f61e {
+.avatar_b2ca13.wrapper_c51b4e svg foreignObject .avatarStack_c51b4e .avatar_d808b0 {
     position: absolute;
     --size: 32px;
     --border: 2px;
@@ -2762,7 +2762,7 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .panels_a4d4d9 .wrapper_adcaac .container_adcaac,
-.panels_a4d4d9 .wrapper_adcaac .container_adcaac .horizontal_bba380 {
+.panels_a4d4d9 .wrapper_adcaac .container_adcaac .horizontal_dc333f {
     padding: 0;
     margin: 0;
     border: none !important
@@ -2801,7 +2801,7 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .panels_a4d4d9 .wrapper_adcaac .container_adcaac .actionButtons_adcaac,
-.panels_a4d4d9 .wrapper_adcaac .container_adcaac .horizontal_bba380 {
+.panels_a4d4d9 .wrapper_adcaac .container_adcaac .horizontal_dc333f {
     flex-grow: 0 !important;
     flex-shrink: 0 !important;
     flex-basis: auto;
@@ -2842,7 +2842,7 @@ body.foldercontentopened .base_a4d4d9 {
     flex: 2
 }
 
-.button_f67531,
+.button_adca65,
 .button_adcaac .buttonColor_adcaac,
 .button_adcaac .buttonColor_adcaac.buttonActive_adcaac,
 .button_adcaac.buttonColor_adcaac,
@@ -2853,7 +2853,7 @@ body.foldercontentopened .base_a4d4d9 {
     border-radius: 16px !important
 }
 
-.button_f67531.enabled_f67531:hover,
+.button_adca65.enabled_adca65:hover,
 .button_adcaac .buttonColor_adcaac.buttonActive_adcaac:hover,
 .button_adcaac .buttonColor_adcaac:hover,
 .button_adcaac.buttonColor_adcaac.buttonActive_adcaac:hover,
@@ -2862,7 +2862,7 @@ body.foldercontentopened .base_a4d4d9 {
     background-color: var(--background-modifier-selected)
 }
 
-.button_f67531.enabled_f67531 .contents_dd4f85,
+.button_adca65.enabled_adca65 .contents_dd4f85,
 .button_adcaac .buttonColor_adcaac .contents_dd4f85,
 .button_adcaac .buttonColor_adcaac.buttonActive_adcaac .contents_dd4f85,
 .button_adcaac.buttonColor_adcaac .contents_dd4f85,
@@ -2874,44 +2874,44 @@ body.foldercontentopened .base_a4d4d9 {
     background-color: transparent
 }
 
-.button_f67531[aria-label="Bağlantıyı Kes"]:hover,
-.button_f67531[aria-label="Deconectează-te"]:hover,
-.button_f67531[aria-label="Déconnexion"]:hover,
-.button_f67531[aria-label="Katkaise yhteys"]:hover,
-.button_f67531[aria-label="Koble fra"]:hover,
-.button_f67531[aria-label="Koppla från"]:hover,
-.button_f67531[aria-label="Lecsatlakoztatás"]:hover,
-.button_f67531[aria-label="Ngắt kết nối"]:hover,
-.button_f67531[aria-label="Prekini vezu"]:hover,
-.button_f67531[aria-label="Rozłącz"]:hover,
-.button_f67531[aria-label="Verbindung trennen"]:hover,
-.button_f67531[aria-label="Αποσύνδεση"]:hover,
-.button_f67531[aria-label="Відключитися"]:hover,
-.button_f67531[aria-label="Затвори"]:hover,
-.button_f67531[aria-label="Отключиться"]:hover,
-.button_f67531[aria-label="डिस्कनेक्ट करें"]:hover,
-.button_f67531[aria-label="ตัดการเชื่อมต่อ"]:hover,
-.button_f67531[aria-label="中斷連接"]:hover,
-.button_f67531[aria-label="切断"]:hover,
-.button_f67531[aria-label="断开连接"]:hover,
-.button_f67531[aria-label="연결 끊기"]:hover,
-.button_f67531[aria-label=Atsijungti]:hover,
-.button_f67531[aria-label=Desconectar]:hover,
-.button_f67531[aria-label=Disconnect]:hover,
-.button_f67531[aria-label=Disconnetti]:hover,
-.button_f67531[aria-label=Frakobl]:hover,
-.button_f67531[aria-label=Odpojit]:hover,
-.button_f67531[aria-label=Ontkoppelen]:hover {
+.button_adca65[aria-label="Bağlantıyı Kes"]:hover,
+.button_adca65[aria-label="Deconectează-te"]:hover,
+.button_adca65[aria-label="Déconnexion"]:hover,
+.button_adca65[aria-label="Katkaise yhteys"]:hover,
+.button_adca65[aria-label="Koble fra"]:hover,
+.button_adca65[aria-label="Koppla från"]:hover,
+.button_adca65[aria-label="Lecsatlakoztatás"]:hover,
+.button_adca65[aria-label="Ngắt kết nối"]:hover,
+.button_adca65[aria-label="Prekini vezu"]:hover,
+.button_adca65[aria-label="Rozłącz"]:hover,
+.button_adca65[aria-label="Verbindung trennen"]:hover,
+.button_adca65[aria-label="Αποσύνδεση"]:hover,
+.button_adca65[aria-label="Відключитися"]:hover,
+.button_adca65[aria-label="Затвори"]:hover,
+.button_adca65[aria-label="Отключиться"]:hover,
+.button_adca65[aria-label="डिस्कनेक्ट करें"]:hover,
+.button_adca65[aria-label="ตัดการเชื่อมต่อ"]:hover,
+.button_adca65[aria-label="中斷連接"]:hover,
+.button_adca65[aria-label="切断"]:hover,
+.button_adca65[aria-label="断开连接"]:hover,
+.button_adca65[aria-label="연결 끊기"]:hover,
+.button_adca65[aria-label=Atsijungti]:hover,
+.button_adca65[aria-label=Desconectar]:hover,
+.button_adca65[aria-label=Disconnect]:hover,
+.button_adca65[aria-label=Disconnetti]:hover,
+.button_adca65[aria-label=Frakobl]:hover,
+.button_adca65[aria-label=Odpojit]:hover,
+.button_adca65[aria-label=Ontkoppelen]:hover {
     color: var(--text-danger)
 }
 
-.panels_a4d4d9 .wrapper_adcaac~.container_b2ca13 .horizontal_bba380 {
+.panels_a4d4d9 .wrapper_adcaac~.container_b2ca13 .horizontal_dc333f {
     display: flex
 }
 
-.panels_a4d4d9 .wrapper_adcaac:empty~.container_b2ca13 .horizontal_bba380 button:not(:last-child),
-.panels_a4d4d9 .wrapper_adcaac:empty~.container_b2ca13 .horizontal_bba380:after,
-.panels_a4d4d9 .wrapper_adcaac:empty~.container_b2ca13 .horizontal_bba380:before {
+.panels_a4d4d9 .wrapper_adcaac:empty~.container_b2ca13 .horizontal_dc333f button:not(:last-child),
+.panels_a4d4d9 .wrapper_adcaac:empty~.container_b2ca13 .horizontal_dc333f:after,
+.panels_a4d4d9 .wrapper_adcaac:empty~.container_b2ca13 .horizontal_dc333f:before {
     display: none
 }
 
@@ -3124,11 +3124,11 @@ body.foldercontentopened .base_a4d4d9 {
     background-color: transparent
 }
 
-.selected_e9f61e .layout_e9f61e {
+.selected_d808b0 .layout_d808b0 {
     cursor: default
 }
 
-.iconContainer_e62b38 [data-accessibility*=desaturate] {
+.iconContainer_d76df7 [data-accessibility*=desaturate] {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%)
 }
@@ -3379,8 +3379,8 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     content: "Game Activity Visible"
 }
 
-.avatarWrapper_b2ca13[aria-expanded=true]~.horizontal_bba380 button[aria-label="Disable Game Activity"],
-.avatarWrapper_b2ca13[aria-expanded=true]~.horizontal_bba380 button[aria-label="Enable Game Activity"] {
+.avatarWrapper_b2ca13[aria-expanded=true]~.horizontal_dc333f button[aria-label="Disable Game Activity"],
+.avatarWrapper_b2ca13[aria-expanded=true]~.horizontal_dc333f button[aria-label="Enable Game Activity"] {
     display: block !important;
     opacity: 1;
     transition: transform .12s ease-out, opacity .12s ease-out;
@@ -3449,22 +3449,22 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     border-radius: 50%
 }
 
-.theme-dark .lookFilled_dd4f85.grey_e17fae,
-.theme-light .lookFilled_dd4f85.grey_e17fae {
+.theme-dark .lookFilled_dd4f85.grey_ec1c2d,
+.theme-light .lookFilled_dd4f85.grey_ec1c2d {
     color: var(--text-normal);
     background-color: rgba(196, 196, 196, .1) !important;
     transition: filter .15s ease
 }
 
-.theme-dark .lookFilled_dd4f85.grey_e17fae:disabled,
-.theme-light .lookFilled_dd4f85.grey_e17fae:disabled {
+.theme-dark .lookFilled_dd4f85.grey_ec1c2d:disabled,
+.theme-light .lookFilled_dd4f85.grey_ec1c2d:disabled {
     background-color: rgba(196, 196, 196, .1) !important;
     filter: brightness(.8) !important
 }
 
 .relationshipButtons_ec3b75>button:hover,
-.theme-dark .lookFilled_dd4f85.grey_e17fae:hover,
-.theme-light .lookFilled_dd4f85.grey_e17fae:hover {
+.theme-dark .lookFilled_dd4f85.grey_ec1c2d:hover,
+.theme-light .lookFilled_dd4f85.grey_ec1c2d:hover {
     background-color: rgba(196, 196, 196, .1) !important;
     filter: brightness(1.3)
 }
@@ -3930,9 +3930,9 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
 }
 
 .section_d7a21f>.title_c4a579,
-[class^=activity]>div>h1>.overflow_c74e70,
-[class^=activity]>div>h2>.overflow_c74e70,
-[class^=activity]>div>h3>.overflow_c74e70,
+[class^=activity]>div>h1>.overflow_a82120,
+[class^=activity]>div>h2>.overflow_a82120,
+[class^=activity]>div>h3>.overflow_a82120,
 .userInfoSectionHeader_a24910 {
     color: var(--header-secondary)
 }
@@ -4292,15 +4292,15 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
 }
 
 /*
-.root_dd069c.idle_dd069c .flex_bba380.flex_ec1a20.horizontal_bba380.horizontal_ec1a20.flex_ec1a20.horizontal_bba380.justifyEnd_ec1a20.alignStretch_ec1a20.noWrap_ec1a20 {
+.root_dd069c.idle_dd069c .flex_dc333f.flex_ec1a20.horizontal_dc333f.horizontal_ec1a20.flex_ec1a20.horizontal_dc333f.justifyEnd_ec1a20.alignStretch_ec1a20.noWrap_ec1a20 {
     opacity: 0
 }
 
-.root_dd069c .flex_bba380.flex_ec1a20.horizontal_bba380.horizontal_ec1a20.flex_ec1a20.horizontal_bba380.justifyEnd_ec1a20.alignStretch_ec1a20.noWrap_ec1a20 {
+.root_dd069c .flex_dc333f.flex_ec1a20.horizontal_dc333f.horizontal_ec1a20.flex_ec1a20.horizontal_dc333f.justifyEnd_ec1a20.alignStretch_ec1a20.noWrap_ec1a20 {
     opacity: 1
 }
 
-.flex_bba380.flex_ec1a20.horizontal_bba380.horizontal_ec1a20.flex_ec1a20.horizontal_bba380.justifyEnd_ec1a20.alignStretch_ec1a20.noWrap_ec1a20 {
+.flex_dc333f.flex_ec1a20.horizontal_dc333f.horizontal_ec1a20.flex_ec1a20.horizontal_dc333f.justifyEnd_ec1a20.alignStretch_ec1a20.noWrap_ec1a20 {
     padding-top: 16px
 }*/
 
@@ -4669,23 +4669,23 @@ button[class^=attachButton] {
     z-index: 1;
 }
 
-.theme-dark .lookFilled_dd4f85.grey_e17fae {
+.theme-dark .lookFilled_dd4f85.grey_ec1c2d {
     color: var(--text-normal);
     background-color: var(--background-tertiary);
     transition: filter .15s ease
 }
 
-.theme-dark .lookFilled_dd4f85.grey_e17fae:hover {
+.theme-dark .lookFilled_dd4f85.grey_ec1c2d:hover {
     background-color: var(--background-tertiary);
     filter: brightness(1.3)
 }
 
-.theme-dark .lookFilled_dd4f85.grey_e17fae:active {
+.theme-dark .lookFilled_dd4f85.grey_ec1c2d:active {
     background-color: var(--background-tertiary);
     filter: brightness(1.1)
 }
 
-.theme-dark .lookFilled_dd4f85.grey_e17fae:disabled {
+.theme-dark .lookFilled_dd4f85.grey_ec1c2d:disabled {
     background-color: var(--background-tertiary);
     filter: brightness(.8)
 }
@@ -4732,10 +4732,10 @@ button[class^=attachButton] {
     border-color: var(--brand-experiment-60a)
 }
 
-.channel_c91bad.container_e9f61e,
-.channel_c91bad.container_e9f61e.clickable_e9f61e,
-.channel_c91bad.container_e9f61e.selected_e9f61e,
-.clickable_e9f61e:hover .layout_e9f61e {
+.channel_c91bad.container_d808b0,
+.channel_c91bad.container_d808b0.clickable_d808b0,
+.channel_c91bad.container_d808b0.selected_d808b0,
+.clickable_d808b0:hover .layout_d808b0 {
     cursor: default
 }
 
@@ -5113,11 +5113,11 @@ button[class^=attachButton] {
     z-index: 100 !important
 }
 
-.layout_e9f61e {
+.layout_d808b0 {
     height: 42px
 }
 
-.name_e9f61e {
+.name_d808b0 {
     font-size: 15px
 }
 
@@ -9645,7 +9645,7 @@ html:not(.app-focused) .sidebarRegionScroller_c25c6d {
 
 .autocompleteRowVertical_bcc24e[data-list-item-id*=channel-autocomplete] .autocompleteRowContentPrimary_bcc24e .colorInteractiveActive-30E9n8,
 .content_eed6a8 .emptyChannelIcon_c2668b~.size32-5yOQel,
-.quickswitcher_f4e139 .result_f14193 .match_f14193,
+.quickswitcher_f4e139 .result_e3c1c6 .match_e3c1c6,
 .sidebar_a4d4d9 .linkTop_d8bfb3 .name_d8bfb3,
 .title_a7d72e .iconWrapper_fc4f04+.title_fc4f04,
 .wrapper_d4fa29[class="wrapper_d4fa29 mention interactive"] {
@@ -11584,7 +11584,7 @@ div.icon_c07d45 {
     width: var(--dropdown-width);
 }
 
-.submenu_d90b3d.menu_d90b3d[aria-activedescendant^="message-apps"]>div>.listItems_dcade6 {
+.submenu_d90b3d.menu_d90b3d[aria-activedescendant^="message-apps"]>div>.listItems_d53d65 {
     flex-wrap: wrap;
     position: absolute;
     margin-top: 6px;
@@ -11593,7 +11593,7 @@ div.icon_c07d45 {
     width: calc(var(--dropdown-width) - 12px)
 }
 
-.submenu_d90b3d.menu_d90b3d[aria-activedescendant^="message-apps"]>div>.listHeight_dcade6 {
+.submenu_d90b3d.menu_d90b3d[aria-activedescendant^="message-apps"]>div>.listHeight_d53d65 {
     display: block;
     margin-top: -4px;
 }
@@ -11710,11 +11710,6 @@ button.tagsButton_a6d69a {
 
 .activityPanel_a4d4d9>div>.actions_bf1a22:has(button:nth-child(n+2))>button:nth-child(2) {
     margin-bottom: 6px;
-}
-
-.avatarWrapper_b2ca13>.nameTag_b2ca13.canCopy_b2ca13 {
-    font-size: 14px;
-    line-height: 23px
 }
 
 .popout_a998c0>.titleBar_a934d8 {
