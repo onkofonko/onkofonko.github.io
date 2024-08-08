@@ -2701,13 +2701,13 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .panels_a4d4d9 .activityPanel_a4d4d9 .gameWrapper_bf1a22 .gameIconWrapper_bf1a22,
-.panels_a4d4d9 .activityPanel_a4d4d9 .gameWrapper_bf1a22 .svg_d48241 {
+.panels_a4d4d9 .activityPanel_a4d4d9 .gameWrapper_bf1a22 .svg_afd438 {
     border-radius: 50%;
     box-sizing: border-box
 }
 
 .panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 .gameIconWrapper_bf1a22,
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 .svg_d48241 {
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 .svg_afd438 {
     border-radius: 16px;
     opacity: 1;
     margin: 0;
@@ -2720,7 +2720,7 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 .gameIcon_a9e62c,
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 .svg_d48241 {
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 .svg_afd438 {
     opacity: .25;
     margin: 0;
     --size: 32px;
@@ -2738,7 +2738,7 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .gameIcon_a9e62c,
-.gameWrapper_bf1a22 .svg_d48241 {
+.gameWrapper_bf1a22 .svg_afd438 {
     margin: 4px;
     --size: 24px;
     width: var(--size);
@@ -11687,7 +11687,7 @@ button.tagsButton_a6d69a {
     bottom: -4px;
 }
 
-.gameWrapper_bf1a22>.wrapper_c07d45>.svg_d48241>foreignObject {
+.gameWrapper_bf1a22>.wrapper_c07d45>.svg_afd438>foreignObject {
     mask: none
 }
 
