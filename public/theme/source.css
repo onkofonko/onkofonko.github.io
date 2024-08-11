@@ -2535,7 +2535,9 @@ body.foldercontentopened .base_a4d4d9 {
 .listeningAlong_d4626d {
     padding-left: 20px;
     padding-right: 20px;
-    z-index: 1
+    z-index: 1;
+    background: var(--background-secondary);
+    border:none
 }
 
 .panels_a4d4d9 .wrapper_adcaac {
