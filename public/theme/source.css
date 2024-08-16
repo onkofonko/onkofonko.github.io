@@ -3622,7 +3622,6 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
 
 [class^="userPopoutInner"]>header>[class^="bannerSVGWrapper"],
 [class^="userPopoutInner"]>[class^="bannerSVGWrapper"] {
-    height: 100%;
     max-width: 300px;
     z-index: 0;
     min-width: 300px !important;
@@ -3910,15 +3909,6 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
 
 .userProfileOuterThemed_c69a7b {
     background: var(--background-floating) !important;
-}
-
-.userPopoutInner_c69a7b:before {
-    content: " ";
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: var(--background-floating);
-    border-radius: var(--context-menu-border-radius)
 }
 
 .profileColors_ac6ab4 {
@@ -11545,6 +11535,7 @@ div.icon_c07d45 {
 [id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>.body_ad5fac {
     padding: 38px 0 0 0;
     overflow: unset !important;
+    display: flex;
 }
 
 #account .separator_d90b3d,
