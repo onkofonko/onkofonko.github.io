@@ -2537,7 +2537,7 @@ body.foldercontentopened .base_a4d4d9 {
     padding-right: 20px;
     z-index: 1;
     background: var(--background-secondary);
-    border:none
+    border: none
 }
 
 .panels_a4d4d9 .wrapper_adcaac {
@@ -4348,7 +4348,8 @@ html:hover~.app_bd26cc .topControls_dd069c {
     border-radius: 0
 }
 
-.channelTextArea_a7d72e .scrollableContainer_d0696b {
+.channelTextArea_a7d72e .scrollableContainer_d0696b,
+.buttonContainer_df39bd>button {
     background: var(--background-secondary);
     border-radius: 22px
 }
@@ -4370,13 +4371,15 @@ html:hover~.app_bd26cc .topControls_dd069c {
 }
 
 .channelTextArea_a7d72e.channelTextArea_d0696b .attachWrapper_f298d4,
-.channelTextArea_a7d72e.channelTextArea_d0696b .buttons_d0696b {
+.channelTextArea_a7d72e.channelTextArea_d0696b .buttons_d0696b,
+.buttonContainer_df39bd>button>div {
     opacity: .5;
     transition: opacity .35s ease
 }
 
 .channelTextArea_a7d72e.channelTextArea_d0696b:hover .attachWrapper_f298d4,
-.channelTextArea_a7d72e.channelTextArea_d0696b:hover .buttons_d0696b {
+.channelTextArea_a7d72e.channelTextArea_d0696b:hover .buttons_d0696b,
+.buttonContainer_df39bd:hover>button>div {
     opacity: 1
 }
 
@@ -11918,4 +11921,12 @@ button.tagsButton_a6d69a {
 
 .dot_ccd671 {
     background-color: var(--interactive-normal)
+}
+
+.contentWrapper_f7506e {
+    background-color: var(--background-floating);
+}
+
+.container_e5da8b {
+    background-color: var(--background-tertiary);
 }
