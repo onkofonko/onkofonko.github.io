@@ -3690,7 +3690,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
 [class^="userPopoutInner"]>.footer_b07019 .inner_dc0b43,
 [class^="userPopoutInner"]>.footer_b07019>button,
 .wrapper_cb78f1.biteSize_cb78f1 button,
-.headerInner_bc9cc2 .buttons_d181d8 button,
+.headerInner_bc9cc2 .headerButtons_bc9cc2 button,
 .wrapper_cb78f1.fullSize_cb78f1 button,
 .buttonColor_cd74cc {
     background: var(--bg-mod-faint) !important;
