@@ -3620,11 +3620,8 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, .205))
 }
 
-[class^="userPopoutInner"]>header>[class^="bannerSVGWrapper"],
-[class^="userPopoutInner"]>[class^="bannerSVGWrapper"] {
-    max-width: 300px;
+.userProfileInner_c69a7b:not(.fullSizeInnerThemed_c69a7b)>header>.mask_c3e427 {
     z-index: 0;
-    min-width: 300px !important;
     overflow: visible;
     position: relative;
     contain: none;
@@ -3687,8 +3684,8 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     padding: 16px 0 16px 0
 }
 
-[class^="userPopoutInner"]>.footer_b07019 .inner_dc0b43,
-[class^="userPopoutInner"]>.footer_b07019>button,
+.userProfileInner_c69a7b>.footer_b07019 .inner_dc0b43,
+.userProfileInner_c69a7b>.footer_b07019>button,
 .wrapper_cb78f1.biteSize_cb78f1 button,
 .headerInner_bc9cc2 .headerButtons_bc9cc2 button,
 .wrapper_cb78f1.fullSize_cb78f1 button,
@@ -3697,7 +3694,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     background-color: var(--bg-mod-faint) !important;
 }
 
-[class^="accountProfileCard"] [class^="bannerSVGWrapper"] {
+[class^="accountProfileCard"] .mask_c3e427 {
     z-index: 0;
     overflow: visible;
     position: absolute;
@@ -3709,24 +3706,8 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     z-index: 1;
 }
 
-[class^="bannerSVGWrapper"][viewBox*="120"] {
-    margin-bottom: -10px;
-}
-
-[class^="bannerSVGWrapper"] foreignObject {
+.userProfileInner_c69a7b .mask_c3e427 foreignObject {
     mask: none;
-}
-
-[class^="bannerSVGWrapper"][viewBox*="60"] foreignObject {
-    transform: translateY(-4px)
-}
-
-[class^="bannerSVGWrapper"][viewBox*="90"] foreignObject {
-    transform: translateY(-6px)
-}
-
-[class^="bannerSVGWrapper"][viewBox*="120"] foreignObject {
-    transform: translateY(-8px)
 }
 
 [class^="topSection"]>.header_ec3b75 {
@@ -3735,12 +3716,12 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     position: relative;
 }
 
-[class^="topSection"]>[class^="bannerSVGWrapper"][viewBox*="212"] {
+[class^="topSection"]>[class^="mask"][viewBox*="212"] {
     margin-bottom: -40px;
 }
 
-.fullSizeInnerThemed_c69a7b>header>[class^="bannerSVGWrapper"],
-.topSection_b9fccc>[class^="bannerSVGWrapper"] {
+.fullSizeInnerThemed_c69a7b>header>[class^="mask"],
+.topSection_b9fccc>.mask_c3e427 {
     z-index: 0;
     overflow: visible;
     position: relative;
@@ -3768,11 +3749,6 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: cover
-}
-
-.userPopoutOuter_c69a7b {
-    width: 300px !important;
-    position: relative;
 }
 
 .userProfileOuterThemed_c69a7b.userPopoutOuter_c69a7b,
@@ -3854,9 +3830,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     visibility: visible;
 }
 
-.banner_c3e427.profileBanner_f0f36c:after,
-.banner_c3e427:not(.user-background):not(.bannerPremium_c3e427):after,
-.banner_ab876d:not(.imageUploaderInner_de76e4):after {
+.userProfileOuter_c69a7b .banner_c3e427:not([style*="background-image"]):after {
     --gradient-size: 100%;
     --mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 0.3) calc(var(--gradient-size) * .5), rgba(0, 0, 0, 0.15) calc(var(--gradient-size) * .65), rgba(0, 0, 0, 0.075) calc(var(--gradient-size) * .755), rgba(0, 0, 0, 0.037) calc(var(--gradient-size) * .8285), rgba(0, 0, 0, 0.019) calc(var(--gradient-size) * .88), rgba(0, 0, 0, 0) var(--gradient-size));
     background-color: inherit;
@@ -3865,8 +3839,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     visibility: visible;
 }
 
-.banner_c3e427.profileBanner_f0f36c:before,
-.banner_c3e427:not(.user-background):not(.bannerPremium_c3e427):before {
+.userProfileOuter_c69a7b .banner_c3e427:not([style*="background-image"]):before {
     filter: blur(128px) brightness(0.2) saturate(1) !important;
 }
 
@@ -3874,7 +3847,6 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
 .settingsBanner_c3e427:before {
     height: 380px;
 }
-
 
 .userInfoSection_a24910+.userInfoSection_a24910 {
     border-top: unset
@@ -3901,7 +3873,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     visibility: hidden;
 }
 
-.userPopoutInner_c69a7b {
+.userProfileInner_c69a7b {
     background: var(--background-floating) !important;
     overflow: hidden;
     border-radius: var(--context-menu-border-radius)
