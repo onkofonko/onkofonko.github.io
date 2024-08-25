@@ -3706,7 +3706,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     z-index: 1;
 }
 
-.userProfileInner_c69a7b .mask_c3e427 foreignObject {
+.mask_c3e427 foreignObject {
     mask: none;
 }
 
@@ -3738,8 +3738,6 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
 
 .banner_c3e427:after,
 .banner_c3e427:before,
-.banner_ab876d:after,
-.banner_ab876d:before,
 .bannerUploaderInnerSquare_b9c04e:after,
 .bannerUploaderInnerSquare_b9c04e:before {
     content: "";
@@ -3766,7 +3764,6 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
 }
 
 .banner_c3e427:after,
-.banner_ab876d:after,
 [class^=bannerUploaderInnerSquare]:after,
 [class^=bannerNitroUpsell] {
     background-image: inherit !important;
@@ -3790,8 +3787,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
 }
 
 .popoutBannerPremium_c3e427.bannerPremium_c3e427:before,
-.profileBannerPremium__6fb42.bannerPremium_c3e427:before,
-.imageUploaderInner_de76e4.banner_ab876d:before {
+.profileBannerPremium__6fb42.bannerPremium_c3e427:before {
     transform: scaleY(-1);
     -webkit-transform: scaleY(-1);
     top: 120px;
@@ -3818,7 +3814,6 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
 .popoutBanner_c3e427:before,
 .profileBanner_f0f36c:before,
 .banner_c3e427:before,
-.banner_ab876d:before,
 .bannerUploaderInnerSquare_b9c04e:before {
     bottom: 0;
     opacity: 1;
@@ -3868,8 +3863,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     margin-bottom: -8px;
 }
 
-.banner_c3e427,
-.banner_ab876d {
+.banner_c3e427 {
     visibility: hidden;
 }
 
