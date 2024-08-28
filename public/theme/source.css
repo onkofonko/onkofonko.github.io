@@ -3641,6 +3641,10 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     background: unset !important
 }
 
+.card_ae1fa2 {
+    padding: 8px 0 8px 0;
+}
+
 .button_edead5 {
     border: 0;
     border-radius: 50%
