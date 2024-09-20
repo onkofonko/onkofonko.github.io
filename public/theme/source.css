@@ -2110,11 +2110,8 @@ body.foldercontentopened .base_a4d4d9 {
     z-index: 2;
 }
 
-.submenuPaddingContainer_d90b3d {
+.submenuPaddingContainer_ad5fac {
     padding: 0;
-    margin-left: -4px;
-    margin-right: -4px;
-    z-index: 2
 }
 
 .menu_d90b3d .scroller_d90b3d:not(.menus_ad5fac>div>.menu_d90b3d>div) {
@@ -3621,9 +3618,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
 }
 
 .userProfileInner_c69a7b:not(.fullSizeInnerThemed_c69a7b)>header>.mask_d5fdb1 {
-    z-index: 0;
     overflow: visible;
-    position: relative;
     contain: none;
 }
 
