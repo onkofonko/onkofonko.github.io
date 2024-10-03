@@ -1771,9 +1771,9 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button svg {
-    margin-left: var(--user-setting-margin-left)!important;
-    width: var(--user-settings-svg-size)!important;
-    height: var(--user-settings-svg-size)!important
+    margin-left: var(--user-setting-margin-left) !important;
+    width: var(--user-settings-svg-size) !important;
+    height: var(--user-settings-svg-size) !important
 }
 
 .panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button:last-child:hover {
@@ -11901,4 +11901,10 @@ button.tagsButton_a6d69a {
     background-color: var(--background-primary);
 }
 
-.menuItemLabel_ad5fac{font-weight:var(--menu-font-weight);}
+.menuItemLabel_ad5fac {
+    font-weight: var(--menu-font-weight);
+}
+
+.lottieIcon_f73ef7 {
+    margin-left: 3px;
+}
