@@ -11905,6 +11905,10 @@ button.tagsButton_a6d69a {
     font-weight: var(--menu-font-weight);
 }
 
-.lottieIcon_f73ef7 {
+.panels_a4d4d9 .container_b2ca13 .horizontal_dc333f button:last-child .contents_dd4f85 .lottieIcon_f73ef7 {
     margin-left: 3px;
+}
+
+.menus_ad5fac svg:has(.status_c7d26b) {
+    margin: 2px
 }
