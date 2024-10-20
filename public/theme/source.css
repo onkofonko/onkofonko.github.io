@@ -2474,7 +2474,7 @@ body.foldercontentopened .base_a4d4d9 {
     pointer-events: none
 }
 
-.panels_a4d4d9 .gameWrapper_bf1a22 .info_bf1a22 {
+.panels_a4d4d9 .gameWrapper_aa73eb .info_bf1a22 {
     display: none
 }
 
@@ -2683,7 +2683,7 @@ body.foldercontentopened .base_a4d4d9 {
 
 .panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22,
 .panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22 .gameIconWrapper_bf1a22,
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22 .gameWrapper_bf1a22 {
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22 .gameWrapper_aa73eb {
     width: 32px;
     max-width: 32px;
     height: 32px;
@@ -2695,18 +2695,18 @@ body.foldercontentopened .base_a4d4d9 {
     display: flex
 }
 
-.panels_a4d4d9 .activityPanel_a4d4d9 .actions_bf1a22 {
+.panels_a4d4d9 .activityPanel_a4d4d9 .actions_d14755 {
     margin: 0
 }
 
-.panels_a4d4d9 .activityPanel_a4d4d9 .gameWrapper_bf1a22 .gameIconWrapper_bf1a22,
-.panels_a4d4d9 .activityPanel_a4d4d9 .gameWrapper_bf1a22 .svg_afd438 {
+.panels_a4d4d9 .activityPanel_a4d4d9 .gameWrapper_aa73eb .gameIconWrapper_bf1a22,
+.panels_a4d4d9 .activityPanel_a4d4d9 .gameWrapper_aa73eb .svg_afd438 {
     border-radius: 50%;
     box-sizing: border-box
 }
 
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 .gameIconWrapper_bf1a22,
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 .svg_afd438 {
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_aa73eb .gameIconWrapper_bf1a22,
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_aa73eb .svg_afd438 {
     border-radius: 16px;
     opacity: 1;
     margin: 0;
@@ -2714,12 +2714,12 @@ body.foldercontentopened .base_a4d4d9 {
     color: transparent
 }
 
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 * {
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_aa73eb * {
     opacity: 0
 }
 
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 .gameIcon_a9e62c,
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 .svg_afd438 {
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_aa73eb .gameIcon_a9e62c,
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_aa73eb .svg_afd438 {
     opacity: .25;
     margin: 0;
     --size: 32px;
@@ -2727,17 +2727,17 @@ body.foldercontentopened .base_a4d4d9 {
     border-radius: calc(var(--size)/ 2)
 }
 
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22 .actions_bf1a22 {
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22 .actions_d14755 {
     opacity: 0;
     transition: opacity .25s ease
 }
 
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .actions_bf1a22 {
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .actions_d14755 {
     opacity: 1
 }
 
 .gameIcon_a9e62c,
-.gameWrapper_bf1a22 .svg_afd438 {
+.gameWrapper_aa73eb .svg_afd438 {
     margin: 4px;
     --size: 24px;
     width: var(--size);
@@ -11640,7 +11640,7 @@ button.tagsButton_a6d69a {
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.gameWrapper_bf1a22>.wrapper_c07d45>.badge_c07d45 {
+.gameWrapper_aa73eb>.wrapper_c07d45>.badge_c07d45 {
     background: var(--background-secondary);
     border-radius: 50%;
     padding: 2px;
@@ -11648,28 +11648,28 @@ button.tagsButton_a6d69a {
     bottom: -4px;
 }
 
-.gameWrapper_bf1a22>.wrapper_c07d45>.svg_afd438>foreignObject {
+.gameWrapper_aa73eb>.wrapper_c07d45>.svg_afd438>foreignObject {
     mask: none
 }
 
-.activityPanel_a4d4d9>div>.actions_bf1a22:has(button:nth-child(n+2)) {
+.activityPanel_a4d4d9>div>.actions_d14755:has(button:nth-child(n+2)) {
     flex-direction: column-reverse;
     bottom: 19px;
     position: relative;
 }
 
-.activityPanel_a4d4d9>div>.actions_bf1a22:has(button:nth-child(n+3)) {
+.activityPanel_a4d4d9>div>.actions_d14755:has(button:nth-child(n+3)) {
     bottom: 35px
 }
 
-.activityPanel_a4d4d9>div>.actions_bf1a22:has(button:nth-child(n+2)) {
+.activityPanel_a4d4d9>div>.actions_d14755:has(button:nth-child(n+2)) {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0) 40px, #111111 40px, #111111 100%);
     border-radius: 50px 50px 0 0;
     padding: 6px;
     margin: -6px;
 }
 
-.activityPanel_a4d4d9>div>.actions_bf1a22:has(button:nth-child(n+2))>button:nth-child(2) {
+.activityPanel_a4d4d9>div>.actions_d14755:has(button:nth-child(n+2))>button:nth-child(2) {
     margin-bottom: 6px;
 }
 
