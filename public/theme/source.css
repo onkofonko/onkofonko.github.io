@@ -3622,7 +3622,8 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     contain: none;
 }
 
-.header_b8cc6d {
+.body_b8cc6d,
+.body_b9fccc {
     z-index: 1;
 }
 
