@@ -2682,7 +2682,7 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22,
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22 .gameIconWrapper_bf1a22,
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22 .gameIconWrapper_aa73eb,
 .panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22 .gameWrapper_aa73eb {
     width: 32px;
     max-width: 32px;
@@ -2699,13 +2699,13 @@ body.foldercontentopened .base_a4d4d9 {
     margin: 0
 }
 
-.panels_a4d4d9 .activityPanel_a4d4d9 .gameWrapper_aa73eb .gameIconWrapper_bf1a22,
+.panels_a4d4d9 .activityPanel_a4d4d9 .gameWrapper_aa73eb .gameIconWrapper_aa73eb,
 .panels_a4d4d9 .activityPanel_a4d4d9 .gameWrapper_aa73eb .svg_afd438 {
     border-radius: 50%;
     box-sizing: border-box
 }
 
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_aa73eb .gameIconWrapper_bf1a22,
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_aa73eb .gameIconWrapper_aa73eb,
 .panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_aa73eb .svg_afd438 {
     border-radius: 16px;
     opacity: 1;
@@ -2749,7 +2749,7 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .badge_c07d45,
-.liveBadge_bf1a22 {
+.liveBadge_aa73eb {
     background-color: var(--background-secondary);
     color: var(--header-secondary)
 }
@@ -4083,7 +4083,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     margin: 0 4px 4px 4px
 }
 
-.attachedBars_d0696b,
+.stackedBars_bdf0de,
 .replyBar_b11c5e {
     border-radius: 5px;
     margin: 0 0 4px 0
@@ -4270,21 +4270,21 @@ html:hover~.app_bd26cc .topControls_dd069c {
     background-color: var(--background-secondary);
 }
 
-.channelTextArea_a7d72e.channelTextArea_d0696b.channelTextAreaDisabled_d0696b .buttons_d0696b {
+.channelTextArea_a7d72e.channelTextArea_bdf0de.channelTextAreaDisabled_bdf0de .buttons_bdf0de {
     display: none
 }
 
-.channelTextArea_a7d72e.channelTextArea_d0696b.channelTextAreaDisabled_d0696b,
-.channelTextArea_a7d72e.channelTextArea_d0696b.channelTextAreaDisabled_d0696b .scrollableContainer_d0696b {
+.channelTextArea_a7d72e.channelTextArea_bdf0de.channelTextAreaDisabled_bdf0de,
+.channelTextArea_a7d72e.channelTextArea_bdf0de.channelTextAreaDisabled_bdf0de .scrollableContainer_bdf0de {
     background: transparent 0 0;
 }
 
-.channelTextArea_a7d72e.channelTextArea_d0696b.channelTextAreaDisabled_d0696b .scrollableContainer_d0696b {
+.channelTextArea_a7d72e.channelTextArea_bdf0de.channelTextAreaDisabled_bdf0de .scrollableContainer_bdf0de {
     backdrop-filter: blur(0);
     background-color: var(--background-primary)
 }
 
-.channelTextAreaDisabled_d0696b .scrollableContainer_d0696b {
+.channelTextAreaDisabled_bdf0de .scrollableContainer_bdf0de {
     opacity: 1
 }
 
@@ -4301,7 +4301,7 @@ html:hover~.app_bd26cc .topControls_dd069c {
     margin-right: var(--chat-side-margin)
 }
 
-.channelTextArea_a7d72e.channelTextArea_d0696b {
+.channelTextArea_a7d72e.channelTextArea_bdf0de {
     border-radius: 0
 }
 
@@ -4310,11 +4310,11 @@ html:hover~.app_bd26cc .topControls_dd069c {
     margin-bottom: var(--text-area-bottom-margin)
 }
 
-.channelTextArea_d0696b {
+.channelTextArea_bdf0de {
     border-radius: 0
 }
 
-.channelTextArea_a7d72e .scrollableContainer_d0696b,
+.channelTextArea_a7d72e .scrollableContainer_bdf0de,
 .buttonContainer_df39bd>button {
     background: var(--background-secondary);
     border-radius: 22px
@@ -4336,20 +4336,20 @@ html:hover~.app_bd26cc .topControls_dd069c {
     cursor: default
 }
 
-.channelTextArea_a7d72e.channelTextArea_d0696b .attachWrapper_f298d4,
-.channelTextArea_a7d72e.channelTextArea_d0696b .buttons_d0696b,
+.channelTextArea_a7d72e.channelTextArea_bdf0de .attachWrapper_f298d4,
+.channelTextArea_a7d72e.channelTextArea_bdf0de .buttons_bdf0de,
 .buttonContainer_df39bd>button>div {
     opacity: .5;
     transition: opacity .35s ease
 }
 
-.channelTextArea_a7d72e.channelTextArea_d0696b:hover .attachWrapper_f298d4,
-.channelTextArea_a7d72e.channelTextArea_d0696b:hover .buttons_d0696b,
+.channelTextArea_a7d72e.channelTextArea_bdf0de:hover .attachWrapper_f298d4,
+.channelTextArea_a7d72e.channelTextArea_bdf0de:hover .buttons_bdf0de,
 .buttonContainer_df39bd:hover>button>div {
     opacity: 1
 }
 
-.channelTextArea_a7d72e.channelTextArea_d0696b .buttons_d0696b {
+.channelTextArea_a7d72e.channelTextArea_bdf0de .buttons_bdf0de {
     order: 3
 }
 
@@ -4357,7 +4357,7 @@ html:hover~.app_bd26cc .topControls_dd069c {
     padding: 10px 12px
 }
 
-.button_d0696b,
+.button_bdf0de,
 .timestamp-button button {
     padding: 4px;
     margin-left: 2px;
@@ -4378,7 +4378,7 @@ html:hover~.app_bd26cc .topControls_dd069c {
     transform: scale(.75) !important
 }
 
-.buttonContainer_d0696b.timestamp-button:active svg {
+.buttonContainer_bdf0de.timestamp-button:active svg {
     transform: scale(.75) translate(0, 1px) !important
 }
 
@@ -4387,20 +4387,20 @@ html:hover~.app_bd26cc .topControls_dd069c {
 }
 
 .active_f9af59 .buttonWrapper_f9af59,
-.buttonContainer_d0696b:hover .button_f9af59,
+.buttonContainer_bdf0de:hover .button_f9af59,
 .buttonWrapper_f9af59:hover {
     color: var(--interactive-hover)
 }
 
-.buttonContainer_d0696b:active .sprite_d91a75,
-.buttonContainer_d0696b:active svg,
-.buttons_d0696b>[class^=InvisibleTyping]:active svg,
+.buttonContainer_bdf0de:active .sprite_d91a75,
+.buttonContainer_bdf0de:active svg,
+.buttons_bdf0de>[class^=InvisibleTyping]:active svg,
 button[class^=attachButton]:active .attachButtonInner_f298d4 {
     transform: scale(.82) translate(0, 1px) !important
 }
 
-.buttonContainer_d0696b,
-.buttons_d0696b>[class^=InvisibleTyping],
+.buttonContainer_bdf0de,
+.buttons_bdf0de>[class^=InvisibleTyping],
 button[class^=attachButton] {
     transition: transform .12s ease
 }
