@@ -3786,27 +3786,6 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     height: 650px
 }
 
-.popoutBannerPremium_c3e427.bannerPremium_c3e427:before,
-.profileBannerPremium__6fb42.bannerPremium_c3e427:before {
-    transform: scaleY(-1);
-    -webkit-transform: scaleY(-1);
-    top: 120px;
-    height: calc(100vh - 12px);
-    background-color: unset !important;
-    background-size: 100% 100%
-}
-
-.accountProfileCard_b69b77>.settingsBanner_c3e427.bannerPremium_c3e427:before,
-.accountProfileCard_b69b77>.settingsBanner_c3e427.bannerPremium_c3e427:after {
-    width: inherit;
-    visibility: visible;
-    height: 500px;
-}
-
-.accountProfileCard_b69b77>.settingsBanner_c3e427.bannerPremium_c3e427 {
-    visibility: hidden;
-}
-
 .accountProfileCard_b69b77>.userInfo_b69b77 {
     margin-top: 70px
 }
@@ -3823,6 +3802,10 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     background-image: inherit !important;
     filter: blur(128px);
     visibility: visible;
+    transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    height: calc(100vh - 12px);
+    background-size: 100% 100%
 }
 
 .userProfileOuter_c69a7b .banner_d5fdb1:not([style*="background-image"]):after {
