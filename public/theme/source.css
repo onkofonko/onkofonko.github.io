@@ -1976,7 +1976,7 @@ body.foldercontentopened .base_a4d4d9 {
 .messagesPopoutWrap_ac90a2,
 .root_f9a4c9,
 .streamPreview_adbea6,
-.userPopoutOuter_c69a7b,
+.outer_c69a7b,
 [class^=noiseCancellationPopout] {
     border-radius: var(--context-menu-border-radius)
 }
@@ -2028,7 +2028,7 @@ body.foldercontentopened .base_a4d4d9 {
 .streamPreview_adbea6:before,
 .toolbar_de3e42:before,
 .uploadModal_f82cc7:before,
-.userPopoutOuter_c69a7b:before,
+.outer_c69a7b:before,
 .wrapper_f7e168:before,
 .container__0ec3c:before,
 .addGamePopout_fd966d:before {
@@ -3417,28 +3417,28 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
 .role_e4010c,
 .theme-dark .actionButton_e4010c,
 .theme-light .actionButton_e4010c,
-.userPopoutOuter_c69a7b .textarea_dde0a8:focus,
+.outer_c69a7b .textarea_dde0a8:focus,
 .actionColor_fc39e7 {
     background-color: rgba(196, 196, 196, .1) !important;
     transition: filter .15s ease
 }
 
-.userPopoutOuter_c69a7b .input_df4dd0:focus,
-.userPopoutOuter_c69a7b .input_df4dd0:hover {
+.outer_c69a7b .input_df4dd0:focus,
+.outer_c69a7b .input_df4dd0:hover {
     background-color: rgba(196, 196, 196, .1)
 }
 
-.userPopoutOuter_c69a7b .input_df4dd0 {
+.outer_c69a7b .input_df4dd0 {
     background-color: rgba(196, 196, 196, .05);
     transition: background-color .15s ease
 }
 
-.userPopoutOuter_c69a7b .input_df4dd0 {
+.outer_c69a7b .input_df4dd0 {
     border: none !important;
     border-radius: 3px
 }
 
-.userPopoutOuter_c69a7b .input_df4dd0::placeholder {
+.outer_c69a7b .input_df4dd0::placeholder {
     color: var(--text-normal);
     opacity: .75
 }
@@ -3617,11 +3617,6 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, .205))
 }
 
-.userProfileInner_c69a7b:not(.fullSizeInnerThemed_c69a7b)>header>.mask_d5fdb1 {
-    overflow: visible;
-    contain: none;
-}
-
 .body_b8cc6d,
 .body_b9fccc {
     z-index: 1;
@@ -3670,7 +3665,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     background: var(--bg-mod-faint) !important
 }
 
-.overlayBackground_c69a7b {
+.container_b64375 {
     border: none;
     background: unset !important;
 }
@@ -3684,22 +3679,14 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     padding: 16px 0 16px 0
 }
 
-.userProfileInner_c69a7b>.footer_b8cc6d .inner_c59af2,
-.userProfileInner_c69a7b>.footer_b8cc6d>button,
+.inner_c69a7b>.footer_b8cc6d .inner_c59af2,
+.inner_c69a7b>.footer_b8cc6d>button,
 .wrapper_cb78f1.biteSize_cb78f1 button,
 .headerInner_b9fccc .headerButtons_b9fccc button,
 .wrapper_cb78f1.fullSize_cb78f1 button,
 .buttonColor_f00225 {
     background: var(--bg-mod-faint) !important;
     background-color: var(--bg-mod-faint) !important;
-}
-
-[class^="accountProfileCard"] .mask_d5fdb1 {
-    z-index: 0;
-    overflow: visible;
-    position: absolute;
-    width: 100%;
-    contain: none;
 }
 
 .PI-indicatorContainer {
@@ -3720,8 +3707,10 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     margin-bottom: -40px;
 }
 
-.fullSizeInnerThemed_c69a7b>header>[class^="mask"],
-.topSection_b9fccc>.mask_d5fdb1 {
+.inner_c69a7b.fullSize_c69a7b>header>[class^="mask"],
+.inner_c69a7b.biteSize_c69a7b>header>[class^="mask"],
+.topSection_b9fccc>.mask_d5fdb1,
+[class^="accountProfileCard"] .mask_d5fdb1 {
     z-index: 0;
     overflow: visible;
     position: relative;
@@ -3749,8 +3738,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     background-size: cover
 }
 
-.userProfileOuterThemed_c69a7b.userPopoutOuter_c69a7b,
-.userProfileOuterThemed_c69a7b.userProfileOuter_c69a7b {
+.outer_c69a7b {
     padding: 0 !important
 }
 
@@ -3777,12 +3765,12 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     visibility: visible;
 }
 
-.fullSizeInnerThemed_c69a7b .banner_d5fdb1:after {
+.inner_c69a7b.fullSize_c69a7b .banner_d5fdb1:after {
     height: 210px
 }
 
-.fullSizeOuter_c69a7b.userProfileOuter_c69a7b,
-.fullSizeInnerThemed_c69a7b .banner_d5fdb1:before {
+.fullSize_c69a7b.outer_c69a7b,
+.inner_c69a7b.fullSize_c69a7b .banner_d5fdb1:before {
     height: 650px
 }
 
@@ -3808,7 +3796,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     background-size: 100% 100%
 }
 
-.userProfileOuter_c69a7b .banner_d5fdb1:not([style*="background-image"]):after {
+.outer_c69a7b .banner_d5fdb1:not([style*="background-image"]):after {
     --gradient-size: 100%;
     --mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 0.3) calc(var(--gradient-size) * .5), rgba(0, 0, 0, 0.15) calc(var(--gradient-size) * .65), rgba(0, 0, 0, 0.075) calc(var(--gradient-size) * .755), rgba(0, 0, 0, 0.037) calc(var(--gradient-size) * .8285), rgba(0, 0, 0, 0.019) calc(var(--gradient-size) * .88), rgba(0, 0, 0, 0) var(--gradient-size));
     background-color: inherit;
@@ -3817,7 +3805,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     visibility: visible;
 }
 
-.userProfileOuter_c69a7b .banner_d5fdb1:not([style*="background-image"]):before {
+.outer_c69a7b .banner_d5fdb1:not([style*="background-image"]):before {
     filter: blur(128px) brightness(0.2) saturate(1) !important;
 }
 
@@ -3830,8 +3818,8 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     border-top: unset
 }
 
-.body_b8cc6d .container_b64375,
-.body_b9fccc .container_b64375 {
+.body_b8cc6d .overlay_c69a7b,
+.body_b9fccc .overlay_c69a7b {
     background-color: unset;
     border: none
 }
@@ -3850,14 +3838,10 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     visibility: hidden;
 }
 
-.userProfileInner_c69a7b {
+.inner_c69a7b {
     background: var(--background-floating) !important;
     overflow: hidden;
     border-radius: var(--context-menu-border-radius)
-}
-
-.userProfileOuterThemed_c69a7b {
-    background: var(--background-floating) !important;
 }
 
 .profileColors_ac6ab4 {
@@ -11477,14 +11461,13 @@ div.icon_c07d45 {
     padding: var(--settings-top) 40px 80px;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>header,
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>.body_ad5fac>*:not(.menus_ad5fac),
-.accountProfilePopoutWrapper_b2ca13 .menus_ad5fac>div>.menu_d90b3d.flexible_d90b3d:before,
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b .wrapper_cb78f1.biteSize_cb78f1 {
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.outer_c69a7b>div>header,
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.outer_c69a7b>div>.body_ad5fac>*:not(.menus_ad5fac),
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.outer_c69a7b .wrapper_cb78f1.biteSize_cb78f1 {
     display: none;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>.body_ad5fac {
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.outer_c69a7b>div>.body_ad5fac {
     padding: 38px 0 0 0;
     overflow: unset !important;
     display: flex;
@@ -11495,8 +11478,11 @@ div.icon_c07d45 {
     width: 196px;
 }
 
+.menuOverlay_ad5fac {
+    background: unset;
+}
 
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>.body_ad5fac>.menus_ad5fac>.menuOverlay_ad5fac {
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.outer_c69a7b>div>.body_ad5fac>.menus_ad5fac>.menuOverlay_ad5fac {
     padding: 0px 6px 0px 6px;
 }
 
@@ -11504,19 +11490,19 @@ div.icon_c07d45 {
     padding-bottom: 2px !important
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b,
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b:before,
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>.body_ad5fac>.menus_ad5fac,
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>.body_ad5fac>.menus_ad5fac>div>.menu_d90b3d {
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.outer_c69a7b,
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.outer_c69a7b:before,
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.outer_c69a7b>div>.body_ad5fac>.menus_ad5fac,
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.outer_c69a7b>div>.body_ad5fac>.menus_ad5fac>div>.menu_d90b3d {
     width: 220px !important;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b:before,
-.userPopoutOuter_c69a7b:before {
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.outer_c69a7b:before,
+.outer_c69a7b:before {
     z-index: 1;
 }
 
-[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.userPopoutOuter_c69a7b>div>.body_ad5fac>.menus_ad5fac {
+[id^=popout]>div>.accountProfilePopoutWrapper_b2ca13>div>.outer_c69a7b>div>.body_ad5fac>.menus_ad5fac {
     margin: 0px;
     gap: 0px;
 }
