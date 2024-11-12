@@ -2474,7 +2474,7 @@ body.foldercontentopened .base_a4d4d9 {
     pointer-events: none
 }
 
-.panels_a4d4d9 .gameWrapper_bf1a22 .info_bf1a22 {
+.panels_a4d4d9 [class^="gameWrapper"] .info_bf1a22 {
     display: none
 }
 
@@ -2683,7 +2683,7 @@ body.foldercontentopened .base_a4d4d9 {
 
 .panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22,
 .panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22 .gameIconWrapper_aa73eb,
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22 .gameWrapper_bf1a22 {
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22 [class^="gameWrapper"] {
     width: 32px;
     max-width: 32px;
     height: 32px;
@@ -2699,14 +2699,14 @@ body.foldercontentopened .base_a4d4d9 {
     margin: 0
 }
 
-.panels_a4d4d9 .activityPanel_a4d4d9 .gameWrapper_bf1a22 .gameIconWrapper_aa73eb,
-.panels_a4d4d9 .activityPanel_a4d4d9 .gameWrapper_bf1a22 .svg_afd438 {
+.panels_a4d4d9 .activityPanel_a4d4d9 [class^="gameWrapper"] .gameIconWrapper_aa73eb,
+.panels_a4d4d9 .activityPanel_a4d4d9 [class^="gameWrapper"] .svg_afd438 {
     border-radius: 50%;
     box-sizing: border-box
 }
 
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 .gameIconWrapper_aa73eb,
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 .svg_afd438 {
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover [class^="gameWrapper"] .gameIconWrapper_aa73eb,
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover [class^="gameWrapper"] .svg_afd438 {
     border-radius: 16px;
     opacity: 1;
     margin: 0;
@@ -2714,12 +2714,12 @@ body.foldercontentopened .base_a4d4d9 {
     color: transparent
 }
 
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 * {
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover [class^="gameWrapper"] * {
     opacity: 0
 }
 
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 .gameIcon_a9e62c,
-.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover .gameWrapper_bf1a22 .svg_afd438 {
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover [class^="gameWrapper"] .gameIcon_a9e62c,
+.panels_a4d4d9 .activityPanel_a4d4d9 .body_bf1a22:hover [class^="gameWrapper"] .svg_afd438 {
     opacity: .25;
     margin: 0;
     --size: 32px;
@@ -2737,7 +2737,7 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .gameIcon_a9e62c,
-.gameWrapper_bf1a22 .svg_afd438 {
+[class^="gameWrapper"] .svg_afd438 {
     margin: 4px;
     --size: 24px;
     width: var(--size);
@@ -11610,7 +11610,7 @@ button.tagsButton_a6d69a {
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.gameWrapper_bf1a22>.wrapper_c07d45>.badge_c07d45 {
+[class^="gameWrapper"]>.wrapper_c07d45>.badge_c07d45 {
     background: var(--background-secondary);
     border-radius: 50%;
     padding: 2px;
@@ -11618,7 +11618,7 @@ button.tagsButton_a6d69a {
     bottom: -4px;
 }
 
-.gameWrapper_bf1a22>.wrapper_c07d45>.svg_afd438>foreignObject {
+[class^="gameWrapper"]>.wrapper_c07d45>.svg_afd438>foreignObject {
     mask: none
 }
 
