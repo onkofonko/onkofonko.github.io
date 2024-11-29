@@ -3641,27 +3641,27 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
     border-radius: 50%
 }
 
-.statusBubbleOuter_d0a252:before {
+.statusBubbleOuter_af9888:before {
     border-radius: 19px 19px 0 0;
     height: 9.5px;
     transform: translateY(1px) translateX(1px)
 }
 
-.statusBubbleOuter_d0a252,
-.statusBubble_d0a252,
-.statusBubbleOuter_d0a252:before,
-.statusBubbleOuter_d0a252:after {
+.statusBubbleOuter_af9888,
+.statusBubble_af9888,
+.statusBubbleOuter_af9888:before,
+.statusBubbleOuter_af9888:after {
     border: unset !important;
     box-shadow: none
 }
 
-.statusBubbleOuter_d0a252 {
+.statusBubbleOuter_af9888 {
     background: unset !important
 }
 
-.statusBubble_d0a252,
-.statusBubbleOuter_d0a252:before,
-.statusBubbleOuter_d0a252:after {
+.statusBubble_af9888,
+.statusBubbleOuter_af9888:before,
+.statusBubbleOuter_af9888:after {
     background: var(--bg-mod-faint) !important
 }
 
