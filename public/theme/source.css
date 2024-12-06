@@ -902,6 +902,12 @@
     gap: var(--server-margin);
 }
 
+#app-mount .wrapper_bc7085 ul[id^="folder-items-"] {
+    gap: var(--server-margin) !important;
+    margin-top: calc(var(--server-margin) * -0.5) !important;
+    margin-bottom: calc(var(--server-margin) * -1.5) !important;
+}
+
 #app-mount .guilds_a4d4d9 .wrapper_bc7085 ul[role=group] {
     display: flex;
     flex-direction: var(--server-direction);
@@ -926,6 +932,7 @@
     border-radius: calc(var(--server-size)/ 2);
     transform: translateX(-50%);
     height: calc(100% - var(--server-margin)) !important;
+    padding-top: 15px;
 }
 
 #app-mount .guilds_a4d4d9 .folder_bc7085 {
