@@ -900,6 +900,7 @@
     display: flex;
     flex-direction: var(--server-direction);
     gap: var(--server-margin);
+    margin-bottom: 5px;
 }
 
 #app-mount .wrapper_bc7085 ul[id^="folder-items-"] {
@@ -11784,7 +11785,7 @@ button.tagsButton_a6d69a {
 }
 
 .option_b0286e,
-.fileNameLink_b52bef {
+.fileNameLink_f46c86 {
     line-height: 20px;
 }
 
