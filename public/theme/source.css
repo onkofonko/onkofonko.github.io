@@ -1192,7 +1192,7 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .sidebar_a4d4d9 {
-    width: var(--sidebar-width)!important;
+    width: var(--sidebar-width) !important;
     flex-direction: column;
     transition: width var(--sidebar-width-transition)
 }
@@ -2827,7 +2827,8 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .panels_a4d4d9 .container_b2ca13 {
-    max-width: fit-content
+    max-width: fit-content;
+    container-type: unset
 }
 
 .panels_a4d4d9 .wrapper_adcaac .container_adcaac {
