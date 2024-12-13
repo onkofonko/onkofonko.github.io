@@ -1197,6 +1197,10 @@ body.foldercontentopened .base_a4d4d9 {
     transition: width var(--sidebar-width-transition)
 }
 
+html:not(.visual-refresh_a4d4d9) .sidebar_a4d4d9 {
+    width: var(--sidebar-width) !important;
+}
+
 .sidebar_a4d4d9.hideChannelElement {
     width: var(--sidebar-width) !important;
     transition: none !important;
