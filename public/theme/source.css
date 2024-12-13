@@ -11891,3 +11891,7 @@ button.tagsButton_a6d69a {
 .menus_ad5fac svg:has(.status_c7d26b) {
     margin: 2px
 }
+
+[class^=footer_]:has([class*=fixedDiscoveryIcon_]) {
+    display: none;
+}
