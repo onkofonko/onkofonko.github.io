@@ -1192,12 +1192,11 @@ body.foldercontentopened .base_a4d4d9 {
 }
 
 .sidebar_a4d4d9 {
-    width: var(--sidebar-width) !important;
     flex-direction: column;
     transition: width var(--sidebar-width-transition)
 }
 
-html:not(.visual-refresh_a4d4d9) .sidebar_a4d4d9 {
+html:not(.visual-refresh) .sidebar_a4d4d9:not(.hidden_a4d4d9) {
     width: var(--sidebar-width) !important;
 }
 
