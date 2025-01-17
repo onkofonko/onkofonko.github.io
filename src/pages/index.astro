@@ -63,7 +63,7 @@ import Layout from '../layouts/Layout.astro';
 								>
 							</a>
 							<a
-								href="#"
+								href="javascript"
 								class="glass"
 								id="copyDiscord"
 								discord-username="princeznozinternetu"
@@ -161,6 +161,16 @@ import Layout from '../layouts/Layout.astro';
 		margin: 0 auto;
 		overflow: auto;
 		scrollbar-gutter: stable;
+		opacity: 0;
+		transform: translateY(20px);
+		animation: fadeIn 0.5s ease forwards;
+	}
+
+	@keyframes fadeIn {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
 	.container::-webkit-scrollbar {
@@ -260,12 +270,21 @@ import Layout from '../layouts/Layout.astro';
 	}
 	.section {
 		margin: 1.5rem 0;
+		opacity: 0;
+		transform: translateY(20px);
+		animation: fadeIn 0.5s ease forwards;
+		animation-delay: calc(var(--section-index, 0) * 0.1s);
 	}
 	.section:first-child {
 		margin-top: 0;
+		--section-index: 1;
+	}
+	.section:nth-child(3) {
+		--section-index: 2;
 	}
 	.section:last-child {
 		margin-bottom: 0;
+		--section-index: 3;
 	}
 	.skill-tags {
 		display: flex;
@@ -372,6 +391,12 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	@media (prefers-reduced-motion: reduce) {
+		.container,
+		.section {
+			animation: none;
+			opacity: 1;
+			transform: none;
+		}
 		.profile-container:hover .profile-img {
 			transform: none;
 		}
