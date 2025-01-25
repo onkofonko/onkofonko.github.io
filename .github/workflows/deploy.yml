@@ -20,6 +20,10 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+      - name: Install CSSO and CSSO-cli
+        run: npm install -g csso csso-cli
+      - name: Optimize CSS
+        run: csso public/theme/source.css --output public/theme/fixedsource.css
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         # with:
