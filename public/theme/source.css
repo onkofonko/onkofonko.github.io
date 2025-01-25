@@ -956,7 +956,7 @@
     top: 0 !important;
 }
 
-#app-mount [class*=listItemTooltip] {
+#app-mount [class*=listItemTooltip_] {
     position: absolute;
     max-width: unset;
     white-space: nowrap;
@@ -964,7 +964,7 @@
     top: calc(var(--server-size) - 10px);
 }
 
-#app-mount [class*=listItemTooltip] [class*=tooltipPointer] {
+#app-mount [class*=listItemTooltip_] [class*=tooltipPointer] {
     transform: rotate(180deg);
     top: -5px !important;
     right: unset;
