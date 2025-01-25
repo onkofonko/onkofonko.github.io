@@ -2864,6 +2864,11 @@ html:not(.visual-refresh) .sidebar_a4d4d9:not(.hidden_a4d4d9) {
     border-radius: 16px !important
 }
 
+.container_b2ca13,
+.container_adcaac {
+    --channel-icon: var(--interactive-normal)
+}
+
 .button_adca65.enabled_adca65:hover,
 .button_adcaac .buttonColor_adcaac.buttonActive_adcaac:hover,
 .button_adcaac .buttonColor_adcaac:hover,
@@ -3655,7 +3660,7 @@ button[aria-label="Disable Game Activity"] .contents_dd4f85:after {
 
 .outer_af9888:before,
 .outer_af9888:after {
-display: none;
+    display: none;
 }
 
 .outer_af9888,
