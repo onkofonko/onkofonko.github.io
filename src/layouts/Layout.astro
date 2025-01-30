@@ -43,13 +43,12 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	:root {
-		--glass-border: rgba(102, 103, 171, 0.15);
+		--glass-border: 102, 103, 171,;
 		--text-primary: #ffffff;
 		--text-secondary: rgba(255, 255, 255, 0.85);
 		--purple-primary: 102, 103, 171;
 		--background: 6, 0, 16;
 		--focus-ring: 0 0 0 3px rgba(102, 103, 171, 0.5);
-		--noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 	}
 	* {
 		margin: 0;
@@ -104,7 +103,7 @@ const { title } = Astro.props;
 		border-radius: 24px;
 		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 		backdrop-filter: blur(20px);
-		border: 2px solid var(--glass-border);
+		border: 2px solid rgba(var(--glass-border) 0.15);
 		padding: 2rem;
 		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		position: relative;
@@ -112,39 +111,14 @@ const { title } = Astro.props;
 
 	.glass:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+		box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+		border: 2px solid rgba(var(--glass-border) 0.20);
 	}
 
 	.glass:focus-visible {
 		outline: none;
 		box-shadow: var(--focus-ring);
 		border-color: rgba(102, 103, 171, 0.3);
-	}
-
-	.second-glass {
-		background: linear-gradient(
-			165deg,
-			rgba(166, 166, 255, 0.08) 0%,
-			rgba(255, 255, 255, 0.06) 100%
-		);
-		border-radius: 24px;
-		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-		backdrop-filter: blur(20px);
-		border: 2px solid var(--glass-border);
-		padding: 2rem;
-		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-		position: relative;
-	}
-
-	.second-glass:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-	}
-
-	.second-glass:focus-visible {
-		outline: none;
-		box-shadow: var(--focus-ring);
-		border-color: rgba(166, 166, 255, 0.3);
 	}
 
 	@media (prefers-reduced-motion: reduce) {
