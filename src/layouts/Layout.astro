@@ -12,8 +12,12 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Ondrej Michal's Site" />
 		<meta name="author" content="Ondrej Michal Očkaj" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/36997301?v=4" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://avatars.githubusercontent.com/u/36997301?v=4&s=16"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -112,7 +116,7 @@ const { title } = Astro.props;
 	.glass:hover {
 		transform: translateY(-2px);
 		box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
-		border: 2px solid rgba(var(--glass-border) 0.20);
+		border: 2px solid rgba(var(--glass-border) 0.2);
 	}
 
 	.glass:focus-visible {
