@@ -10,8 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/partytown": "^1.2.3",
-    "astro": "^2.10.15",
+    "@astrojs/partytown": "^2.1.3",
+    "astro": "^5.2.0",
     "astro-icon": "^0.8.0"
   },
   "devDependencies": {

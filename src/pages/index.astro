@@ -19,7 +19,9 @@ import Layout from '../layouts/Layout.astro';
 						</div>
 					</div>
 					<div class="header-text">
-						<h1>Ondrej Michal</h1>
+						<div class="name-badge">
+							<h1>Ondrej Michal</h1>
+						</div>
 						<p class="title">Student</p>
 						<div class="social-links">
 							<a
@@ -114,7 +116,9 @@ import Layout from '../layouts/Layout.astro';
 					<div class="project-grid">
 						<div class="project-card second-glass">
 							<div class="project-content">
-								<h3>Alexis Modern Discord theme fixes</h3>
+								<div class="project-header">
+									<h3>Alexis Modern Discord theme fixes</h3>
+								</div>
 								<p>My attempt to keep Alexis Modern Discord Theme alive.</p>
 							</div>
 							<a
@@ -125,7 +129,9 @@ import Layout from '../layouts/Layout.astro';
 						</div>
 						<div class="project-card second-glass">
 							<div class="project-content">
-								<h3>Padavan firmware fork</h3>
+								<div class="project-header">
+									<h3>Padavan firmware fork</h3>
+								</div>
 								<p>A customized fork of the Padavan router firmware.</p>
 							</div>
 							<a
@@ -163,7 +169,7 @@ import Layout from '../layouts/Layout.astro';
 		scrollbar-gutter: stable;
 		opacity: 0;
 		transform: translateY(20px);
-		animation: fadeIn 0.5s ease forwards;
+		animation: fadeIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 	}
 
 	@keyframes fadeIn {
@@ -189,22 +195,37 @@ import Layout from '../layouts/Layout.astro';
 	.header-text {
 		flex: 1;
 	}
+
+	.name-badge {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.project-header {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
 	.profile-container {
 		position: relative;
 		width: 120px;
 		height: 120px;
-		border-radius: 50%;
+		border-radius: 24px;
 		overflow: hidden;
 		cursor: pointer;
+		transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
 	.profile-img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		border: 2px solid var(--glass-border);
-		border-radius: 50%;
-		transition: transform 0.3s ease;
+		border-radius: 24px;
+		transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
+
 	.profile-overlay {
 		position: absolute;
 		top: 0;
@@ -216,25 +237,34 @@ import Layout from '../layouts/Layout.astro';
 		align-items: center;
 		justify-content: center;
 		opacity: 0;
-		transition: opacity 0.3s ease;
+		transition: opacity 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
+
 	.profile-overlay span {
 		font-size: 2rem;
 		transform: translateY(20px);
-		transition: transform 0.3s ease;
+		transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
+
+	.profile-container:hover {
+		transform: scale(1.05);
+	}
+
 	.profile-container:hover .profile-img {
 		transform: scale(1.1);
 	}
+
 	.profile-container:hover .profile-overlay {
 		opacity: 1;
 	}
+
 	.profile-container:hover .profile-overlay span {
 		transform: translateY(0);
 	}
 	.title {
 		color: var(--text-secondary);
 		margin: 0.5rem 0 1rem;
+		font-size: 1.125rem;
 	}
 	.social-links {
 		display: flex;
@@ -242,19 +272,21 @@ import Layout from '../layouts/Layout.astro';
 	}
 	.social-links a {
 		padding: 0.5rem;
-		border-radius: 12px;
+		border-radius: 16px;
 		color: var(--text-primary);
-		transition: all 0.3s ease;
+		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		min-width: 44px;
 		min-height: 44px;
 	}
+
 	.social-links a:hover {
 		background: rgba(255, 255, 255, 0.2);
-		transform: translateY(-2px);
+		transform: translateY(-2px) scale(1.05);
 	}
+
 	.social-links a:focus-visible {
 		outline: none;
 		box-shadow: var(--focus-ring);
@@ -264,15 +296,16 @@ import Layout from '../layouts/Layout.astro';
 		margin: auto;
 	}
 	.divider {
-		height: 1px;
-		background: var(--glass-border);
-		margin: 1.5rem 0;
+		height: 2px;
+		background: linear-gradient(to right, var(--glass-border), transparent);
+		margin: 2rem 0;
+		border-radius: 1px;
 	}
 	.section {
 		margin: 1.5rem 0;
 		opacity: 0;
 		transform: translateY(20px);
-		animation: fadeIn 0.5s ease forwards;
+		animation: fadeIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 		animation-delay: calc(var(--section-index, 0) * 0.1s);
 	}
 	.section:first-child {
@@ -294,12 +327,13 @@ import Layout from '../layouts/Layout.astro';
 	}
 	.tag {
 		padding: 0.4rem 0.8rem;
-		border-radius: 12px;
+		border-radius: 16px;
 		font-size: 0.9rem;
-		transition: all 0.3s ease;
+		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		cursor: default;
 	}
 	.tag:hover {
-		transform: translateY(-2px);
+		transform: translateY(-2px) scale(1.05);
 		background: rgba(255, 255, 255, 0.15);
 	}
 	.project-grid {
@@ -310,17 +344,22 @@ import Layout from '../layouts/Layout.astro';
 	}
 	.project-card {
 		padding: 1.5rem;
-		transition: all 0.3s ease;
+		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		display: flex;
 		flex-direction: column;
 		height: 100%;
+		position: relative;
+		overflow: hidden;
+		isolation: isolate;
 	}
 	.project-card:hover {
-		transform: translateY(-4px);
+		transform: translateY(-4px) scale(1.02);
 		border-color: rgba(166, 166, 255, 0.2);
 	}
 	.project-content {
 		flex-grow: 1;
+		position: relative;
+		z-index: 1;
 	}
 	.project-card h3 {
 		margin-bottom: 0.5rem;
@@ -328,21 +367,24 @@ import Layout from '../layouts/Layout.astro';
 	.project-card p {
 		color: var(--text-secondary);
 		margin-bottom: 1rem;
+		line-height: 1.6;
 	}
 	.button {
 		display: inline-block;
-		padding: 0.4rem 0.8rem;
-		border-radius: 12px;
+		padding: 0.5rem 1.5rem;
+		border-radius: 16px;
 		color: var(--text-primary);
 		text-decoration: none;
-		transition: all 0.3s ease;
+		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		margin-top: auto;
-		width: 126px;
 		text-align: center;
+		font-weight: 500;
+		position: relative;
+		z-index: 1;
 	}
 	.button:hover {
 		background: rgba(255, 255, 255, 0.2);
-		transform: translateY(-2px);
+		transform: translateY(-2px) scale(1.05);
 	}
 	.button:focus-visible {
 		outline: none;
@@ -353,6 +395,7 @@ import Layout from '../layouts/Layout.astro';
 		background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.7));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+		margin: 0;
 	}
 	h2 {
 		font-size: 1.5rem;
@@ -368,13 +411,22 @@ import Layout from '../layouts/Layout.astro';
 			text-align: center;
 		}
 		.divider {
-			max-width: 0.8rem 0;
+			margin: 1.5rem 0;
 		}
 		.content {
 			padding: 1.6rem;
 		}
 		.social-links {
 			justify-content: center;
+		}
+		.name-badge {
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+		.project-header {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.5rem;
 		}
 	}
 
@@ -388,6 +440,16 @@ import Layout from '../layouts/Layout.astro';
 		.content {
 			padding: 0.8rem;
 		}
+		.profile-container {
+			width: 100px;
+			height: 100px;
+		}
+		.button {
+			padding: 0.6rem 1.2rem;
+		}
+		.tag {
+			padding: 0.4rem 0.8rem;
+		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -397,6 +459,7 @@ import Layout from '../layouts/Layout.astro';
 			opacity: 1;
 			transform: none;
 		}
+		.profile-container:hover,
 		.profile-container:hover .profile-img {
 			transform: none;
 		}
