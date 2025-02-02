@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
 		<div class="container glass">
 			<div class="content">
 				<div class="header">
-					<div class="profile-container">
+					<div class="profile-container glass">
 						<img
 							src="https://avatars.githubusercontent.com/u/36997301?v=4&s=120"
 							alt="Profile"
@@ -154,7 +154,7 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
 	main {
-		height: 100dvh;
+		height: 100%;
 		padding: 2rem;
 		display: flex;
 		align-items: center;
@@ -165,14 +165,13 @@ import Layout from '../layouts/Layout.astro';
 
 	.container {
 		width: 100%;
-		height: auto;
 		max-width: 1000px;
-		max-height: calc(100dvh - 2rem);
+		height: calc(100% - 1.5rem);
 		margin: 0 auto;
 		overflow: hidden;
 		opacity: 0;
 		transform: translateY(20px);
-		animation: fadeIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+		animation: fadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 	}
 
 	@keyframes fadeIn {
@@ -182,22 +181,25 @@ import Layout from '../layouts/Layout.astro';
 		}
 	}
 
+	.content {
+		height: 100%;
+		padding: 3.5rem;
+		overflow-y: auto;
+		scrollbar-width: none;
+		-webkit-overflow-scrolling: touch;
+		align-content: center;
+	}
+
 	.content::-webkit-scrollbar {
 		display: none;
 	}
 
-	.content {
-		padding: 3.5rem;
-		overflow: auto;
-		max-height: calc(100dvh - 2rem);
-		scrollbar-width: none;
-	}
 	.header {
 		display: flex;
 		align-items: center;
 		gap: 2rem;
-		margin-bottom: 2rem;
 	}
+
 	.header-text {
 		flex: 1;
 	}
@@ -221,15 +223,17 @@ import Layout from '../layouts/Layout.astro';
 		border-radius: 24px;
 		overflow: hidden;
 		cursor: pointer;
-		transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+		will-change: transform;
 	}
+
 	.profile-img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		border: 2px solid rgba(var(--glass-border) 0.15);
 		border-radius: 24px;
-		transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+		will-change: transform;
 	}
 
 	.profile-overlay {
@@ -238,18 +242,18 @@ import Layout from '../layouts/Layout.astro';
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: rgba(0, 0, 0, 0.5);
+		background: rgba(102, 103, 171, 0.2);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		opacity: 0;
-		transition: opacity 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 	}
 
 	.profile-overlay span {
 		font-size: 2rem;
 		transform: translateY(20px);
-		transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 	}
 
 	.profile-container:hover {
@@ -267,29 +271,35 @@ import Layout from '../layouts/Layout.astro';
 	.profile-container:hover .profile-overlay span {
 		transform: translateY(0);
 	}
+
 	.title {
 		color: var(--text-secondary);
 		margin: 0.5rem 0 1rem;
 		font-size: 1.125rem;
+		letter-spacing: 0.5px;
+		font-weight: 500;
 	}
+
 	.social-links {
 		display: flex;
 		gap: 0.75rem;
 	}
+
 	.social-links a {
-		padding: 0.5rem;
+		padding: 0.75rem;
 		border-radius: 16px;
 		color: var(--text-primary);
-		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		min-width: 44px;
 		min-height: 44px;
+		will-change: transform, background-color;
 	}
 
 	.social-links a:hover {
-		background: rgba(255, 255, 255, 0.2);
+		background: rgba(102, 103, 171, 0.1);
 		transform: translateY(-2px) scale(1.05);
 	}
 
@@ -297,117 +307,151 @@ import Layout from '../layouts/Layout.astro';
 		outline: none;
 		box-shadow: var(--focus-ring);
 	}
-	.social-links .icon {
-		display: block;
-		margin: auto;
-	}
+
 	.divider {
-		height: 2px;
-		background: linear-gradient(to right, rgba(var(--glass-border) 0.15), transparent);
-		margin: 2rem 0;
+		height: 1px;
+		background: linear-gradient(
+			to right,
+			rgba(var(--divider), 0.15),
+			rgba(var(--divider), 0.03),
+			transparent
+		);
+		margin: 1.8rem 0;
 		border-radius: 1px;
 	}
+
 	.section {
 		margin: 1.5rem 0;
 		opacity: 0;
 		transform: translateY(20px);
-		animation: fadeIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+		animation: fadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 		animation-delay: calc(var(--section-index, 0) * 0.1s);
 	}
+
 	.section:first-child {
 		margin-top: 0;
 		--section-index: 1;
 	}
+
 	.section:nth-child(3) {
 		--section-index: 2;
 	}
+
 	.section:last-child {
 		margin-bottom: 0;
 		--section-index: 3;
 	}
+
 	.skill-tags {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.75rem;
 		margin-top: 0.75rem;
 	}
+
 	.tag {
-		padding: 0.4rem 0.8rem;
+		padding: 0.5rem 1rem;
 		border-radius: 16px;
 		font-size: 0.9rem;
-		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		letter-spacing: 0.5px;
+		transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 		cursor: default;
+		font-weight: 500;
+		will-change: transform, background-color;
 	}
+
 	.tag:hover {
 		transform: translateY(-2px) scale(1.05);
-		background: rgba(255, 255, 255, 0.15);
+		background: rgba(102, 103, 171, 0.1);
 	}
+
 	.project-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 		gap: 1rem;
 		margin-top: 1rem;
 	}
+
 	.project-card {
 		padding: 1.5rem;
-		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 		display: flex;
 		flex-direction: column;
 		height: 100%;
 		position: relative;
 		overflow: hidden;
 		isolation: isolate;
+		will-change: transform, box-shadow, border-color;
 	}
+
 	.project-card:hover {
 		transform: translateY(-4px) scale(1.02);
 	}
+
 	.project-content {
 		flex-grow: 1;
 		position: relative;
 		z-index: 1;
 	}
+
 	.project-card h3 {
 		margin-bottom: 0.5rem;
+		background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.9));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-weight: 700;
 	}
+
 	.project-card p {
 		color: var(--text-secondary);
 		margin-bottom: 1rem;
 		line-height: 1.6;
 	}
+
 	.button {
 		display: inline-block;
-		padding: 0.5rem 1.5rem;
+		padding: 0.75rem 1.5rem;
 		border-radius: 16px;
 		color: var(--text-primary);
 		text-decoration: none;
-		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 		margin-top: auto;
 		text-align: center;
-		font-weight: 500;
+		font-weight: 600;
 		position: relative;
 		z-index: 1;
+		letter-spacing: 0.5px;
+		will-change: transform, background-color;
 	}
+
 	.button:hover {
-		background: rgba(255, 255, 255, 0.2);
+		background: rgba(102, 103, 171, 0.1);
 		transform: translateY(-2px) scale(1.05);
 	}
+
 	.button:focus-visible {
 		outline: none;
 		box-shadow: var(--focus-ring);
 	}
+
 	h1 {
-		font-size: 2rem;
-		background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.7));
+		font-size: 2.5rem;
+		background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.85));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		margin: 0;
+		font-weight: 700;
+		letter-spacing: -0.5px;
 	}
+
 	h2 {
-		font-size: 1.5rem;
+		font-size: 1.75rem;
 		margin-bottom: 0.75rem;
-		background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.8));
+		background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.9));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+		letter-spacing: -0.5px;
+		font-weight: 700;
 	}
 
 	@media (max-width: 768px) {
@@ -433,14 +477,20 @@ import Layout from '../layouts/Layout.astro';
 			align-items: flex-start;
 			gap: 0.5rem;
 		}
+		h1 {
+			font-size: 2rem;
+		}
+		h2 {
+			font-size: 1.5rem;
+		}
 	}
 
 	@media (max-width: 480px) {
 		main {
-			padding: 0.5rem;
+			padding: 1rem;
 		}
 		.container {
-			margin: 0.5rem;
+			margin: 0;
 		}
 		.content {
 			padding: 2.8rem;
