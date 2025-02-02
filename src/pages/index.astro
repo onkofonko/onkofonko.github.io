@@ -154,7 +154,7 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
 	main {
-		height: 100vh;
+		height: 100dvh;
 		padding: 2rem;
 		display: flex;
 		align-items: center;
@@ -167,7 +167,7 @@ import Layout from '../layouts/Layout.astro';
 		width: 100%;
 		height: auto;
 		max-width: 1000px;
-		max-height: calc(100vh - 2rem);
+		max-height: calc(100dvh - 2rem);
 		margin: 0 auto;
 		overflow: hidden;
 		opacity: 0;
@@ -189,7 +189,8 @@ import Layout from '../layouts/Layout.astro';
 	.content {
 		padding: 3.5rem;
 		overflow: auto;
-		max-height: calc(100vh - 2rem);
+		max-height: calc(100dvh - 2rem);
+		scrollbar-width: none;
 	}
 	.header {
 		display: flex;
