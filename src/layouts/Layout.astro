@@ -7,7 +7,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Ondrej Michal's Site" />
@@ -46,7 +46,7 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
-	:root {
+	:root[data-theme="dark"] {
 		--text-primary: #ffffff;
 		--text-secondary: rgba(255, 255, 255, 0.85);
 		--purple-primary: 102, 103, 171;
@@ -62,7 +62,28 @@ const { title } = Astro.props;
 		--glass-border-color: rgba(102, 103, 171, 0.08);
 		--glass-border-color-hover: rgba(102, 103, 171, 0.15);
 		--divider: 102, 103, 171;
+		--nav-bg: rgba(6, 0, 16, 0.8);
 	}
+
+	:root[data-theme="light"] {
+		--text-primary: #1a1a1a;
+		--text-secondary: rgba(26, 26, 26, 0.85);
+		--purple-primary: 102, 103, 171;
+		--background: 255, 255, 255;
+		--focus-ring: 0 0 0 3px rgba(102, 103, 171, 0.2);
+		--glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+		--glass-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+		--glass-bg: linear-gradient(
+			165deg,
+			rgba(255, 255, 255, 0.9) 0%,
+			rgba(255, 255, 255, 0.8) 100%
+		);
+		--glass-border-color: rgba(102, 103, 171, 0.15);
+		--glass-border-color-hover: rgba(102, 103, 171, 0.25);
+		--divider: 102, 103, 171;
+		--nav-bg: rgba(255, 255, 255, 0.8);
+	}
+
 	* {
 		margin: 0;
 		padding: 0;
@@ -70,16 +91,18 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: 'Space Grotesk', system-ui, sans-serif;
-		background: #000000;
+		background: rgb(var(--background));
 		color: var(--text-primary);
+		overflow-x: hidden;
 		height: 100%;
-		scroll-behavior: smooth;
-		overflow: hidden;
 	}
 	body {
 		height: 100%;
 		position: relative;
-		overflow: hidden;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden;
 	}
 	.background {
 		position: fixed;
@@ -119,7 +142,7 @@ const { title } = Astro.props;
 	}
 
 	.glass:hover {
-		transform: translateY(-2px);
+		transform: translateY(-2px) scale(1.01);
 		box-shadow: var(--glass-shadow-hover);
 		border-color: var(--glass-border-color-hover);
 	}
@@ -150,23 +173,6 @@ const { title } = Astro.props;
 
 	.glass:hover::before {
 		transform: skewX(-25deg) translateX(200%);
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.blob-1,
-		.blob-2 {
-			animation: none !important;
-			transition: none !important;
-		}
-
-		*,
-		*::before,
-		*::after {
-			animation-duration: 0.01ms !important;
-			animation-iteration-count: 1 !important;
-			transition-duration: 0.01ms !important;
-			scroll-behavior: auto !important;
-		}
 	}
 
 	.blob-1,

@@ -1,147 +1,155 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 ---
 
 <Layout title="Ondrej Michal's Site">
+    <ThemeToggle />
+
 	<main>
-		<div class="container glass">
-			<div class="content">
-				<div class="header">
-					<div class="profile-container glass">
-						<img
-							src="https://avatars.githubusercontent.com/u/36997301?v=4&s=120"
-							alt="Profile"
-							class="profile-img"
-							loading="eager"
-							width="120"
-							height="120"
-						/>
-						<div class="profile-overlay">
-							<span>👋</span>
-						</div>
-					</div>
-					<div class="header-text">
-						<div class="name-badge">
-							<h1>Ondrej Michal</h1>
-						</div>
-						<p class="title">Student</p>
-						<div class="social-links">
-							<a
-								href="https://x.com/onkozinternetu"
-								class="glass"
-								aria-label="Visit my X (Twitter) profile @onkozinternetu"
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									fill="currentColor"
-									viewBox="0 0 16 16"
-									aria-hidden="true"
-								>
-									<title>Follow me on X</title>
-									<path
-										d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
-									></path>
-								</svg>
-							</a>
-							<a
-								href="https://github.com/onkofonko"
-								class="glass"
-								aria-label="Visit my GitHub profile @onkofonko"
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									aria-hidden="true"
-									><title>Check out my projects on GitHub</title><path
-										d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-									></path></svg
-								>
-							</a>
-							<a
-								href="javascript"
-								class="glass"
-								id="copyDiscord"
-								discord-username="princeznozinternetu"
-								aria-label="Copy my Discord username: princeznozinternetu"
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.8"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									aria-hidden="true"
-								>
-									<title>Click to copy my Discord username</title>
-									<path
-										d="M 19.643 5.399 C 18.211 4.744 16.688 4.267 15.101 4 C 14.901 4.345 14.679 4.811 14.523 5.177 C 12.834 4.933 11.157 4.933 9.491 5.177 C 9.336 4.811 9.103 4.345 8.915 4 C 7.316 4.267 5.794 4.744 4.371 5.399 C 1.495 9.642 0.718 13.783 1.107 17.87 C 3.017 19.258 4.86 20.102 6.671 20.657 C 7.116 20.058 7.516 19.413 7.859 18.736 C 7.204 18.492 6.583 18.192 5.983 17.837 C 6.138 17.726 6.293 17.604 6.438 17.481 C 10.058 19.136 13.98 19.136 17.555 17.481 C 17.711 17.604 17.854 17.726 18.011 17.837 C 17.411 18.192 16.788 18.492 16.134 18.736 C 16.478 19.413 16.878 20.058 17.321 20.657 C 19.132 20.102 20.986 19.258 22.886 17.87 C 23.364 13.14 22.13 9.03 19.643 5.399 Z M 8.359 15.349 C 7.271 15.349 6.383 14.361 6.383 13.15 C 6.383 11.94 7.249 10.951 8.359 10.951 C 9.458 10.951 10.358 11.94 10.336 13.15 C 10.336 14.361 9.458 15.349 8.359 15.349 Z M 15.656 15.349 C 14.568 15.349 13.679 14.361 13.679 13.15 C 13.679 11.94 14.546 10.951 15.656 10.951 C 16.755 10.951 17.655 11.94 17.633 13.15 C 17.633 14.361 16.767 15.349 15.656 15.349 Z"
-									></path>
-								</svg>
-							</a>
+		<div class="container">
+			<div class="row-top">
+				<div class="profile-section">
+					<div class="profile-card glass">
+						<div class="profile-header">
+							<div class="profile-container glass">
+								<img
+									src="https://avatars.githubusercontent.com/u/36997301?v=4&s=120"
+									alt="Profile"
+									class="profile-img"
+									loading="eager"
+									width="120"
+									height="120"
+								/>
+								<div class="profile-overlay">
+									<span>👋</span>
+								</div>
+							</div>
+							<div class="profile-info">
+								<h1>Ondrej Michal</h1>
+								<p class="title">Student</p>
+							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="divider"></div>
-
-				<div class="section">
-					<h2>About Me</h2>
-					<p>Student. Code dabbler. Theme restorer. Firmware forker.</p>
-				</div>
-
-				<div class="divider"></div>
-
-				<div class="section">
-					<h2>Skills</h2>
-					<div class="skill-tags">
-						<span class="tag glass">HTML/CSS</span>
-						<span class="tag glass">Astro</span>
+				<div class="about-section">
+					<div class="about-card glass">
+						<h2>About Me</h2>
+						<div class="about-content">
+							<p class="about-description">Student. Code dabbler. Theme restorer. Firmware forker.</p>
+						</div>
 					</div>
 				</div>
+			</div>
+			<div class="row-bottom">
+				<div class="skills-socials-section">
+					<div class="skills-card glass">
+						<h2>Skills</h2>
+						<div class="skill-tags">
+							<span class="tag glass">HTML/CSS</span>
+							<span class="tag glass">Astro</span>
+							<span class="tag glass">Git</span>
+							<span class="tag glass">UI Design</span>
+						</div>
+					</div>
 
-				<div class="divider"></div>
-
-				<div class="section">
-					<h2>Projects</h2>
-					<div class="project-grid">
+					<div class="social-grid">
+						<a
+							href="https://x.com/onkozinternetu"
+							class="social-card glass"
+							aria-label="Visit my X (Twitter) profile @onkozinternetu"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								fill="currentColor"
+								viewBox="0 0 16 16"
+								aria-hidden="true"
+							>
+								<title>Follow me on X</title>
+								<path
+									d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
+								></path>
+							</svg>
+							<span>X (Twitter)</span>
+						</a>
+						<a
+							href="https://github.com/onkofonko"
+							class="social-card glass"
+							aria-label="Visit my GitHub profile @onkofonko"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<title>Check out my projects on GitHub</title>
+								<path
+									d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+								></path>
+							</svg>
+							<span>GitHub</span>
+						</a>
+						<a
+							href="javascript"
+							class="social-card glass"
+							id="copyDiscord"
+							discord-username="princeznozinternetu"
+							aria-label="Copy my Discord username: princeznozinternetu"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.8"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<title>Click to copy my Discord username</title>
+								<path
+									d="M 19.643 5.399 C 18.211 4.744 16.688 4.267 15.101 4 C 14.901 4.345 14.679 4.811 14.523 5.177 C 12.834 4.933 11.157 4.933 9.491 5.177 C 9.336 4.811 9.103 4.345 8.915 4 C 7.316 4.267 5.794 4.744 4.371 5.399 C 1.495 9.642 0.718 13.783 1.107 17.87 C 3.017 19.258 4.86 20.102 6.671 20.657 C 7.116 20.058 7.516 19.413 7.859 18.736 C 7.204 18.492 6.583 18.192 5.983 17.837 C 6.138 17.726 6.293 17.604 6.438 17.481 C 10.058 19.136 13.98 19.136 17.555 17.481 C 17.711 17.604 17.854 17.726 18.011 17.837 C 17.411 18.192 16.788 18.492 16.134 18.736 C 16.478 19.413 16.878 20.058 17.321 20.657 C 19.132 20.102 20.986 19.258 22.886 17.87 C 23.364 13.14 22.13 9.03 19.643 5.399 Z M 8.359 15.349 C 7.271 15.349 6.383 14.361 6.383 13.15 C 6.383 11.94 7.249 10.951 8.359 10.951 C 9.458 10.951 10.358 11.94 10.336 13.15 C 10.336 14.361 9.458 15.349 8.359 15.349 Z M 15.656 15.349 C 14.568 15.349 13.679 14.361 13.679 13.15 C 13.679 11.94 14.546 10.951 15.656 10.951 C 16.755 10.951 17.655 11.94 17.633 13.15 C 17.633 14.361 16.767 15.349 15.656 15.349 Z"
+								></path>
+							</svg>
+							<span>Discord</span>
+						</a>
+					</div>
+				</div>
+				<div class="projects-section">
+					<div class="projects-grid">
 						<div class="project-card glass">
 							<div class="project-content">
-								<div class="project-header">
-									<h3>Alexis Modern Discord theme fixes</h3>
-								</div>
+								<h3>Alexis Modern Discord theme fixes</h3>
 								<p>My attempt to keep Alexis Modern Discord Theme alive.</p>
+								<a
+									href="https://github.com/onkofonko/onkofonko.github.io/tree/main/public/theme"
+									class="button glass"
+									aria-label="View Alexis Modern Discord theme fixes project">View Project</a
+								>
 							</div>
-							<a
-								href="https://github.com/onkofonko/onkofonko.github.io/tree/main/public/theme"
-								class="button glass"
-								aria-label="View Alexis Modern Discord theme fixes project">View Project</a
-							>
 						</div>
+
 						<div class="project-card glass">
 							<div class="project-content">
-								<div class="project-header">
-									<h3>Padavan firmware fork</h3>
-								</div>
+								<h3>Padavan firmware fork</h3>
 								<p>A customized fork of the Padavan router firmware.</p>
+								<a
+									href="https://github.com/onkofonko/padavan-ng"
+									class="button glass"
+									aria-label="View Padavan firmware fork project">View Project</a
+								>
 							</div>
-							<a
-								href="https://github.com/onkofonko/padavan-ng"
-								class="button glass"
-								aria-label="View Padavan firmware fork project">View Project</a
-							>
 						</div>
 					</div>
 				</div>
@@ -154,77 +162,102 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
 	main {
-		height: 100%;
-		padding: 2rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		flex: 1;
+		width: 100%;
+		padding: 2.5rem;
 		position: relative;
 		z-index: 2;
-	}
-
-	.container {
-		width: 100%;
-		max-width: 1000px;
-		height: calc(100% - 1.5rem);
-		margin: 0 auto;
-		overflow: hidden;
-		opacity: 0;
-		transform: translateY(20px);
-		animation: fadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-	}
-
-	@keyframes fadeIn {
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	.content {
-		height: 100%;
-		padding: 3.5rem;
+		display: flex;
 		overflow-y: auto;
 		scrollbar-width: none;
 		-webkit-overflow-scrolling: touch;
-		align-content: center;
 	}
-
-	.content::-webkit-scrollbar {
+	main::-webkit-scrollbar {
 		display: none;
 	}
 
-	.header {
+	.container {
 		display: flex;
-		align-items: center;
-		gap: 2rem;
+		flex-direction: column;
+		gap: 1.5rem;
+		max-width: 1600px;
+		margin: auto;
+		padding: 1rem;
 	}
 
-	.header-text {
+	.row-top,
+	.row-bottom {
+		display: flex;
+		gap: 1.5rem;
+		width: 100%;
+	}
+
+	.profile-section {
+		flex: 1;
+		min-width: 300px;
+		max-width: 320px;
+		display: flex;
+	}
+
+	.about-section {
+		flex: 2;
+		min-width: 400px;
+		display: flex;
+	}
+
+	.skills-socials-section {
+		flex: 1;
+		min-width: 300px;
+		max-width: 320px;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-top: auto;
+	}
+
+	.projects-section {
+		flex: 2;
+		min-width: 400px;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	
+
+
+	.projects-grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+	}
+
+	.project-card {
+		flex: 1;
+		min-width: 400px;
+	}
+
+	.profile-card {
+		padding: 2rem;
+		min-height: 280px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		flex: 1;
 	}
 
-	.name-badge {
+	.profile-header {
 		display: flex;
+		flex-direction: column;
 		align-items: center;
-		gap: 1rem;
-	}
-
-	.project-header {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
+		gap: 1.5rem;
 	}
 
 	.profile-container {
-		position: relative;
 		width: 120px;
 		height: 120px;
 		border-radius: 24px;
 		overflow: hidden;
-		cursor: pointer;
-		transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-		will-change: transform;
 	}
 
 	.profile-img {
@@ -256,14 +289,9 @@ import Layout from '../layouts/Layout.astro';
 		transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 	}
 
-	.profile-container:hover {
-		transform: scale(1.05);
-	}
-
 	.profile-container:hover .profile-img {
 		transform: scale(1.1);
 	}
-
 	.profile-container:hover .profile-overlay {
 		opacity: 1;
 	}
@@ -272,81 +300,79 @@ import Layout from '../layouts/Layout.astro';
 		transform: translateY(0);
 	}
 
-	.title {
-		color: var(--text-secondary);
-		margin: 0.5rem 0 1rem;
-		font-size: 1.125rem;
-		letter-spacing: 0.5px;
+	.profile-info {
+		text-align: center;
+	}
+
+	.social-grid {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 1rem;
+	}
+
+	.social-card {
+		padding: 1rem;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		color: var(--text-primary);
+		text-decoration: none;
+		transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
+
+	.social-card span {
 		font-weight: 500;
 	}
 
-	.social-links {
+	.about-card {
+		min-height: 280px;
+		grid-column: 2;
+		padding: 2rem;
+		flex: 2;
+	}
+
+	.about-content {
 		display: flex;
-		gap: 0.75rem;
+		flex-direction: column;
+		gap: 1.5rem;
 	}
 
-	.social-links a {
-		padding: 0.75rem;
-		border-radius: 16px;
-		color: var(--text-primary);
-		transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+	.about-description {
+		font-size: 1.125rem;
+		line-height: 1.6;
+		color: var(--text-secondary);
+	}
+
+	.skills-card {
+		padding: 2rem;
+		min-height: 210px;
 		display: flex;
-		align-items: center;
-		justify-content: center;
-		min-width: 44px;
-		min-height: 44px;
-		will-change: transform, background-color;
+		flex-direction: column;
 	}
 
-	.social-links a:hover {
-		background: rgba(102, 103, 171, 0.1);
-		transform: translateY(-2px) scale(1.05);
+	.project-card {
+		padding: 2rem;
+		min-height: 210px;
+		display: flex;
+		flex-direction: column;
 	}
 
-	.social-links a:focus-visible {
-		outline: none;
-		box-shadow: var(--focus-ring);
+	.project-content {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
 	}
 
-	.divider {
-		height: 1px;
-		background: linear-gradient(
-			to right,
-			rgba(var(--divider), 0.15),
-			rgba(var(--divider), 0.03),
-			transparent
-		);
-		margin: 1.8rem 0;
-		border-radius: 1px;
-	}
-
-	.section {
-		margin: 1.5rem 0;
-		opacity: 0;
-		transform: translateY(20px);
-		animation: fadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-		animation-delay: calc(var(--section-index, 0) * 0.1s);
-	}
-
-	.section:first-child {
-		margin-top: 0;
-		--section-index: 1;
-	}
-
-	.section:nth-child(3) {
-		--section-index: 2;
-	}
-
-	.section:last-child {
-		margin-bottom: 0;
-		--section-index: 3;
+	.project-content p {
+		flex-grow: 1;
+		margin: 0.5rem 0;
+		color: var(--text-secondary);
 	}
 
 	.skill-tags {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.75rem;
-		margin-top: 0.75rem;
 	}
 
 	.tag {
@@ -354,58 +380,7 @@ import Layout from '../layouts/Layout.astro';
 		border-radius: 16px;
 		font-size: 0.9rem;
 		letter-spacing: 0.5px;
-		transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-		cursor: default;
 		font-weight: 500;
-		will-change: transform, background-color;
-	}
-
-	.tag:hover {
-		transform: translateY(-2px) scale(1.05);
-		background: rgba(102, 103, 171, 0.1);
-	}
-
-	.project-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 1rem;
-		margin-top: 1rem;
-	}
-
-	.project-card {
-		padding: 1.5rem;
-		transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-		position: relative;
-		overflow: hidden;
-		isolation: isolate;
-		will-change: transform, box-shadow, border-color;
-	}
-
-	.project-card:hover {
-		transform: translateY(-4px) scale(1.02);
-	}
-
-	.project-content {
-		flex-grow: 1;
-		position: relative;
-		z-index: 1;
-	}
-
-	.project-card h3 {
-		margin-bottom: 0.5rem;
-		background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.9));
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		font-weight: 700;
-	}
-
-	.project-card p {
-		color: var(--text-secondary);
-		margin-bottom: 1rem;
-		line-height: 1.6;
 	}
 
 	.button {
@@ -414,118 +389,81 @@ import Layout from '../layouts/Layout.astro';
 		border-radius: 16px;
 		color: var(--text-primary);
 		text-decoration: none;
-		transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 		margin-top: auto;
-		text-align: center;
 		font-weight: 600;
-		position: relative;
-		z-index: 1;
-		letter-spacing: 0.5px;
-		will-change: transform, background-color;
-	}
-
-	.button:hover {
-		background: rgba(102, 103, 171, 0.1);
-		transform: translateY(-2px) scale(1.05);
-	}
-
-	.button:focus-visible {
-		outline: none;
-		box-shadow: var(--focus-ring);
+		width: fit-content;
 	}
 
 	h1 {
-		font-size: 2.5rem;
-		background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.85));
+		font-size: 2rem;
+		background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		margin: 0;
 		font-weight: 700;
-		letter-spacing: -0.5px;
 	}
 
 	h2 {
-		font-size: 1.75rem;
-		margin-bottom: 0.75rem;
-		background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.9));
+		font-size: 1.5rem;
+		background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		letter-spacing: -0.5px;
+		margin-bottom: 1rem;
 		font-weight: 700;
 	}
 
-	@media (max-width: 768px) {
-		.header {
-			flex-direction: column;
-			text-align: center;
-		}
-		.divider {
-			margin: 1.5rem 0;
-		}
-		.content {
-			padding: 3.2rem;
-		}
-		.social-links {
-			justify-content: center;
-		}
-		.name-badge {
-			flex-direction: column;
-			gap: 0.5rem;
-		}
-		.project-header {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 0.5rem;
-		}
-		h1 {
-			font-size: 2rem;
-		}
-		h2 {
-			font-size: 1.5rem;
-		}
+	h3 {
+		font-size: 1.25rem;
+		background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		margin-bottom: 0.5rem;
+		font-weight: 700;
 	}
 
-	@media (max-width: 480px) {
-		main {
-			padding: 1rem;
-		}
-		.container {
-			margin: 0;
-		}
-		.content {
-			padding: 2.8rem;
-		}
-		.profile-container {
-			width: 100px;
-			height: 100px;
-		}
-		.button {
-			padding: 0.6rem 1.2rem;
-		}
-		.tag {
-			padding: 0.4rem 0.8rem;
-		}
+	.title {
+		color: var(--text-secondary);
+		font-size: 1.125rem;
+		letter-spacing: 0.5px;
+		font-weight: 500;
 	}
 
-	@media (prefers-reduced-motion: reduce) {
-		.container,
-		.section {
-			animation: none;
-			opacity: 1;
-			transform: none;
+
+	
+
+	@media (max-width: 840px) {
+    .container,
+	.row-top,
+	.row-bottom {
+        flex-direction: column;
+    }
+
+    .profile-section,
+    .about-section,
+    .skills-socials-section,
+    .projects-section {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .projects-grid {
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width: 768px) {
+	main {
+			padding: 0.5rem;
 		}
-		.profile-container:hover,
-		.profile-container:hover .profile-img {
-			transform: none;
-		}
-		.profile-overlay {
-			display: none;
-		}
-		.button:hover,
-		.tag:hover,
-		.project-card:hover,
-		.social-links a:hover {
-			transform: none;
-		}
-	}
+
+    .profile-card,
+    .about-card,
+    .skills-card,
+    .social-grid,
+    .project-card {
+        min-height: 180px;
+		min-width: 300px;
+    }
+}
 </style>
