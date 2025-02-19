@@ -61,34 +61,29 @@ const { title } = Astro.props;
 		);
 		--glass-border-color: rgba(102, 103, 171, 0.08);
 		--glass-border-color-hover: rgba(102, 103, 171, 0.15);
-		--divider: 102, 103, 171;
-		--nav-bg: rgba(6, 0, 16, 0.8);
+		--card-highlight: rgba(102, 103, 171, 0.1);
+		--card-shadow-inset: inset 0 0 0 1px rgba(102, 103, 171, 0.1);
 	}
 
 	:root[data-theme="light"] {
 		--text-primary: #1a1a1a;
 		--text-secondary: rgba(26, 26, 26, 0.85);
 		--purple-primary: 102, 103, 171;
-		--background: 255, 255, 255;
+		--background: 235, 230, 255;
 		--focus-ring: 0 0 0 3px rgba(102, 103, 171, 0.2);
-		--glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-		--glass-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+		--glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+		--glass-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.2);
 		--glass-bg: linear-gradient(
 			165deg,
-			rgba(255, 255, 255, 0.9) 0%,
-			rgba(255, 255, 255, 0.8) 100%
+			rgba(255, 255, 255, 0.05) 0%,
+			rgba(255, 255, 255, 0.02) 100%
 		);
-		--glass-border-color: rgba(102, 103, 171, 0.15);
-		--glass-border-color-hover: rgba(102, 103, 171, 0.25);
-		--divider: 102, 103, 171;
-		--nav-bg: rgba(255, 255, 255, 0.8);
+		--glass-border-color: rgba(102, 103, 171, 0.08);
+		--glass-border-color-hover: rgba(102, 103, 171, 0.15);
+		--card-highlight: rgba(102, 103, 171, 0.05);
+		--card-shadow-inset: inset 0 0 0 1px rgba(102, 103, 171, 0.1);
 	}
 
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
 	html {
 		font-family: 'Space Grotesk', system-ui, sans-serif;
 		background: rgb(var(--background));
@@ -104,6 +99,7 @@ const { title } = Astro.props;
 		flex-direction: column;
 		overflow-x: hidden;
 	}
+
 	.background {
 		position: fixed;
 		top: 0;
@@ -129,10 +125,11 @@ const { title } = Astro.props;
 		opacity: 0.4;
 		mix-blend-mode: overlay;
 	}
+
 	.glass {
 		background: var(--glass-bg);
 		border-radius: 24px;
-		box-shadow: var(--glass-shadow);
+		box-shadow: var(--glass-shadow), var(--card-shadow-inset);
 		backdrop-filter: blur(20px);
 		border: 1px solid var(--glass-border-color);
 		transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -143,13 +140,13 @@ const { title } = Astro.props;
 
 	.glass:hover {
 		transform: translateY(-2px) scale(1.01);
-		box-shadow: var(--glass-shadow-hover);
+		box-shadow: var(--glass-shadow-hover), var(--card-shadow-inset);
 		border-color: var(--glass-border-color-hover);
 	}
 
 	.glass:focus-visible {
 		outline: none;
-		box-shadow: var(--focus-ring);
+		box-shadow: var(--focus-ring), var(--card-shadow-inset);
 		border-color: var(--glass-border-color-hover);
 	}
 
@@ -173,6 +170,23 @@ const { title } = Astro.props;
 
 	.glass:hover::before {
 		transform: skewX(-25deg) translateX(200%);
+	}
+
+	.glass::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			to bottom,
+			transparent 0%,
+			var(--card-highlight) 100%
+		);
+		opacity: 0;
+		transition: opacity 0.4s ease;
+	}
+
+	.glass:hover::after {
+		opacity: 1;
 	}
 
 	.blob-1,

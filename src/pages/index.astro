@@ -1,38 +1,39 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import "../styles/global.css";
 ---
 
 <Layout title="Ondrej Michal's Site">
     <ThemeToggle />
 
 	<main>
-		<div class="container">
-			<div class="row-top">
-				<div class="profile-section">
-					<div class="profile-card glass">
-						<div class="profile-header">
-							<div class="profile-container glass">
+		<div class="container flex flex-col gap-6 max-w-[1600px] m-auto p-4">
+			<div class="row-top flex gap-6 w-full">
+				<div class="profile-section flex-1 min-w-[300px] max-w-xs flex">
+					<div class="profile-card glass min-h-[280px] flex flex-col justify-center flex-1 p-8">
+						<div class="profile-header flex flex-col items-center gap-6">
+							<div class="profile-container glass w-[120px] h-[120px] overflow-hidden rounded-3xl">
 								<img
 									src="https://avatars.githubusercontent.com/u/36997301?v=4&s=120"
 									alt="Profile"
-									class="profile-img"
+									class="profile-img w-full h-full object-cover transition-transform duration-[0.4s] ease-[cubic-bezier(0.2,0.8,0.2,1)] will-change-transform rounded-3xl"
 									loading="eager"
 									width="120"
 									height="120"
 								/>
-								<div class="profile-overlay">
+								<div class="profile-overlay absolute w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-[0.4s] ease-[cubic-bezier(0.2,0.8,0.2,1)] left-0 top-0">
 									<span>👋</span>
 								</div>
 							</div>
-							<div class="profile-info">
+							<div class="profile-info text-center">
 								<h1>Ondrej Michal</h1>
-								<p class="title">Student</p>
+								<p class="title text-[color:var(--text-secondary)] text-lg tracking-[0.5px] font-medium">Student</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="about-section">
+				<div class="about-section flex-[2] min-w-[400px] flex">
 					<div class="about-card glass">
 						<h2>About Me</h2>
 						<div class="about-content">
@@ -41,19 +42,19 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 					</div>
 				</div>
 			</div>
-			<div class="row-bottom">
-				<div class="skills-socials-section">
+			<div class="row-bottom flex gap-6 w-full">
+				<div class="skills-socials-section flex-1 min-w-[300px] max-w-xs flex flex-col gap-6 mt-auto">
 					<div class="skills-card glass">
 						<h2>Skills</h2>
-						<div class="skill-tags">
-							<span class="tag glass">HTML/CSS</span>
-							<span class="tag glass">Astro</span>
-							<span class="tag glass">Git</span>
-							<span class="tag glass">UI Design</span>
+						<div class="skill-tags flex flex-wrap gap-3">
+							<span class="tag glass text-[0.9rem] tracking-[0.5px] font-medium px-4 py-2 rounded-2xl">HTML/CSS</span>
+							<span class="tag glass text-[0.9rem] tracking-[0.5px] font-medium px-4 py-2 rounded-2xl">Astro</span>
+							<span class="tag glass text-[0.9rem] tracking-[0.5px] font-medium px-4 py-2 rounded-2xl">Git</span>
+							<span class="tag glass text-[0.9rem] tracking-[0.5px] font-medium px-4 py-2 rounded-2xl">UI Design</span>
 						</div>
 					</div>
 
-					<div class="social-grid">
+					<div class="social-grid grid grid-cols-[repeat(1,1fr)] gap-4">
 						<a
 							href="https://x.com/onkozinternetu"
 							class="social-card glass"
@@ -126,27 +127,27 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 						</a>
 					</div>
 				</div>
-				<div class="projects-section">
-					<div class="projects-grid">
-						<div class="project-card glass">
-							<div class="project-content">
+				<div class="projects-section flex-[2] min-w-[400px] flex flex-col gap-6">
+					<div class="projects-grid flex flex-wrap gap-6">
+						<div class="project-card glass flex-1 min-w-[400px] min-h-[210px] flex flex-col p-8">
+							<div class="project-content flex flex-col h-full">
 								<h3>Alexis Modern Discord theme fixes</h3>
 								<p>My attempt to keep Alexis Modern Discord Theme alive.</p>
 								<a
 									href="https://github.com/onkofonko/onkofonko.github.io/tree/main/public/theme"
-									class="button glass"
+									class="button glass inline-block text-[color:var(--text-primary)] no-underline font-semibold w-fit mt-auto px-6 py-3 rounded-2xl"
 									aria-label="View Alexis Modern Discord theme fixes project">View Project</a
 								>
 							</div>
 						</div>
 
-						<div class="project-card glass">
-							<div class="project-content">
+						<div class="project-card glass flex-1 min-w-[400px] min-h-[210px] flex flex-col p-8">
+							<div class="project-content flex flex-col h-full">
 								<h3>Padavan firmware fork</h3>
 								<p>A customized fork of the Padavan router firmware.</p>
 								<a
 									href="https://github.com/onkofonko/padavan-ng"
-									class="button glass"
+									class="button glass inline-block text-[color:var(--text-primary)] no-underline font-semibold w-fit mt-auto px-6 py-3 rounded-2xl"
 									aria-label="View Padavan firmware fork project">View Project</a
 								>
 							</div>
@@ -176,111 +177,11 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 		display: none;
 	}
 
-	.container {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-		max-width: 1600px;
-		margin: auto;
-		padding: 1rem;
-	}
 
-	.row-top,
-	.row-bottom {
-		display: flex;
-		gap: 1.5rem;
-		width: 100%;
-	}
-
-	.profile-section {
-		flex: 1;
-		min-width: 300px;
-		max-width: 320px;
-		display: flex;
-	}
-
-	.about-section {
-		flex: 2;
-		min-width: 400px;
-		display: flex;
-	}
-
-	.skills-socials-section {
-		flex: 1;
-		min-width: 300px;
-		max-width: 320px;
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-		margin-top: auto;
-	}
-
-	.projects-section {
-		flex: 2;
-		min-width: 400px;
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
-
-	
-
-
-	.projects-grid {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1.5rem;
-	}
-
-	.project-card {
-		flex: 1;
-		min-width: 400px;
-	}
-
-	.profile-card {
-		padding: 2rem;
-		min-height: 280px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		flex: 1;
-	}
-
-	.profile-header {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1.5rem;
-	}
-
-	.profile-container {
-		width: 120px;
-		height: 120px;
-		border-radius: 24px;
-		overflow: hidden;
-	}
-
-	.profile-img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		border-radius: 24px;
-		transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-		will-change: transform;
-	}
 
 	.profile-overlay {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
+
 		background: rgba(102, 103, 171, 0.2);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		opacity: 0;
-		transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 	}
 
 	.profile-overlay span {
@@ -300,9 +201,6 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 		transform: translateY(0);
 	}
 
-	.profile-info {
-		text-align: center;
-	}
 
 	.social-grid {
 		display: grid;
@@ -350,48 +248,14 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 		flex-direction: column;
 	}
 
-	.project-card {
-		padding: 2rem;
-		min-height: 210px;
-		display: flex;
-		flex-direction: column;
-	}
 
-	.project-content {
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-	}
+
+
 
 	.project-content p {
 		flex-grow: 1;
 		margin: 0.5rem 0;
 		color: var(--text-secondary);
-	}
-
-	.skill-tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-	}
-
-	.tag {
-		padding: 0.5rem 1rem;
-		border-radius: 16px;
-		font-size: 0.9rem;
-		letter-spacing: 0.5px;
-		font-weight: 500;
-	}
-
-	.button {
-		display: inline-block;
-		padding: 0.75rem 1.5rem;
-		border-radius: 16px;
-		color: var(--text-primary);
-		text-decoration: none;
-		margin-top: auto;
-		font-weight: 600;
-		width: fit-content;
 	}
 
 	h1 {
