@@ -1,28 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
 ---
 
 <Layout title="404 - Lost in the Wired">
-	<main>
-		<div class="container glass">
-			<div class="content">
-				<div class="error-container">
-					<div class="error-image">
-						<img
-							src="./lain.gif"
-							alt="Lain Iwakura"
-							class="character"
-							width="307"
-							height="498"
-							loading="lazy"
-						/>
-					</div>
-					<p class="error-message">The page you seek is lost within the Wired</p>
-					<a href="/" class="button glass">Return to Reality</a>
+	<div
+		class="container glass max-w-[600px] opacity-0 translate-y-5 animate-[fadeIn_0.5s_cubic-bezier(0.2,0.8,0.2,1)_forwards] m-auto flex p-4"
+	>
+		<div class="content text-center p-16">
+			<div class="error-container flex flex-col items-center gap-6">
+				<div class="error-image relative w-[250px] h-[250px] mb-4">
+					<img
+						src="./lain.gif"
+						alt="Lain Iwakura"
+						class="character w-full h-full object-contain animate-[float_6s_ease-in-out_infinite]"
+						width="307"
+						height="498"
+						loading="lazy"
+					/>
 				</div>
+				<p class="error-message text-[2rem] tracking-[0.5px] font-bold m-0">
+					The page you seek is lost within the Wired
+				</p>
+				<a href="/" class="button glass">Return to Reality</a>
 			</div>
 		</div>
-	</main>
+	</div>
 </Layout>
 
 <style>
@@ -35,76 +38,10 @@ import Layout from '../layouts/Layout.astro';
 		position: relative;
 		z-index: 2;
 	}
-
-	.container {
-		width: 100%;
-		max-width: 600px;
-		margin: 0 auto;
-		opacity: 0;
-		transform: translateY(20px);
-		animation: fadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-	}
-
-	.content {
-		padding: 4rem;
-		text-align: center;
-	}
-
-	.error-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1.5rem;
-	}
-
-	.error-image {
-		position: relative;
-		width: 250px;
-		height: 250px;
-		margin-bottom: 1rem;
-	}
-
-	.character {
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
-		animation: float 6s ease-in-out infinite;
-	}
-
 	.error-message {
-		font-size: 2rem;
-		margin: 0;
-		letter-spacing: 0.5px;
 		background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.85));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		font-weight: 700;
-	}
-
-	.button {
-		display: inline-block;
-		padding: 0.75rem 1.5rem;
-		border-radius: 16px;
-		color: var(--text-primary);
-		text-decoration: none;
-		transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-		margin-top: auto;
-		text-align: center;
-		font-weight: 600;
-		position: relative;
-		z-index: 1;
-		letter-spacing: 0.5px;
-		will-change: transform, background-color;
-	}
-
-	.button:hover {
-		background: rgba(102, 103, 171, 0.1);
-		transform: translateY(-2px) scale(1.05);
-	}
-
-	.button:focus-visible {
-		outline: none;
-		box-shadow: var(--focus-ring);
 	}
 	@keyframes fadeIn {
 		to {

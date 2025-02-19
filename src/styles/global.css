@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+:root[data-theme="dark"] {
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.85);
+    --purple-primary: 102, 103, 171;
+    --background: 6, 0, 16;
+    --focus-ring: 0 0 0 3px rgba(102, 103, 171, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --glass-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.2);
+    --glass-bg: linear-gradient(
+        165deg,
+        rgba(102, 103, 171, 0.05) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+    );
+    --glass-border-color: rgba(102, 103, 171, 0.08);
+    --glass-border-color-hover: rgba(102, 103, 171, 0.15);
+    --card-highlight: rgba(102, 103, 171, 0.1);
+    --card-shadow-inset: inset 0 0 0 1px rgba(102, 103, 171, 0.1);
+}
+
+:root[data-theme="light"] {
+    --text-primary: #1a1a1a;
+    --text-secondary: rgba(26, 26, 26, 0.85);
+    --purple-primary: 102, 103, 171;
+    --background: 235, 230, 255;
+    --focus-ring: 0 0 0 3px rgba(102, 103, 171, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --glass-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.2);
+    --glass-bg: linear-gradient(
+        165deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+    );
+    --glass-border-color: rgba(102, 103, 171, 0.08);
+    --glass-border-color-hover: rgba(102, 103, 171, 0.15);
+    --card-highlight: rgba(102, 103, 171, 0.05);
+    --card-shadow-inset: inset 0 0 0 1px rgba(102, 103, 171, 0.1);
+}
+
+.button {
+    display: inline-block; 
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem; 
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; 
+    border-radius: 1rem; 
+    width: fit-content; 
+    font-weight: 600; 
+    text-decoration: none; 
+    color: var(--text-primary);
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(
+        circle at top right,
+        rgba(var(--purple-primary), 0.15) 0%,
+        rgba(var(--background), 0.98) 70%
+    );
+    overflow: hidden;
+}
+
+.noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.08"/></svg>');
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+}
+
+.glass {
+    background: var(--glass-bg);
+    border-radius: 24px;
+    box-shadow: var(--glass-shadow), var(--card-shadow-inset);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border-color);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    will-change: transform, box-shadow, border-color;
+}
+
+.glass:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: var(--glass-shadow-hover), var(--card-shadow-inset);
+    border-color: var(--glass-border-color-hover);
+}
+
+.glass:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring), var(--card-shadow-inset);
+    border-color: var(--glass-border-color-hover);
+}
+
+.glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(102, 103, 171, 0.03) 20%,
+        rgba(255, 255, 255, 0.01) 50%,
+        rgba(102, 103, 171, 0.03) 80%,
+        transparent
+    );
+    transform: skewX(-25deg) translateX(-200%);
+    transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.glass:hover::before {
+    transform: skewX(-25deg) translateX(200%);
+}
+
+.glass::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--card-highlight) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.glass:hover::after {
+    opacity: 1;
+}
+
+.blob-1,
+.blob-2 {
+    position: absolute;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.6;
+    will-change: transform;
+    transform-origin: center;
+    backface-visibility: hidden;
+    mix-blend-mode: screen;
+}
+
+.blob-1 {
+    top: 10%;
+    right: 10%;
+    width: min(600px, 80vw);
+    height: min(600px, 80vw);
+    background: linear-gradient(-45deg, #6667ab, #9796e3);
+    border-radius: 45% 55% 63% 37% / 40% 60% 65% 35%;
+    animation: blob1Animation 35s infinite;
+}
+
+.blob-2 {
+    bottom: 10%;
+    left: 10%;
+    width: min(500px, 70vw);
+    height: min(500px, 70vw);
+    background: linear-gradient(45deg, #6667ab, #4f50a3);
+    border-radius: 54% 46% 50% 50% / 50% 50% 46% 54%;
+    animation: blob2Animation 28s infinite;
+}
+
+@keyframes blob1Animation {
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg) translate(0, 0);
+        border-radius: 45% 55% 63% 37% / 40% 60% 65% 35%;
+    }
+    25% {
+        transform: scale(1.1) rotate(90deg) translate(3%, 3%);
+        border-radius: 50% 50% 60% 40% / 45% 55% 60% 40%;
+    }
+    50% {
+        transform: scale(0.95) rotate(180deg) translate(-3%, 2%);
+        border-radius: 60% 40% 50% 50% / 55% 45% 50% 50%;
+    }
+    75% {
+        transform: scale(1.05) rotate(270deg) translate(2%, -3%);
+        border-radius: 45% 55% 40% 60% / 50% 50% 55% 45%;
+    }
+}
+
+@keyframes blob2Animation {
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg) translate(0, 0);
+        border-radius: 54% 46% 50% 50% / 50% 50% 46% 54%;
+    }
+    25% {
+        transform: scale(1.15) rotate(-90deg) translate(-4%, 3%);
+        border-radius: 50% 50% 60% 40% / 45% 55% 60% 40%;
+    }
+    50% {
+        transform: scale(0.9) rotate(-180deg) translate(4%, -3%);
+        border-radius: 60% 40% 50% 50% / 55% 45% 50% 50%;
+    }
+    75% {
+        transform: scale(1.1) rotate(-270deg) translate(-3%, -4%);
+        border-radius: 45% 55% 40% 60% / 50% 50% 55% 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .blob-1,
+    .blob-2 {
+        filter: blur(60px);
+    }
+
+    @keyframes blob1Animation {
+        0%,
+        100% {
+            transform: scale(1) rotate(0deg);
+        }
+        50% {
+            transform: scale(1.05) rotate(180deg);
+        }
+    }
+
+    @keyframes blob2Animation {
+        0%,
+        100% {
+            transform: scale(1) rotate(0deg);
+        }
+        50% {
+            transform: scale(1.05) rotate(-180deg);
+        }
+    }
+}
