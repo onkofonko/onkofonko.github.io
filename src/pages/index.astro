@@ -18,6 +18,8 @@ import '../styles/global.css';
 								loading="eager"
 								width="120"
 								height="120"
+								decoding="async"
+								fetchpriority="high"
 							/>
 							<div
 								class="profile-overlay absolute w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-[0.4s] ease-[cubic-bezier(0.2,0.8,0.2,1)] left-0 top-0"
@@ -67,7 +69,7 @@ import '../styles/global.css';
 					</div>
 				</div>
 
-				<div class="social-grid grid grid-cols-[repeat(1,1fr)] gap-4">
+				<div class="social-grid grid grid-cols-[repeat(1,1fr)] gap-4 min-h-[210px]">
 					<a
 						href="https://x.com/onkozinternetu"
 						class="social-card glass flex items-center gap-4 text-[color:var(--text-primary)] no-underline transition-all duration-[0.4s] ease-[cubic-bezier(0.2,0.8,0.2,1)] p-4"
@@ -113,7 +115,7 @@ import '../styles/global.css';
 						<span>GitHub</span>
 					</a>
 					<a
-						href="javascript"
+						href="javascript:void(0)"
 						class="social-card glass flex items-center gap-4 text-[color:var(--text-primary)] no-underline transition-all duration-[0.4s] ease-[cubic-bezier(0.2,0.8,0.2,1)] p-4"
 						id="copyDiscord"
 						discord-username="princeznozinternetu"
@@ -193,6 +195,10 @@ import '../styles/global.css';
 		transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 	}
 
+	.profile-container {
+		contain: paint layout;
+	}
+	
 	.profile-container:hover .profile-img {
 		transform: scale(1.1);
 	}
@@ -218,6 +224,7 @@ import '../styles/global.css';
 		background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+		background-clip: text;
 		margin: 0;
 		font-weight: 700;
 	}
@@ -227,6 +234,7 @@ import '../styles/global.css';
 		background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+		background-clip: text;
 		margin-bottom: 1rem;
 		font-weight: 700;
 	}
@@ -236,6 +244,7 @@ import '../styles/global.css';
 		background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+		background-clip: text;
 		margin-bottom: 0.5rem;
 		font-weight: 700;
 	}
@@ -246,8 +255,8 @@ import '../styles/global.css';
 		letter-spacing: 0.5px;
 		font-weight: 500;
 	}
-
-	@media (max-width: 840px) {
+	
+	@media (max-width: 1024px) {
 		.container,
 		.row-top,
 		.row-bottom {
