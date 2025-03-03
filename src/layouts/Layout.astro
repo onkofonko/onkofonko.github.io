@@ -8,7 +8,11 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dark" class="text-[color:var(--text-primary)] overflow-x-hidden h-full">
+<html
+	lang="en"
+	data-theme="dark"
+	class="text-[color:var(--text-primary)] overflow-x-hidden min-h-[100vh] m-0 p-0 relative w-full"
+>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Ondrej Michal's Site" />
@@ -37,34 +41,31 @@ const { title } = Astro.props;
 			/>
 		</noscript>
 	</head>
-	<body class="h-full relative flex flex-col m-0 min-h-full">
-		<div class="background">
-			<div class="noise"></div>
+	<body class="min-h-[100vh] m-0 p-0 relative w-full">
+		<div class="animated-background">
+			<div class="noisee"></div>
 			<div class="blob-1"></div>
 			<div class="blob-2"></div>
 		</div>
-		<main class="flex-1 w-full relative z-[2] flex p-10">
-			<ThemeToggle />
+
+		<ThemeToggle />
+		<main class="flex min-h-[100vh]">
 			<slot />
 		</main>
 	</body>
 </html>
 <style is:global>
-	html {
+	html,
+	body {
 		font-family: 'Space Grotesk', system-ui, sans-serif;
 		background: rgb(var(--background));
 		scrollbar-width: none;
 		-webkit-overflow-scrolling: touch;
-		overflow-x: hidden;
 		color-scheme: dark light;
 	}
 
 	html::-webkit-scrollbar {
 		display: none;
 	}
-	@media (max-width: 768px) {
-		main {
-			padding: 0.5rem;
-		}
-	}
+
 </style>
