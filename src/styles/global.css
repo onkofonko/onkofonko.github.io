@@ -49,13 +49,15 @@
     contain: layout;
 }
 
-.background {
+.animated-background {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+pointer-events: none;
+    overflow: hidden;
     width: 100%;
     min-height: calc(100% + 200px);
     height: calc(100vh + 200px);
-    z-index: -1;
     background: radial-gradient(
         circle at top right,
         rgba(var(--purple-primary), 0.15) 0%,
@@ -128,39 +130,11 @@
     transform: skewX(-25deg) translateX(200%) translateZ(0);
 }
 
-.glass::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        var(--card-highlight) 100%
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-    contain: paint;
-}
-
-.glass:hover::after {
-    opacity: 1;
-}
-
 .blob-1,
 .blob-2 {
     position: absolute;
     filter: blur(80px);
-    z-index: -1;
     opacity: 0.5;
-    will-change: transform;
-    transform: translateZ(0);
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-    mix-blend-mode: screen;
-    pointer-events: none;
-    contain: layout paint style;
 }
 
 .blob-1 {
@@ -227,7 +201,6 @@
     .blob-1,
     .blob-2 {
         filter: blur(60px);
-        animation-duration: 45s;
     }
 
     @keyframes blob1Animation {
@@ -250,3 +223,83 @@
         }
     }
 }
+
+.social-grid, .skills-card, .profile-card, .about-card {
+    margin-bottom: 1.5rem;
+}
+
+
+.container {
+    padding: 1.5rem;
+  }
+
+	.profile-overlay {
+		background: rgba(102, 103, 171, 0.2);
+	}
+
+	.profile-overlay span {
+		font-size: 2rem;
+		transform: translateY(20px);
+		transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
+
+	.profile-container {
+		contain: paint layout;
+	}
+
+	.profile-container:hover .profile-img {
+		transform: scale(1.1);
+	}
+	.profile-container:hover .profile-overlay {
+		opacity: 1;
+	}
+
+	.profile-container:hover .profile-overlay span {
+		transform: translateY(0);
+	}
+
+	.social-card span {
+		font-weight: 500;
+	}
+	.project-content p {
+		flex-grow: 1;
+		margin: 0.5rem 0;
+		color: var(--text-secondary);
+	}
+
+	h1 {
+		font-size: 2rem;
+		background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		margin: 0;
+		font-weight: 700;
+	}
+
+	h2 {
+		font-size: 1.5rem;
+		background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		margin-bottom: 1rem;
+		font-weight: 700;
+	}
+
+	h3 {
+		font-size: 1.25rem;
+		background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		margin-bottom: 0.5rem;
+		font-weight: 700;
+	}
+
+	.title {
+		color: var(--text-secondary);
+		font-size: 1.125rem;
+		letter-spacing: 0.5px;
+		font-weight: 500;
+	}
