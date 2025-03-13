@@ -1,37 +1,41 @@
 @import "tailwindcss";
 
+:root {
+    --animation-smooth: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
 :root[data-theme="dark"] {
     --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.85);
-    --purple-primary: 102, 103, 171;
-    --background: 6, 0, 16;
-    --focus-ring: 0 0 0 3px rgba(102, 103, 171, 0.2);
-    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-    --glass-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.2);
+    --text-secondary: rgba(255 255 255 / 0.85);
+    --purple-rgb: 102 103 171;
+    --background-rgb: 6 0 16;
+    --focus-ring: 0 0 0 3px rgba(var(--purple-rgb) / 0.2);
+    --glass-shadow: 0 8px 32px rgba(0 0 0 / 0.12);
+    --glass-shadow-hover: 0 12px 40px rgba(0 0 0 / 0.2);
     --glass-bg: linear-gradient(165deg,
-            rgba(102, 103, 171, 0.05) 0%,
-            rgba(255, 255, 255, 0.02) 100%);
-    --glass-border-color: rgba(102, 103, 171, 0.08);
-    --glass-border-color-hover: rgba(102, 103, 171, 0.15);
-    --card-highlight: rgba(102, 103, 171, 0.1);
-    --card-shadow-inset: inset 0 0 0 1px rgba(102, 103, 171, 0.1);
+            rgba(var(--purple-rgb) / 0.05) 0%,
+            rgba(255 255 255 / 0.02) 100%);
+    --glass-border-color: rgba(var(--purple-rgb) / 0.08);
+    --glass-border-color-hover: rgba(var(--purple-rgb) / 0.15);
+    --card-highlight: rgba(var(--purple-rgb) / 0.1);
+    --card-shadow-inset: inset 0 0 0 1px rgba(var(--purple-rgb) / 0.1);
 }
 
 :root[data-theme="light"] {
     --text-primary: #1a1a1a;
-    --text-secondary: rgba(26, 26, 26, 0.85);
-    --purple-primary: 102, 103, 171;
-    --background: 235, 230, 255;
-    --focus-ring: 0 0 0 3px rgba(102, 103, 171, 0.2);
-    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-    --glass-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.2);
+    --text-secondary: rgba(26 26 26 / 0.85);
+    --purple-rgb: 102 103 171;
+    --background-rgb: 235 230 255;
+    --focus-ring: 0 0 0 3px rgba(var(--purple-rgb) / 0.2);
+    --glass-shadow: 0 8px 32px rgba(0 0 0 / 0.12);
+    --glass-shadow-hover: 0 12px 40px rgba(0 0 0 / 0.2);
     --glass-bg: linear-gradient(165deg,
-            rgba(255, 255, 255, 0.05) 0%,
-            rgba(255, 255, 255, 0.02) 100%);
-    --glass-border-color: rgba(102, 103, 171, 0.08);
-    --glass-border-color-hover: rgba(102, 103, 171, 0.15);
-    --card-highlight: rgba(102, 103, 171, 0.05);
-    --card-shadow-inset: inset 0 0 0 1px rgba(102, 103, 171, 0.1);
+            rgba(255 255 255 / 0.05) 0%,
+            rgba(255 255 255 / 0.02) 100%);
+    --glass-border-color: rgba(var(--purple-rgb) / 0.08);
+    --glass-border-color-hover: rgba(var(--purple-rgb) / 0.15);
+    --card-highlight: rgba(var(--purple-rgb) / 0.05);
+    --card-shadow-inset: inset 0 0 0 1px rgba(var(--purple-rgb) / 0.1);
 }
 
 .button {
@@ -55,13 +59,9 @@
     height: 100%;
     height: 100lvh;
     background: radial-gradient(circle at top right,
-            rgba(var(--purple-primary), 0.15) 0%,
-            rgba(var(--background), 0.98) 70%);
-    overflow: hidden;
-    pointer-events: none;
+            rgba(var(--purple-rgb) / 0.15) 0%,
+            rgba(var(--background-rgb) / 0.98) 70%);
     contain: paint;
-    will-change: transform;
-    transform: translateZ(0);
 }
 
 .noise {
@@ -80,9 +80,9 @@
     box-shadow: var(--glass-shadow), var(--card-shadow-inset);
     backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border-color);
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-        box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-        border-color 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform var(--animation-smooth),
+        box-shadow var(--animation-smooth),
+        border-color var(--animation-smooth);
     position: relative;
     overflow: hidden;
     contain: layout;
@@ -91,10 +91,10 @@
 
 .glass:hover {
     transform: translateY(-2px) scale(1.01) translateZ(0);
-    box-shadow: 
-        0 14px 40px rgba(0, 0, 0, 0.18),
-        0 24px 60px rgba(0, 0, 0, 0.06),
-        0 4px 12px rgba(102, 103, 171, 0.1),
+    box-shadow:
+        0 14px 40px rgba(0 0 0 / 0.18),
+        0 24px 60px rgba(0 0 0 / 0.06),
+        0 4px 12px rgba(var(--purple-rgb) / 0.1),
         var(--card-shadow-inset);
     border-color: var(--glass-border-color-hover);
 }
@@ -111,9 +111,9 @@
     inset: 0;
     background: linear-gradient(to right,
             transparent,
-            rgba(102, 103, 171, 0.03) 20%,
-            rgba(255, 255, 255, 0.01) 50%,
-            rgba(102, 103, 171, 0.03) 80%,
+            rgba(var(--purple-rgb) / 0.03) 20%,
+            rgba(255 255 255 / 0.01) 50%,
+            rgba(var(--purple-rgb) / 0.03) 80%,
             transparent);
     transform: skewX(-25deg) translateX(-200%) translateZ(0);
     transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -253,13 +253,13 @@
 
 
 .profile-overlay {
-    background: rgba(102, 103, 171, 0.2);
+    background: rgba(var(--purple-rgb) / 0.2);
 }
 
 .profile-overlay span {
     font-size: 2rem;
     transform: translateY(20px);
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform var(--animation-smooth);
 }
 
 .profile-container {
