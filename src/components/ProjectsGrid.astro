@@ -14,7 +14,7 @@ interface Props {
 
 const { projects = [] } = Astro.props;
 ---
-<div class="projects-section min-w-[300px]">
+<div class="projects-section">
     <div class="projects-grid flex flex-col gap-6 md:flex-wrap md:flex md:flex-row">
         {projects.map((project) => (
             <div class="project-card glass p-8 min-h-[210px] md:flex-1 md:min-w-[500px] md:flex md:flex-col">
