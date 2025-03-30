@@ -2,6 +2,7 @@
 
 :root {
     --animation-smooth: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    --animation-subtle: 0.3s ease-out;
 }
 
 :root[data-theme="dark"] {
@@ -47,6 +48,7 @@
     text-decoration: none;
     color: var(--text-primary);
     contain: layout;
+    transition: transform var(--animation-subtle), box-shadow var(--animation-subtle);
 }
 
 .animated-background {
@@ -82,7 +84,8 @@
     border: 1px solid var(--glass-border-color);
     transition: transform var(--animation-smooth),
         box-shadow var(--animation-smooth),
-        border-color var(--animation-smooth);
+        border-color var(--animation-smooth),
+        backdrop-filter var(--animation-smooth);
     position: relative;
     overflow: hidden;
     contain: layout;
@@ -97,6 +100,7 @@
         0 4px 12px rgba(var(--purple-rgb) / 0.1),
         var(--card-shadow-inset);
     border-color: var(--glass-border-color-hover);
+    backdrop-filter: blur(25px);
 }
 
 .glass:focus-visible {
@@ -240,7 +244,7 @@
         inset: 0;
         background: linear-gradient(to bottom, transparent 0%, var(--card-highlight) 100%);
         opacity: 0;
-        transition: opacity 0.4s ease;
+        transition: opacity var(--animation-smooth);
         pointer-events: none;
         contain: paint;
     }
@@ -288,6 +292,11 @@
     color: var(--text-secondary);
 }
 
+section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
 h1 {
     font-size: 2rem;
     background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
@@ -296,6 +305,7 @@ h1 {
     background-clip: text;
     margin: 0;
     font-weight: 700;
+    padding: 0.25rem 0.1rem;
 }
 
 h2 {
@@ -305,8 +315,13 @@ h2 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 1rem;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
     font-weight: 700;
+    position: relative;
+    padding: 0.25rem 0;
 }
+
 
 h3 {
     font-size: 1.25rem;
@@ -315,7 +330,10 @@ h3 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 0.5rem;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
     font-weight: 700;
+    padding: 0.15rem 0;
 }
 
 .title {
@@ -323,4 +341,5 @@ h3 {
     font-size: 1.125rem;
     letter-spacing: 0.5px;
     font-weight: 500;
+    padding: 0.15rem 0.1rem;
 }
