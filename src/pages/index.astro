@@ -9,12 +9,23 @@ import ProjectsGrid from '../components/ProjectsGrid.astro';
 
 const profileData = {
 	name: 'Ondrej Michal',
-	title: 'Student',
-	bio: 'Management student at the University of Žilina’s Faculty of Management and Informatics blending business, marketing, economics and informatics; former design student crafting visuals and web layouts; I maintain a Discord theme, learn new programming languages and tinker with my router’s Padavan NG firmware.',
+	title: 'Web Design & UI Enthusiast',
+	bio: `<strong>Management student</strong> at the University of Žilina’s Faculty of Management and Informatics blending <strong>business, marketing, economics and informatics</strong>.
+        <br />
+        Formerly a <strong>design student</strong> focused on crafting <strong>visuals and web layouts</strong>, I now also maintain a <strong>Discord theme</strong>, enjoy learning <strong>new programming languages</strong>, and love tinkering with my router’s <strong>Padavan NG firmware</strong>.
+    `,
 	avatarUrl: 'https://avatars.githubusercontent.com/u/36997301?v=4&s=120',
 };
 
-const skills = ['HTML/CSS', 'Astro', 'Git', 'UI Design'];
+const skills = [
+	'HTML/CSS',
+	'Astro',
+	'Git',
+	'UI Design',
+	'Photoshop',
+	'Illustrator',
+	'Tailwind CSS',
+];
 
 const projects = [
 	{
@@ -22,12 +33,14 @@ const projects = [
 		description: 'My attempt to keep Alexis Modern Discord Theme alive.',
 		url: 'https://github.com/onkofonko/onkofonko.github.io/tree/main/public/theme',
 		ariaLabel: 'View Alexis Modern Discord theme fixes project',
+		techStack: ['CSS', 'Discord Modding'],
 	},
 	{
 		title: 'Padavan firmware fork',
 		description: 'A customized fork of the Padavan router firmware.',
 		url: 'https://github.com/onkofonko/padavan-ng',
 		ariaLabel: 'View Padavan firmware fork project',
+		techStack: ['Linux', 'C', 'Networking'],
 	},
 ];
 
@@ -100,21 +113,18 @@ const socialLinks = [
 ---
 
 <Layout title="Ondrej Michal's Site">
-	<div class="container p-6 md:max-w-[1600px] md:m-auto md:p4 md:flex md:flex-col">
+	<div class="md:p4 container p-6 md:m-auto md:flex md:max-w-[1600px] md:flex-col">
 		<div
-			class="profile-section gap-4 md:top-8 md:self-start md:w-full md:flex md:flex-row md:gap-6"
+			class="profile-section gap-4 md:top-8 md:flex md:w-full md:flex-row md:gap-6 md:self-start"
 		>
 			<Profile {...profileData} />
 			<About bio={profileData.bio} />
 		</div>
-		<div class="skills-socials-section md:flex md:gap-6 md:w-full">
-			<div class="sidebar-content md:min-w-[300px] md:max-w-[320px] md:flex-1">
-				<Skills skills={skills} />
-				<SocialLinks socialLinks={socialLinks} />
-			</div>
-			<div class="projects-content md:flex-2 md:min-w-[300px]">
-				<ProjectsGrid projects={projects} />
-			</div>
+
+		<div class="skills-socials-projects-layout md:grid md:grid-cols-[330px_1fr] md:gap-6">
+			<Skills skills={skills} />
+			<SocialLinks socialLinks={socialLinks} />
+			<ProjectsGrid projects={projects} />
 		</div>
 	</div>
 </Layout>

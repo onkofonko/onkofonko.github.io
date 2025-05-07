@@ -106,7 +106,7 @@
 }
 
 .glass:hover {
-    transform: translateY(-2px) scale(1.01) translateZ(0);
+    transform: translateY(-2px) scale(1.005) translateZ(0);
     box-shadow:
         0 14px 40px rgba(0 0 0 / 0.18),
         0 24px 60px rgba(0 0 0 / 0.06),
@@ -114,6 +114,11 @@
         var(--card-shadow-inset);
     border-color: var(--glass-border-color-hover);
     backdrop-filter: blur(25px);
+}
+
+.glassactive:active {
+    transform: translateY(-1px) scale(0.98) translateZ(0);
+    box-shadow: var(--glass-shadow), var(--card-shadow-inset);
 }
 
 .glass:hover p {
@@ -274,17 +279,20 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .blob-1,
-  .blob-2 {
-    animation: none;
-  }
 
-  .glass, .button {
-      transition: none;
-  }
-  .glass:hover::before {
-      transform: none;
-  }
+    .blob-1,
+    .blob-2 {
+        animation: none;
+    }
+
+    .glass,
+    .button {
+        transition: none;
+    }
+
+    .glass:hover::before {
+        transform: none;
+    }
 }
 
 .profile-overlay {
@@ -319,8 +327,12 @@
 
 .project-content p {
     flex-grow: 1;
-    margin: 0.5rem 0;
+    margin: 0.75rem 0;
     color: var(--text-secondary);
+}
+
+.project-image {
+    object-fit: cover;
 }
 
 section {
@@ -361,9 +373,9 @@ h3 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 0.5rem;
     margin-left: 0.1rem;
     margin-right: 0.1rem;
+    margin-top: 0.5rem;
     font-weight: 700;
     padding: 0.15rem 0;
 }

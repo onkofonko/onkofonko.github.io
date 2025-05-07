@@ -1,41 +1,42 @@
 ---
 import '../styles/global.css';
 interface Props {
-  name: string;
-  title: string;
-  avatarUrl: string;
+	name: string;
+	title: string;
+	avatarUrl: string;
 }
 
 const { name, title, avatarUrl } = Astro.props;
 ---
 
-
-<div class="profile-card glass min-h-[280px] flex flex-col justify-center flex-1 p-8 mb-6 md:min-w-[300px] md:max-w-[320px] md:flex-1">
-    <div class="profile-header flex flex-col items-center gap-6">
-        <div class="profile-container glass w-[120px] h-[120px] overflow-hidden rounded-3xl">
-            <img
-                src={avatarUrl}
-                alt={name}
-                class="profile-img w-full h-full object-cover transition-transform duration-[0.4s] ease-[cubic-bezier(0.2,0.8,0.2,1)] will-change-transform rounded-3xl"
-                loading="eager"
-                width="120"
-                height="120"
-                decoding="async"
-                fetchpriority="high"
-            />
-            <div
-                class="profile-overlay absolute w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-[0.4s] ease-[cubic-bezier(0.2,0.8,0.2,1)] left-0 top-0"
-            >
-                <span>👋</span>
-            </div>
-        </div>
-        <div class="profile-info text-center">
-            <h1>{name}</h1>
-            <p
-                class="title text-[color:var(--text-secondary)] text-lg tracking-[0.5px] font-medium"
-            >
-            {title}
-            </p>
-        </div>
-    </div>
+<div
+	class="profile-card glass mb-6 flex min-h-[280px] flex-col justify-center p-8 md:max-w-[330px] md:min-w-[300px] md:flex-shrink-0 md:flex-grow md:basis-0"
+>
+	<div class="profile-header flex flex-col items-center gap-6">
+		<div
+			class="profile-container glass glassactive h-[120px] w-[120px] overflow-hidden rounded-3xl"
+		>
+			<img
+				src={avatarUrl}
+				alt={name}
+				class="profile-img h-full w-full rounded-3xl object-cover transition-transform duration-[0.4s] ease-[cubic-bezier(0.2,0.8,0.2,1)] will-change-transform"
+				loading="eager"
+				width="120"
+				height="120"
+				decoding="async"
+				fetchpriority="high"
+			/>
+			<div
+				class="profile-overlay absolute top-0 left-0 flex h-full w-full items-center justify-center opacity-0 transition-opacity duration-[0.4s] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+			>
+				<span>👋</span>
+			</div>
+		</div>
+		<div class="profile-info text-center">
+			<h1>{name}</h1>
+			<p class="title text-lg font-medium tracking-[0.5px] text-[color:var(--text-secondary)]">
+				{title}
+			</p>
+		</div>
+	</div>
 </div>

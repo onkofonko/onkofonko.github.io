@@ -2,17 +2,23 @@
 import '../styles/global.css';
 
 interface Props {
-    skills: string[];
+	skills: string[];
 }
 
 const { skills } = Astro.props;
 ---
-<div class="skills-card glass min-h-[210px] flex flex-col p-8 mb-6 md:min-w-[300px] md:max-w-[320px]">
-    <h2>Skills</h2>
-    <div class="skill-tags flex flex-wrap gap-3">
-        {skills.map((skill) => (
-            <span class="tag glass text-[0.9rem] tracking-[0.5px] font-medium px-4 py-2 rounded-2xl">
-                {skill}
-            </span>
-        ))}
-    </div>
+
+<div
+	class="skills-card glass mb-6 flex min-h-[210px] flex-col p-8 md:col-start-1 md:row-start-1 md:mb-0 md:max-w-[330px] md:min-w-[300px]"
+>
+	<h2>Skills</h2>
+	<div class="skill-tags flex flex-wrap gap-3">
+		{
+			skills.map((skill) => (
+				<span class="tag glass glassactive cursor-default rounded-2xl px-4 py-2 text-sm font-medium tracking-[0.5px]">
+					{skill}
+				</span>
+			))
+		}
+	</div>
+</div>

@@ -2,31 +2,51 @@
 import '../styles/global.css';
 
 interface Project {
-    title: string;
-    description: string;
-    url: string;
-    ariaLabel: string;
+	title: string;
+	description: string;
+	url: string;
+	ariaLabel: string;
+	techStack?: string[];
 }
 
 interface Props {
-    projects: Project[];
+	projects: Project[];
 }
 
 const { projects = [] } = Astro.props;
 ---
-<div class="projects-section">
-    <div class="projects-grid flex flex-col gap-6 md:flex-wrap md:flex md:flex-row">
-        {projects.map((project) => (
-            <div class="project-card glass p-8 min-h-[210px] md:flex-1 md:min-w-[500px] md:flex md:flex-col">
-                <div class="project-content project-content flex flex-col h-full">
-                    <h3>{project.title}</h3>
-                    <p>{project.description}</p>
-                    <a
-                        href={project.url}
-                        class="button glass"
-                        aria-label={project.ariaLabel}>View Project</a>
-                </div>
-            </div>
-        ))}
-    </div>
+
+<div class="projects-section h-full md:col-start-2 md:row-start-1">
+	<div class="projects-grid flex h-full flex-col gap-6 md:flex md:flex-row md:flex-wrap">
+		{
+			projects.map((project) => (
+				<div class="project-card glass min-h-[180px] overflow-hidden p-6 md:flex md:min-w-[400px] md:flex-1 md:flex-col">
+					<div class="project-content flex grow flex-col p-2 pb-0">
+						<h3>{project.title}</h3>
+						<p class="mb-4 grow text-[color:var(--text-secondary)]">{project.description}</p>
+
+						{project.techStack && project.techStack.length > 0 && (
+							<div class="tech-stack mb-3 flex flex-wrap gap-2">
+								{project.techStack.map((tech) => (
+									<span class="tag glass glassactive rounded-full px-3 py-1 text-xs font-medium">
+										{tech}
+									</span>
+								))}
+							</div>
+						)}
+
+						<a
+							href={project.url}
+							class="button glass glassactive mt-auto self-start"
+							aria-label={project.ariaLabel}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							View Project
+						</a>
+					</div>
+				</div>
+			))
+		}
+	</div>
 </div>

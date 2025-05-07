@@ -1,155 +1,204 @@
 ---
+
 ---
-<button class="theme-toggle glass" aria-label="Toggle theme" id="theme-toggle" aria-live="polite">
-    <div class="icons-container">
-        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        <span class="sr-only theme-status">Currently using dark theme</span>
-    </div>
+
+<button
+	class="theme-toggle glass glassactive"
+	aria-label="Toggle theme"
+	id="theme-toggle"
+	aria-live="polite"
+>
+	<div class="icons-container">
+		<svg
+			class="sun-icon"
+			xmlns="http://www.w3.org/2000/svg"
+			width="20"
+			height="20"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			aria-hidden="true"
+			><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line
+				x1="12"
+				y1="21"
+				x2="12"
+				y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line
+				x1="18.36"
+				y1="18.36"
+				x2="19.78"
+				y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line
+				x1="21"
+				y1="12"
+				x2="23"
+				y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line
+				x1="18.36"
+				y1="5.64"
+				x2="19.78"
+				y2="4.22"></line></svg
+		>
+		<svg
+			class="moon-icon"
+			xmlns="http://www.w3.org/2000/svg"
+			width="20"
+			height="20"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg
+		>
+		<span class="theme-status sr-only">Currently using dark theme</span>
+	</div>
 </button>
 
 <script>
-    import { toggleTheme } from '../scripts/theme';
+	import { toggleTheme } from '../scripts/theme';
 
-    // Improved theme toggle functionality with touch optimization
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeStatus = document.querySelector('.theme-status');
-    
-    // Function to handle theme toggle with debounce
-    let isProcessing = false;
-    const handleToggle = () => {
-        if (isProcessing) return;
-        
-        isProcessing = true;
-        toggleTheme();
-        
-        // Reset processing flag after animation completes
-        setTimeout(() => {
-            isProcessing = false;
-        }, 400);
-    };
+	// Improved theme toggle functionality with touch optimization
+	const themeToggle = document.getElementById('theme-toggle');
+	const themeStatus = document.querySelector('.theme-status');
 
-    // Add event listeners with improved touch handling
-    if (themeToggle) {
-        themeToggle.addEventListener('click', handleToggle);
-        
-        // Prevent default touch behavior on mobile to avoid delay
-        themeToggle.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-        }, { passive: false });
-        
-        themeToggle.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            handleToggle();
-        }, { passive: false });
-    }
+	// Function to handle theme toggle with debounce
+	let isProcessing = false;
+	const handleToggle = () => {
+		if (isProcessing) return;
 
-    // Update icon visibility and accessible status based on current theme
-    const updateThemeIcon = () => {
-        const theme = document.documentElement.getAttribute('data-theme') || 'dark';
-        const sunIcon = document.querySelector('.sun-icon');
-        const moonIcon = document.querySelector('.moon-icon');
-        
-        if (sunIcon && moonIcon) {
-            sunIcon.classList.toggle('hidden', theme === 'dark');
-            moonIcon.classList.toggle('hidden', theme === 'light');
-        }
-        
-        // Update accessible status text
-        if (themeStatus) {
-            themeStatus.textContent = `Currently using ${theme} theme`;
-        }
-    };
+		isProcessing = true;
+		toggleTheme();
 
-    // Initial icon update
-    updateThemeIcon();
+		// Reset processing flag after animation completes
+		setTimeout(() => {
+			isProcessing = false;
+		}, 400);
+	};
 
-    // Watch for theme changes with improved performance
-    const observer = new MutationObserver((mutations) => {
-        for (const mutation of mutations) {
-            if (mutation.attributeName === 'data-theme') {
-                updateThemeIcon();
-                break;
-            }
-        }
-    });
+	// Add event listeners with improved touch handling
+	if (themeToggle) {
+		themeToggle.addEventListener('click', handleToggle);
 
-    observer.observe(document.documentElement, {
-        attributes: true,
-        attributeFilter: ['data-theme']
-    });
+		// Prevent default touch behavior on mobile to avoid delay
+		themeToggle.addEventListener(
+			'touchstart',
+			(e) => {
+				e.preventDefault();
+			},
+			{ passive: false },
+		);
+
+		themeToggle.addEventListener(
+			'touchend',
+			(e) => {
+				e.preventDefault();
+				handleToggle();
+			},
+			{ passive: false },
+		);
+	}
+
+	// Update icon visibility and accessible status based on current theme
+	const updateThemeIcon = () => {
+		const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+		const sunIcon = document.querySelector('.sun-icon');
+		const moonIcon = document.querySelector('.moon-icon');
+
+		if (sunIcon && moonIcon) {
+			sunIcon.classList.toggle('hidden', theme === 'dark');
+			moonIcon.classList.toggle('hidden', theme === 'light');
+		}
+
+		// Update accessible status text
+		if (themeStatus) {
+			themeStatus.textContent = `Currently using ${theme} theme`;
+		}
+	};
+
+	// Initial icon update
+	updateThemeIcon();
+
+	// Watch for theme changes with improved performance
+	const observer = new MutationObserver((mutations) => {
+		for (const mutation of mutations) {
+			if (mutation.attributeName === 'data-theme') {
+				updateThemeIcon();
+				break;
+			}
+		}
+	});
+
+	observer.observe(document.documentElement, {
+		attributes: true,
+		attributeFilter: ['data-theme'],
+	});
 </script>
 
 <style>
-    .theme-toggle {
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        z-index: 100;
-        padding: 0.75rem;
-        border: none;
-        background: none;
-        color: var(--text-primary);
-        cursor: pointer;
-        border-radius: 12px;
-        transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-        width: 44px;
-        height: 44px;
-        overflow: hidden;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
-    }
+	.theme-toggle {
+		position: fixed;
+		top: 1rem;
+		right: 1rem;
+		z-index: 100;
+		padding: 0.75rem;
+		border: none;
+		background: none;
+		color: var(--text-primary);
+		cursor: pointer;
+		border-radius: 12px;
+		transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+		width: 44px;
+		height: 44px;
+		overflow: hidden;
+		-webkit-tap-highlight-color: transparent;
+		touch-action: manipulation;
+	}
 
-    .icons-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
+	.icons-container {
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
 
-    .theme-toggle:hover, .theme-toggle:focus-visible {
-        transform: translateY(-2px);
-        background: rgba(102, 103, 171, 0.1);
-    }
+	.sun-icon,
+	.moon-icon {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition:
+			opacity 0.3s ease,
+			transform 0.3s ease;
+	}
 
-    .theme-toggle:focus-visible {
-        outline: 3px solid rgba(102, 103, 171, 0.3);
-    }
+	.hidden {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0.8);
+	}
 
-    .sun-icon,
-    .moon-icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    
-    .hidden {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.8);
-    }
-    
-    .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-    }
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
 
-    @media (max-width: 640px) {
-        .theme-toggle {
-            top: 0.5rem;
-            right: 0.5rem;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border-color);
-            box-shadow: var(--glass-shadow);
-        }
-    }
+	@media (max-width: 640px) {
+		.theme-toggle {
+			top: 0.5rem;
+			right: 0.5rem;
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			background: var(--glass-bg);
+			border: 1px solid var(--glass-border-color);
+			box-shadow: var(--glass-shadow);
+		}
+	}
 </style>
