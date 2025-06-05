@@ -21,17 +21,28 @@ const { socialLinks } = Astro.props;
 	class="social-grid mb-6 grid min-h-[210px] grid-cols-[repeat(1,1fr)] gap-4 md:col-start-1 md:row-start-2 md:mb-0 md:max-w-[330px] md:min-w-[300px]"
 >
 	{
-		socialLinks.map((link) => (
-			<a
-				href={link.href}
-				class="social-card glass glassactive flex items-center gap-4 p-4 text-[color:var(--text-primary)] no-underline transition-all duration-[0.4s] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
-				aria-label={link.ariaLabel}
-				id={link.isDiscord ? 'copyDiscord' : undefined}
-				discord-username={link.discordUsername}
-			>
-				<Fragment set:html={link.svgHTML} />
-				<span>{link.name}</span>
-			</a>
-		))
+		socialLinks.map((link) =>
+			link.isDiscord ? (
+				<button
+					type="button"
+					class="social-card glass glassactive flex items-center gap-4 p-4 text-[color:var(--text-primary)] no-underline transition-all duration-[0.4s] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+					aria-label={link.ariaLabel}
+					id="copyDiscord"
+					discord-username={link.discordUsername}
+				>
+					<Fragment set:html={link.svgHTML} />
+					<span>{link.name}</span>
+				</button>
+			) : (
+				<a
+					href={link.href}
+					class="social-card glass glassactive flex items-center gap-4 p-4 text-[color:var(--text-primary)] no-underline transition-all duration-[0.4s] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+					aria-label={link.ariaLabel}
+				>
+					<Fragment set:html={link.svgHTML} />
+					<span>{link.name}</span>
+				</a>
+			)
+		)
 	}
 </div>

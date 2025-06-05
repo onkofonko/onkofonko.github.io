@@ -6,8 +6,8 @@
 }
 
 :root[data-theme="dark"] {
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255 255 255 / 0.85);
+    --text-primary: #f4f1f8;
+    --text-secondary: rgba(244 241 248 / 0.85);
     --purple-rgb: 102 103 171;
     --background-rgb: 6 0 16;
     --focus-ring: 0 0 0 3px rgba(var(--purple-rgb) / 0.2);
