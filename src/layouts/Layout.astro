@@ -10,10 +10,49 @@ const { title } = Astro.props;
 <!doctype html>
 <html
 	lang="en"
-	data-theme="dark"
 	class="relative m-0 min-h-[100vh] w-full overflow-x-hidden p-0 text-[color:var(--text-primary)]"
 >
 	<head>
+		<script is:inline>
+			(function () {
+				const THEME_STATE_KEY = 'themeState';
+				const THEME_USER_SOURCE = 'user';
+				const LIGHT_THEME = 'light';
+				const DARK_THEME = 'dark';
+
+				const getSystemPreference = () => {
+					if (window.matchMedia && typeof window.matchMedia === 'function') {
+						const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
+						if (mediaQuery && typeof mediaQuery.matches === 'boolean') {
+							return mediaQuery.matches ? LIGHT_THEME : DARK_THEME;
+						}
+					}
+					return DARK_THEME;
+				};
+
+				let theme = getSystemPreference();
+
+				try {
+					const storedStateString = localStorage.getItem(THEME_STATE_KEY);
+					if (storedStateString) {
+						const parsedState = JSON.parse(storedStateString);
+						if (
+							parsedState &&
+							typeof parsedState.theme === 'string' &&
+							(parsedState.theme === LIGHT_THEME || parsedState.theme === DARK_THEME) &&
+							typeof parsedState.source === 'string' &&
+							parsedState.source === THEME_USER_SOURCE
+						) {
+							theme = parsedState.theme;
+						}
+					}
+				} catch {
+					console.error('[Theme] Error reading theme state from localStorage');
+				}
+
+				document.documentElement.setAttribute('data-theme', theme);
+			})();
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Ondrej Michal's Site" />
 		<meta name="author" content="Ondrej Michal Očkaj" />
