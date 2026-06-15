@@ -602,8 +602,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                         className="absolute inset-0 flex items-center justify-center"
                       >
                         <span className="relative flex size-1.5">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[hsl(var(--accent))] opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[hsl(var(--accent))]"></span>
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[hsl(var(--accent))] opacity-75" />
+                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[hsl(var(--accent))]" />
                         </span>
                       </motion.span>
                       <motion.span

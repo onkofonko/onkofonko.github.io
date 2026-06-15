@@ -626,6 +626,8 @@ const LiquidGlassComponent = React.forwardRef<HTMLElement, LiquidGlassProps>(
   },
 );
 
+LiquidGlassComponent.displayName = "LiquidGlassComponent";
+
 export const LiquidGlass = React.memo(LiquidGlassComponent);
 
 LiquidGlass.displayName = "LiquidGlass";
@@ -675,6 +677,8 @@ const LiquidGlassButtonComponent = React.forwardRef<
     );
   },
 );
+
+LiquidGlassButtonComponent.displayName = "LiquidGlassButtonComponent";
 
 export const LiquidGlassButton = React.memo(LiquidGlassButtonComponent);
 
