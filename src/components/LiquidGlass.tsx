@@ -583,12 +583,12 @@ const LiquidGlassComponent = React.forwardRef<HTMLElement, LiquidGlassProps>(
       </>
     );
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const Tag = href
       ? motion.a
       : as === "button"
         ? motion.button
-        : (motion as any)[as];
+        : // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (motion as any)[as];
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const tagProps: any = {

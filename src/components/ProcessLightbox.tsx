@@ -161,7 +161,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
     });
   };
 
-  const handleImageClick = (_e: React.MouseEvent) => {
+  const handleImageClick = () => {
     if (dragMoved.current) return;
 
     if (scale === 1) {

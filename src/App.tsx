@@ -183,13 +183,11 @@ export default function App() {
       const targetId = hash.substring(1);
       const label = LABEL_MAP[targetId];
       if (label) {
-        setActiveSection(label);
         const element = document.getElementById(targetId);
-        if (element) {
-          setTimeout(() => {
-            element.scrollIntoView({ behavior: "smooth" });
-          }, 100);
-        }
+        setTimeout(() => {
+          setActiveSection(label);
+          element?.scrollIntoView({ behavior: "smooth" });
+        }, 100);
       }
     }
   }, [isLoading]);

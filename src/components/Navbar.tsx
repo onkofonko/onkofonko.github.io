@@ -49,14 +49,21 @@ export default function Navbar({
 
   const active = activeSection;
 
-  // Track active section changes (transitions)
-  useEffect(() => {
+  const [prevActive, setPrevActive] = useState(active);
+  if (active !== prevActive) {
+    setPrevActive(active);
     setIsTransitioning(true);
-    const timer = setTimeout(() => {
-      setIsTransitioning(false);
-    }, 500); // 500ms covers the 400ms CSS transition and animation settling
-    return () => clearTimeout(timer);
-  }, [active]);
+  }
+
+  // Reset transitioning state after a delay
+  useEffect(() => {
+    if (isTransitioning) {
+      const timer = setTimeout(() => {
+        setIsTransitioning(false);
+      }, 500); // 500ms covers the 400ms CSS transition and animation settling
+      return () => clearTimeout(timer);
+    }
+  }, [isTransitioning]);
 
   // Close mobile menu on Escape key press
   useEffect(() => {

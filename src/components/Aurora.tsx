@@ -1,5 +1,12 @@
 import { useEffect, useRef } from "react";
-import { Renderer, Program, Mesh, Color, Triangle } from "ogl";
+import {
+  Renderer,
+  Program,
+  Mesh,
+  Color,
+  Triangle,
+  OGLRenderingContext,
+} from "ogl";
 
 const VERT = `#version 300 es
 in vec2 position;
@@ -141,8 +148,8 @@ export default function Aurora(props: AuroraProps) {
       blend = 0.5,
     } = propsRef.current;
 
-    let renderer: Renderer | null = null;
-    let gl: any = null;
+    let renderer: Renderer;
+    let gl: OGLRenderingContext;
 
     try {
       renderer = new Renderer({
