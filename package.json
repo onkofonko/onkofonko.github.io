@@ -33,12 +33,13 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
+    "prettier": "3.8.4",
     "rollup-plugin-visualizer": "^7.0.1",
+    "svgo": "^4.0.1",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.60.1",
     "vite": "^8.0.16",
     "vite-plugin-checker": "^0.14.1",
-    "vite-plugin-compression": "^0.5.1",
-    "svgo": "^4.0.1"
+    "vite-plugin-compression": "^0.5.1"
   }
 }
