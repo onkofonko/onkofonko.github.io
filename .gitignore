@@ -1,9 +1,6 @@
 # build output
 dist/
 
-# generated types
-.astro/
-
 # dependencies
 node_modules/
 
@@ -19,3 +16,11 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+.vscode/
+.impeccable/
+.agents/
+
+PRODUCT.md
+skills-lock.json
+DESIGN.md

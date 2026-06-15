@@ -1,0 +1,206 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+@import "bpmn-font/dist/css/bpmn.css";
+
+@font-face {
+  font-family: 'Libre Caslon Condensed';
+  src: url('/fonts/LibreCaslonCondensed[wght].woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Libre Caslon Condensed';
+  src: url('/fonts/LibreCaslonCondensed-Italic[wght].woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'bpmn';
+  src: url('/fonts/bpmn.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --bg: 0 0% 4%;
+  --surface: 0 0% 8%;
+  --text: 0 0% 96%;
+  --muted: 0 0% 80%;
+  --stroke: 0 0% 12%;
+  --accent: 244 75% 76%;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  @apply bg-bg text-text-primary font-body leading-relaxed;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(102, 103, 171, 0.3);
+  color: hsl(var(--text));
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--bg));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--stroke));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted));
+}
+
+
+.font-display {
+  font-family: 'Libre Caslon Condensed', serif;
+  letter-spacing: -0.02em;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* Keep keyboard focus visible but suppress focus outlines for pointer/tap interactions */
+:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+/* Shared highlight pill — used by Navbar, ProcessLibrary, PdfViewerModal tabs */
+.highlight-pill {
+  background: linear-gradient(90deg, rgba(122, 123, 191, 0.1) 0%, rgba(102, 103, 171, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    inset 0 4px 8px rgba(255, 255, 255, 0.03),
+    0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Flat state when navbar is stationary - solid rgba(122, 123, 191, 0.2), no box-shadow or refraction */
+.highlight-pill.navbar-highlight-flat {
+  background: rgba(122, 123, 191, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.04) !important;
+  box-shadow: none !important;
+  transition: background-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 200ms cubic-bezier(0.25, 0.1, 0.25, 1), border-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Active state (hovering, scrolling, transitioning) - solid rgba(122, 123, 191, 0.1) with box-shadows */
+.highlight-pill.navbar-highlight-active {
+  background: rgba(122, 123, 191, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    inset 0 4px 8px rgba(255, 255, 255, 0.03),
+    0 4px 10px rgba(0, 0, 0, 0.08) !important;
+  transition: background-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 200ms cubic-bezier(0.25, 0.1, 0.25, 1), border-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Custom transition for the main navbar capsule matching the site-wide duration and bezier curve */
+.navbar-capsule {
+  transition: border-color 400ms cubic-bezier(0.25, 0.1, 0.25, 1),
+              background-color 400ms cubic-bezier(0.25, 0.1, 0.25, 1),
+              backdrop-filter 400ms cubic-bezier(0.25, 0.1, 0.25, 1),
+              -webkit-backdrop-filter 400ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* CV modal scrollbar */
+.custom-cv-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-cv-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-cv-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--stroke));
+  border-radius: 2px;
+}
+
+
+
+/* Fine pointer hover transitions for dynamic lists */
+.skill-item-hover {
+  transition: color 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.skill-item-text {
+  transition: transform 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .skill-item-hover:hover {
+    color: hsl(var(--text)) !important;
+  }
+
+  .skill-item-hover:hover .skill-item-text {
+    transform: translateX(6px);
+  }
+}
+
+.case-study-metric-hover {
+  transition: transform 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.case-study-metric-hover-val {
+  transition: color 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.case-study-metric-hover-desc {
+  transition: color 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .case-study-metric-hover:hover {
+    transform: translateX(4px);
+  }
+
+  .case-study-metric-hover:hover .case-study-metric-hover-val {
+    color: hsl(var(--text)) !important;
+  }
+
+  .case-study-metric-hover:hover .case-study-metric-hover-desc {
+    color: hsl(var(--text)) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0ms !important;
+    transition-delay: 0ms !important;
+  }
+}
