@@ -25,7 +25,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
-  
+
   const dragStart = useRef({ x: 0, y: 0 });
   const dragMoved = useRef(false);
   const dragStartPos = useRef({ x: 0, y: 0 });
@@ -79,7 +79,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
       if (Math.abs(dx) > 4 || Math.abs(dy) > 4) {
         dragMoved.current = true;
       }
-      
+
       const newX = e.clientX - dragStart.current.x;
       const newY = e.clientY - dragStart.current.y;
       setPosition({ x: newX, y: newY });
@@ -88,12 +88,12 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
       const dx = points[0].x - points[1].x;
       const dy = points[0].y - points[1].y;
       const currentDistance = Math.sqrt(dx * dx + dy * dy);
-      
+
       if (initialPinchDistance.current > 0) {
         const factor = currentDistance / initialPinchDistance.current;
         const newScale = Math.max(1, Math.min(initialPinchScale.current * factor, 4));
         setScale(newScale);
-        
+
         if (newScale === 1) {
           setPosition({ x: 0, y: 0 });
         } else if (initialPinchScale.current > 1) {
@@ -148,7 +148,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
 
   const handleImageClick = (_e: React.MouseEvent) => {
     if (dragMoved.current) return;
-    
+
     if (scale === 1) {
       setScale(2.5);
     } else {
@@ -273,7 +273,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
                 roundedClass="rounded-full"
                 interactive={scale > 1}
                 springScale={scale > 1}
-                className="h-8 w-16 flex items-center justify-center text-[10px] font-mono tracking-wider uppercase select-none font-bold text-text-primary"
+                className="h-8 w-16 flex items-center justify-center text-[10px] tracking-wider uppercase select-none font-bold text-text-primary"
                 onClick={scale > 1 ? resetZoom : undefined}
                 ariaLabel={scale > 1 ? "Reset Zoom" : undefined}
                 magnetic={scale > 1}
@@ -295,7 +295,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
             >
               <Plus size={14} />
             </LiquidGlass.Button>
-            
+
             {/* Zoom Out */}
             <LiquidGlass.Button
               onClick={zoomOut}
