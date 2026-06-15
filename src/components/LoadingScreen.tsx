@@ -64,6 +64,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const [nodeGateway, setNodeGateway] = useState(initialVal >= 50);
   const [nodeTask2, setNodeTask2] = useState(initialVal >= 75);
   const [nodeTask3, setNodeTask3] = useState(initialVal >= 75);
+  const [nodeMergeGateway, setNodeMergeGateway] = useState(initialVal >= 90);
   const [nodeEnd, setNodeEnd] = useState(initialVal >= 95);
   const [activeStepIdx, setActiveStepIdx] = useState(-1);
   const [completedSteps, setCompletedSteps] = useState<boolean[]>(() =>
@@ -76,6 +77,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const nodeGatewayRef = useRef(initialVal >= 50);
   const nodeTask2Ref = useRef(initialVal >= 75);
   const nodeTask3Ref = useRef(initialVal >= 75);
+  const nodeMergeGatewayRef = useRef(initialVal >= 90);
   const nodeEndRef = useRef(initialVal >= 95);
 
   const handleSkip = () => {
@@ -90,6 +92,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       setNodeGateway(true);
       setNodeTask2(true);
       setNodeTask3(true);
+      setNodeMergeGateway(true);
       setNodeEnd(true);
       setActiveStepIdx(BPMN_STEPS.length - 1);
       setCompletedSteps(BPMN_STEPS.map(() => true));
@@ -142,6 +145,10 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         setNodeTask2(true);
         setNodeTask3(true);
         nodeTask3Ref.current = true;
+      }
+      if (current >= 90 && !nodeMergeGatewayRef.current) {
+        nodeMergeGatewayRef.current = true;
+        setNodeMergeGateway(true);
       }
       if (current >= 95 && !nodeEndRef.current) {
         nodeEndRef.current = true;
@@ -197,13 +204,15 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const path2 = useTransform(count, [35, 50], [0, 1]);
   const path3a = useTransform(count, [60, 75], [0, 1]);
   const path3b = useTransform(count, [60, 75], [0, 1]);
-  const path4a = useTransform(count, [85, 95], [0, 1]);
-  const path4b = useTransform(count, [85, 95], [0, 1]);
+  const path4a = useTransform(count, [80, 90], [0, 1]);
+  const path4b = useTransform(count, [80, 90], [0, 1]);
+  const path5 = useTransform(count, [90, 95], [0, 1]);
 
   const path1Visible = useTransform(count, (v) => (v >= 10 ? 1 : 0));
   const path2Visible = useTransform(count, (v) => (v >= 35 ? 1 : 0));
   const path3Visible = useTransform(count, (v) => (v >= 60 ? 1 : 0));
-  const path4Visible = useTransform(count, (v) => (v >= 85 ? 1 : 0));
+  const path4Visible = useTransform(count, (v) => (v >= 80 ? 1 : 0));
+  const path5Visible = useTransform(count, (v) => (v >= 90 ? 1 : 0));
 
   const displayText = useTransform(count, (v) =>
     String(Math.floor(v)).padStart(3, "0"),
@@ -280,13 +289,19 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 fill="none"
               />
               <path
-                d="M 600 65 L 650 65 L 650 120 L 692 120"
+                d="M 600 65 L 650 65 L 650 92"
                 stroke="hsl(var(--stroke))"
                 strokeWidth="2"
                 fill="none"
               />
               <path
-                d="M 600 175 L 650 175 L 650 120 L 692 120"
+                d="M 600 175 L 650 175 L 650 148"
+                stroke="hsl(var(--stroke))"
+                strokeWidth="2"
+                fill="none"
+              />
+              <path
+                d="M 678 120 L 692 120"
                 stroke="hsl(var(--stroke))"
                 strokeWidth="2"
                 fill="none"
@@ -336,7 +351,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 }}
               />
               <motion.path
-                d="M 600 65 L 650 65 L 650 120 L 692 120"
+                d="M 600 65 L 650 65 L 650 92"
                 stroke="hsl(var(--accent))"
                 strokeWidth="2"
                 strokeLinecap="round"
@@ -347,7 +362,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 }}
               />
               <motion.path
-                d="M 600 175 L 650 175 L 650 120 L 692 120"
+                d="M 600 175 L 650 175 L 650 148"
                 stroke="hsl(var(--accent))"
                 strokeWidth="2"
                 strokeLinecap="round"
@@ -355,6 +370,17 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 style={{
                   pathLength: path4b,
                   opacity: path4Visible,
+                }}
+              />
+              <motion.path
+                d="M 678 120 L 692 120"
+                stroke="hsl(var(--accent))"
+                strokeWidth="2"
+                strokeLinecap="round"
+                fill="none"
+                style={{
+                  pathLength: path5,
+                  opacity: path5Visible,
                 }}
               />
 
@@ -511,6 +537,37 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 animate={{ opacity: nodeTask3 ? 1 : 0 }}
                 transition={{ duration: 0.4 }}
               />
+
+              {/* NODE 4c: Merge Gateway */}
+              <path
+                d="M 650 92 L 678 120 L 650 148 L 622 120 Z"
+                stroke="hsl(var(--stroke))"
+                strokeWidth="2"
+                fill="hsl(var(--bg))"
+              />
+              <motion.path
+                d="M 650 92 L 678 120 L 650 148 L 622 120 Z"
+                stroke="hsl(var(--accent))"
+                strokeWidth="2"
+                fill="hsl(var(--accent) / 0.03)"
+                style={{
+                  filter: nodeMergeGateway
+                    ? "drop-shadow(0px 0px 6px hsla(var(--accent), 0.45))"
+                    : "none",
+                }}
+                animate={{ opacity: nodeMergeGateway ? 1 : 0 }}
+                transition={{ duration: 0.4 }}
+              />
+              <g
+                stroke={
+                  nodeMergeGateway ? "hsl(var(--accent))" : "hsl(var(--stroke))"
+                }
+                strokeWidth="2.5"
+                className="transition-colors duration-300"
+              >
+                <line x1="650" y1="112" x2="650" y2="128" />
+                <line x1="642" y1="120" x2="658" y2="120" />
+              </g>
 
               {/* NODE 5: End Event (BPMN standard: single thick border circle) */}
               <circle
