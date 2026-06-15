@@ -6,12 +6,12 @@ import reactCompiler from "eslint-plugin-react-compiler";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist"] },
+  { ignores: ["dist", ".agents"] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 2022,
       globals: globals.browser,
     },
     plugins: {
@@ -26,6 +26,14 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       "react-compiler/react-compiler": "error",
+    },
+  },
+  {
+    extends: [js.configs.recommended],
+    files: ["**/*.{js,mjs,cjs}"],
+    languageOptions: {
+      ecmaVersion: 2022,
+      globals: globals.node,
     },
   },
 );
