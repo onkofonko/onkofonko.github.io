@@ -129,7 +129,7 @@ export default function Navbar({ activeSection, onNavClick, sentinelRef }: Navba
                 </span>
               ) : (
                 <img
-                  src="https://avatars.githubusercontent.com/u/36997301?v=4&s=120"
+                  src="https://avatars.githubusercontent.com/u/36997301?v=4&s=24"
                   alt="Ondrej Michal Očkaj"
                   width="24"
                   height="24"

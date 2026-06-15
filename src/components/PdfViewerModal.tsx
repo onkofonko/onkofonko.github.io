@@ -130,7 +130,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                 <div className="flex items-center gap-3">
                   <div className="size-8 rounded-full overflow-hidden border border-white/10 flex-shrink-0 bg-bg">
                     <img
-                      src="https://avatars.githubusercontent.com/u/36997301?v=4&s=120"
+                      src="https://avatars.githubusercontent.com/u/36997301?v=4&s=32"
                       alt="Ondrej Michal Očkaj"
                       width="32"
                       height="32"
