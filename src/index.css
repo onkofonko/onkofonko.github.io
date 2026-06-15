@@ -1,5 +1,17 @@
 @import "tailwindcss";
-@config "../tailwind.config.js";
+
+@theme {
+  --font-body: "Outfit", sans-serif;
+  --font-display: "Libre Caslon Condensed", serif;
+
+  --color-bg: hsl(var(--bg));
+  --color-surface: hsl(var(--surface));
+  --color-text-primary: hsl(var(--text));
+  --color-muted: hsl(var(--muted));
+  --color-stroke: hsl(var(--stroke));
+  --color-accent: hsl(var(--accent));
+}
+
 @import "bpmn-font/dist/css/bpmn.css";
 
 @font-face {

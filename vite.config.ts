@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import react, { reactCompilerPreset } from "@vitejs/plugin-react";
+import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
-import path from "path";
 import checker from "vite-plugin-checker";
 import compression from "vite-plugin-compression";
 import { visualizer } from "rollup-plugin-visualizer";
@@ -9,10 +9,9 @@ import { visualizer } from "rollup-plugin-visualizer";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   plugins: [
-    react({
-      babel: {
-        plugins: ["babel-plugin-react-compiler"],
-      },
+    react(),
+    babel({
+      presets: [reactCompilerPreset()],
     }),
     tailwindcss(),
     checker({
@@ -60,9 +59,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src"),
-    },
+    tsconfigPaths: true,
   },
   server: {
     warmup: {
