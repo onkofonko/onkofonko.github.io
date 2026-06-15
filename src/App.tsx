@@ -128,6 +128,11 @@ export default function App() {
     ignoreScrollUntil.current = Date.now() + 1000; // Lock scrollspy updates for 1s during smooth scroll
   }, []);
 
+  const handleViewWork = useCallback(() => {
+    handleNavClick('Case Studies');
+    document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+  }, [handleNavClick]);
+
   const handleViewCv = useCallback(() => {
     setIsCvOpen(true);
   }, []);
@@ -140,6 +145,41 @@ export default function App() {
       // Ignore errors (e.g. private browsing restrictions)
     }
   }, []);
+
+  // Synchronize activeSection with URL hash
+  useEffect(() => {
+    if (isLoading) return;
+    const sectionId = Object.keys(LABEL_MAP).find(key => LABEL_MAP[key] === activeSection);
+    if (sectionId) {
+      const newHash = `#${sectionId}`;
+      if (window.location.hash !== newHash) {
+        if (Date.now() < ignoreScrollUntil.current) {
+          window.history.pushState(null, '', newHash);
+        } else {
+          window.history.replaceState(null, '', newHash);
+        }
+      }
+    }
+  }, [activeSection, isLoading]);
+
+  // Handle initial deep-linking based on URL hash
+  useEffect(() => {
+    if (isLoading) return;
+    const hash = window.location.hash;
+    if (hash) {
+      const targetId = hash.substring(1);
+      const label = LABEL_MAP[targetId];
+      if (label) {
+        setActiveSection(label);
+        const element = document.getElementById(targetId);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
+      }
+    }
+  }, [isLoading]);
 
   return (
     <>
@@ -165,7 +205,7 @@ export default function App() {
         <Navbar activeSection={activeSection} onNavClick={handleNavClick} sentinelRef={navbarSentinelRef} />
         
         <div id="home">
-          <Hero onViewCv={handleViewCv} />
+          <Hero onViewCv={handleViewCv} onViewWork={handleViewWork} />
         </div>
 
         <div id="work">

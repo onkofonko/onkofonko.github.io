@@ -1,4 +1,4 @@
-import { useEffect, useState, memo } from 'react';
+import { useEffect, useState, memo, MouseEvent } from 'react';
 import { FileText } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform, Variants } from 'motion/react';
 import LiquidGlass from './LiquidGlass';
@@ -9,6 +9,7 @@ const preloadPdfModal = () => import('./PdfViewerModal');
 
 interface HeroProps {
   onViewCv: () => void;
+  onViewWork: () => void;
 }
 
 const containerVariants = {
@@ -128,7 +129,7 @@ const roleVariants: Variants = {
 };
 
 
-function Hero({ onViewCv }: HeroProps) {
+function Hero({ onViewCv, onViewWork }: HeroProps) {
   const [roleIndex, setRoleIndex] = useState(0);
   const { scrollY } = useScroll();
   const prefersReducedMotion = useReducedMotion();
@@ -229,6 +230,10 @@ function Hero({ onViewCv }: HeroProps) {
             tilt={true}
             magneticStrength={0.02}
             specularGlow
+            onClick={(e: MouseEvent<HTMLElement>) => {
+              e.preventDefault();
+              onViewWork();
+            }}
           >
             View Case Studies
           </LiquidGlass.Button>
@@ -247,7 +252,7 @@ function Hero({ onViewCv }: HeroProps) {
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         onClick={(e) => {
           e.preventDefault();
-          document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+          onViewWork();
         }}
       >
         <span className="text-[10px] text-muted group-hover:text-accent uppercase font-semibold tracking-[0.25em] transition-colors duration-300">
