@@ -158,7 +158,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     >
       {/* Background aesthetics */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] opacity-60 pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,hsl(var(--bg))_85%)] pointer-events-none" />
+      <div className="hidden md:block absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,hsl(var(--bg))_85%)] pointer-events-none" />
 
       {/* Top Header Row */}
       <div className="relative z-10 flex justify-between items-center w-full">
@@ -172,10 +172,10 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         </motion.div>
         <motion.button
           onClick={handleSkip}
-          className="px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.015] hover:bg-white/[0.05] hover:border-white/20 text-[10px] md:text-xs text-muted hover:text-text-primary transition-all duration-200 cursor-pointer active:scale-95 z-20 pointer-events-auto"
+          className="px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.015] hover:bg-white/[0.05] hover:border-white/20 text-[10px] md:text-xs text-muted hover:text-text-primary transition-colors duration-200 cursor-pointer active:scale-95 z-20 pointer-events-auto"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6 }}
         >
           Skip
         </motion.button>
