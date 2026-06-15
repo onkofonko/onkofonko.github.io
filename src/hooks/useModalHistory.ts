@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 /**
  * Custom hook to intercept browser back-navigation events (swipes, back button)
@@ -9,21 +9,21 @@ import { useEffect, useRef } from 'react';
  */
 export function useModalHistory(isOpen: boolean, onClose: () => void) {
   const onCloseRef = useRef(onClose);
-  
+
   useEffect(() => {
     onCloseRef.current = onClose;
   }, [onClose]);
 
   useEffect(() => {
-    if (!isOpen || typeof window === 'undefined') return;
+    if (!isOpen || typeof window === "undefined") return;
 
     let statePushed = false;
-    let stateId = '';
+    let stateId = "";
 
     // Defer pushState to the next tick to prevent Strict Mode double-mounting races
     const pushTimeout = setTimeout(() => {
       stateId = `modal-${Math.random().toString(36).substring(2, 9)}`;
-      window.history.pushState({ stateId }, '');
+      window.history.pushState({ stateId }, "");
       statePushed = true;
     }, 0);
 
@@ -32,12 +32,12 @@ export function useModalHistory(isOpen: boolean, onClose: () => void) {
       onCloseRef.current();
     };
 
-    window.addEventListener('popstate', handlePopState);
+    window.addEventListener("popstate", handlePopState);
 
     return () => {
       clearTimeout(pushTimeout);
-      window.removeEventListener('popstate', handlePopState);
-      
+      window.removeEventListener("popstate", handlePopState);
+
       // Only navigate back if the state was actually pushed and is still current
       if (statePushed && window.history.state?.stateId === stateId) {
         window.history.back();

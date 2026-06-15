@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef, memo } from 'react';
-import { motion, useReducedMotion } from 'motion/react';
-import { X, Plus, Minus } from 'lucide-react';
-import LiquidGlass from './LiquidGlass';
-import { useModalHistory } from '../hooks/useModalHistory';
+import { useState, useEffect, useRef, memo } from "react";
+import { motion, useReducedMotion } from "motion/react";
+import { X, Plus, Minus } from "lucide-react";
+import LiquidGlass from "./LiquidGlass";
+import { useModalHistory } from "../hooks/useModalHistory";
 
 interface ProcessLightboxProps {
   item: {
@@ -37,12 +37,14 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
       setIsMobile(window.innerWidth < 768);
     };
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   // Multi-touch pinch zoom refs for mobile
-  const activePointers = useRef<Map<number, { x: number; y: number }>>(new Map());
+  const activePointers = useRef<Map<number, { x: number; y: number }>>(
+    new Map(),
+  );
   const initialPinchDistance = useRef<number | null>(null);
   const initialPinchScale = useRef<number>(1);
   const initialPinchPosition = useRef<{ x: number; y: number } | null>(null);
@@ -56,7 +58,10 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
       if (scale === 1) return;
       setIsDragging(true);
       dragStartPos.current = { x: e.clientX, y: e.clientY };
-      dragStart.current = { x: e.clientX - position.x, y: e.clientY - position.y };
+      dragStart.current = {
+        x: e.clientX - position.x,
+        y: e.clientY - position.y,
+      };
     } else if (activePointers.current.size === 2) {
       const points = Array.from(activePointers.current.values());
       const dx = points[0].x - points[1].x;
@@ -83,7 +88,11 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
       const newX = e.clientX - dragStart.current.x;
       const newY = e.clientY - dragStart.current.y;
       setPosition({ x: newX, y: newY });
-    } else if (activePointers.current.size === 2 && initialPinchDistance.current !== null && initialPinchPosition.current !== null) {
+    } else if (
+      activePointers.current.size === 2 &&
+      initialPinchDistance.current !== null &&
+      initialPinchPosition.current !== null
+    ) {
       const points = Array.from(activePointers.current.values());
       const dx = points[0].x - points[1].x;
       const dy = points[0].y - points[1].y;
@@ -91,7 +100,10 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
 
       if (initialPinchDistance.current > 0) {
         const factor = currentDistance / initialPinchDistance.current;
-        const newScale = Math.max(1, Math.min(initialPinchScale.current * factor, 4));
+        const newScale = Math.max(
+          1,
+          Math.min(initialPinchScale.current * factor, 4),
+        );
         setScale(newScale);
 
         if (newScale === 1) {
@@ -100,7 +112,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
           const pct = (newScale - 1) / (initialPinchScale.current - 1);
           setPosition({
             x: initialPinchPosition.current.x * pct,
-            y: initialPinchPosition.current.y * pct
+            y: initialPinchPosition.current.y * pct,
           });
         }
       }
@@ -122,7 +134,10 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
       if (scale > 1) {
         setIsDragging(true);
         dragStartPos.current = { x: remainingPoint.x, y: remainingPoint.y };
-        dragStart.current = { x: remainingPoint.x - position.x, y: remainingPoint.y - position.y };
+        dragStart.current = {
+          x: remainingPoint.x - position.x,
+          y: remainingPoint.y - position.y,
+        };
       }
     } else {
       setIsDragging(false);
@@ -132,12 +147,12 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
   const handleWheel = (e: React.WheelEvent<HTMLImageElement>) => {
     const zoomFactor = 0.15;
     const direction = e.deltaY < 0 ? 1 : -1;
-    setScale(prev => {
+    setScale((prev) => {
       const next = Math.max(1, Math.min(prev + direction * zoomFactor, 4));
       if (next === 1) {
         setPosition({ x: 0, y: 0 });
       } else if (direction < 0 && prev > 1) {
-        setPosition(pos => ({
+        setPosition((pos) => ({
           x: pos.x * ((next - 1) / (prev - 1)),
           y: pos.y * ((next - 1) / (prev - 1)),
         }));
@@ -158,16 +173,16 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
   };
 
   const zoomIn = () => {
-    setScale(prev => Math.min(prev + 0.5, 4));
+    setScale((prev) => Math.min(prev + 0.5, 4));
   };
 
   const zoomOut = () => {
-    setScale(prev => {
+    setScale((prev) => {
       const next = Math.max(prev - 0.5, 1);
       if (next === 1) {
         setPosition({ x: 0, y: 0 });
       } else {
-        setPosition(pos => ({
+        setPosition((pos) => ({
           x: pos.x * ((next - 1) / (prev - 1)),
           y: pos.y * ((next - 1) / (prev - 1)),
         }));
@@ -185,7 +200,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
   // Close lightbox on Escape key press & lock body scroll / touch gestures on mobile
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         onClose();
       }
     };
@@ -200,16 +215,16 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
       e.preventDefault();
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('touchstart', handleTouchStart, { passive: false });
-    window.addEventListener('touchmove', handleTouchMove, { passive: false });
-    document.body.style.overflow = 'hidden';
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("touchstart", handleTouchStart, { passive: false });
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
+    document.body.style.overflow = "hidden";
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
-      document.body.style.overflow = 'unset';
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      document.body.style.overflow = "unset";
     };
   }, [onClose]);
 
@@ -219,7 +234,11 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={prefersReducedMotion ? { duration: 0.15 } : { duration: 0.2, ease: 'easeOut' }}
+      transition={
+        prefersReducedMotion
+          ? { duration: 0.15 }
+          : { duration: 0.2, ease: "easeOut" }
+      }
       onClick={onClose}
     >
       <motion.div
@@ -230,8 +249,12 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
         initial={{ scale: prefersReducedMotion ? 1 : 0.96, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: prefersReducedMotion ? 1 : 0.96, opacity: 0 }}
-        transition={prefersReducedMotion ? { duration: 0.15 } : { type: 'spring', damping: 30, stiffness: 350 }}
-        onClick={e => e.stopPropagation()}
+        transition={
+          prefersReducedMotion
+            ? { duration: 0.15 }
+            : { type: "spring", damping: 30, stiffness: 350 }
+        }
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Full Viewport for Diagram (Responsive flex) */}
         <div className="flex-1 md:h-full w-full bg-surface overflow-hidden flex items-center justify-center relative p-4 md:p-6 touch-none">
@@ -240,9 +263,10 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
             alt={item.title}
             style={{
               transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
-              cursor: scale > 1 ? (isDragging ? 'grabbing' : 'grab') : 'zoom-in',
-              transformOrigin: 'center center',
-              transition: isDragging ? 'none' : 'transform 0.15s ease-out',
+              cursor:
+                scale > 1 ? (isDragging ? "grabbing" : "grab") : "zoom-in",
+              transformOrigin: "center center",
+              transition: isDragging ? "none" : "transform 0.15s ease-out",
             }}
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
@@ -269,7 +293,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
               className="flex-shrink-0"
             >
               <LiquidGlass
-                as={scale > 1 ? 'button' : 'span'}
+                as={scale > 1 ? "button" : "span"}
                 roundedClass="rounded-full"
                 interactive={scale > 1}
                 springScale={scale > 1}
@@ -279,7 +303,9 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
                 magnetic={scale > 1}
                 magneticStrength={0.04}
               >
-                {scale > 1 && (isMobile || isScaleHovered) ? 'Reset' : `${Math.round(scale * 100)}%`}
+                {scale > 1 && (isMobile || isScaleHovered)
+                  ? "Reset"
+                  : `${Math.round(scale * 100)}%`}
               </LiquidGlass>
             </span>
 
@@ -328,8 +354,15 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
 
         {/* Bottom text info overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-20 pointer-events-none">
-          <p id="lightbox-title" className="text-sm font-medium text-white mb-1 text-balance">{item.title}</p>
-          <p className="text-xs text-white/80 text-pretty">{item.description}</p>
+          <p
+            id="lightbox-title"
+            className="text-sm font-medium text-white mb-1 text-balance"
+          >
+            {item.title}
+          </p>
+          <p className="text-xs text-white/80 text-pretty">
+            {item.description}
+          </p>
         </div>
       </motion.div>
     </motion.div>

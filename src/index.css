@@ -3,23 +3,23 @@
 @import "bpmn-font/dist/css/bpmn.css";
 
 @font-face {
-  font-family: 'Libre Caslon Condensed';
-  src: url('/fonts/LibreCaslonCondensed[wght].woff2') format('woff2');
+  font-family: "Libre Caslon Condensed";
+  src: url("/fonts/LibreCaslonCondensed[wght].woff2") format("woff2");
   font-weight: 400 700;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Libre Caslon Condensed';
-  src: url('/fonts/LibreCaslonCondensed-Italic[wght].woff2') format('woff2');
+  font-family: "Libre Caslon Condensed";
+  src: url("/fonts/LibreCaslonCondensed-Italic[wght].woff2") format("woff2");
   font-weight: 400 700;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'bpmn';
-  src: url('/fonts/bpmn.woff2') format('woff2');
+  font-family: "bpmn";
+  src: url("/fonts/bpmn.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -79,16 +79,14 @@ body {
   background: hsl(var(--muted));
 }
 
-
 .font-display {
-  font-family: 'Libre Caslon Condensed', serif;
+  font-family: "Libre Caslon Condensed", serif;
   letter-spacing: -0.02em;
 }
 
 .tabular-nums {
   font-variant-numeric: tabular-nums;
 }
-
 
 /* Keep keyboard focus visible but suppress focus outlines for pointer/tap interactions */
 :focus:not(:focus-visible) {
@@ -97,7 +95,11 @@ body {
 
 /* Shared highlight pill — used by Navbar, ProcessLibrary, PdfViewerModal tabs */
 .highlight-pill {
-  background: linear-gradient(90deg, rgba(122, 123, 191, 0.1) 0%, rgba(102, 103, 171, 0.1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(122, 123, 191, 0.1) 0%,
+    rgba(102, 103, 171, 0.1) 100%
+  );
   border: 1px solid rgba(255, 255, 255, 0.04);
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.25),
@@ -110,7 +112,10 @@ body {
   background: rgba(122, 123, 191, 0.2) !important;
   border-color: rgba(255, 255, 255, 0.04) !important;
   box-shadow: none !important;
-  transition: background-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 200ms cubic-bezier(0.25, 0.1, 0.25, 1), border-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition:
+    background-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 200ms cubic-bezier(0.25, 0.1, 0.25, 1),
+    border-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 /* Active state (hovering, scrolling, transitioning) - solid rgba(122, 123, 191, 0.1) with box-shadows */
@@ -121,15 +126,19 @@ body {
     inset 0 1px 1px rgba(255, 255, 255, 0.25),
     inset 0 4px 8px rgba(255, 255, 255, 0.03),
     0 4px 10px rgba(0, 0, 0, 0.08) !important;
-  transition: background-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 200ms cubic-bezier(0.25, 0.1, 0.25, 1), border-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition:
+    background-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 200ms cubic-bezier(0.25, 0.1, 0.25, 1),
+    border-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 /* Custom transition for the main navbar capsule matching the site-wide duration and bezier curve */
 .navbar-capsule {
-  transition: border-color 400ms cubic-bezier(0.25, 0.1, 0.25, 1),
-              background-color 400ms cubic-bezier(0.25, 0.1, 0.25, 1),
-              backdrop-filter 400ms cubic-bezier(0.25, 0.1, 0.25, 1),
-              -webkit-backdrop-filter 400ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition:
+    border-color 400ms cubic-bezier(0.25, 0.1, 0.25, 1),
+    background-color 400ms cubic-bezier(0.25, 0.1, 0.25, 1),
+    backdrop-filter 400ms cubic-bezier(0.25, 0.1, 0.25, 1),
+    -webkit-backdrop-filter 400ms cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 /* CV modal scrollbar */
@@ -145,8 +154,6 @@ body {
   background: hsl(var(--stroke));
   border-radius: 2px;
 }
-
-
 
 /* Fine pointer hover transitions for dynamic lists */
 .skill-item-hover {

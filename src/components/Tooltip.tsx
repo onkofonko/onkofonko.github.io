@@ -1,6 +1,6 @@
-import React, { useState, useRef, useLayoutEffect } from 'react';
-import { createPortal } from 'react-dom';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import React, { useState, useRef, useLayoutEffect } from "react";
+import { createPortal } from "react-dom";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 
 // Coordinated delay manager module-level variables
 let globalLastActiveTooltipTime = 0;
@@ -14,7 +14,7 @@ interface TooltipProps {
 export default function Tooltip({ content, children }: TooltipProps) {
   const [visible, setVisible] = useState(false);
   const [isInstant, setIsInstant] = useState(false);
-  const [coords, setCoords] = useState({ top: 0, left: 0, position: 'top' });
+  const [coords, setCoords] = useState({ top: 0, left: 0, position: "top" });
   const triggerRef = useRef<HTMLSpanElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -47,7 +47,8 @@ export default function Tooltip({ content, children }: TooltipProps) {
 
     const now = Date.now();
     const timeSinceLastActive = now - globalLastActiveTooltipTime;
-    const isCloseSequence = globalActiveTooltipCount > 0 || timeSinceLastActive < 350;
+    const isCloseSequence =
+      globalActiveTooltipCount > 0 || timeSinceLastActive < 350;
 
     if (isCloseSequence) {
       globalActiveTooltipCount = globalActiveTooltipCount + 1;
@@ -90,12 +91,12 @@ export default function Tooltip({ content, children }: TooltipProps) {
 
       let top = triggerRect.top - tooltipRect.height - 8;
       let left = triggerRect.left + (triggerRect.width - tooltipRect.width) / 2;
-      let position = 'top';
+      let position = "top";
 
       // Flip to bottom if overflowing top of screen
       if (top < 8) {
         top = triggerRect.bottom + 8;
-        position = 'bottom';
+        position = "bottom";
       }
 
       // Adjust horizontal overflow
@@ -109,17 +110,17 @@ export default function Tooltip({ content, children }: TooltipProps) {
       setCoords({
         top: top + window.scrollY,
         left: left + window.scrollX,
-        position
+        position,
       });
     };
 
     updatePosition();
 
-    window.addEventListener('scroll', updatePosition, { passive: true });
-    window.addEventListener('resize', updatePosition);
+    window.addEventListener("scroll", updatePosition, { passive: true });
+    window.addEventListener("resize", updatePosition);
     return () => {
-      window.removeEventListener('scroll', updatePosition);
-      window.removeEventListener('resize', updatePosition);
+      window.removeEventListener("scroll", updatePosition);
+      window.removeEventListener("resize", updatePosition);
     };
   }, [visible]);
 
@@ -144,27 +145,35 @@ export default function Tooltip({ content, children }: TooltipProps) {
               initial={{
                 opacity: 0,
                 scale: prefersReducedMotion ? 1 : 0.95,
-                y: prefersReducedMotion ? 0 : coords.position === 'top' ? 4 : -4
+                y: prefersReducedMotion
+                  ? 0
+                  : coords.position === "top"
+                    ? 4
+                    : -4,
               }}
               animate={{
                 opacity: isPositioned ? 1 : 0,
                 scale: 1,
-                y: 0
+                y: 0,
               }}
               exit={{
                 opacity: 0,
                 scale: prefersReducedMotion ? 1 : 0.95,
-                y: prefersReducedMotion ? 0 : coords.position === 'top' ? 2 : -2
+                y: prefersReducedMotion
+                  ? 0
+                  : coords.position === "top"
+                    ? 2
+                    : -2,
               }}
               transition={
                 prefersReducedMotion
                   ? { duration: 0.1 }
                   : isInstant
                     ? { duration: 0 }
-                    : { type: 'spring', stiffness: 400, damping: 25, mass: 0.8 }
+                    : { type: "spring", stiffness: 400, damping: 25, mass: 0.8 }
               }
               style={{
-                position: 'absolute',
+                position: "absolute",
                 top: coords.top,
                 left: coords.left,
                 zIndex: 9999,
@@ -175,9 +184,8 @@ export default function Tooltip({ content, children }: TooltipProps) {
             </motion.div>
           )}
         </AnimatePresence>,
-        document.body
+        document.body,
       )}
     </span>
   );
 }
-

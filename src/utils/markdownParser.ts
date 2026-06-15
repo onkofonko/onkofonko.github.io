@@ -37,46 +37,56 @@ export interface CaseStudyDetail {
 const NEWLINE_REGEX = /\r?\n/;
 const QUOTE_TRIM_REGEX = /^['"]|['"]$/g;
 
-export function parseMarkdownArticle(filename: string, rawText: string): Article {
-  const parts = rawText.split('---');
+export function parseMarkdownArticle(
+  filename: string,
+  rawText: string,
+): Article {
+  const parts = rawText.split("---");
   if (parts.length < 3) {
-    throw new Error(`Invalid markdown format in ${filename}. Must contain YAML frontmatter surrounded by '---'.`);
+    throw new Error(
+      `Invalid markdown format in ${filename}. Must contain YAML frontmatter surrounded by '---'.`,
+    );
   }
 
   const frontmatter = parts[1];
-  const body = parts.slice(2).join('---').trim();
+  const body = parts.slice(2).join("---").trim();
 
   // Parse frontmatter (YAML keys)
   const metadata: Record<string, string> = {};
-  frontmatter.split(NEWLINE_REGEX).forEach(line => {
-    const colonIdx = line.indexOf(':');
+  frontmatter.split(NEWLINE_REGEX).forEach((line) => {
+    const colonIdx = line.indexOf(":");
     if (colonIdx !== -1) {
       const key = line.substring(0, colonIdx).trim();
       const val = line.substring(colonIdx + 1).trim();
-      metadata[key] = val.replace(QUOTE_TRIM_REGEX, '');
+      metadata[key] = val.replace(QUOTE_TRIM_REGEX, "");
     }
   });
 
-  const id = metadata.id || filename.replace(/\.md$/, '');
-  const title = metadata.title || 'Untitled';
-  const subtitle = metadata.subtitle || '';
-  
+  const id = metadata.id || filename.replace(/\.md$/, "");
+  const title = metadata.title || "Untitled";
+  const subtitle = metadata.subtitle || "";
+
   // Calculate read time dynamically (200 words per minute average) if not provided in YAML metadata
   const wordCount = body.split(/\s+/).filter(Boolean).length;
   const computedReadTime = `${Math.max(1, Math.ceil(wordCount / 200))} min read`;
   const readTime = metadata.readTime || computedReadTime;
 
-  const date = metadata.date || '';
-  const image = metadata.image || '';
+  const date = metadata.date || "";
+  const image = metadata.image || "";
 
   // Parse body line by line
-  const sections: Article['content'] = [];
-  let currentSection: typeof sections[number] = { paragraphs: [] };
-  let currentParagraph = '';
+  const sections: Article["content"] = [];
+  let currentSection: (typeof sections)[number] = { paragraphs: [] };
+  let currentParagraph = "";
   let inBulletPoints = false;
 
   const commitCurrentSection = () => {
-    if (currentSection.paragraphs.length > 0 || currentSection.sectionTitle || currentSection.bulletPoints || currentSection.table) {
+    if (
+      currentSection.paragraphs.length > 0 ||
+      currentSection.sectionTitle ||
+      currentSection.bulletPoints ||
+      currentSection.table
+    ) {
       sections.push(currentSection);
     }
   };
@@ -86,54 +96,54 @@ export function parseMarkdownArticle(filename: string, rawText: string): Article
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
 
-    if (line.startsWith('### ')) {
+    if (line.startsWith("### ")) {
       if (currentParagraph) {
         currentSection.paragraphs.push(currentParagraph);
-        currentParagraph = '';
+        currentParagraph = "";
       }
       commitCurrentSection();
 
       currentSection = {
         sectionTitle: line.substring(4).trim(),
-        paragraphs: []
+        paragraphs: [],
       };
       inBulletPoints = false;
-    } else if (line.startsWith('|')) {
+    } else if (line.startsWith("|")) {
       if (currentParagraph) {
         currentSection.paragraphs.push(currentParagraph);
-        currentParagraph = '';
+        currentParagraph = "";
       }
-      
-      const cells = line.split('|').map(c => c.trim());
-      if (line.startsWith('|')) cells.shift();
-      if (line.endsWith('|')) cells.pop();
-      
-      const isSeparator = cells.every(c => /^[:\-\s]*$/.test(c));
+
+      const cells = line.split("|").map((c) => c.trim());
+      if (line.startsWith("|")) cells.shift();
+      if (line.endsWith("|")) cells.pop();
+
+      const isSeparator = cells.every((c) => /^[:\-\s]*$/.test(c));
       if (!isSeparator) {
         if (!currentSection.table) {
           currentSection.table = {
             headers: cells,
-            rows: []
+            rows: [],
           };
         } else {
           currentSection.table.rows.push(cells);
         }
       }
       inBulletPoints = false;
-    } else if (line.startsWith('- ') || line.startsWith('* ')) {
+    } else if (line.startsWith("- ") || line.startsWith("* ")) {
       if (currentParagraph) {
         currentSection.paragraphs.push(currentParagraph);
-        currentParagraph = '';
+        currentParagraph = "";
       }
       if (!currentSection.bulletPoints) {
         currentSection.bulletPoints = [];
       }
       currentSection.bulletPoints.push(line.substring(2).trim());
       inBulletPoints = true;
-    } else if (line === '') {
+    } else if (line === "") {
       if (currentParagraph) {
         currentSection.paragraphs.push(currentParagraph);
-        currentParagraph = '';
+        currentParagraph = "";
       }
       inBulletPoints = false;
     } else {
@@ -141,7 +151,7 @@ export function parseMarkdownArticle(filename: string, rawText: string): Article
         inBulletPoints = false;
       }
       if (currentParagraph) {
-        currentParagraph += ' ' + line;
+        currentParagraph += " " + line;
       } else {
         currentParagraph = line;
       }
@@ -160,62 +170,73 @@ export function parseMarkdownArticle(filename: string, rawText: string): Article
     readTime,
     date,
     image,
-    content: sections
+    content: sections,
   };
 }
 
-export function parseCaseStudy(filename: string, rawText: string): CaseStudyDetail {
-  const parts = rawText.split('---');
+export function parseCaseStudy(
+  filename: string,
+  rawText: string,
+): CaseStudyDetail {
+  const parts = rawText.split("---");
   if (parts.length < 3) {
-    throw new Error(`Invalid markdown format in ${filename}. Must contain YAML frontmatter surrounded by '---'.`);
+    throw new Error(
+      `Invalid markdown format in ${filename}. Must contain YAML frontmatter surrounded by '---'.`,
+    );
   }
 
   const frontmatter = parts[1];
-  const body = parts.slice(2).join('---').trim();
+  const body = parts.slice(2).join("---").trim();
 
   // Parse frontmatter
   const metadata: Record<string, string> = {};
-  frontmatter.split(NEWLINE_REGEX).forEach(line => {
-    const colonIdx = line.indexOf(':');
+  frontmatter.split(NEWLINE_REGEX).forEach((line) => {
+    const colonIdx = line.indexOf(":");
     if (colonIdx !== -1) {
       const key = line.substring(0, colonIdx).trim();
       const val = line.substring(colonIdx + 1).trim();
-      metadata[key] = val.replace(QUOTE_TRIM_REGEX, '');
+      metadata[key] = val.replace(QUOTE_TRIM_REGEX, "");
     }
   });
 
-  const id = metadata.id || filename.replace(/\.md$/, '');
-  const title = metadata.title || 'Untitled';
-  const subtitle = metadata.subtitle || '';
-  const category = metadata.category || '';
-  const challenge = metadata.challenge || '';
-  const solution = metadata.solution || '';
-  const timeline = metadata.timeline || '';
-  const client = metadata.client || '';
+  const id = metadata.id || filename.replace(/\.md$/, "");
+  const title = metadata.title || "Untitled";
+  const subtitle = metadata.subtitle || "";
+  const category = metadata.category || "";
+  const challenge = metadata.challenge || "";
+  const solution = metadata.solution || "";
+  const timeline = metadata.timeline || "";
+  const client = metadata.client || "";
 
   // Parse tools (comma-separated list)
-  const tools = metadata.tools 
-    ? metadata.tools.split(',').map(t => t.trim()).filter(Boolean)
+  const tools = metadata.tools
+    ? metadata.tools
+        .split(",")
+        .map((t) => t.trim())
+        .filter(Boolean)
     : [];
 
   // Parse results: "37% | Reduction in picking time; 19.4% | Improvement..."
   const results = metadata.results
-    ? metadata.results.split(';').map(item => {
-        const pipeIndex = item.indexOf('|');
-        if (pipeIndex !== -1) {
-          return {
-            metric: item.substring(0, pipeIndex).trim(),
-            description: item.substring(pipeIndex + 1).trim()
-          };
-        }
-        return { metric: item.trim(), description: '' };
-      }).filter(r => r.metric)
+    ? metadata.results
+        .split(";")
+        .map((item) => {
+          const pipeIndex = item.indexOf("|");
+          if (pipeIndex !== -1) {
+            return {
+              metric: item.substring(0, pipeIndex).trim(),
+              description: item.substring(pipeIndex + 1).trim(),
+            };
+          }
+          return { metric: item.trim(), description: "" };
+        })
+        .filter((r) => r.metric)
     : [];
 
   // Parse body line by line
   const lines = body.split(NEWLINE_REGEX);
-  let longDescription = '';
-  let currentHeader = '';
+  let longDescription = "";
+  let currentHeader = "";
   const asIsFlow: string[] = [];
   const toBeFlow: string[] = [];
   const methodology: string[] = [];
@@ -223,24 +244,32 @@ export function parseCaseStudy(filename: string, rawText: string): CaseStudyDeta
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
-    if (line.startsWith('### ')) {
+    if (line.startsWith("### ")) {
       currentHeader = line.substring(4).trim().toLowerCase();
-    } else if (line.startsWith('- ') || line.startsWith('* ')) {
+    } else if (line.startsWith("- ") || line.startsWith("* ")) {
       const item = line.substring(2).trim();
-      if (currentHeader.includes('as-is') || currentHeader.includes('source') || currentHeader.includes('legacy')) {
+      if (
+        currentHeader.includes("as-is") ||
+        currentHeader.includes("source") ||
+        currentHeader.includes("legacy")
+      ) {
         asIsFlow.push(item);
-      } else if (currentHeader.includes('to-be') || currentHeader.includes('model') || currentHeader.includes('bpmn')) {
+      } else if (
+        currentHeader.includes("to-be") ||
+        currentHeader.includes("model") ||
+        currentHeader.includes("bpmn")
+      ) {
         toBeFlow.push(item);
-      } else if (currentHeader.includes('methodology')) {
+      } else if (currentHeader.includes("methodology")) {
         methodology.push(item);
-      } else if (currentHeader.includes('deliverable')) {
+      } else if (currentHeader.includes("deliverable")) {
         deliverables.push(item);
       }
-    } else if (line !== '') {
+    } else if (line !== "") {
       // If we don't have a header yet, it goes into the long description
       if (!currentHeader) {
         if (longDescription) {
-          longDescription += ' ' + line;
+          longDescription += " " + line;
         } else {
           longDescription = line;
         }
@@ -263,6 +292,6 @@ export function parseCaseStudy(filename: string, rawText: string): CaseStudyDeta
     asIsFlow,
     toBeFlow,
     methodology,
-    deliverables
+    deliverables,
   };
 }

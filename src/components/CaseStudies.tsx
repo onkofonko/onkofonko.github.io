@@ -1,11 +1,11 @@
-import { useState, useEffect, memo, useCallback } from 'react';
-import { motion, AnimatePresence, animate } from 'motion/react';
-import { AlertCircle, CheckCircle, FileText, Activity } from 'lucide-react';
-import { CASE_STUDIES, type CaseStudyDetail } from '../data/caseStudies';
-import LiquidGlass from './LiquidGlass';
-import BpmnNodeBadge from './BpmnNodeBadge';
-import BaseDrawer from './BaseDrawer';
-import { useModalHistory } from '../hooks/useModalHistory';
+import { useState, useEffect, memo, useCallback } from "react";
+import { motion, AnimatePresence, animate } from "motion/react";
+import { AlertCircle, CheckCircle, FileText, Activity } from "lucide-react";
+import { CASE_STUDIES, type CaseStudyDetail } from "../data/caseStudies";
+import LiquidGlass from "./LiquidGlass";
+import BpmnNodeBadge from "./BpmnNodeBadge";
+import BaseDrawer from "./BaseDrawer";
+import { useModalHistory } from "../hooks/useModalHistory";
 
 const AMPERSAND_REGEX = /&/g;
 const LT_REGEX = /</g;
@@ -16,12 +16,15 @@ const CODE_REGEX = /`(.*?)`/g;
 
 const parseInlineMarkdown = (text: string) => {
   return text
-    .replace(AMPERSAND_REGEX, '&amp;')
-    .replace(LT_REGEX, '&lt;')
-    .replace(GT_REGEX, '&gt;')
-    .replace(BOLD_REGEX, '<strong>$1</strong>')
-    .replace(ITALIC_REGEX, '<em>$1</em>')
-    .replace(CODE_REGEX, '<code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-xs font-mono">$1</code>');
+    .replace(AMPERSAND_REGEX, "&amp;")
+    .replace(LT_REGEX, "&lt;")
+    .replace(GT_REGEX, "&gt;")
+    .replace(BOLD_REGEX, "<strong>$1</strong>")
+    .replace(ITALIC_REGEX, "<em>$1</em>")
+    .replace(
+      CODE_REGEX,
+      '<code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-xs font-mono">$1</code>',
+    );
 };
 
 const headerVariants = {
@@ -52,7 +55,9 @@ const cardVariants = {
 };
 
 function CaseStudies() {
-  const [selectedStudy, setSelectedStudy] = useState<CaseStudyDetail | null>(null);
+  const [selectedStudy, setSelectedStudy] = useState<CaseStudyDetail | null>(
+    null,
+  );
 
   const handleCloseStudy = useCallback(() => {
     setSelectedStudy(null);
@@ -62,14 +67,17 @@ function CaseStudies() {
   useModalHistory(selectedStudy !== null, handleCloseStudy);
 
   return (
-    <section id="work" className="bg-transparent pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
+    <section
+      id="work"
+      className="bg-transparent pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24"
+    >
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
         {/* Header */}
         <motion.div
           variants={headerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
           className="mb-12 md:mb-16 relative z-30"
         >
           <div className="mb-4">
@@ -82,7 +90,8 @@ function CaseStudies() {
             Process transformation projects
           </h2>
           <p className="text-sm text-muted max-w-sm text-pretty">
-            Real-world analysis and digital solutions across supply chain, logistics, and HR domains.
+            Real-world analysis and digital solutions across supply chain,
+            logistics, and HR domains.
           </p>
         </motion.div>
 
@@ -92,13 +101,10 @@ function CaseStudies() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: "-80px" }}
         >
           {CASE_STUDIES.map((study) => (
-            <motion.article
-              key={study.id}
-              variants={cardVariants}
-            >
+            <motion.article key={study.id} variants={cardVariants}>
               <CaseStudyCard study={study} onOpen={setSelectedStudy} />
             </motion.article>
           ))}
@@ -120,7 +126,10 @@ interface CardProps {
   onOpen: (study: CaseStudyDetail) => void;
 }
 
-const CaseStudyCard = memo(function CaseStudyCard({ study, onOpen }: CardProps) {
+const CaseStudyCard = memo(function CaseStudyCard({
+  study,
+  onOpen,
+}: CardProps) {
   return (
     <LiquidGlass
       as="article"
@@ -151,10 +160,17 @@ const CaseStudyCard = memo(function CaseStudyCard({ study, onOpen }: CardProps) 
           {/* Challenge */}
           <div>
             <div className="flex items-start gap-3 mb-2">
-              <AlertCircle size={16} className="text-muted flex-shrink-0 mt-0.5" />
+              <AlertCircle
+                size={16}
+                className="text-muted flex-shrink-0 mt-0.5"
+              />
               <div>
-                <p className="text-xs text-muted uppercase font-semibold mb-1">Challenge</p>
-                <p className="text-sm text-text-primary/80 text-pretty">{study.challenge}</p>
+                <p className="text-xs text-muted uppercase font-semibold mb-1">
+                  Challenge
+                </p>
+                <p className="text-sm text-text-primary/80 text-pretty">
+                  {study.challenge}
+                </p>
               </div>
             </div>
           </div>
@@ -162,17 +178,24 @@ const CaseStudyCard = memo(function CaseStudyCard({ study, onOpen }: CardProps) 
           {/* Solution */}
           <div>
             <div className="flex items-start gap-3">
-              <CheckCircle size={16} className="text-accent flex-shrink-0 mt-0.5" />
+              <CheckCircle
+                size={16}
+                className="text-accent flex-shrink-0 mt-0.5"
+              />
               <div>
-                <p className="text-xs text-muted uppercase font-semibold mb-1">Solution</p>
-                <p className="text-sm text-text-primary/80 text-pretty">{study.solution}</p>
+                <p className="text-xs text-muted uppercase font-semibold mb-1">
+                  Solution
+                </p>
+                <p className="text-sm text-text-primary/80 text-pretty">
+                  {study.solution}
+                </p>
               </div>
             </div>
           </div>
 
           {/* Tools */}
           <div className="flex flex-wrap gap-2 pt-2">
-            {study.tools.map(tool => (
+            {study.tools.map((tool) => (
               <span
                 key={tool}
                 className="text-xs bg-stroke/20 text-muted rounded-full px-3 py-1 border border-stroke/30"
@@ -186,22 +209,33 @@ const CaseStudyCard = memo(function CaseStudyCard({ study, onOpen }: CardProps) 
         {/* Right column: Results, timeline, CTA */}
         <div className="md:col-span-5 flex flex-col justify-between gap-6">
           <div>
-            <p className="text-xs text-muted uppercase font-semibold mb-3">Key Results</p>
+            <p className="text-xs text-muted uppercase font-semibold mb-3">
+              Key Results
+            </p>
             <div className="space-y-3">
               {study.results.map((result, i) => (
-                <div key={i} className="flex items-baseline gap-3 case-study-metric-hover">
+                <div
+                  key={i}
+                  className="flex items-baseline gap-3 case-study-metric-hover"
+                >
                   <span className="text-base md:text-lg font-body font-semibold tracking-tight text-accent tabular-nums case-study-metric-hover-val">
                     {result.metric}
                   </span>
-                  <span className="text-xs md:text-sm text-muted text-pretty case-study-metric-hover-desc">{result.description}</span>
+                  <span className="text-xs md:text-sm text-muted text-pretty case-study-metric-hover-desc">
+                    {result.description}
+                  </span>
                 </div>
               ))}
             </div>
           </div>
 
           <div>
-            <p className="text-xs text-muted uppercase font-semibold mb-2">Timeline</p>
-            <p className="text-sm text-text-primary/80 tabular-nums text-pretty">{study.timeline}</p>
+            <p className="text-xs text-muted uppercase font-semibold mb-2">
+              Timeline
+            </p>
+            <p className="text-sm text-text-primary/80 tabular-nums text-pretty">
+              {study.timeline}
+            </p>
           </div>
 
           {/* Divider */}
@@ -229,15 +263,19 @@ interface MetricCountUpProps {
 
 const NUMERIC_REGEX = /[-+]?\d*\.?\d+/;
 
-const MetricCountUp = memo(function MetricCountUp({ value }: MetricCountUpProps) {
+const MetricCountUp = memo(function MetricCountUp({
+  value,
+}: MetricCountUpProps) {
   const numericPart = value.match(NUMERIC_REGEX);
   const target = numericPart ? parseFloat(numericPart[0]) : 0;
   const isNumeric = !!numericPart;
 
   const startIndex = numericPart ? value.indexOf(numericPart[0]) : -1;
-  const prefix = numericPart ? value.substring(0, startIndex) : '';
-  const suffix = numericPart ? value.substring(startIndex + numericPart[0].length) : '';
-  const hasPlus = value.trim().startsWith('+');
+  const prefix = numericPart ? value.substring(0, startIndex) : "";
+  const suffix = numericPart
+    ? value.substring(startIndex + numericPart[0].length)
+    : "";
+  const hasPlus = value.trim().startsWith("+");
 
   const [displayValue, setDisplayValue] = useState(0);
 
@@ -247,8 +285,10 @@ const MetricCountUp = memo(function MetricCountUp({ value }: MetricCountUpProps)
       duration: 0.6,
       ease: [0.25, 0.1, 0.25, 1],
       onUpdate(val) {
-        setDisplayValue(target % 1 === 0 ? Math.floor(val) : parseFloat(val.toFixed(1)));
-      }
+        setDisplayValue(
+          target % 1 === 0 ? Math.floor(val) : parseFloat(val.toFixed(1)),
+        );
+      },
     });
     return () => controls.stop();
   }, [target, isNumeric]);
@@ -257,9 +297,8 @@ const MetricCountUp = memo(function MetricCountUp({ value }: MetricCountUpProps)
     return <span>{value}</span>;
   }
 
-  const displayPrefix = hasPlus && displayValue === 0 
-    ? prefix.replace('+', '') 
-    : prefix;
+  const displayPrefix =
+    hasPlus && displayValue === 0 ? prefix.replace("+", "") : prefix;
 
   return (
     <span>
@@ -276,8 +315,8 @@ const drawerContentVariants = {
     transition: {
       staggerChildren: 0.08,
       delayChildren: 0.15,
-    }
-  }
+    },
+  },
 };
 
 const drawerItemVariants = {
@@ -285,11 +324,14 @@ const drawerItemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: 'spring' as const, damping: 25, stiffness: 220 }
-  }
+    transition: { type: "spring" as const, damping: 25, stiffness: 220 },
+  },
 };
 
-const CaseStudyDrawer = memo(function CaseStudyDrawer({ study, onClose }: DrawerProps) {
+const CaseStudyDrawer = memo(function CaseStudyDrawer({
+  study,
+  onClose,
+}: DrawerProps) {
   return (
     <BaseDrawer
       title="Process Audit Case File"
@@ -312,32 +354,47 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({ study, onClose }: Drawer
           <h3 className="text-2xl md:text-3xl font-display text-text-primary mt-2 text-balance">
             {study.title}
           </h3>
-          <p className="text-xs text-muted mt-0.5 text-pretty">{study.subtitle}</p>
+          <p className="text-xs text-muted mt-0.5 text-pretty">
+            {study.subtitle}
+          </p>
         </motion.div>
 
         {/* Core Info */}
         <motion.div variants={drawerItemVariants} className="space-y-4">
-          <h3 className="text-xs text-muted uppercase border-b border-stroke pb-1 text-balance">Client Profile</h3>
-          <p 
+          <h3 className="text-xs text-muted uppercase border-b border-stroke pb-1 text-balance">
+            Client Profile
+          </h3>
+          <p
             className="text-sm text-text-primary/95 font-medium leading-relaxed text-pretty"
-            dangerouslySetInnerHTML={{ __html: parseInlineMarkdown(study.client) }}
+            dangerouslySetInnerHTML={{
+              __html: parseInlineMarkdown(study.client),
+            }}
           />
-          <p 
+          <p
             className="text-sm text-muted leading-relaxed mt-2 text-pretty"
-            dangerouslySetInnerHTML={{ __html: parseInlineMarkdown(study.longDescription) }}
+            dangerouslySetInnerHTML={{
+              __html: parseInlineMarkdown(study.longDescription),
+            }}
           />
         </motion.div>
 
         {/* Results Grid */}
         <motion.div variants={drawerItemVariants} className="space-y-4">
-          <h3 className="text-xs text-muted uppercase border-b border-stroke pb-1 text-balance">Proven Operations Impact</h3>
+          <h3 className="text-xs text-muted uppercase border-b border-stroke pb-1 text-balance">
+            Proven Operations Impact
+          </h3>
           <div className="grid grid-cols-3 gap-3">
             {study.results.map((res, i) => (
-              <div key={i} className="bg-white/[0.02] border border-white/5 rounded-xl p-3 text-center">
+              <div
+                key={i}
+                className="bg-white/[0.02] border border-white/5 rounded-xl p-3 text-center"
+              >
                 <p className="text-lg md:text-xl font-body font-semibold tracking-tight text-accent tabular-nums">
                   <MetricCountUp value={res.metric} />
                 </p>
-                <p className="text-[10px] text-muted uppercase mt-1 text-pretty">{res.description}</p>
+                <p className="text-[10px] text-muted uppercase mt-1 text-pretty">
+                  {res.description}
+                </p>
               </div>
             ))}
           </div>
@@ -345,7 +402,9 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({ study, onClose }: Drawer
 
         {/* AS-IS vs TO-BE comparison */}
         <motion.div variants={drawerItemVariants} className="space-y-4">
-          <h3 className="text-xs text-muted uppercase border-b border-stroke pb-1 text-balance">Process Modeling & Auditing</h3>
+          <h3 className="text-xs text-muted uppercase border-b border-stroke pb-1 text-balance">
+            Process Modeling & Auditing
+          </h3>
           <div className="grid md:grid-cols-2 gap-6">
             {/* AS-IS */}
             <div className="bg-red-500/[0.02] border border-red-500/10 rounded-2xl p-4">
@@ -371,7 +430,10 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({ study, onClose }: Drawer
               </div>
               <ul className="space-y-3">
                 {study.toBeFlow.map((step, i) => (
-                  <li key={i} className="text-xs text-text-primary/95 flex gap-2">
+                  <li
+                    key={i}
+                    className="text-xs text-text-primary/95 flex gap-2"
+                  >
                     <span className="text-emerald-400 flex-shrink-0">✓</span>
                     <span className="leading-relaxed text-pretty">{step}</span>
                   </li>
@@ -382,12 +444,20 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({ study, onClose }: Drawer
         </motion.div>
 
         {/* Methodology & Timeline */}
-        <motion.div variants={drawerItemVariants} className="grid md:grid-cols-2 gap-6">
+        <motion.div
+          variants={drawerItemVariants}
+          className="grid md:grid-cols-2 gap-6"
+        >
           <div className="space-y-3">
-            <h4 className="text-xs text-muted uppercase border-b border-stroke pb-1 text-balance">Methodology</h4>
+            <h4 className="text-xs text-muted uppercase border-b border-stroke pb-1 text-balance">
+              Methodology
+            </h4>
             <ul className="space-y-2">
               {study.methodology.map((meth, i) => (
-                <li key={i} className="text-xs text-muted flex items-center gap-2">
+                <li
+                  key={i}
+                  className="text-xs text-muted flex items-center gap-2"
+                >
                   <span className="size-1 rounded-full bg-accent/60" />
                   <span className="text-pretty">{meth}</span>
                 </li>
@@ -396,10 +466,15 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({ study, onClose }: Drawer
           </div>
 
           <div className="space-y-3">
-            <h4 className="text-xs text-muted uppercase border-b border-stroke pb-1 text-balance">Key Deliverables</h4>
+            <h4 className="text-xs text-muted uppercase border-b border-stroke pb-1 text-balance">
+              Key Deliverables
+            </h4>
             <ul className="space-y-2">
               {study.deliverables.map((del, i) => (
-                <li key={i} className="text-xs text-text-primary/80 flex items-center gap-2">
+                <li
+                  key={i}
+                  className="text-xs text-text-primary/80 flex items-center gap-2"
+                >
                   <FileText size={11} className="text-accent flex-shrink-0" />
                   <span className="text-pretty">{del}</span>
                 </li>
@@ -409,7 +484,10 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({ study, onClose }: Drawer
         </motion.div>
 
         {/* CTA / Close */}
-        <motion.div variants={drawerItemVariants} className="pt-6 border-t border-white/5 flex justify-between items-center gap-4">
+        <motion.div
+          variants={drawerItemVariants}
+          className="pt-6 border-t border-white/5 flex justify-between items-center gap-4"
+        >
           <LiquidGlass.Button
             href="mailto:ondrej.michal.ockaj@gmail.com"
             className="px-5 py-2.5 text-xs"
@@ -423,6 +501,6 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({ study, onClose }: Drawer
       </motion.div>
     </BaseDrawer>
   );
-})
+});
 
 export default memo(CaseStudies);

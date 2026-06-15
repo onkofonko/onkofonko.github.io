@@ -1,23 +1,29 @@
-import { Suspense, lazy, useState, useEffect, useRef, useCallback, startTransition } from 'react';
-import { AnimatePresence } from 'motion/react';
-import LoadingScreen from './components/LoadingScreen';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import DeferredSection from './components/DeferredSection.tsx';
-import { ErrorBoundary } from './components/ErrorBoundary';
-import { useModalHistory } from './hooks/useModalHistory';
-
-
+import {
+  Suspense,
+  lazy,
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  startTransition,
+} from "react";
+import { AnimatePresence } from "motion/react";
+import LoadingScreen from "./components/LoadingScreen";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import DeferredSection from "./components/DeferredSection.tsx";
+import { ErrorBoundary } from "./components/ErrorBoundary";
+import { useModalHistory } from "./hooks/useModalHistory";
 
 // Dynamic import functions for preloading
-const loadCaseStudies = () => import('./components/CaseStudies');
-const loadSkills = () => import('./components/Skills');
-const loadProcessLibrary = () => import('./components/ProcessLibrary');
-const loadJournal = () => import('./components/Journal');
-const loadContact = () => import('./components/Contact');
-const loadAurora = () => import('./components/Aurora.tsx');
-const loadPdfViewerModal = () => import('./components/PdfViewerModal');
-const loadBpmnOverlay = () => import('./components/BpmnOverlay');
+const loadCaseStudies = () => import("./components/CaseStudies");
+const loadSkills = () => import("./components/Skills");
+const loadProcessLibrary = () => import("./components/ProcessLibrary");
+const loadJournal = () => import("./components/Journal");
+const loadContact = () => import("./components/Contact");
+const loadAurora = () => import("./components/Aurora.tsx");
+const loadPdfViewerModal = () => import("./components/PdfViewerModal");
+const loadBpmnOverlay = () => import("./components/BpmnOverlay");
 
 const CaseStudies = lazy(loadCaseStudies);
 const Skills = lazy(loadSkills);
@@ -29,27 +35,25 @@ const PdfViewerModal = lazy(loadPdfViewerModal);
 const BpmnOverlay = lazy(loadBpmnOverlay);
 
 const LABEL_MAP: Record<string, string> = {
-  home: 'Home',
-  work: 'Case Studies',
-  skills: 'Skills',
-  processes: 'Process Library',
-  journal: 'Journal',
-  contact: 'Contact'
+  home: "Home",
+  work: "Case Studies",
+  skills: "Skills",
+  processes: "Process Library",
+  journal: "Journal",
+  contact: "Contact",
 };
 
-const AURORA_COLOR_STOPS = ['#1E1B4B', '#312E81', '#6667AB', '#A78BFA'];
-
-
+const AURORA_COLOR_STOPS = ["#1E1B4B", "#312E81", "#6667AB", "#A78BFA"];
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(() => {
     try {
-      return !sessionStorage.getItem('portfolio_loaded');
+      return !sessionStorage.getItem("portfolio_loaded");
     } catch {
       return true;
     }
   });
-  const [activeSection, setActiveSection] = useState('Home');
+  const [activeSection, setActiveSection] = useState("Home");
   const [isCvOpen, setIsCvOpen] = useState(false);
   const ignoreScrollUntil = useRef(0);
   const visibleSections = useRef<Record<string, boolean>>({});
@@ -72,16 +76,16 @@ export default function App() {
         loadContact,
         loadAurora,
         loadPdfViewerModal,
-        loadBpmnOverlay
+        loadBpmnOverlay,
       ];
 
       // Use requestIdleCallback if available to preload when browser is idle
-      if (typeof window.requestIdleCallback === 'function') {
+      if (typeof window.requestIdleCallback === "function") {
         window.requestIdleCallback(() => {
-          preloads.forEach(fn => fn().catch(() => {}));
+          preloads.forEach((fn) => fn().catch(() => {}));
         });
       } else {
-        Promise.all(preloads.map(fn => fn().catch(() => {})));
+        Promise.all(preloads.map((fn) => fn().catch(() => {})));
       }
     }, 1500);
 
@@ -92,11 +96,18 @@ export default function App() {
   useEffect(() => {
     if (isLoading) return;
 
-    const sections = ['home', 'work', 'skills', 'processes', 'journal', 'contact'];
+    const sections = [
+      "home",
+      "work",
+      "skills",
+      "processes",
+      "journal",
+      "contact",
+    ];
     const observer = new IntersectionObserver(
       (entries) => {
         // Update the visibility status of all changed entries
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           visibleSections.current[entry.target.id] = entry.isIntersecting;
         });
 
@@ -104,16 +115,16 @@ export default function App() {
         if (Date.now() < ignoreScrollUntil.current) return;
 
         // Find all currently visible sections based on our visibility map
-        const visible = sections.filter(id => visibleSections.current[id]);
+        const visible = sections.filter((id) => visibleSections.current[id]);
         if (visible.length > 0) {
           const targetId = visible[visible.length - 1];
-          setActiveSection(LABEL_MAP[targetId] || 'Home');
+          setActiveSection(LABEL_MAP[targetId] || "Home");
         }
       },
-      { rootMargin: '-25% 0px -55% 0px' }
+      { rootMargin: "-25% 0px -55% 0px" },
     );
 
-    sections.forEach(id => {
+    sections.forEach((id) => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
     });
@@ -129,8 +140,8 @@ export default function App() {
   }, []);
 
   const handleViewWork = useCallback(() => {
-    handleNavClick('Case Studies');
-    document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+    handleNavClick("Case Studies");
+    document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
   }, [handleNavClick]);
 
   const handleViewCv = useCallback(() => {
@@ -140,7 +151,7 @@ export default function App() {
   const handleLoadingComplete = useCallback(() => {
     setIsLoading(false);
     try {
-      sessionStorage.setItem('portfolio_loaded', 'true');
+      sessionStorage.setItem("portfolio_loaded", "true");
     } catch {
       // Ignore errors (e.g. private browsing restrictions)
     }
@@ -149,14 +160,16 @@ export default function App() {
   // Synchronize activeSection with URL hash
   useEffect(() => {
     if (isLoading) return;
-    const sectionId = Object.keys(LABEL_MAP).find(key => LABEL_MAP[key] === activeSection);
+    const sectionId = Object.keys(LABEL_MAP).find(
+      (key) => LABEL_MAP[key] === activeSection,
+    );
     if (sectionId) {
       const newHash = `#${sectionId}`;
       if (window.location.hash !== newHash) {
         if (Date.now() < ignoreScrollUntil.current) {
-          window.history.pushState(null, '', newHash);
+          window.history.pushState(null, "", newHash);
         } else {
-          window.history.replaceState(null, '', newHash);
+          window.history.replaceState(null, "", newHash);
         }
       }
     }
@@ -174,7 +187,7 @@ export default function App() {
         const element = document.getElementById(targetId);
         if (element) {
           setTimeout(() => {
-            element.scrollIntoView({ behavior: 'smooth' });
+            element.scrollIntoView({ behavior: "smooth" });
           }, 100);
         }
       }
@@ -184,26 +197,51 @@ export default function App() {
   return (
     <>
       <AnimatePresence mode="wait">
-        {isLoading ? <LoadingScreen onComplete={handleLoadingComplete} /> : null}
+        {isLoading ? (
+          <LoadingScreen onComplete={handleLoadingComplete} />
+        ) : null}
       </AnimatePresence>
-
 
       {!isLoading ? (
         <Suspense fallback={null}>
-          <div aria-hidden="true" className="fixed inset-0 pointer-events-none z-0">
-            <div style={{ height: '100%', width: '100%', position: 'relative' }}>
-              <ErrorBoundary fallback={<div className="absolute inset-0 bg-gradient-to-b from-[#1E1B4B] to-[#0a0a0a]" />}>
-                <Aurora colorStops={AURORA_COLOR_STOPS} speed={1.0} amplitude={1.0} blend={0.65} />
+          <div
+            aria-hidden="true"
+            className="fixed inset-0 pointer-events-none z-0"
+          >
+            <div
+              style={{ height: "100%", width: "100%", position: "relative" }}
+            >
+              <ErrorBoundary
+                fallback={
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#1E1B4B] to-[#0a0a0a]" />
+                }
+              >
+                <Aurora
+                  colorStops={AURORA_COLOR_STOPS}
+                  speed={1.0}
+                  amplitude={1.0}
+                  blend={0.65}
+                />
               </ErrorBoundary>
             </div>
           </div>
         </Suspense>
       ) : null}
 
-      <main id="main-content" className="relative z-10 text-text-primary font-body">
-        <div ref={navbarSentinelRef} className="absolute top-[100px] left-0 w-px h-px pointer-events-none opacity-0" />
-        <Navbar activeSection={activeSection} onNavClick={handleNavClick} sentinelRef={navbarSentinelRef} />
-        
+      <main
+        id="main-content"
+        className="relative z-10 text-text-primary font-body"
+      >
+        <div
+          ref={navbarSentinelRef}
+          className="absolute top-[100px] left-0 w-px h-px pointer-events-none opacity-0"
+        />
+        <Navbar
+          activeSection={activeSection}
+          onNavClick={handleNavClick}
+          sentinelRef={navbarSentinelRef}
+        />
+
         <div id="home">
           <Hero onViewCv={handleViewCv} onViewWork={handleViewWork} />
         </div>
@@ -239,13 +277,15 @@ export default function App() {
         </div>
 
         <Suspense fallback={null}>
-          <PdfViewerModal isOpen={isCvOpen} onClose={() => setIsCvOpen(false)} />
+          <PdfViewerModal
+            isOpen={isCvOpen}
+            onClose={() => setIsCvOpen(false)}
+          />
         </Suspense>
 
         <Suspense fallback={null}>
           {!isLoading ? <BpmnOverlay /> : null}
         </Suspense>
-
       </main>
     </>
   );

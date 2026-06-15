@@ -1,4 +1,11 @@
-import { Suspense, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import {
+  Suspense,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
 
 interface DeferredSectionProps {
   children: ReactNode;
@@ -11,12 +18,14 @@ interface DeferredSectionProps {
 export default function DeferredSection({
   children,
   minHeight,
-  rootMargin = '1200px 0px',
+  rootMargin = "1200px 0px",
   className,
   style,
 }: DeferredSectionProps) {
   const hostRef = useRef<HTMLDivElement>(null);
-  const [shouldRender, setShouldRender] = useState(() => typeof IntersectionObserver === 'undefined');
+  const [shouldRender, setShouldRender] = useState(
+    () => typeof IntersectionObserver === "undefined",
+  );
 
   useEffect(() => {
     if (shouldRender) return;
@@ -44,7 +53,15 @@ export default function DeferredSection({
           {children}
         </Suspense>
       ) : (
-        <div aria-hidden style={{ minHeight, contentVisibility: 'auto', containIntrinsicSize: typeof minHeight === 'number' ? `${minHeight}px` : minHeight }} />
+        <div
+          aria-hidden
+          style={{
+            minHeight,
+            contentVisibility: "auto",
+            containIntrinsicSize:
+              typeof minHeight === "number" ? `${minHeight}px` : minHeight,
+          }}
+        />
       )}
     </div>
   );

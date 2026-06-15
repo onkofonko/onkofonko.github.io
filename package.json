@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "analyze": "vite build --mode analyze",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json"
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
+    "prepare": "husky"
   },
   "dependencies": {
     "bpmn-font": "^0.12.1",
@@ -33,6 +34,8 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.7",
     "prettier": "3.8.4",
     "rollup-plugin-visualizer": "^7.0.1",
     "svgo": "^4.0.1",
@@ -41,5 +44,8 @@
     "vite": "^8.0.16",
     "vite-plugin-checker": "^0.14.1",
     "vite-plugin-compression": "^0.5.1"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

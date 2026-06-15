@@ -1,5 +1,10 @@
-import { useState, useEffect, useCallback, useMemo, memo } from 'react';
-import { motion, AnimatePresence, useReducedMotion, Variants } from 'motion/react';
+import { useState, useEffect, useCallback, useMemo, memo } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useReducedMotion,
+  Variants,
+} from "motion/react";
 import {
   X,
   Download,
@@ -13,44 +18,50 @@ import {
   Briefcase,
   GraduationCap,
   Sparkles,
-  Languages
-} from 'lucide-react';
-import LiquidGlass from './LiquidGlass';
-import { SPRING } from '../utils/springConfig';
-import { useIsMobile } from '../hooks/useMediaQuery';
+  Languages,
+} from "lucide-react";
+import LiquidGlass from "./LiquidGlass";
+import { SPRING } from "../utils/springConfig";
+import { useIsMobile } from "../hooks/useMediaQuery";
 
 interface PdfViewerModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
-import { CV_DATA } from '../data/cvData';
+import { CV_DATA } from "../data/cvData";
 
 const modalVariants: Variants = {
   hidden: (prefersReducedMotion: boolean) => ({
     opacity: 0,
     scale: prefersReducedMotion ? 1 : 0.95,
     y: prefersReducedMotion ? 0 : 15,
-    transition: prefersReducedMotion ? { duration: 0.15 } : { type: 'tween' as const, duration: 0.18, ease: [0.25, 0.1, 0.25, 1] as const }
+    transition: prefersReducedMotion
+      ? { duration: 0.15 }
+      : {
+          type: "tween" as const,
+          duration: 0.18,
+          ease: [0.25, 0.1, 0.25, 1] as const,
+        },
   }),
   visible: (prefersReducedMotion: boolean) => ({
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: prefersReducedMotion ? { duration: 0.15 } : SPRING.modal
-  })
+    transition: prefersReducedMotion ? { duration: 0.15 } : SPRING.modal,
+  }),
 };
 
 const WHITESPACE_REGEX = /\s+/g;
 
 function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
   const isMobile = useIsMobile();
-  const [activeTab, setActiveTab] = useState<'pdf' | 'interactive'>('pdf');
-  const [lang, setLang] = useState<'en' | 'sk'>('en');
+  const [activeTab, setActiveTab] = useState<"pdf" | "interactive">("pdf");
+  const [lang, setLang] = useState<"en" | "sk">("en");
   const [pdfLoading, setPdfLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const handleTabChange = useCallback((tab: 'pdf' | 'interactive') => {
+  const handleTabChange = useCallback((tab: "pdf" | "interactive") => {
     setActiveTab(tab);
     setIsTransitioning(true);
   }, []);
@@ -66,15 +77,15 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
   // Esc key closes modal & lock body scroll
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === "Escape") onClose();
     };
 
     if (isOpen) {
-      window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
+      window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
       return () => {
-        window.removeEventListener('keydown', handleKeyDown);
-        document.body.style.overflow = 'unset';
+        window.removeEventListener("keydown", handleKeyDown);
+        document.body.style.overflow = "unset";
       };
     }
   }, [isOpen, onClose]);
@@ -83,7 +94,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
   useEffect(() => {
     if (isMobile && isOpen) {
       const timer = setTimeout(() => {
-        handleTabChange('pdf');
+        handleTabChange("pdf");
       }, 0);
       return () => clearTimeout(timer);
     }
@@ -116,7 +127,8 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
             aria-labelledby="modal-title"
             className="relative w-full h-full md:h-[85vh] md:max-w-5xl bg-surface/85 border-0 md:border md:border-white/10 rounded-none md:rounded-2xl backdrop-blur-2xl flex flex-col overflow-hidden z-10 pointer-events-auto"
             style={{
-              boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 4px 16px rgba(0, 0, 0, 0.6)'
+              boxShadow:
+                "inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 4px 16px rgba(0, 0, 0, 0.6)",
             }}
           >
             {/* Specular sheen header overlay */}
@@ -138,7 +150,12 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                     />
                   </div>
                   <div>
-                    <h3 id="modal-title" className="text-sm font-semibold text-text-primary leading-tight text-balance">Ondrej Michal Očkaj</h3>
+                    <h3
+                      id="modal-title"
+                      className="text-sm font-semibold text-text-primary leading-tight text-balance"
+                    >
+                      Ondrej Michal Očkaj
+                    </h3>
                     <p className="text-xs text-muted flex items-center gap-1 text-pretty">
                       <FileText size={10} className="text-accent" />
                       Curriculum Vitae
@@ -183,24 +200,36 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
               {/* Tab Selector — Navbar-style sliding highlight blob (Desktop only) */}
               <LiquidGlass.Tabs
                 value={activeTab}
-                onChange={(val) => handleTabChange(val as 'pdf' | 'interactive')}
+                onChange={(val) =>
+                  handleTabChange(val as "pdf" | "interactive")
+                }
                 layoutId="active-viewer-tab"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                highlightClassName={isHovered || isTransitioning ? 'navbar-highlight-active' : 'navbar-highlight-flat'}
+                highlightClassName={
+                  isHovered || isTransitioning
+                    ? "navbar-highlight-active"
+                    : "navbar-highlight-flat"
+                }
                 className="hidden md:flex items-center gap-0.5 bg-white/[0.03] p-2 rounded-full border border-white/5"
               >
                 <LiquidGlass.Tab
                   value="pdf"
-                  className={`relative text-xs font-medium rounded-full px-4 py-1.5 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${activeTab === 'pdf' ? 'text-text-primary' : 'text-muted hover:text-text-primary'
-                    }`}
+                  className={`relative text-xs font-medium rounded-full px-4 py-1.5 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                    activeTab === "pdf"
+                      ? "text-text-primary"
+                      : "text-muted hover:text-text-primary"
+                  }`}
                 >
                   PDF Document
                 </LiquidGlass.Tab>
                 <LiquidGlass.Tab
                   value="interactive"
-                  className={`relative text-xs font-medium rounded-full px-4 py-1.5 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${activeTab === 'interactive' ? 'text-text-primary' : 'text-muted hover:text-text-primary'
-                    }`}
+                  className={`relative text-xs font-medium rounded-full px-4 py-1.5 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                    activeTab === "interactive"
+                      ? "text-text-primary"
+                      : "text-muted hover:text-text-primary"
+                  }`}
                 >
                   <span className="flex items-center gap-1">
                     <Sparkles size={11} className="text-accent" />
@@ -245,14 +274,15 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
 
             {/* Viewer Body Content */}
             <div className="flex-1 overflow-hidden relative bg-bg/40">
-
               {/* Tab 1: PDF Document */}
-              {activeTab === 'pdf' ? (
+              {activeTab === "pdf" ? (
                 <div className="absolute inset-0 flex flex-col">
                   {pdfLoading ? (
                     <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-bg/80 z-20">
                       <Loader2 className="animate-spin text-accent" size={32} />
-                      <p className="text-xs text-muted">Loading PDF Document…</p>
+                      <p className="text-xs text-muted">
+                        Loading PDF Document…
+                      </p>
                     </div>
                   ) : null}
                   <iframe
@@ -265,10 +295,9 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
               ) : null}
 
               {/* Tab 2: Interactive Resume HTML */}
-              {activeTab === 'interactive' ? (
+              {activeTab === "interactive" ? (
                 <div className="absolute inset-0 overflow-y-auto custom-cv-scrollbar p-6 md:p-8 lg:p-12">
                   <div className="max-w-4xl mx-auto space-y-10 pb-12">
-
                     {/* CV Heading Card */}
                     <div className="relative p-6 md:p-8 rounded-2xl border border-white/5 bg-surface/30 backdrop-blur-md overflow-hidden flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                       <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-accent/5 to-transparent z-0" />
@@ -276,7 +305,9 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                       <div className="relative z-10">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-xs text-accent uppercase font-semibold bg-accent/10 px-2 py-0.5 rounded">
-                            {lang === 'en' ? 'Active Resume' : 'Aktívny Životopis'}
+                            {lang === "en"
+                              ? "Active Resume"
+                              : "Aktívny Životopis"}
                           </span>
                         </div>
                         <h1 className="text-3xl md:text-4xl font-display text-text-primary mb-1 text-balance">
@@ -294,13 +325,23 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                           </span>
                           <span className="flex items-center gap-1.5">
                             <Mail size={12} className="text-accent/65" />
-                            <a href={`mailto:${activeCv.email}`} className="hover:text-text-primary transition-colors">{activeCv.email}</a>
+                            <a
+                              href={`mailto:${activeCv.email}`}
+                              className="hover:text-text-primary transition-colors"
+                            >
+                              {activeCv.email}
+                            </a>
                           </span>
                           {activeCv.phone && (
                             <span className="flex items-center gap-1.5">
                               <Phone size={12} className="text-accent/65" />
                               {/^[+\d]/.test(activeCv.phone) ? (
-                                <a href={`tel:${activeCv.phone.replace(WHITESPACE_REGEX, '')}`} className="hover:text-text-primary transition-colors">{activeCv.phone}</a>
+                                <a
+                                  href={`tel:${activeCv.phone.replace(WHITESPACE_REGEX, "")}`}
+                                  className="hover:text-text-primary transition-colors"
+                                >
+                                  {activeCv.phone}
+                                </a>
                               ) : (
                                 <span>{activeCv.phone}</span>
                               )}
@@ -312,17 +353,19 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                       {/* Language Toggler */}
                       <div className="relative z-10 self-start md:self-auto flex items-center gap-1.5">
                         <LiquidGlass.Button
-                          onClick={() => setLang('en')}
-                          className={`px-3 py-1.5 text-xs font-semibold flex items-center gap-1 ${lang === 'en' ? 'text-accent' : 'text-muted'
-                            }`}
+                          onClick={() => setLang("en")}
+                          className={`px-3 py-1.5 text-xs font-semibold flex items-center gap-1 ${
+                            lang === "en" ? "text-accent" : "text-muted"
+                          }`}
                         >
                           <Languages size={10} />
                           EN
                         </LiquidGlass.Button>
                         <LiquidGlass.Button
-                          onClick={() => setLang('sk')}
-                          className={`px-3 py-1.5 text-xs font-semibold flex items-center gap-1 ${lang === 'sk' ? 'text-accent' : 'text-muted'
-                            }`}
+                          onClick={() => setLang("sk")}
+                          className={`px-3 py-1.5 text-xs font-semibold flex items-center gap-1 ${
+                            lang === "sk" ? "text-accent" : "text-muted"
+                          }`}
                         >
                           <Languages size={10} />
                           SK
@@ -332,10 +375,8 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
 
                     {/* Main Content Grid (Columns) */}
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
                       {/* Left: Summary, Experience, Education */}
                       <div className="lg:col-span-2 space-y-10">
-
                         {/* Profile Section */}
                         <section className="space-y-3">
                           <h2 className="text-lg font-semibold text-text-primary flex items-center gap-2 border-b border-white/5 pb-2 text-balance">
@@ -355,14 +396,21 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                           </h2>
                           <div className="space-y-6">
                             {activeCv.experience.items.map((job, idx) => (
-                              <div key={idx} className="relative pl-6 before:absolute before:left-1.5 before:top-1.5 before:bottom-0 before:w-px before:bg-stroke/60">
+                              <div
+                                key={idx}
+                                className="relative pl-6 before:absolute before:left-1.5 before:top-1.5 before:bottom-0 before:w-px before:bg-stroke/60"
+                              >
                                 {/* Timeline Bullet */}
                                 <div className="absolute left-0 top-1 size-3.5 rounded-full border-2 border-accent bg-bg z-10 shadow-sm" />
 
                                 <div className="flex flex-wrap justify-between items-start gap-2 mb-2">
                                   <div>
-                                    <h3 className="text-sm font-semibold text-text-primary leading-tight text-balance">{job.role}</h3>
-                                    <p className="text-xs text-muted text-pretty">{job.company}</p>
+                                    <h3 className="text-sm font-semibold text-text-primary leading-tight text-balance">
+                                      {job.role}
+                                    </h3>
+                                    <p className="text-xs text-muted text-pretty">
+                                      {job.company}
+                                    </p>
                                   </div>
                                   <span className="text-[10px] uppercase text-accent bg-accent/5 px-2 py-0.5 rounded border border-accent/15 tabular-nums">
                                     {job.period}
@@ -370,7 +418,10 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                                 </div>
                                 <ul className="space-y-2 mt-3 list-none">
                                   {job.bullets.map((bullet, bulletIdx) => (
-                                    <li key={bulletIdx} className="text-xs text-muted/90 flex items-start gap-2 leading-relaxed text-pretty">
+                                    <li
+                                      key={bulletIdx}
+                                      className="text-xs text-muted/90 flex items-start gap-2 leading-relaxed text-pretty"
+                                    >
                                       <span className="size-1.5 rounded-full bg-accent/60 flex-shrink-0 mt-1.5" />
                                       <span>{bullet}</span>
                                     </li>
@@ -389,14 +440,21 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                           </h2>
                           <div className="space-y-6">
                             {activeCv.education.items.map((edu, idx) => (
-                              <div key={idx} className="relative pl-6 before:absolute before:left-1.5 before:top-1.5 before:bottom-0 before:w-px before:bg-stroke/60 last:before:hidden">
+                              <div
+                                key={idx}
+                                className="relative pl-6 before:absolute before:left-1.5 before:top-1.5 before:bottom-0 before:w-px before:bg-stroke/60 last:before:hidden"
+                              >
                                 {/* Timeline Bullet */}
                                 <div className="absolute left-0 top-1 size-3.5 rounded-full border-2 border-accent bg-bg z-10" />
 
                                 <div className="flex flex-wrap justify-between items-start gap-2">
                                   <div>
-                                    <h3 className="text-sm font-semibold text-text-primary leading-tight text-balance">{edu.degree}</h3>
-                                    <p className="text-xs text-muted text-pretty">{edu.school}</p>
+                                    <h3 className="text-sm font-semibold text-text-primary leading-tight text-balance">
+                                      {edu.degree}
+                                    </h3>
+                                    <p className="text-xs text-muted text-pretty">
+                                      {edu.school}
+                                    </p>
                                   </div>
                                   <span className="text-[10px] text-muted font-mono bg-stroke/20 px-2 py-0.5 rounded tabular-nums">
                                     {edu.period}
@@ -411,12 +469,19 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                                       {edu.details.thesisTitle}
                                     </p>
                                     <ul className="space-y-1.5 list-none">
-                                      {edu.details.bullets.map((bullet, detailIdx) => (
-                                        <li key={detailIdx} className="text-[11px] text-muted flex items-start gap-1.5 text-pretty">
-                                          <span className="text-accent flex-shrink-0 mt-0.5">•</span>
-                                          <span>{bullet}</span>
-                                        </li>
-                                      ))}
+                                      {edu.details.bullets.map(
+                                        (bullet, detailIdx) => (
+                                          <li
+                                            key={detailIdx}
+                                            className="text-[11px] text-muted flex items-start gap-1.5 text-pretty"
+                                          >
+                                            <span className="text-accent flex-shrink-0 mt-0.5">
+                                              •
+                                            </span>
+                                            <span>{bullet}</span>
+                                          </li>
+                                        ),
+                                      )}
                                     </ul>
                                   </div>
                                 ) : null}
@@ -424,12 +489,10 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                             ))}
                           </div>
                         </section>
-
                       </div>
 
                       {/* Right: Skills & Languages */}
                       <div className="space-y-8">
-
                         {/* Skills Block */}
                         <div className="p-5 rounded-2xl border border-white/5 bg-surface/40 space-y-6">
                           <h2 className="text-sm font-bold uppercase text-text-primary/90 flex items-center gap-2 pb-2 border-b border-white/5 text-balance">
@@ -440,7 +503,9 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                           <div className="space-y-4">
                             {activeCv.skills.categories.map((cat, catIdx) => (
                               <div key={catIdx} className="space-y-2">
-                                <h3 className="text-[11px] font-bold uppercase text-accent text-balance">{cat.name}</h3>
+                                <h3 className="text-[11px] font-bold uppercase text-accent text-balance">
+                                  {cat.name}
+                                </h3>
                                 <div className="flex flex-wrap gap-1.5">
                                   {cat.items.map((skill, itemIdx) => (
                                     <span
@@ -465,8 +530,13 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
 
                           <div className="space-y-2.5">
                             {activeCv.languages.items.map((langItem, idx) => (
-                              <div key={idx} className="flex justify-between items-center text-xs">
-                                <span className="font-medium text-text-primary">{langItem.name}</span>
+                              <div
+                                key={idx}
+                                className="flex justify-between items-center text-xs"
+                              >
+                                <span className="font-medium text-text-primary">
+                                  {langItem.name}
+                                </span>
                                 <span className="text-accent bg-accent/10 px-2 py-0.5 rounded font-mono text-[10px] font-semibold border border-accent/10">
                                   {langItem.level}
                                 </span>
@@ -479,7 +549,9 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                         {isMobile ? (
                           <div className="p-4 rounded-xl border border-accent/20 bg-accent/5 text-center space-y-2">
                             <p className="text-[11px] text-muted text-pretty">
-                              PDF view is optimized for desktop viewports. To read the official document, you can open or download the PDF below.
+                              PDF view is optimized for desktop viewports. To
+                              read the official document, you can open or
+                              download the PDF below.
                             </p>
                             <a
                               href="/cv/Ondrej_Michal_Ockaj_CV.pdf"
@@ -492,15 +564,11 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                             </a>
                           </div>
                         ) : null}
-
                       </div>
-
                     </div>
-
                   </div>
                 </div>
               ) : null}
-
             </div>
           </motion.div>
         </div>

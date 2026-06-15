@@ -1,63 +1,68 @@
-import { useState, useCallback, memo } from 'react';
-import { motion, AnimatePresence, Variants } from 'motion/react';
-import { PROCESS_ITEMS } from '../data/processItems';
-import LiquidGlass from './LiquidGlass';
-import BpmnNodeBadge from './BpmnNodeBadge';
-import ProcessLightbox from './ProcessLightbox';
-
+import { useState, useCallback, memo } from "react";
+import { motion, AnimatePresence, Variants } from "motion/react";
+import { PROCESS_ITEMS } from "../data/processItems";
+import LiquidGlass from "./LiquidGlass";
+import BpmnNodeBadge from "./BpmnNodeBadge";
+import ProcessLightbox from "./ProcessLightbox";
 
 const tabContentVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 15,
     scale: 0.98,
-    transition: { duration: 0.15, ease: [0.25, 0.1, 0.25, 1] as const }
+    transition: { duration: 0.15, ease: [0.25, 0.1, 0.25, 1] as const },
   },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.25, ease: [0.23, 1, 0.32, 1] as const }
+    transition: { duration: 0.25, ease: [0.23, 1, 0.32, 1] as const },
   },
   exit: {
     opacity: 0,
     y: -15,
     scale: 0.98,
-    transition: { duration: 0.15, ease: [0.25, 0.1, 0.25, 1] as const }
-  }
+    transition: { duration: 0.15, ease: [0.25, 0.1, 0.25, 1] as const },
+  },
 };
 
 function ProcessLibrary() {
   const [activeItem, setActiveItem] = useState(PROCESS_ITEMS[0]);
-  const [lightboxItem, setLightboxItem] = useState<typeof PROCESS_ITEMS[0] | null>(null);
+  const [lightboxItem, setLightboxItem] = useState<
+    (typeof PROCESS_ITEMS)[0] | null
+  >(null);
 
   const handleTabChange = useCallback((id: number) => {
-    const selected = PROCESS_ITEMS.find(item => item.id === id);
+    const selected = PROCESS_ITEMS.find((item) => item.id === id);
     if (selected) {
       setActiveItem(selected);
     }
   }, []);
 
-
-
   return (
     <>
-      <section id="processes" className="bg-transparent pt-16 md:pt-24 pb-0 scroll-mt-20 md:scroll-mt-24">
+      <section
+        id="processes"
+        className="bg-transparent pt-16 md:pt-24 pb-0 scroll-mt-20 md:scroll-mt-24"
+      >
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
           {/* Header */}
           <div className="mb-10 md:mb-14 relative z-30">
             <h2 className="text-3xl md:text-5xl font-display text-text-primary mb-3 text-balance flex items-center gap-3">
-              <BpmnNodeBadge type="subprocess-collapsed" className="translate-y-[2px]" />
+              <BpmnNodeBadge
+                type="subprocess-collapsed"
+                className="translate-y-[2px]"
+              />
               BPMN & Process models
             </h2>
             <p className="text-sm text-muted max-w-sm text-pretty">
-              Real-world enterprise process diagrams, workflows, and transformation models.
+              Real-world enterprise process diagrams, workflows, and
+              transformation models.
             </p>
           </div>
 
           {/* Interactive Split Dashboard */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-stretch relative z-20">
-            
             {/* Left Column: Index Menu Selector */}
             <LiquidGlass.Tabs
               value={activeItem.id}
@@ -71,12 +76,14 @@ function ProcessLibrary() {
                   key={item.id}
                   value={item.id}
                   className={`w-full text-left relative px-5 py-4 rounded-xl transition-colors duration-300 flex items-center gap-4 select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
-                    activeItem.id === item.id ? 'text-text-primary' : 'text-muted hover:text-text-primary'
+                    activeItem.id === item.id
+                      ? "text-text-primary"
+                      : "text-muted hover:text-text-primary"
                   }`}
                 >
                   {/* Badge Index */}
                   <span className="relative z-10 text-xs font-body font-semibold text-accent/80 tabular-nums min-w-[20px]">
-                    {String(idx + 1).padStart(2, '0')}
+                    {String(idx + 1).padStart(2, "0")}
                   </span>
 
                   {/* Metadata */}
@@ -129,7 +136,7 @@ function ProcessLibrary() {
                       aria-label={`Zoom diagram: ${activeItem.title}`}
                       style={{
                         background: `radial-gradient(circle, hsl(var(--stroke)) 1px, transparent 1px) 0 0 / 16px 16px, hsl(var(--surface))`,
-                        boxShadow: 'inset 0 0 20px rgba(0, 0, 0, 0.4)',
+                        boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.4)",
                       }}
                     >
                       <img
@@ -149,7 +156,8 @@ function ProcessLibrary() {
                           interactive={false}
                           className="text-[10px] px-3 py-1.5 text-text-primary pointer-events-none"
                         >
-                          Zoom Diagram <span className="text-accent ml-1">↗</span>
+                          Zoom Diagram{" "}
+                          <span className="text-accent ml-1">↗</span>
                         </LiquidGlass>
                       </div>
 
@@ -159,7 +167,9 @@ function ProcessLibrary() {
 
                     {/* Canvas Footer Details */}
                     <div className="relative z-10 mt-auto min-h-[70px] h-auto">
-                      <p className="text-[10px] text-muted uppercase font-semibold mb-2">Operational Insight</p>
+                      <p className="text-[10px] text-muted uppercase font-semibold mb-2">
+                        Operational Insight
+                      </p>
                       <p className="text-sm text-text-primary/80 leading-relaxed text-pretty">
                         {activeItem.description}
                       </p>
@@ -168,7 +178,6 @@ function ProcessLibrary() {
                 </motion.div>
               </AnimatePresence>
             </div>
-
           </div>
         </div>
       </section>

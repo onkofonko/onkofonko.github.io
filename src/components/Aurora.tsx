@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
+import { useEffect, useRef } from "react";
+import { Renderer, Program, Mesh, Color, Triangle } from "ogl";
 
 const VERT = `#version 300 es
 in vec2 position;
@@ -119,7 +119,7 @@ interface AuroraProps {
   speed?: number;
 }
 
-const DEFAULT_COLOR_STOPS = ['#1E1B4B', '#312E81', '#6667AB', '#A78BFA'];
+const DEFAULT_COLOR_STOPS = ["#1E1B4B", "#312E81", "#6667AB", "#A78BFA"];
 
 export default function Aurora(props: AuroraProps) {
   const propsRef = useRef<AuroraProps>(props);
@@ -135,7 +135,11 @@ export default function Aurora(props: AuroraProps) {
     if (!ctn) return;
 
     // Read initial props from the stable ref to satisfy dependencies lint check without recreating WebGL context
-    const { colorStops = DEFAULT_COLOR_STOPS, amplitude = 1.0, blend = 0.5 } = propsRef.current;
+    const {
+      colorStops = DEFAULT_COLOR_STOPS,
+      amplitude = 1.0,
+      blend = 0.5,
+    } = propsRef.current;
 
     let renderer: Renderer | null = null;
     let gl: any = null;
@@ -144,21 +148,29 @@ export default function Aurora(props: AuroraProps) {
       renderer = new Renderer({
         alpha: true,
         premultipliedAlpha: true,
-        antialias: true
+        antialias: true,
       });
       gl = renderer.gl;
     } catch (e) {
-      console.warn('WebGL context initialization failed. Applying backdrop fallback gradient.', e);
+      console.warn(
+        "WebGL context initialization failed. Applying backdrop fallback gradient.",
+        e,
+      );
       if (ctn) {
-        ctn.style.background = 'radial-gradient(circle at center, #1E1B4B 0%, #0a0a0a 100%)';
+        ctn.style.background =
+          "radial-gradient(circle at center, #1E1B4B 0%, #0a0a0a 100%)";
       }
       return;
     }
 
     if (!gl) {
-      console.warn('WebGL context initialization failed. Applying backdrop fallback gradient.', new Error('WebGL context creation returned null'));
+      console.warn(
+        "WebGL context initialization failed. Applying backdrop fallback gradient.",
+        new Error("WebGL context creation returned null"),
+      );
       if (ctn) {
-        ctn.style.background = 'radial-gradient(circle at center, #1E1B4B 0%, #0a0a0a 100%)';
+        ctn.style.background =
+          "radial-gradient(circle at center, #1E1B4B 0%, #0a0a0a 100%)";
       }
       return;
     }
@@ -166,7 +178,7 @@ export default function Aurora(props: AuroraProps) {
     gl.clearColor(0, 0, 0, 0);
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-    gl.canvas.style.backgroundColor = 'transparent';
+    gl.canvas.style.backgroundColor = "transparent";
 
     const geometry = new Triangle(gl);
     if (geometry.attributes.uv) {
@@ -176,9 +188,9 @@ export default function Aurora(props: AuroraProps) {
     const padColors = (stops: string[]) => {
       const arr = [...stops];
       while (arr.length < 4) {
-        arr.push(arr[arr.length - 1] || '#000000');
+        arr.push(arr[arr.length - 1] || "#000000");
       }
-      return arr.slice(0, 4).map(hex => {
+      return arr.slice(0, 4).map((hex) => {
         const c = new Color(hex);
         return [c.r, c.g, c.b];
       });
@@ -194,8 +206,8 @@ export default function Aurora(props: AuroraProps) {
         uAmplitude: { value: amplitude },
         uColorStops: { value: colorStopsArray },
         uResolution: { value: [ctn.offsetWidth, ctn.offsetHeight] },
-        uBlend: { value: blend }
-      }
+        uBlend: { value: blend },
+      },
     });
 
     const activeRenderer = renderer;
@@ -206,12 +218,12 @@ export default function Aurora(props: AuroraProps) {
       activeRenderer.setSize(width, height);
       program.uniforms.uResolution.value = [width, height];
     }
-    window.addEventListener('resize', resize, { passive: true });
+    window.addEventListener("resize", resize, { passive: true });
 
     const mesh = new Mesh(gl, { geometry, program });
     ctn.appendChild(gl.canvas as HTMLCanvasElement);
 
-    let prevStopsString = '';
+    let prevStopsString = "";
     let animateId = 0;
     const update = (t: number) => {
       animateId = requestAnimationFrame(update);
@@ -221,7 +233,7 @@ export default function Aurora(props: AuroraProps) {
       program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
       program.uniforms.uBlend.value = propsRef.current.blend ?? blend;
       const stops = propsRef.current.colorStops ?? colorStops;
-      const stopsString = stops.join(',');
+      const stopsString = stops.join(",");
       if (stopsString !== prevStopsString) {
         prevStopsString = stopsString;
         program.uniforms.uColorStops.value = padColors(stops);
@@ -235,11 +247,15 @@ export default function Aurora(props: AuroraProps) {
     const activeGl = gl;
     return () => {
       cancelAnimationFrame(animateId);
-      window.removeEventListener('resize', resize);
-      if (ctn && activeGl.canvas && (activeGl.canvas as HTMLCanvasElement).parentNode === ctn) {
+      window.removeEventListener("resize", resize);
+      if (
+        ctn &&
+        activeGl.canvas &&
+        (activeGl.canvas as HTMLCanvasElement).parentNode === ctn
+      ) {
         ctn.removeChild(activeGl.canvas as HTMLCanvasElement);
       }
-      activeGl.getExtension('WEBGL_lose_context')?.loseContext();
+      activeGl.getExtension("WEBGL_lose_context")?.loseContext();
     };
   }, []);
 

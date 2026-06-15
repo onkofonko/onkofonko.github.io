@@ -1,15 +1,19 @@
-import { useState, memo, useCallback } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight, Clock, MessageSquare, BookOpen } from 'lucide-react';
-import { ARTICLES, type Article } from '../data/articles';
-import LiquidGlass from './LiquidGlass';
-import BpmnNodeBadge from './BpmnNodeBadge';
-import BaseDrawer from './BaseDrawer';
-import { useModalHistory } from '../hooks/useModalHistory';
+import { useState, memo, useCallback } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { ArrowUpRight, Clock, MessageSquare, BookOpen } from "lucide-react";
+import { ARTICLES, type Article } from "../data/articles";
+import LiquidGlass from "./LiquidGlass";
+import BpmnNodeBadge from "./BpmnNodeBadge";
+import BaseDrawer from "./BaseDrawer";
+import { useModalHistory } from "../hooks/useModalHistory";
 
 const headerVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.25, 0.1, 0.25, 1] as const } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1, ease: [0.25, 0.1, 0.25, 1] as const },
+  },
 };
 
 const containerVariants = {
@@ -39,12 +43,15 @@ const CODE_REGEX = /`(.*?)`/g;
 
 const parseInlineMarkdown = (text: string) => {
   return text
-    .replace(AMPERSAND_REGEX, '&amp;')
-    .replace(LT_REGEX, '&lt;')
-    .replace(GT_REGEX, '&gt;')
-    .replace(BOLD_REGEX, '<strong>$1</strong>')
-    .replace(ITALIC_REGEX, '<em>$1</em>')
-    .replace(CODE_REGEX, '<code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-xs font-mono">$1</code>');
+    .replace(AMPERSAND_REGEX, "&amp;")
+    .replace(LT_REGEX, "&lt;")
+    .replace(GT_REGEX, "&gt;")
+    .replace(BOLD_REGEX, "<strong>$1</strong>")
+    .replace(ITALIC_REGEX, "<em>$1</em>")
+    .replace(
+      CODE_REGEX,
+      '<code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-xs font-mono">$1</code>',
+    );
 };
 
 function Journal() {
@@ -59,23 +66,30 @@ function Journal() {
 
   return (
     <>
-      <section id="journal" className="bg-transparent pt-16 md:pt-24 pb-0 scroll-mt-20 md:scroll-mt-24">
+      <section
+        id="journal"
+        className="bg-transparent pt-16 md:pt-24 pb-0 scroll-mt-20 md:scroll-mt-24"
+      >
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
           {/* Header */}
           <motion.div
             variants={headerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
             className="flex items-end justify-between mb-10 md:mb-14"
           >
             <div>
               <h2 className="text-3xl md:text-5xl font-display text-text-primary mb-3 text-balance flex items-center gap-3">
-                <BpmnNodeBadge type="intermediate-event-catch-message" className="translate-y-[2px]" />
+                <BpmnNodeBadge
+                  type="intermediate-event-catch-message"
+                  className="translate-y-[2px]"
+                />
                 Recent thought pieces
               </h2>
               <p className="text-sm text-muted max-w-sm text-pretty">
-                Analyzing process optimization, systems integrations, and enterprise digital transformation frameworks.
+                Analyzing process optimization, systems integrations, and
+                enterprise digital transformation frameworks.
               </p>
             </div>
           </motion.div>
@@ -86,13 +100,10 @@ function Journal() {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
           >
             {ARTICLES.map((article) => (
-              <motion.article
-                key={article.id}
-                variants={cardVariants}
-              >
+              <motion.article key={article.id} variants={cardVariants}>
                 <JournalEntry article={article} onOpen={setSelectedArticle} />
               </motion.article>
             ))}
@@ -103,7 +114,10 @@ function Journal() {
       {/* Drawer */}
       <AnimatePresence>
         {selectedArticle ? (
-          <JournalDrawer article={selectedArticle} onClose={handleCloseArticle} />
+          <JournalDrawer
+            article={selectedArticle}
+            onClose={handleCloseArticle}
+          />
         ) : null}
       </AnimatePresence>
     </>
@@ -115,15 +129,18 @@ interface EntryProps {
   onOpen: (article: Article) => void;
 }
 
-const JournalEntry = memo(function JournalEntry({ article, onOpen }: EntryProps) {
+const JournalEntry = memo(function JournalEntry({
+  article,
+  onOpen,
+}: EntryProps) {
   return (
     <LiquidGlass.Button
       onClick={() => onOpen(article)}
       springScale={false}
       whileTap={{ scaleX: 1.008, scaleY: 0.98 }}
       transition={{
-        scaleX: { type: 'spring', stiffness: 400, damping: 15, mass: 0.6 },
-        scaleY: { type: 'spring', stiffness: 400, damping: 15, mass: 0.6 }
+        scaleX: { type: "spring", stiffness: 400, damping: 15, mass: 0.6 },
+        scaleY: { type: "spring", stiffness: 400, damping: 15, mass: 0.6 },
       }}
       roundedClass="rounded-[40px] sm:rounded-full"
       className="w-full p-3 sm:p-4 justify-start items-center gap-4 sm:gap-6 pointer-events-auto text-left"
@@ -156,7 +173,10 @@ const JournalEntry = memo(function JournalEntry({ article, onOpen }: EntryProps)
 
       {/* Arrow */}
       <div className="flex-shrink-0 text-muted group-hover:text-text-primary transition-colors duration-200 z-10 relative pr-2 flex items-center justify-center">
-        <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        <ArrowUpRight
+          size={16}
+          className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        />
       </div>
     </LiquidGlass.Button>
   );
@@ -167,7 +187,10 @@ interface DrawerProps {
   onClose: () => void;
 }
 
-const JournalDrawer = memo(function JournalDrawer({ article, onClose }: DrawerProps) {
+const JournalDrawer = memo(function JournalDrawer({
+  article,
+  onClose,
+}: DrawerProps) {
   return (
     <BaseDrawer
       title="Journal Thought Piece"
@@ -179,7 +202,13 @@ const JournalDrawer = memo(function JournalDrawer({ article, onClose }: DrawerPr
       <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-8 select-text">
         {/* Header Image banner */}
         <div className="relative h-48 md:h-56 w-full rounded-2xl overflow-hidden border border-white/10">
-          <img src={article.image} alt={article.title} width={800} height={450} className="w-full h-full object-cover opacity-50" />
+          <img
+            src={article.image}
+            alt={article.title}
+            width={800}
+            height={450}
+            className="w-full h-full object-cover opacity-50"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
           <div className="absolute bottom-4 left-4 right-4 z-10">
             <span className="text-[10px] text-accent uppercase font-bold bg-accent/20 border border-accent/30 rounded px-2.5 py-0.5">
@@ -191,7 +220,10 @@ const JournalDrawer = memo(function JournalDrawer({ article, onClose }: DrawerPr
             <div className="flex gap-4 items-center text-xs text-muted mt-2 tabular-nums">
               <span>{article.date}</span>
               <span>·</span>
-              <span className="flex items-center gap-1"><Clock size={11} />{article.readTime}</span>
+              <span className="flex items-center gap-1">
+                <Clock size={11} />
+                {article.readTime}
+              </span>
             </div>
           </div>
         </div>
@@ -210,7 +242,9 @@ const JournalDrawer = memo(function JournalDrawer({ article, onClose }: DrawerPr
                 <p
                   key={pIdx}
                   className="text-text-primary/80 font-normal text-pretty"
-                  dangerouslySetInnerHTML={{ __html: parseInlineMarkdown(para) }}
+                  dangerouslySetInnerHTML={{
+                    __html: parseInlineMarkdown(para),
+                  }}
                 />
               ))}
               {sec.bulletPoints && (
@@ -219,7 +253,9 @@ const JournalDrawer = memo(function JournalDrawer({ article, onClose }: DrawerPr
                     <li
                       key={bIdx}
                       className="text-xs md:text-sm text-pretty"
-                      dangerouslySetInnerHTML={{ __html: parseInlineMarkdown(bp) }}
+                      dangerouslySetInnerHTML={{
+                        __html: parseInlineMarkdown(bp),
+                      }}
                     />
                   ))}
                 </ul>
@@ -233,19 +269,26 @@ const JournalDrawer = memo(function JournalDrawer({ article, onClose }: DrawerPr
                           <th
                             key={hIdx}
                             className="px-2 py-2.5 font-semibold uppercase tracking-wider text-[9px] sm:text-[10px] text-accent/90"
-                            dangerouslySetInnerHTML={{ __html: parseInlineMarkdown(header) }}
+                            dangerouslySetInnerHTML={{
+                              __html: parseInlineMarkdown(header),
+                            }}
                           />
                         ))}
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-white/5 text-text-primary/75">
                       {sec.table.rows.map((row, rIdx) => (
-                        <tr key={rIdx} className="hover:bg-white/[0.02] transition-colors duration-150">
+                        <tr
+                          key={rIdx}
+                          className="hover:bg-white/[0.02] transition-colors duration-150"
+                        >
                           {row.map((cell, cIdx) => (
                             <td
                               key={cIdx}
                               className="px-2 py-2 leading-relaxed align-top break-words"
-                              dangerouslySetInnerHTML={{ __html: parseInlineMarkdown(cell) }}
+                              dangerouslySetInnerHTML={{
+                                __html: parseInlineMarkdown(cell),
+                              }}
                             />
                           ))}
                         </tr>
