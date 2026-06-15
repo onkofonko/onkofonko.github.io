@@ -1,26 +1,48 @@
-# build output
-dist/
-
-# dependencies
-node_modules/
-
-# logs
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# environment variables
+# Dependency directories
+node_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# dotenv environment variables files
 .env
 .env.production
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
 
-# macOS-specific files
+# OS-specific files
 .DS_Store
+Thumbs.db
 
+# IDEs and editors
 .vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Vite / Rollup build output and stats
+dist/
+dist-ssr/
+stats.html
+
+# Agent-specific files and directories
 .impeccable/
 .agents/
-
+cache/
 PRODUCT.md
 skills-lock.json
 DESIGN.md
