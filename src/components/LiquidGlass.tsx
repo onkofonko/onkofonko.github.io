@@ -1,6 +1,6 @@
 "use client";
 
-import React, {
+import {
   useRef,
   useState,
   useEffect,
@@ -8,6 +8,15 @@ import React, {
   createContext,
   useContext,
   useMemo,
+  memo,
+  type CSSProperties,
+  type PointerEvent,
+  type ReactNode,
+  type MouseEvent,
+  type KeyboardEvent,
+  type MutableRefObject,
+  type MouseEventHandler,
+  type Ref,
 } from "react";
 import {
   motion,
@@ -15,12 +24,12 @@ import {
   useSpring,
   useTransform,
   animate,
-  MotionValue,
+  type MotionValue,
 } from "motion/react";
 import { SPRING } from "../utils/springConfig";
 import { useIsMobile } from "../hooks/useMediaQuery";
 
-const DEFAULT_STYLE: React.CSSProperties = {};
+const DEFAULT_STYLE: CSSProperties = {};
 const WHITESPACE_REGEX = /\s+/g;
 
 interface RippleProps {
@@ -50,7 +59,7 @@ function useRipple(enabled: boolean) {
   const rippleOpacity = useMotionValue(0);
 
   const handlePointerDown = useCallback(
-    (e: React.PointerEvent<HTMLElement>) => {
+    (e: PointerEvent<HTMLElement>) => {
       if (!enabled) return;
 
       const rect = e.currentTarget.getBoundingClientRect();
@@ -84,17 +93,17 @@ function useRipple(enabled: boolean) {
 }
 
 export interface LiquidGlassProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   as?: "div" | "button" | "a" | "article" | "section" | "span";
   href?: string;
   download?: string;
   target?: string;
   rel?: string;
   ariaLabel?: string;
-  onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+  onClick?: (e: MouseEvent<HTMLElement>) => void;
   className?: string;
   innerClassName?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   interactive?: boolean;
   springScale?: boolean;
   roundedClass?: string;
@@ -116,7 +125,7 @@ export type LiquidGlassButtonProps = Omit<
 >;
 
 export interface LiquidGlassTabsProps {
-  children: React.ReactNode;
+  children: ReactNode;
   value: string | number; // Active tab/section identifier
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange?: (value: any) => void; // Active tab state setter
@@ -126,20 +135,20 @@ export interface LiquidGlassTabsProps {
   roundedClass?: string; // Border radius of the highlight pill (default: 'rounded-full')
   className?: string; // Custom styling for container wrapper
   highlightClassName?: string; // Additional classes for the sliding highlight pill
-  highlightStyle?: React.CSSProperties; // Inline styles for the sliding highlight pill
-  style?: React.CSSProperties; // Forward style prop
+  highlightStyle?: CSSProperties; // Inline styles for the sliding highlight pill
+  style?: CSSProperties; // Forward style prop
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any; // Allow arbitrary props (like onMouseEnter, onMouseLeave)
 }
 
 export interface LiquidGlassTabProps {
   value: string | number; // Unique identifier matching parent value
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string; // Style classes for this tab button
   activeClassName?: string; // Styles applied specifically when tab is active
   highlightClassName?: string; // Override default highlight styles for this tab specifically
-  highlightStyle?: React.CSSProperties;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  highlightStyle?: CSSProperties;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
 }
 
@@ -170,212 +179,212 @@ const TAP_SCALE_Y_MOBILE = 0.98;
 const TAP_SCALE_Y_DESKTOP = 0.96;
 // =========================================================================
 
-const LiquidGlassComponent = React.forwardRef<HTMLElement, LiquidGlassProps>(
-  (
-    {
-      children,
-      as = "div",
-      href,
-      download,
-      target,
-      rel,
-      ariaLabel,
-      onClick,
-      className = "",
-      innerClassName = "",
-      style = DEFAULT_STYLE,
-      interactive = true,
-      springScale = false,
-      roundedClass = "rounded-full",
-      magnetic = false,
-      tilt = false,
-      magneticStrength = 0.02,
-      tiltStrength = 2,
-      ripple = true,
-      variant = "flat",
-      active = false,
-      specularGlow = false,
-      ...rest
-    },
-    ref,
-  ) => {
-    const localRef = useRef<HTMLElement | null>(null);
-    const [width, setWidth] = useState(120);
-    const isMobile = useIsMobile();
+interface LiquidGlassPropsWithRef extends LiquidGlassProps {
+  ref?: Ref<HTMLElement | null>;
+}
 
-    // Disable mouse-only effects on touch devices
-    if (isMobile) {
-      magnetic = false;
-      tilt = false;
+function LiquidGlassComponent({
+  children,
+  as = "div",
+  href,
+  download,
+  target,
+  rel,
+  ariaLabel,
+  onClick,
+  className = "",
+  innerClassName = "",
+  style = DEFAULT_STYLE,
+  interactive = true,
+  springScale = false,
+  roundedClass = "rounded-full",
+  magnetic = false,
+  tilt = false,
+  magneticStrength = 0.02,
+  tiltStrength = 2,
+  ripple = true,
+  variant = "flat",
+  active = false,
+  specularGlow = false,
+  ref,
+  ...rest
+}: LiquidGlassPropsWithRef) {
+  const localRef = useRef<HTMLElement | null>(null);
+  const [width, setWidth] = useState(120);
+  const isMobile = useIsMobile();
+
+  // Disable mouse-only effects on touch devices
+  if (isMobile) {
+    magnetic = false;
+    tilt = false;
+  }
+
+  // Synchronize internal ref with forwarded ref
+  useEffect(() => {
+    if (!ref) return;
+    if (typeof ref === "function") {
+      ref(localRef.current);
+    } else {
+      (ref as MutableRefObject<HTMLElement | null>).current = localRef.current;
     }
+  }, [ref]);
 
-    // Synchronize internal ref with forwarded ref
-    useEffect(() => {
-      if (!ref) return;
-      if (typeof ref === "function") {
-        ref(localRef.current);
-      } else {
-        (ref as React.MutableRefObject<HTMLElement | null>).current =
-          localRef.current;
-      }
-    }, [ref]);
+  // Motion values for tracking cursor relative to container center
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const opacity = useMotionValue(0);
 
-    // Motion values for tracking cursor relative to container center
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-    const opacity = useMotionValue(0);
+  // Spring physics for primary blob (fast, snappy fluid)
+  const springX = useSpring(mouseX, {
+    damping: 28,
+    stiffness: 180,
+    mass: 0.6,
+  });
+  const springY = useSpring(mouseY, {
+    damping: 28,
+    stiffness: 180,
+    mass: 0.6,
+  });
+  const springOpacity = useSpring(opacity, { damping: 20, stiffness: 120 });
 
-    // Spring physics for primary blob (fast, snappy fluid)
-    const springX = useSpring(mouseX, {
-      damping: 28,
-      stiffness: 180,
-      mass: 0.6,
-    });
-    const springY = useSpring(mouseY, {
-      damping: 28,
-      stiffness: 180,
-      mass: 0.6,
-    });
-    const springOpacity = useSpring(opacity, { damping: 20, stiffness: 120 });
+  // Spring physics for secondary blob (lagging, viscous fluid)
+  const lagX = useSpring(mouseX, { damping: 38, stiffness: 110, mass: 1.0 });
+  const lagY = useSpring(mouseY, { damping: 38, stiffness: 110, mass: 1.0 });
 
-    // Spring physics for secondary blob (lagging, viscous fluid)
-    const lagX = useSpring(mouseX, { damping: 38, stiffness: 110, mass: 1.0 });
-    const lagY = useSpring(mouseY, { damping: 38, stiffness: 110, mass: 1.0 });
+  // Motion values for magnetic pull offset
+  const pullX = useMotionValue(0);
+  const pullY = useMotionValue(0);
+  const springPullX = useSpring(pullX, {
+    damping: 30,
+    stiffness: 200,
+    mass: 0.5,
+  });
+  const springPullY = useSpring(pullY, {
+    damping: 30,
+    stiffness: 200,
+    mass: 0.5,
+  });
 
-    // Motion values for magnetic pull offset
-    const pullX = useMotionValue(0);
-    const pullY = useMotionValue(0);
-    const springPullX = useSpring(pullX, {
-      damping: 30,
-      stiffness: 200,
-      mass: 0.5,
-    });
-    const springPullY = useSpring(pullY, {
-      damping: 30,
-      stiffness: 200,
-      mass: 0.5,
-    });
+  // Motion values for 3D tilt angles
+  const tiltX = useMotionValue(0);
+  const tiltY = useMotionValue(0);
+  const springTiltX = useSpring(tiltX, { damping: 25, stiffness: 150 });
+  const springTiltY = useSpring(tiltY, { damping: 25, stiffness: 150 });
 
-    // Motion values for 3D tilt angles
-    const tiltX = useMotionValue(0);
-    const tiltY = useMotionValue(0);
-    const springTiltX = useSpring(tiltX, { damping: 25, stiffness: 150 });
-    const springTiltY = useSpring(tiltY, { damping: 25, stiffness: 150 });
+  const rectRef = useRef<DOMRect | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
-    const rectRef = useRef<DOMRect | null>(null);
-    const [isHovered, setIsHovered] = useState(false);
+  // Click ripple state & logic hook
+  const {
+    clickPos,
+    rippleRadius,
+    rippleOpacity,
+    onPointerDown: handlePointerDown,
+  } = useRipple(interactive && springScale && ripple);
 
-    // Click ripple state & logic hook
-    const {
-      clickPos,
-      rippleRadius,
-      rippleOpacity,
-      onPointerDown: handlePointerDown,
-    } = useRipple(interactive && springScale && ripple);
+  // Measure bounds to compute offset
+  const updateRect = useCallback(() => {
+    if (localRef.current) {
+      rectRef.current = localRef.current.getBoundingClientRect();
+    }
+  }, []);
 
-    // Measure bounds to compute offset
-    const updateRect = useCallback(() => {
+  const handleMouseEnter = useCallback(() => {
+    if (interactive) {
       if (localRef.current) {
-        rectRef.current = localRef.current.getBoundingClientRect();
+        setWidth(localRef.current.offsetWidth);
       }
-    }, []);
+      updateRect();
+      opacity.set(1);
+      setIsHovered(true);
+    }
+  }, [interactive, updateRect, opacity, setWidth]);
 
-    const handleMouseEnter = useCallback(() => {
-      if (interactive) {
-        if (localRef.current) {
-          setWidth(localRef.current.offsetWidth);
-        }
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      if (!interactive) return;
+      if (!rectRef.current) {
         updateRect();
-        opacity.set(1);
-        setIsHovered(true);
       }
-    }, [interactive, updateRect, opacity, setWidth]);
+      const currentRect = rectRef.current;
+      if (!currentRect) return;
 
-    const handleMouseMove = useCallback(
-      (e: React.MouseEvent) => {
-        if (!interactive) return;
-        if (!rectRef.current) {
-          updateRect();
-        }
-        const currentRect = rectRef.current;
-        if (!currentRect) return;
+      const x = e.clientX - currentRect.left - currentRect.width / 2;
+      const y = e.clientY - currentRect.top - currentRect.height / 2;
+      mouseX.set(x);
+      mouseY.set(y);
 
-        const x = e.clientX - currentRect.left - currentRect.width / 2;
-        const y = e.clientY - currentRect.top - currentRect.height / 2;
-        mouseX.set(x);
-        mouseY.set(y);
-
-        if (magnetic) {
-          pullX.set(x * magneticStrength);
-          pullY.set(y * magneticStrength);
-        }
-
-        if (tilt) {
-          const pctX = x / (currentRect.width / 2);
-          const pctY = y / (currentRect.height / 2);
-          tiltX.set(-pctY * tiltStrength);
-          tiltY.set(pctX * tiltStrength);
-        }
-      },
-      [
-        interactive,
-        updateRect,
-        mouseX,
-        mouseY,
-        magnetic,
-        pullX,
-        pullY,
-        magneticStrength,
-        tilt,
-        tiltX,
-        tiltStrength,
-        tiltY,
-      ],
-    );
-
-    const handleMouseLeave = useCallback(() => {
-      if (interactive) {
-        opacity.set(0);
-        mouseX.set(0);
-        mouseY.set(0);
-        pullX.set(0);
-        pullY.set(0);
-        tiltX.set(0);
-        tiltY.set(0);
-        setIsHovered(false);
+      if (magnetic) {
+        pullX.set(x * magneticStrength);
+        pullY.set(y * magneticStrength);
       }
-    }, [interactive, opacity, mouseX, mouseY, pullX, pullY, tiltX, tiltY]);
 
-    // Keyboard handler: support Enter/Space activation for non-semantic interactive elements
-    const handleKeyDown = useCallback(
-      (e: React.KeyboardEvent<HTMLElement>) => {
-        if ((e.key === "Enter" || e.key === " ") && onClick) {
-          e.preventDefault();
-          onClick(e as unknown as React.MouseEvent<HTMLElement>);
-        }
-      },
-      [onClick],
-    );
-
-    useEffect(() => {
-      if (interactive && isHovered) {
-        window.addEventListener("resize", updateRect, { passive: true });
-        return () => {
-          window.removeEventListener("resize", updateRect);
-        };
+      if (tilt) {
+        const pctX = x / (currentRect.width / 2);
+        const pctY = y / (currentRect.height / 2);
+        tiltX.set(-pctY * tiltStrength);
+        tiltY.set(pctX * tiltStrength);
       }
-    }, [interactive, isHovered, updateRect]);
+    },
+    [
+      interactive,
+      updateRect,
+      mouseX,
+      mouseY,
+      magnetic,
+      pullX,
+      pullY,
+      magneticStrength,
+      tilt,
+      tiltX,
+      tiltStrength,
+      tiltY,
+    ],
+  );
 
-    // Compute cursor-following border spotlight gradient (softer glare)
-    const borderGradient = useTransform([springX, springY], ([x, y]) => {
-      return `radial-gradient(180px circle at calc(50% + ${x}px) calc(50% + ${y}px), rgba(255, 255, 255, 0.06) 0%, transparent 80%)`;
-    });
+  const handleMouseLeave = useCallback(() => {
+    if (interactive) {
+      opacity.set(0);
+      mouseX.set(0);
+      mouseY.set(0);
+      pullX.set(0);
+      pullY.set(0);
+      tiltX.set(0);
+      tiltY.set(0);
+      setIsHovered(false);
+    }
+  }, [interactive, opacity, mouseX, mouseY, pullX, pullY, tiltX, tiltY]);
 
-    const borderActiveClasses = active
-      ? "border-white/[0.15] bg-white/[0.04]"
-      : "border-white/[0.04] group-hover:border-white/[0.08] bg-white/[0.015] group-hover:bg-white/[0.03]";
+  // Keyboard handler: support Enter/Space activation for non-semantic interactive elements
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent<HTMLElement>) => {
+      if ((e.key === "Enter" || e.key === " ") && onClick) {
+        e.preventDefault();
+        onClick(e as unknown as MouseEvent<HTMLElement>);
+      }
+    },
+    [onClick],
+  );
 
-    const baseClasses = `
+  useEffect(() => {
+    if (interactive && isHovered) {
+      window.addEventListener("resize", updateRect, { passive: true });
+      return () => {
+        window.removeEventListener("resize", updateRect);
+      };
+    }
+  }, [interactive, isHovered, updateRect]);
+
+  // Compute cursor-following border spotlight gradient (softer glare)
+  const borderGradient = useTransform([springX, springY], ([x, y]) => {
+    return `radial-gradient(180px circle at calc(50% + ${x}px) calc(50% + ${y}px), rgba(255, 255, 255, 0.06) 0%, transparent 80%)`;
+  });
+
+  const borderActiveClasses = active
+    ? "border-white/[0.15] bg-white/[0.04]"
+    : "border-white/[0.04] group-hover:border-white/[0.08] bg-white/[0.015] group-hover:bg-white/[0.03]";
+
+  const baseClasses = `
     group relative inline-flex items-center justify-center
     ${borderActiveClasses} backdrop-blur-lg
     text-text-primary transition-[border-color,background-color,box-shadow] duration-300 ease-out select-none
@@ -385,302 +394,296 @@ const LiquidGlassComponent = React.forwardRef<HTMLElement, LiquidGlassProps>(
         : "cursor-default"
     } ${roundedClass}
   `
-      .replace(WHITESPACE_REGEX, " ")
-      .trim();
+    .replace(WHITESPACE_REGEX, " ")
+    .trim();
 
-    // Combine inline styles to form realistic glass depth (soft and subtle)
-    const glassStyle = useMemo<React.CSSProperties>(() => {
-      let shadow = `
+  // Combine inline styles to form realistic glass depth (soft and subtle)
+  const glassStyle = useMemo<CSSProperties>(() => {
+    let shadow = `
       inset 0 1px 1px rgba(255, 255, 255, 0.25),
       inset 0 4px 8px rgba(255, 255, 255, 0.03),
       0 4px 10px rgba(0, 0, 0, 0.08)
     `;
-      const isEffectivelyActive = active || isHovered;
+    const isEffectivelyActive = active || isHovered;
 
-      if (variant === "sunken") {
-        shadow = isEffectivelyActive
-          ? `
+    if (variant === "sunken") {
+      shadow = isEffectivelyActive
+        ? `
           inset 0 3px 8px rgba(0, 0, 0, 0.45),
           inset 0 1px 2px rgba(255, 255, 255, 0.12),
           0 4px 12px rgba(0, 0, 0, 0.2)
         `
-          : `
+        : `
           inset 0 2px 5px rgba(0, 0, 0, 0.35),
           inset 0 1px 1px rgba(255, 255, 255, 0.05),
           0 1px 2px rgba(255, 255, 255, 0.02)
         `;
-      } else if (variant === "beveled") {
-        shadow = isEffectivelyActive
-          ? `
+    } else if (variant === "beveled") {
+      shadow = isEffectivelyActive
+        ? `
           inset 0 1px 2px rgba(255, 255, 255, 0.4),
           inset 0 6px 12px rgba(255, 255, 255, 0.06),
           0 8px 16px rgba(0, 0, 0, 0.15)
         `
-          : `
+        : `
           inset 0 1px 1px rgba(255, 255, 255, 0.25),
           inset 0 4px 8px rgba(255, 255, 255, 0.03),
           0 4px 10px rgba(0, 0, 0, 0.08)
         `;
-      }
-
-      // Specular highlight bloom overlay
-      if (specularGlow && isEffectivelyActive) {
-        shadow = `inset 0 1px 2px rgba(255, 255, 255, 0.24), inset 0 8px 16px rgba(255, 255, 255, 0.06), ${shadow}`;
-      }
-
-      return {
-        boxShadow: shadow,
-        WebkitBackfaceVisibility: "hidden",
-        backfaceVisibility: "hidden",
-        ...style,
-        x: magnetic ? springPullX : undefined,
-        y: magnetic ? springPullY : undefined,
-        rotateX: tilt ? springTiltX : undefined,
-        rotateY: tilt ? springTiltY : undefined,
-        transformStyle: tilt ? "preserve-3d" : undefined,
-        perspective: tilt ? 1000 : undefined,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      } as any;
-    }, [
-      style,
-      magnetic,
-      springPullX,
-      springPullY,
-      tilt,
-      springTiltX,
-      springTiltY,
-      variant,
-      active,
-      isHovered,
-      specularGlow,
-    ]);
-
-    const { hoverScaleX, hoverScaleY, tapScaleX, tapScaleY } = useMemo(() => {
-      const hoverDeltaX = isMobile ? HOVER_DELTA_MOBILE : HOVER_DELTA_DESKTOP;
-      const hoverScaleX = 1 + hoverDeltaX / width;
-      const hoverScaleY = isMobile
-        ? HOVER_SCALE_Y_MOBILE
-        : HOVER_SCALE_Y_DESKTOP;
-
-      const tapDeltaX = isMobile ? TAP_DELTA_MOBILE : TAP_DELTA_DESKTOP;
-      const tapScaleX = 1 + tapDeltaX / width;
-      const tapScaleY = isMobile ? TAP_SCALE_Y_MOBILE : TAP_SCALE_Y_DESKTOP;
-
-      return { hoverScaleX, hoverScaleY, tapScaleX, tapScaleY };
-    }, [isMobile, width]);
-
-    const handlePointerDownWrapper = useCallback(
-      (e: React.PointerEvent<HTMLElement>) => {
-        if (localRef.current) {
-          setWidth(localRef.current.offsetWidth);
-        }
-        handlePointerDown(e);
-      },
-      [handlePointerDown, setWidth],
-    );
-
-    const sharedAnimationProps = useMemo(
-      () => ({
-        whileHover: springScale
-          ? { scaleX: hoverScaleX, scaleY: hoverScaleY }
-          : undefined,
-        whileTap: springScale
-          ? { scaleX: tapScaleX, scaleY: tapScaleY }
-          : undefined,
-        transition: springScale
-          ? {
-              scaleX: {
-                type: "spring",
-                stiffness: 400,
-                damping: 15,
-                mass: 0.6,
-              },
-              scaleY: {
-                type: "spring",
-                stiffness: 400,
-                damping: 15,
-                mass: 0.6,
-              },
-            }
-          : undefined,
-        onMouseEnter: handleMouseEnter,
-        onMouseMove: handleMouseMove,
-        onMouseLeave: handleMouseLeave,
-        onPointerDown: handlePointerDownWrapper,
-      }),
-      [
-        springScale,
-        handleMouseEnter,
-        handleMouseMove,
-        handleMouseLeave,
-        handlePointerDownWrapper,
-        hoverScaleX,
-        hoverScaleY,
-        tapScaleX,
-        tapScaleY,
-      ],
-    );
-
-    // Determine container tag and layout styles dynamically based on semantics
-    const ContentTag =
-      as === "a" || as === "button" || as === "span" ? "span" : "div";
-    const contentClasses = `relative z-30 w-full h-full ${
-      as === "a" || as === "button" || as === "span"
-        ? "flex items-center justify-center gap-2 font-medium"
-        : ""
-    } ${innerClassName}`.trim();
-
-    const innerElements = (
-      <>
-        {interactive ? (
-          <>
-            {!isMobile ? (
-              <span
-                className={`absolute inset-0 pointer-events-none z-0 overflow-hidden ${roundedClass}`}
-              >
-                <motion.span
-                  className="absolute size-48 -mt-24 -ml-24 rounded-full bg-gradient-to-r from-[#7A7BBF]/6 to-[#6667AB]/6 blur-2xl pointer-events-none mix-blend-screen"
-                  style={{
-                    x: springX,
-                    y: springY,
-                    opacity: springOpacity,
-                    left: "50%",
-                    top: "50%",
-                  }}
-                />
-                <motion.span
-                  className="absolute size-32 -mt-16 -ml-16 rounded-full bg-gradient-to-r from-[#F26B5B]/3 to-[#926AA6]/3 blur-xl pointer-events-none mix-blend-screen"
-                  style={{
-                    x: lagX,
-                    y: lagY,
-                    opacity: springOpacity,
-                    left: "50%",
-                    top: "50%",
-                  }}
-                />
-              </span>
-            ) : null}
-
-            {springScale && ripple ? (
-              <Ripple
-                clickPos={clickPos}
-                rippleRadius={rippleRadius}
-                rippleOpacity={rippleOpacity}
-              />
-            ) : null}
-
-            {!isMobile ? (
-              <motion.span
-                className={`absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${roundedClass}`}
-                style={{ background: borderGradient, mixBlendMode: "overlay" }}
-              />
-            ) : null}
-          </>
-        ) : null}
-
-        {/* Label and icons */}
-        <ContentTag className={contentClasses}>{children}</ContentTag>
-      </>
-    );
-
-    const Tag = href
-      ? motion.a
-      : as === "button"
-        ? motion.button
-        : // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (motion as any)[as];
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const tagProps: any = {
-      className: `${baseClasses} ${className}`,
-      style: glassStyle,
-      "aria-label": ariaLabel,
-      ...sharedAnimationProps,
-      ...rest,
-    };
-
-    if (href) {
-      tagProps.href = href;
-      tagProps.download = download;
-      tagProps.target = target;
-      tagProps.rel = rel;
-      tagProps.onClick = onClick as React.MouseEventHandler<HTMLAnchorElement>;
-    } else if (as === "button") {
-      tagProps.type = "button";
-      tagProps.onClick = onClick as React.MouseEventHandler<HTMLButtonElement>;
-    } else if (onClick) {
-      tagProps.onClick = onClick;
-      // For non-semantic elements, add keyboard accessibility
-      if (as !== "a" && (as as string) !== "button") {
-        tagProps.tabIndex = 0;
-        tagProps.onKeyDown = handleKeyDown;
-        tagProps.role = "button";
-      }
     }
 
-    return (
-      <Tag ref={localRef} {...tagProps}>
-        {innerElements}
-      </Tag>
-    );
-  },
-);
+    // Specular highlight bloom overlay
+    if (specularGlow && isEffectivelyActive) {
+      shadow = `inset 0 1px 2px rgba(255, 255, 255, 0.24), inset 0 8px 16px rgba(255, 255, 255, 0.06), ${shadow}`;
+    }
+
+    return {
+      boxShadow: shadow,
+      WebkitBackfaceVisibility: "hidden",
+      backfaceVisibility: "hidden",
+      ...style,
+      x: magnetic ? springPullX : undefined,
+      y: magnetic ? springPullY : undefined,
+      rotateX: tilt ? springTiltX : undefined,
+      rotateY: tilt ? springTiltY : undefined,
+      transformStyle: tilt ? "preserve-3d" : undefined,
+      perspective: tilt ? 1000 : undefined,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any;
+  }, [
+    style,
+    magnetic,
+    springPullX,
+    springPullY,
+    tilt,
+    springTiltX,
+    springTiltY,
+    variant,
+    active,
+    isHovered,
+    specularGlow,
+  ]);
+
+  const { hoverScaleX, hoverScaleY, tapScaleX, tapScaleY } = useMemo(() => {
+    const hoverDeltaX = isMobile ? HOVER_DELTA_MOBILE : HOVER_DELTA_DESKTOP;
+    const hoverScaleX = 1 + hoverDeltaX / width;
+    const hoverScaleY = isMobile ? HOVER_SCALE_Y_MOBILE : HOVER_SCALE_Y_DESKTOP;
+
+    const tapDeltaX = isMobile ? TAP_DELTA_MOBILE : TAP_DELTA_DESKTOP;
+    const tapScaleX = 1 + tapDeltaX / width;
+    const tapScaleY = isMobile ? TAP_SCALE_Y_MOBILE : TAP_SCALE_Y_DESKTOP;
+
+    return { hoverScaleX, hoverScaleY, tapScaleX, tapScaleY };
+  }, [isMobile, width]);
+
+  const handlePointerDownWrapper = useCallback(
+    (e: PointerEvent<HTMLElement>) => {
+      if (localRef.current) {
+        setWidth(localRef.current.offsetWidth);
+      }
+      handlePointerDown(e);
+    },
+    [handlePointerDown, setWidth],
+  );
+
+  const sharedAnimationProps = useMemo(
+    () => ({
+      whileHover: springScale
+        ? { scaleX: hoverScaleX, scaleY: hoverScaleY }
+        : undefined,
+      whileTap: springScale
+        ? { scaleX: tapScaleX, scaleY: tapScaleY }
+        : undefined,
+      transition: springScale
+        ? {
+            scaleX: {
+              type: "spring",
+              stiffness: 400,
+              damping: 15,
+              mass: 0.6,
+            },
+            scaleY: {
+              type: "spring",
+              stiffness: 400,
+              damping: 15,
+              mass: 0.6,
+            },
+          }
+        : undefined,
+      onMouseEnter: handleMouseEnter,
+      onMouseMove: handleMouseMove,
+      onMouseLeave: handleMouseLeave,
+      onPointerDown: handlePointerDownWrapper,
+    }),
+    [
+      springScale,
+      handleMouseEnter,
+      handleMouseMove,
+      handleMouseLeave,
+      handlePointerDownWrapper,
+      hoverScaleX,
+      hoverScaleY,
+      tapScaleX,
+      tapScaleY,
+    ],
+  );
+
+  // Determine container tag and layout styles dynamically based on semantics
+  const ContentTag =
+    as === "a" || as === "button" || as === "span" ? "span" : "div";
+  const contentClasses = `relative z-30 w-full h-full ${
+    as === "a" || as === "button" || as === "span"
+      ? "flex items-center justify-center gap-2 font-medium"
+      : ""
+  } ${innerClassName}`.trim();
+
+  const innerElements = (
+    <>
+      {interactive ? (
+        <>
+          {!isMobile ? (
+            <span
+              className={`absolute inset-0 pointer-events-none z-0 overflow-hidden ${roundedClass}`}
+            >
+              <motion.span
+                className="absolute size-48 -mt-24 -ml-24 rounded-full bg-gradient-to-r from-[#7A7BBF]/6 to-[#6667AB]/6 blur-2xl pointer-events-none mix-blend-screen"
+                style={{
+                  x: springX,
+                  y: springY,
+                  opacity: springOpacity,
+                  left: "50%",
+                  top: "50%",
+                }}
+              />
+              <motion.span
+                className="absolute size-32 -mt-16 -ml-16 rounded-full bg-gradient-to-r from-[#F26B5B]/3 to-[#926AA6]/3 blur-xl pointer-events-none mix-blend-screen"
+                style={{
+                  x: lagX,
+                  y: lagY,
+                  opacity: springOpacity,
+                  left: "50%",
+                  top: "50%",
+                }}
+              />
+            </span>
+          ) : null}
+
+          {springScale && ripple ? (
+            <Ripple
+              clickPos={clickPos}
+              rippleRadius={rippleRadius}
+              rippleOpacity={rippleOpacity}
+            />
+          ) : null}
+
+          {!isMobile ? (
+            <motion.span
+              className={`absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${roundedClass}`}
+              style={{ background: borderGradient, mixBlendMode: "overlay" }}
+            />
+          ) : null}
+        </>
+      ) : null}
+
+      {/* Label and icons */}
+      <ContentTag className={contentClasses}>{children}</ContentTag>
+    </>
+  );
+
+  const Tag = href
+    ? motion.a
+    : as === "button"
+      ? motion.button
+      : // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (motion as any)[as];
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const tagProps: any = {
+    className: `${baseClasses} ${className}`,
+    style: glassStyle,
+    "aria-label": ariaLabel,
+    ...sharedAnimationProps,
+    ...rest,
+  };
+
+  if (href) {
+    tagProps.href = href;
+    tagProps.download = download;
+    tagProps.target = target;
+    tagProps.rel = rel;
+    tagProps.onClick = onClick as MouseEventHandler<HTMLAnchorElement>;
+  } else if (as === "button") {
+    tagProps.type = "button";
+    tagProps.onClick = onClick as MouseEventHandler<HTMLButtonElement>;
+  } else if (onClick) {
+    tagProps.onClick = onClick;
+    // For non-semantic elements, add keyboard accessibility
+    if (as !== "a" && (as as string) !== "button") {
+      tagProps.tabIndex = 0;
+      tagProps.onKeyDown = handleKeyDown;
+      tagProps.role = "button";
+    }
+  }
+
+  return (
+    <Tag ref={localRef} {...tagProps}>
+      {innerElements}
+    </Tag>
+  );
+}
 
 LiquidGlassComponent.displayName = "LiquidGlassComponent";
 
-export const LiquidGlass = React.memo(LiquidGlassComponent);
+export const LiquidGlass = memo(LiquidGlassComponent);
 
 LiquidGlass.displayName = "LiquidGlass";
 
-const LiquidGlassButtonComponent = React.forwardRef<
-  HTMLElement,
-  LiquidGlassButtonProps
->(
-  (
-    {
-      children,
-      onClick,
-      className = "",
-      href,
-      download,
-      target,
-      rel,
-      ariaLabel,
-      magnetic,
-      tilt,
-      magneticStrength,
-      tiltStrength,
-      ...rest
-    },
-    ref,
-  ) => {
-    return (
-      <LiquidGlass
-        ref={ref}
-        as={href ? "a" : "button"}
-        href={href}
-        download={download}
-        target={target}
-        rel={rel}
-        onClick={onClick}
-        className={className}
-        ariaLabel={ariaLabel}
-        springScale={true}
-        magnetic={magnetic}
-        tilt={tilt}
-        magneticStrength={magneticStrength}
-        tiltStrength={tiltStrength}
-        {...rest}
-      >
-        {children}
-      </LiquidGlass>
-    );
-  },
-);
+interface LiquidGlassButtonPropsWithRef extends LiquidGlassButtonProps {
+  ref?: Ref<HTMLElement | null>;
+}
+
+function LiquidGlassButtonComponent({
+  children,
+  onClick,
+  className = "",
+  href,
+  download,
+  target,
+  rel,
+  ariaLabel,
+  magnetic,
+  tilt,
+  magneticStrength,
+  tiltStrength,
+  ref,
+  ...rest
+}: LiquidGlassButtonPropsWithRef) {
+  return (
+    <LiquidGlass
+      ref={ref}
+      as={href ? "a" : "button"}
+      href={href}
+      download={download}
+      target={target}
+      rel={rel}
+      onClick={onClick}
+      className={className}
+      ariaLabel={ariaLabel}
+      springScale={true}
+      magnetic={magnetic}
+      tilt={tilt}
+      magneticStrength={magneticStrength}
+      tiltStrength={tiltStrength}
+      {...rest}
+    >
+      {children}
+    </LiquidGlass>
+  );
+}
 
 LiquidGlassButtonComponent.displayName = "LiquidGlassButtonComponent";
 
-export const LiquidGlassButton = React.memo(LiquidGlassButtonComponent);
+export const LiquidGlassButton = memo(LiquidGlassButtonComponent);
 
 LiquidGlassButton.displayName = "LiquidGlass.Button";
 
@@ -695,7 +698,7 @@ interface TabsContextValue {
   ripple: boolean;
   roundedClass: string;
   highlightClassName?: string;
-  highlightStyle?: React.CSSProperties;
+  highlightStyle?: CSSProperties;
 }
 
 const TabsContext = createContext<TabsContextValue | null>(null);
@@ -710,7 +713,7 @@ function useTabsContext() {
   return context;
 }
 
-export const Tabs = React.memo(function Tabs({
+export const Tabs = memo(function Tabs({
   value,
   onChange,
   layoutId,
@@ -773,7 +776,7 @@ export const Tabs = React.memo(function Tabs({
   );
 });
 
-export const Tab = React.memo(function Tab({
+export const Tab = memo(function Tab({
   value,
   children,
   className = "",
@@ -928,7 +931,7 @@ export const Tab = React.memo(function Tab({
     ? isHovered || (isActive && hoveredValue === null)
     : isActive;
 
-  const handlePointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
+  const handlePointerDown = (e: PointerEvent<HTMLButtonElement>) => {
     if (disabled) return;
     onPointerDown(e);
   };
@@ -938,7 +941,7 @@ export const Tab = React.memo(function Tab({
     setHoveredValue(value);
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     if (disabled) return;
     if (onChange) onChange(value);
     if (onClick) onClick(e);

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect, useEffect, ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 
@@ -8,7 +8,7 @@ let globalActiveTooltipCount = 0;
 
 interface TooltipProps {
   content: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export default function Tooltip({ content, children }: TooltipProps) {
@@ -22,12 +22,12 @@ export default function Tooltip({ content, children }: TooltipProps) {
   const visibleRef = useRef(visible);
 
   // Sync visible ref for unmount cleanup
-  React.useEffect(() => {
+  useEffect(() => {
     visibleRef.current = visible;
   }, [visible]);
 
   // Cleanup on unmount
-  React.useEffect(() => {
+  useEffect(() => {
     return () => {
       if (hoverTimeoutRef.current) {
         clearTimeout(hoverTimeoutRef.current);
