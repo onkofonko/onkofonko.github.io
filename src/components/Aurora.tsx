@@ -185,7 +185,12 @@ export default function Aurora(props: AuroraProps) {
     gl.clearColor(0, 0, 0, 0);
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-    gl.canvas.style.backgroundColor = "transparent";
+    Object.assign(gl.canvas.style, {
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      backgroundColor: "transparent",
+    });
 
     const geometry = new Triangle(gl);
     if (geometry.attributes.uv) {
@@ -217,13 +222,16 @@ export default function Aurora(props: AuroraProps) {
       },
     });
 
-    const activeRenderer = renderer;
+    let w = 0,
+      h = 0;
     function resize() {
       if (!ctn) return;
-      const width = ctn.offsetWidth;
-      const height = ctn.offsetHeight;
-      activeRenderer.setSize(width, height);
-      program.uniforms.uResolution.value = [width, height];
+      const newW = ctn.offsetWidth,
+        newH = ctn.offsetHeight;
+      if (newW !== w || Math.abs(newH - h) > 120) {
+        renderer.setSize((w = newW), (h = newH));
+        program.uniforms.uResolution.value = [w, h];
+      }
     }
     window.addEventListener("resize", resize, { passive: true });
 
@@ -245,7 +253,7 @@ export default function Aurora(props: AuroraProps) {
         prevStopsString = stopsString;
         program.uniforms.uColorStops.value = padColors(stops);
       }
-      activeRenderer.render({ scene: mesh });
+      renderer.render({ scene: mesh });
     };
     animateId = requestAnimationFrame(update);
 
