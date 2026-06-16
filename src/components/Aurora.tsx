@@ -70,36 +70,14 @@ float snoise(vec2 v){
   return 130.0 * dot(m, g);
 }
 
-struct ColorStop {
-  vec3 color;
-  float position;
-};
-
-#define COLOR_RAMP(colors, factor, finalColor) {              \
-  int index = 0;                                            \
-  for (int i = 0; i < 3; i++) {                               \
-     ColorStop currentColor = colors[i];                    \
-     bool isInBetween = currentColor.position <= factor;    \
-     index = int(mix(float(index), float(i), float(isInBetween))); \
-  }                                                         \
-  ColorStop currentColor = colors[index];                   \
-  ColorStop nextColor = colors[index + 1];                  \
-  float range = nextColor.position - currentColor.position; \
-  float lerpFactor = (factor - currentColor.position) / range; \
-  finalColor = mix(currentColor.color, nextColor.color, lerpFactor); \
-}
-
 void main() {
   vec2 uv = gl_FragCoord.xy / uResolution;
   
-  ColorStop colors[4];
-  colors[0] = ColorStop(uColorStops[0], 0.0);
-  colors[1] = ColorStop(uColorStops[1], 0.33);
-  colors[2] = ColorStop(uColorStops[2], 0.66);
-  colors[3] = ColorStop(uColorStops[3], 1.0);
-  
-  vec3 rampColor;
-  COLOR_RAMP(colors, uv.x, rampColor);
+  // Loopless branchless color ramp interpolation (mathematically identical for equal stops)
+  float scaledFactor = uv.x * 3.0;
+  int index = clamp(int(floor(scaledFactor)), 0, 2);
+  float lerpFactor = scaledFactor - float(index);
+  vec3 rampColor = mix(uColorStops[index], uColorStops[index + 1], lerpFactor);
   
   // Double-octave simplex noise for a dynamic, organic shimmering wave
   float n1 = snoise(vec2(uv.x * 1.8 + uTime * 0.2, uTime * 0.3)) * 0.4;
@@ -141,12 +119,14 @@ export default function Aurora(props: AuroraProps) {
     const ctn = ctnDom.current;
     if (!ctn) return;
 
-    // Read initial props from the stable ref to satisfy dependencies lint check without recreating WebGL context
     const {
       colorStops = DEFAULT_COLOR_STOPS,
       amplitude = 1.0,
       blend = 0.5,
     } = propsRef.current;
+
+    const isMobile = window.innerWidth <= 767;
+    const dpr = isMobile ? 1.0 : window.devicePixelRatio || 1.0;
 
     let renderer: Renderer;
     let gl: OGLRenderingContext;
@@ -156,6 +136,7 @@ export default function Aurora(props: AuroraProps) {
         alpha: true,
         premultipliedAlpha: true,
         antialias: true,
+        dpr: dpr,
       });
       gl = renderer.gl;
     } catch (e) {
@@ -217,7 +198,7 @@ export default function Aurora(props: AuroraProps) {
         uTime: { value: 0 },
         uAmplitude: { value: amplitude },
         uColorStops: { value: colorStopsArray },
-        uResolution: { value: [ctn.offsetWidth, ctn.offsetHeight] },
+        uResolution: { value: [renderer.width, renderer.height] },
         uBlend: { value: blend },
       },
     });
@@ -230,7 +211,7 @@ export default function Aurora(props: AuroraProps) {
         newH = ctn.offsetHeight;
       if (newW !== w || Math.abs(newH - h) > 120) {
         renderer.setSize((w = newW), (h = newH));
-        program.uniforms.uResolution.value = [w, h];
+        program.uniforms.uResolution.value = [renderer.width, renderer.height];
       }
     }
     window.addEventListener("resize", resize, { passive: true });
