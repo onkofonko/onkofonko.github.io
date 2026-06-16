@@ -213,9 +213,9 @@ const CaseStudyCard = memo(function CaseStudyCard({
               Key Results
             </p>
             <div className="space-y-3">
-              {study.results.map((result, i) => (
+              {study.results.map((result) => (
                 <div
-                  key={i}
+                  key={result.metric}
                   className="flex items-baseline gap-3 case-study-metric-hover"
                 >
                   <span className="text-base md:text-lg font-body font-semibold tracking-tight text-accent tabular-nums case-study-metric-hover-val">
@@ -384,9 +384,9 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({
             Proven Operations Impact
           </h3>
           <div className="grid grid-cols-3 gap-3">
-            {study.results.map((res, i) => (
+            {study.results.map((res) => (
               <div
-                key={i}
+                key={res.metric}
                 className="bg-white/[0.02] border border-white/5 rounded-xl p-3 text-center"
               >
                 <p className="text-lg md:text-xl font-body font-semibold tracking-tight text-accent tabular-nums">
@@ -413,8 +413,8 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({
                 <span>Legacy Source Materials</span>
               </div>
               <ul className="space-y-3">
-                {study.asIsFlow.map((step, i) => (
-                  <li key={i} className="text-xs text-muted flex gap-2">
+                {study.asIsFlow.map((step) => (
+                  <li key={step} className="text-xs text-muted flex gap-2">
                     <span className="text-red-400/80 flex-shrink-0">✕</span>
                     <span className="leading-relaxed text-pretty">{step}</span>
                   </li>
@@ -429,9 +429,9 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({
                 <span>BPMN Process Modeling</span>
               </div>
               <ul className="space-y-3">
-                {study.toBeFlow.map((step, i) => (
+                {study.toBeFlow.map((step) => (
                   <li
-                    key={i}
+                    key={step}
                     className="text-xs text-text-primary/95 flex gap-2"
                   >
                     <span className="text-emerald-400 flex-shrink-0">✓</span>
@@ -453,9 +453,9 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({
               Methodology
             </h4>
             <ul className="space-y-2">
-              {study.methodology.map((meth, i) => (
+              {study.methodology.map((meth) => (
                 <li
-                  key={i}
+                  key={meth}
                   className="text-xs text-muted flex items-center gap-2"
                 >
                   <span className="size-1 rounded-full bg-accent/60" />
@@ -470,9 +470,9 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({
               Key Deliverables
             </h4>
             <ul className="space-y-2">
-              {study.deliverables.map((del, i) => (
+              {study.deliverables.map((del) => (
                 <li
-                  key={i}
+                  key={del}
                   className="text-xs text-text-primary/80 flex items-center gap-2"
                 >
                   <FileText size={11} className="text-accent flex-shrink-0" />

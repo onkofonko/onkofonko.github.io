@@ -40,20 +40,15 @@ export default defineConfig(({ mode }) => ({
 
   build: {
     minify: true,
+    target: "es2023",
+    sourcemap: false,
     cssCodeSplit: true,
     cssMinify: true,
     rollupOptions: {
       output: {
         manualChunks(id: string) {
-          if (id.includes("motion") && id.includes("node_modules"))
-            return "vendor-motion";
-          if (id.includes("ogl") && id.includes("node_modules"))
-            return "vendor-ogl";
           if (id.includes("react") && id.includes("node_modules"))
             return "vendor-react";
-          if (id.includes("lucide-react") && id.includes("node_modules"))
-            return "vendor-icons";
-          if (id.includes("node_modules")) return "vendor";
         },
       },
     },

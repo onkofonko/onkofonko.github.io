@@ -628,7 +628,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
                 return (
                   <div
-                    key={idx}
+                    key={step.label}
                     className={`flex items-center gap-3 text-[10px] md:text-xs font-sans ${
                       isActive
                         ? "text-text-primary font-medium"
@@ -710,7 +710,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                       >
                         {BPMN_STEPS.map((step, idx) => (
                           <div
-                            key={idx}
+                            key={step.label}
                             className="h-[50px] flex flex-col justify-center pr-2"
                           >
                             <span className="text-[9px] text-accent/80 font-bold uppercase tracking-wider mb-0.5">

@@ -114,13 +114,24 @@ export default function Tooltip({ content, children }: TooltipProps) {
       });
     };
 
+    let ticking = false;
+    const throttledUpdate = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updatePosition();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
     updatePosition();
 
-    window.addEventListener("scroll", updatePosition, { passive: true });
-    window.addEventListener("resize", updatePosition);
+    window.addEventListener("scroll", throttledUpdate, { passive: true });
+    window.addEventListener("resize", throttledUpdate);
     return () => {
-      window.removeEventListener("scroll", updatePosition);
-      window.removeEventListener("resize", updatePosition);
+      window.removeEventListener("scroll", throttledUpdate);
+      window.removeEventListener("resize", throttledUpdate);
     };
   }, [visible]);
 

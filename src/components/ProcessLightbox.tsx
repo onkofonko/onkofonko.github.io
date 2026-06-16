@@ -197,7 +197,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
     setIsScaleHovered(false);
   };
 
-  // Close lightbox on Escape key press & lock body scroll / touch gestures on mobile
+  // Close lightbox on Escape key press & lock body scroll on mobile
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -205,32 +205,19 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
       }
     };
 
-    const handleTouchStart = (e: TouchEvent) => {
-      if (e.touches.length > 1) {
-        e.preventDefault();
-      }
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      e.preventDefault();
-    };
-
     window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("touchstart", handleTouchStart, { passive: false });
-    window.addEventListener("touchmove", handleTouchMove, { passive: false });
     document.body.style.overflow = "hidden";
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
       document.body.style.overflow = "unset";
     };
   }, [onClose]);
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-md p-0 md:p-6"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-md p-0 md:p-6 touch-none"
+      style={{ touchAction: "none" }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
