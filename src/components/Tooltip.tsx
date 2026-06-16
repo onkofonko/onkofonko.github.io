@@ -127,10 +127,14 @@ export default function Tooltip({ content, children }: TooltipProps) {
 
     updatePosition();
 
-    window.addEventListener("scroll", throttledUpdate, { passive: true });
+    const handleScroll = () => {
+      setVisible(false);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", throttledUpdate);
     return () => {
-      window.removeEventListener("scroll", throttledUpdate);
+      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", throttledUpdate);
     };
   }, [visible]);

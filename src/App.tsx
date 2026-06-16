@@ -8,6 +8,7 @@ import {
   startTransition,
 } from "react";
 import { AnimatePresence } from "motion/react";
+import LoadingScreen from "./components/LoadingScreen";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import DeferredSection from "./components/DeferredSection.tsx";
@@ -15,7 +16,6 @@ import { ErrorBoundary } from "./components/ErrorBoundary";
 import { useModalHistory } from "./hooks/useModalHistory";
 
 // Dynamic import functions for preloading
-const loadLoadingScreen = () => import("./components/LoadingScreen");
 const loadCaseStudies = () => import("./components/CaseStudies");
 const loadSkills = () => import("./components/Skills");
 const loadProcessLibrary = () => import("./components/ProcessLibrary");
@@ -33,7 +33,6 @@ const Contact = lazy(loadContact);
 const Aurora = lazy(loadAurora);
 const PdfViewerModal = lazy(loadPdfViewerModal);
 const BpmnOverlay = lazy(loadBpmnOverlay);
-const LoadingScreen = lazy(loadLoadingScreen);
 
 const LABEL_MAP: Record<string, string> = {
   home: "Home",
@@ -197,9 +196,7 @@ export default function App() {
     <>
       <AnimatePresence mode="wait">
         {isLoading ? (
-          <Suspense fallback={null}>
-            <LoadingScreen onComplete={handleLoadingComplete} />
-          </Suspense>
+          <LoadingScreen onComplete={handleLoadingComplete} />
         ) : null}
       </AnimatePresence>
 
