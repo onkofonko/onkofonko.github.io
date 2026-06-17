@@ -118,96 +118,55 @@ export default function App() {
   // Close CV viewer modal on back swipe / browser back button
   useModalHistory(isCvOpen, () => setIsCvOpen(false));
 
-  // Preload lazy components in a staggered queue to avoid CPU/network congestion on user interaction
+  // Preload lazy components concurrently with main-thread yielding to protect INP
   useEffect(() => {
     if (isLoading) return;
 
-    let hasInteracted = false;
-    let preloadTimeout: ReturnType<typeof setTimeout> | null = null;
-    let staggerTimeout: ReturnType<typeof setTimeout> | null = null;
-    let idleHandle: number | null = null;
+    if (isSlowConnection()) return;
 
-    const startPreloading = () => {
-      if (isSlowConnection()) return;
+    const yieldToMain = async () => {
+      if (typeof (window as any).scheduler?.yield === "function") {
+        await (window as any).scheduler.yield();
+      } else {
+        await new Promise<void>((resolve) => setTimeout(resolve, 0));
+      }
+    };
 
-      const primaryPreloads = [
+    const preloadAll = async () => {
+      const queue = [
         loadCaseStudies,
         loadSkills,
         loadProcessLibrary,
         loadJournal,
         loadContact,
+        loadPdfViewerModal,
+        ...(isMobile ? [] : [loadBpmnOverlay]),
       ];
 
-      const secondaryPreloads = isMobile
-        ? [loadPdfViewerModal]
-        : [loadPdfViewerModal, loadBpmnOverlay];
+      if (import.meta.env.DEV) {
+        performance.mark("preload-queue-start");
+      }
 
-      const queue = [...primaryPreloads, ...secondaryPreloads];
+      for (const fn of queue) {
+        fn().catch(() => {});
+        await yieldToMain();
+      }
 
-      const processNext = (currentIndex: number) => {
-        if (currentIndex < queue.length) {
-          const fn = queue[currentIndex];
-          fn()
-            .catch(() => {})
-            .finally(() => {
-              if (typeof window.requestIdleCallback === "function") {
-                idleHandle = window.requestIdleCallback(
-                  () => processNext(currentIndex + 1),
-                  { timeout: 500 },
-                );
-              } else {
-                staggerTimeout = setTimeout(
-                  () => processNext(currentIndex + 1),
-                  500,
-                );
-              }
-            });
-        }
-      };
-
-      if (typeof window.requestIdleCallback === "function") {
-        idleHandle = window.requestIdleCallback(() => processNext(0), {
-          timeout: 3000,
-        });
-      } else {
-        staggerTimeout = setTimeout(() => processNext(0), 50);
+      if (import.meta.env.DEV) {
+        performance.mark("preload-queue-end");
+        performance.measure(
+          "preload-queue-duration",
+          "preload-queue-start",
+          "preload-queue-end",
+        );
       }
     };
 
-    const triggerPreload = () => {
-      if (hasInteracted) return;
-      hasInteracted = true;
-      cleanup();
-      if (preloadTimeout) clearTimeout(preloadTimeout);
-      startPreloading();
-    };
-
-    const cleanup = () => {
-      window.removeEventListener("scroll", triggerPreload);
-      window.removeEventListener("touchstart", triggerPreload);
-      window.removeEventListener("pointerdown", triggerPreload);
-    };
-
-    window.addEventListener("scroll", triggerPreload, { passive: true });
-    window.addEventListener("touchstart", triggerPreload, { passive: true });
-    window.addEventListener("pointerdown", triggerPreload, { passive: true });
-
-    // Speculative backup preloader (after 3s of idleness)
-    preloadTimeout = setTimeout(() => {
-      triggerPreload();
-    }, 3000);
-
-    return () => {
-      cleanup();
-      if (preloadTimeout) clearTimeout(preloadTimeout);
-      if (staggerTimeout) clearTimeout(staggerTimeout);
-      if (
-        idleHandle !== null &&
-        typeof window.cancelIdleCallback === "function"
-      ) {
-        window.cancelIdleCallback(idleHandle);
-      }
-    };
+    if (typeof window.requestIdleCallback === "function") {
+      window.requestIdleCallback(() => preloadAll(), { timeout: 2000 });
+    } else {
+      setTimeout(() => preloadAll(), 0);
+    }
   }, [isLoading, isMobile]);
 
   // Dynamic Scroll Highlighting Observer
