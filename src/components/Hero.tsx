@@ -166,7 +166,7 @@ const roleVariants: Variants = {
     y: 0,
     opacity: 1,
     filter: "blur(0px)",
-    transition: { duration: 0.25, ease: [0.23, 1, 0.32, 1] as const },
+    transition: { duration: 0.25, ease: [0.25, 0.1, 0.25, 1] as const },
   },
   exit: (prefersReducedMotion: boolean) => ({
     y: prefersReducedMotion ? 0 : -8,

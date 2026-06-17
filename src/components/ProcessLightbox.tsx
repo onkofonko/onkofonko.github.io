@@ -101,10 +101,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
 
       if (initialPinchDistance.current > 0) {
         const factor = currentDistance / initialPinchDistance.current;
-        const newScale = Math.max(
-          1,
-          Math.min(initialPinchScale.current * factor, 4),
-        );
+        const newScale = Math.max(1, initialPinchScale.current * factor);
         setScale(newScale);
 
         if (newScale === 1) {
@@ -149,7 +146,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
     const zoomFactor = 0.15;
     const direction = e.deltaY < 0 ? 1 : -1;
     setScale((prev) => {
-      const next = Math.max(1, Math.min(prev + direction * zoomFactor, 4));
+      const next = Math.max(1, prev + direction * zoomFactor);
       if (next === 1) {
         setPosition({ x: 0, y: 0 });
       } else if (direction < 0 && prev > 1) {
@@ -174,7 +171,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
   };
 
   const zoomIn = () => {
-    setScale((prev) => Math.min(prev + 0.5, 4));
+    setScale((prev) => prev + 0.5);
   };
 
   const zoomOut = () => {
@@ -227,7 +224,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
       transition={
         prefersReducedMotion
           ? { duration: 0.15 }
-          : { duration: 0.2, ease: "easeOut" }
+          : { duration: isMobile ? 0.45 : 0.2, ease: "easeOut" }
       }
       onClick={onClose}
     >
@@ -236,13 +233,21 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
         aria-modal="true"
         aria-labelledby="lightbox-title"
         className="relative max-w-7xl w-full h-[100dvh] md:h-auto md:aspect-[16/10] max-h-[100dvh] md:max-h-[85vh] rounded-none md:rounded-2xl overflow-hidden border-0 md:border border-white/10 flex flex-col bg-surface"
-        initial={{ scale: prefersReducedMotion ? 1 : 0.96, opacity: 0 }}
+        initial={{
+          scale: prefersReducedMotion ? 1 : isMobile ? 0.92 : 0.96,
+          opacity: 0,
+        }}
         animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: prefersReducedMotion ? 1 : 0.96, opacity: 0 }}
+        exit={{
+          scale: prefersReducedMotion ? 1 : isMobile ? 0.92 : 0.96,
+          opacity: 0,
+        }}
         transition={
           prefersReducedMotion
             ? { duration: 0.15 }
-            : { type: "spring", damping: 30, stiffness: 350 }
+            : isMobile
+              ? { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }
+              : { type: "spring", damping: 30, stiffness: 350 }
         }
         onClick={(e) => e.stopPropagation()}
       >
@@ -302,7 +307,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
             {/* Zoom In */}
             <LiquidGlass.Button
               onClick={zoomIn}
-              disabled={scale === 4}
+              disabled={false}
               magnetic={true}
               magneticStrength={0.04}
               roundedClass="rounded-full"
