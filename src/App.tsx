@@ -151,10 +151,17 @@ export default function App() {
           fn()
             .catch(() => {})
             .finally(() => {
-              staggerTimeout = setTimeout(
-                () => processNext(currentIndex + 1),
-                250,
-              );
+              if (typeof window.requestIdleCallback === "function") {
+                idleHandle = window.requestIdleCallback(
+                  () => processNext(currentIndex + 1),
+                  { timeout: 500 },
+                );
+              } else {
+                staggerTimeout = setTimeout(
+                  () => processNext(currentIndex + 1),
+                  500,
+                );
+              }
             });
         }
       };
@@ -164,9 +171,7 @@ export default function App() {
           timeout: 3000,
         });
       } else {
-        requestAnimationFrame(() => {
-          staggerTimeout = setTimeout(() => processNext(0), 50);
-        });
+        staggerTimeout = setTimeout(() => processNext(0), 50);
       }
     };
 
