@@ -14,16 +14,55 @@ import Hero from "./components/Hero";
 import DeferredSection from "./components/DeferredSection.tsx";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { useModalHistory } from "./hooks/useModalHistory";
+import { useIsMobile } from "./hooks/useMediaQuery";
 
-// Dynamic import functions for preloading
-const loadCaseStudies = () => import("./components/CaseStudies");
-const loadSkills = () => import("./components/Skills");
-const loadProcessLibrary = () => import("./components/ProcessLibrary");
-const loadJournal = () => import("./components/Journal");
-const loadContact = () => import("./components/Contact");
-const loadAurora = () => import("./components/Aurora.tsx");
-const loadPdfViewerModal = () => import("./components/PdfViewerModal");
-const loadBpmnOverlay = () => import("./components/BpmnOverlay");
+// Cache dynamic import promises so React 19 lazy() can unpack them synchronously without a microtask tick
+function makePreloadable<T>(importFn: () => Promise<T>) {
+  let promise: Promise<T> | null = null;
+  return () => {
+    if (!promise) {
+      promise = importFn();
+    }
+    return promise;
+  };
+}
+
+// Detect slow connections/data saver across mobile browsers (including Safari)
+const isSlowConnection = () => {
+  if (typeof navigator === "undefined") return false;
+  if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+    return true;
+  }
+  const conn = (
+    navigator as unknown as {
+      connection?: { saveData?: boolean; effectiveType?: string };
+    }
+  ).connection;
+  if (conn) {
+    return (
+      conn.saveData ||
+      ["slow-2g", "2g", "3g"].includes(conn.effectiveType || "")
+    );
+  }
+  return false;
+};
+
+const loadCaseStudies = makePreloadable(
+  () => import("./components/CaseStudies"),
+);
+const loadSkills = makePreloadable(() => import("./components/Skills"));
+const loadProcessLibrary = makePreloadable(
+  () => import("./components/ProcessLibrary"),
+);
+const loadJournal = makePreloadable(() => import("./components/Journal"));
+const loadContact = makePreloadable(() => import("./components/Contact"));
+const loadAurora = makePreloadable(() => import("./components/Aurora.tsx"));
+const loadPdfViewerModal = makePreloadable(
+  () => import("./components/PdfViewerModal"),
+);
+const loadBpmnOverlay = makePreloadable(
+  () => import("./components/BpmnOverlay"),
+);
 
 const CaseStudies = lazy(loadCaseStudies);
 const Skills = lazy(loadSkills);
@@ -55,6 +94,7 @@ export default function App() {
   });
   const [activeSection, setActiveSection] = useState("Home");
   const [isCvOpen, setIsCvOpen] = useState(false);
+  const isMobile = useIsMobile();
   const ignoreScrollUntil = useRef(0);
   const visibleSections = useRef<Record<string, boolean>>({});
   const navbarSentinelRef = useRef<HTMLDivElement>(null);
@@ -62,35 +102,92 @@ export default function App() {
   // Close CV viewer modal on back swipe / browser back button
   useModalHistory(isCvOpen, () => setIsCvOpen(false));
 
-  // Preload lazy components in the background after initial load
+  // Preload lazy components in a staggered queue to avoid CPU/network congestion on user interaction
   useEffect(() => {
     if (isLoading) return;
 
-    // Short delay to let the Hero component render and stabilize first
-    const timer = setTimeout(() => {
-      const preloads = [
+    let hasInteracted = false;
+    let preloadTimeout: ReturnType<typeof setTimeout> | null = null;
+    let staggerTimeout: ReturnType<typeof setTimeout> | null = null;
+    let idleHandle: number | null = null;
+
+    const startPreloading = () => {
+      if (isSlowConnection()) return;
+
+      const primaryPreloads = [
         loadCaseStudies,
         loadSkills,
         loadProcessLibrary,
         loadJournal,
         loadContact,
-        loadAurora,
-        loadPdfViewerModal,
-        loadBpmnOverlay,
       ];
 
-      // Use requestIdleCallback if available to preload when browser is idle
+      const secondaryPreloads = isMobile
+        ? [loadAurora, loadPdfViewerModal]
+        : [loadAurora, loadPdfViewerModal, loadBpmnOverlay];
+
+      const queue = [...primaryPreloads, ...secondaryPreloads];
+
+      const processNext = (currentIndex: number) => {
+        if (currentIndex < queue.length) {
+          const fn = queue[currentIndex];
+          fn()
+            .catch(() => {})
+            .finally(() => {
+              staggerTimeout = setTimeout(
+                () => processNext(currentIndex + 1),
+                250,
+              );
+            });
+        }
+      };
+
       if (typeof window.requestIdleCallback === "function") {
-        window.requestIdleCallback(() => {
-          preloads.forEach((fn) => fn().catch(() => {}));
+        idleHandle = window.requestIdleCallback(() => processNext(0), {
+          timeout: 3000,
         });
       } else {
-        Promise.all(preloads.map((fn) => fn().catch(() => {})));
+        requestAnimationFrame(() => {
+          staggerTimeout = setTimeout(() => processNext(0), 50);
+        });
       }
-    }, 1500);
+    };
 
-    return () => clearTimeout(timer);
-  }, [isLoading]);
+    const triggerPreload = () => {
+      if (hasInteracted) return;
+      hasInteracted = true;
+      cleanup();
+      if (preloadTimeout) clearTimeout(preloadTimeout);
+      startPreloading();
+    };
+
+    const cleanup = () => {
+      window.removeEventListener("scroll", triggerPreload);
+      window.removeEventListener("touchstart", triggerPreload);
+      window.removeEventListener("pointerdown", triggerPreload);
+    };
+
+    window.addEventListener("scroll", triggerPreload, { passive: true });
+    window.addEventListener("touchstart", triggerPreload, { passive: true });
+    window.addEventListener("pointerdown", triggerPreload, { passive: true });
+
+    // Speculative backup preloader (after 3s of idleness)
+    preloadTimeout = setTimeout(() => {
+      triggerPreload();
+    }, 3000);
+
+    return () => {
+      cleanup();
+      if (preloadTimeout) clearTimeout(preloadTimeout);
+      if (staggerTimeout) clearTimeout(staggerTimeout);
+      if (
+        idleHandle !== null &&
+        typeof window.cancelIdleCallback === "function"
+      ) {
+        window.cancelIdleCallback(idleHandle);
+      }
+    };
+  }, [isLoading, isMobile]);
 
   // Dynamic Scroll Highlighting Observer
   useEffect(() => {
@@ -179,17 +276,21 @@ export default function App() {
   useEffect(() => {
     if (isLoading) return;
     const hash = window.location.hash;
+    let timer: ReturnType<typeof setTimeout> | null = null;
     if (hash) {
       const targetId = hash.substring(1);
       const label = LABEL_MAP[targetId];
       if (label) {
         const element = document.getElementById(targetId);
-        setTimeout(() => {
+        timer = setTimeout(() => {
           setActiveSection(label);
           element?.scrollIntoView({ behavior: "smooth" });
         }, 100);
       }
     }
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, [isLoading]);
 
   return (
@@ -245,31 +346,31 @@ export default function App() {
         </div>
 
         <div id="work">
-          <DeferredSection minHeight="1200px" rootMargin="1200px 0px">
+          <DeferredSection minHeight="1200px">
             <CaseStudies />
           </DeferredSection>
         </div>
 
         <div id="skills">
-          <DeferredSection minHeight="1100px" rootMargin="1200px 0px">
+          <DeferredSection minHeight="1100px">
             <Skills />
           </DeferredSection>
         </div>
 
         <div id="processes">
-          <DeferredSection minHeight="800px" rootMargin="1200px 0px">
+          <DeferredSection minHeight="800px">
             <ProcessLibrary />
           </DeferredSection>
         </div>
 
         <div id="journal">
-          <DeferredSection minHeight="600px" rootMargin="1200px 0px">
+          <DeferredSection minHeight="600px">
             <Journal />
           </DeferredSection>
         </div>
 
         <div id="contact">
-          <DeferredSection minHeight="700px" rootMargin="1200px 0px">
+          <DeferredSection minHeight="700px">
             <Contact onViewCv={handleViewCv} />
           </DeferredSection>
         </div>
@@ -282,7 +383,7 @@ export default function App() {
         </Suspense>
 
         <Suspense fallback={null}>
-          {!isLoading ? <BpmnOverlay /> : null}
+          {!isLoading && !isMobile ? <BpmnOverlay /> : null}
         </Suspense>
       </main>
     </>

@@ -221,8 +221,13 @@ export default function Aurora(props: AuroraProps) {
 
     let prevStopsString = "";
     let animateId = 0;
+    // throttle to ~30fps on mobile — halves backdrop-filter re-sampling
+    const frameInterval = isMobile ? 33 : 0;
+    let lastFrame = 0;
     const update = (t: number) => {
       animateId = requestAnimationFrame(update);
+      if (frameInterval && t - lastFrame < frameInterval) return;
+      lastFrame = t;
       const time = propsRef.current.time ?? t * 0.01;
       const speed = propsRef.current.speed ?? 1.0;
       program.uniforms.uTime.value = time * speed * 0.1;

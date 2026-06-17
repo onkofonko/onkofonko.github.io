@@ -27,7 +27,7 @@ export default function Navbar({
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Track scroll state on mobile for dynamic backdrop blur performance optimization
-  // ponytail: Keep it simple using standard window scroll listener and React state
+  // Keep it simple using standard window scroll listener and React state
   const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
