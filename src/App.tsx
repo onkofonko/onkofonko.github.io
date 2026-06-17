@@ -15,6 +15,9 @@ import DeferredSection from "./components/DeferredSection.tsx";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { useModalHistory } from "./hooks/useModalHistory";
 import { useIsMobile } from "./hooks/useMediaQuery";
+import { CASE_STUDIES } from "./data/caseStudies";
+import { ARTICLES } from "./data/articles";
+import { PROCESS_ITEMS } from "./data/processItems";
 
 // Cache dynamic import promises so React 19 lazy() can unpack them synchronously without a microtask tick
 function makePreloadable<T>(importFn: () => Promise<T>) {
@@ -64,11 +67,25 @@ const loadBpmnOverlay = makePreloadable(
   () => import("./components/BpmnOverlay"),
 );
 
-const CaseStudies = lazy(loadCaseStudies);
-const Skills = lazy(loadSkills);
-const ProcessLibrary = lazy(loadProcessLibrary);
-const Journal = lazy(loadJournal);
-const Contact = lazy(loadContact);
+const CaseStudies = Object.assign(lazy(loadCaseStudies), {
+  count: CASE_STUDIES.length,
+  variant: "card" as const,
+});
+const Skills = Object.assign(lazy(loadSkills), {
+  count: 6,
+  variant: "grid" as const,
+});
+const ProcessLibrary = Object.assign(lazy(loadProcessLibrary), {
+  count: PROCESS_ITEMS.length,
+  variant: "split" as const,
+});
+const Journal = Object.assign(lazy(loadJournal), {
+  count: ARTICLES.length,
+  variant: "list" as const,
+});
+const Contact = Object.assign(lazy(loadContact), {
+  variant: "footer" as const,
+});
 const Aurora = lazy(loadAurora);
 const PdfViewerModal = lazy(loadPdfViewerModal);
 const BpmnOverlay = lazy(loadBpmnOverlay);
@@ -346,31 +363,31 @@ export default function App() {
         </div>
 
         <div id="work">
-          <DeferredSection minHeight="1200px">
+          <DeferredSection minHeight={isMobile ? "992px" : "810px"}>
             <CaseStudies />
           </DeferredSection>
         </div>
 
         <div id="skills">
-          <DeferredSection minHeight="1100px">
+          <DeferredSection minHeight={isMobile ? "1824px" : "1176px"}>
             <Skills />
           </DeferredSection>
         </div>
 
         <div id="processes">
-          <DeferredSection minHeight="800px">
+          <DeferredSection minHeight={isMobile ? "1242px" : "944px"}>
             <ProcessLibrary />
           </DeferredSection>
         </div>
 
         <div id="journal">
-          <DeferredSection minHeight="600px">
+          <DeferredSection minHeight={isMobile ? "400px" : "448px"}>
             <Journal />
           </DeferredSection>
         </div>
 
         <div id="contact">
-          <DeferredSection minHeight="700px">
+          <DeferredSection minHeight={isMobile ? "577px" : "493px"}>
             <Contact onViewCv={handleViewCv} />
           </DeferredSection>
         </div>

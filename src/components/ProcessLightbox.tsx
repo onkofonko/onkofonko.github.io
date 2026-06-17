@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, memo } from "react";
+import { createPortal } from "react-dom";
 import { motion, useReducedMotion } from "motion/react";
 import { X, Plus, Minus } from "lucide-react";
 import LiquidGlass from "./LiquidGlass";
@@ -214,7 +215,9 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
     };
   }, [onClose]);
 
-  return (
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
     <motion.div
       className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-md p-0 md:p-6 touch-none"
       style={{ touchAction: "none" }}
@@ -352,7 +355,8 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
           </p>
         </div>
       </motion.div>
-    </motion.div>
+    </motion.div>,
+    document.body,
   );
 }
 

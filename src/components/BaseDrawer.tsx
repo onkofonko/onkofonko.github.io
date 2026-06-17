@@ -1,4 +1,5 @@
 import { useEffect, useRef, ReactNode, memo } from "react";
+import { createPortal } from "react-dom";
 import { motion, useReducedMotion, Variants } from "motion/react";
 import { X } from "lucide-react";
 import LiquidGlass from "./LiquidGlass";
@@ -66,7 +67,9 @@ const BaseDrawer = memo(function BaseDrawer({
     };
   }, []);
 
-  return (
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
     <>
       {/* Backdrop */}
       <motion.div
@@ -111,7 +114,8 @@ const BaseDrawer = memo(function BaseDrawer({
         {/* Content wrapper */}
         {children}
       </motion.div>
-    </>
+    </>,
+    document.body,
   );
 });
 
