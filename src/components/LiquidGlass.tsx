@@ -441,6 +441,7 @@ function LiquidGlassComponent({
       boxShadow: shadow,
       WebkitBackfaceVisibility: "hidden",
       backfaceVisibility: "hidden",
+      willChange: style?.willChange ?? "transform, filter, backdrop-filter",
       ...style,
       x: magnetic ? springPullX : undefined,
       y: magnetic ? springPullY : undefined,
