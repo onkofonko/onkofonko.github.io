@@ -47,6 +47,7 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks(id: string) {
+          if (id.includes("Aurora.tsx")) return "vendor-aurora";
           if (id.includes("react") && id.includes("node_modules"))
             return "vendor-react";
         },

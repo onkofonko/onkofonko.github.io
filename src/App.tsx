@@ -18,6 +18,7 @@ import { useIsMobile } from "./hooks/useMediaQuery";
 import { CASE_STUDIES } from "./data/caseStudies";
 import { ARTICLES } from "./data/articles";
 import { PROCESS_ITEMS } from "./data/processItems";
+import Aurora from "./components/Aurora.tsx";
 
 // Cache dynamic import promises so React 19 lazy() can unpack them synchronously without a microtask tick
 function makePreloadable<T>(importFn: () => Promise<T>) {
@@ -59,7 +60,6 @@ const loadProcessLibrary = makePreloadable(
 );
 const loadJournal = makePreloadable(() => import("./components/Journal"));
 const loadContact = makePreloadable(() => import("./components/Contact"));
-const loadAurora = makePreloadable(() => import("./components/Aurora.tsx"));
 const loadPdfViewerModal = makePreloadable(
   () => import("./components/PdfViewerModal"),
 );
@@ -86,7 +86,6 @@ const Journal = Object.assign(lazy(loadJournal), {
 const Contact = Object.assign(lazy(loadContact), {
   variant: "footer" as const,
 });
-const Aurora = lazy(loadAurora);
 const PdfViewerModal = lazy(loadPdfViewerModal);
 const BpmnOverlay = lazy(loadBpmnOverlay);
 
@@ -140,8 +139,8 @@ export default function App() {
       ];
 
       const secondaryPreloads = isMobile
-        ? [loadAurora, loadPdfViewerModal]
-        : [loadAurora, loadPdfViewerModal, loadBpmnOverlay];
+        ? [loadPdfViewerModal]
+        : [loadPdfViewerModal, loadBpmnOverlay];
 
       const queue = [...primaryPreloads, ...secondaryPreloads];
 
@@ -324,29 +323,25 @@ export default function App() {
       </AnimatePresence>
 
       {!isLoading ? (
-        <Suspense fallback={null}>
-          <div
-            aria-hidden="true"
-            className="fixed inset-0 pointer-events-none z-0"
-          >
-            <div
-              style={{ height: "100%", width: "100%", position: "relative" }}
+        <div
+          aria-hidden="true"
+          className="fixed inset-0 pointer-events-none z-0"
+        >
+          <div style={{ height: "100%", width: "100%", position: "relative" }}>
+            <ErrorBoundary
+              fallback={
+                <div className="absolute inset-0 bg-gradient-to-b from-[#1E1B4B] to-[#0a0a0a]" />
+              }
             >
-              <ErrorBoundary
-                fallback={
-                  <div className="absolute inset-0 bg-gradient-to-b from-[#1E1B4B] to-[#0a0a0a]" />
-                }
-              >
-                <Aurora
-                  colorStops={AURORA_COLOR_STOPS}
-                  speed={1.0}
-                  amplitude={1.0}
-                  blend={0.65}
-                />
-              </ErrorBoundary>
-            </div>
+              <Aurora
+                colorStops={AURORA_COLOR_STOPS}
+                speed={1.0}
+                amplitude={1.0}
+                blend={0.65}
+              />
+            </ErrorBoundary>
           </div>
-        </Suspense>
+        </div>
       ) : null}
 
       <main
