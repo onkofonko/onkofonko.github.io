@@ -144,11 +144,13 @@ export default function Tooltip({ content, children }: TooltipProps) {
   return (
     <span
       ref={triggerRef}
-      onMouseEnter={showTooltip}
-      onMouseLeave={hideTooltip}
+      onPointerEnter={(e) => e.pointerType === "mouse" && showTooltip()}
+      onPointerLeave={(e) => e.pointerType === "mouse" && hideTooltip()}
       onFocus={showTooltip}
       onBlur={hideTooltip}
-      className="inline-flex cursor-help"
+      onClick={() => (visible ? hideTooltip() : showTooltip())}
+      tabIndex={0}
+      className="inline-flex cursor-help focus-visible:outline-none"
     >
       {children}
       {createPortal(
