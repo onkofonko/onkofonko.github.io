@@ -50,6 +50,9 @@
     "vite-plugin-checker": "^0.14.1",
     "vite-plugin-compression": "^0.5.1"
   },
+  "overrides": {
+    "@babel/plugin-proposal-private-methods": "npm:@babel/plugin-transform-private-methods@^7.22.0"
+  },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
   }
