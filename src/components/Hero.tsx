@@ -205,7 +205,7 @@ function Hero({ onViewCv, onViewWork }: HeroProps) {
         {/* Eyebrow */}
         <motion.p
           variants={itemVariants}
-          className="text-xs text-muted uppercase font-medium mb-8 text-pretty flex items-center gap-1.5"
+          className="text-xs text-muted uppercase font-semibold mb-8 text-pretty flex items-center gap-1.5"
         >
           <BpmnNodeBadge type="start-event-none" />
           Business Analyst Portfolio
@@ -301,7 +301,7 @@ function Hero({ onViewCv, onViewWork }: HeroProps) {
       {/* Scroll indicator - Styled as a BPMN Message Flow */}
       <motion.a
         href="#work"
-        className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 z-20 cursor-pointer select-none group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-lg"
+        className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 z-20 cursor-pointer select-none group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-xl"
         style={{ opacity: scrollOpacity, y: scrollYOffset }}
         variants={scrollIndicatorVariants}
         initial="initial"

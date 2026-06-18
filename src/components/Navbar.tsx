@@ -165,7 +165,7 @@ export default function Navbar({
               )}
             </span>
 
-            <span className="text-[13px] font-medium leading-none whitespace-nowrap">
+            <span className="text-[13px] font-semibold leading-none whitespace-nowrap">
               Ondrej Michal Očkaj
             </span>
           </LiquidGlass.Tab>
@@ -192,7 +192,7 @@ export default function Navbar({
         <div className="hidden md:block ml-2.5">
           <LiquidGlass.Button
             href="mailto:ondrej.michal.ockaj@gmail.com"
-            className="text-xs md:text-sm px-3.5 md:px-4 py-1.5 md:py-2"
+            className="text-xs md:text-sm px-3 md:px-4 py-1.5 md:py-2"
             ariaLabel="Send email"
             magnetic={true}
             tilt={true}
@@ -243,7 +243,7 @@ export default function Navbar({
               highlightStyle={{
                 boxShadow: "inset 0 1px 1px rgba(255, 255, 255, 0.15)",
               }}
-              className="relative w-full p-3 rounded-2xl border border-white/10 bg-surface/35 backdrop-blur-2xl shadow-2xl flex flex-col gap-1.5"
+              className="relative w-full p-3 rounded-3xl border border-white/10 bg-surface/35 backdrop-blur-2xl shadow-2xl flex flex-col gap-1.5"
               style={{
                 boxShadow:
                   "inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 20px 40px -15px rgba(0, 0, 0, 0.7)",
@@ -261,7 +261,7 @@ export default function Navbar({
                 <LiquidGlass.Tab
                   key={link}
                   value={link}
-                  className={`relative w-full text-center flex justify-center items-center text-sm font-medium rounded-full px-4 py-2.5 transition-colors duration-300 select-none z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                  className={`relative w-full text-center flex justify-center items-center text-sm font-semibold rounded-full px-4 py-2 transition-colors duration-300 select-none z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
                     active === link
                       ? "text-text-primary"
                       : "text-muted hover:text-text-primary hover:bg-white/[0.02]"

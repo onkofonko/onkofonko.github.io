@@ -25,7 +25,7 @@ function Contact({ onViewCv }: ContactProps) {
       <div className="relative z-10">
         {/* CTA */}
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 text-center mb-16 md:mb-20">
-          <p className="text-xs text-muted uppercase font-medium mb-5 text-pretty flex items-center justify-center gap-1.5">
+          <p className="text-xs text-muted uppercase font-semibold mb-5 text-pretty flex items-center justify-center gap-1.5">
             <BpmnNodeBadge type="end-event-none" />
             Get in touch
           </p>
@@ -57,7 +57,7 @@ function Contact({ onViewCv }: ContactProps) {
             >
               <LiquidGlass.Button
                 onClick={onViewCv}
-                className="px-6 py-4 whitespace-nowrap"
+                className="px-8 py-4 whitespace-nowrap"
                 ariaLabel="View CV"
                 magnetic={true}
                 tilt={true}

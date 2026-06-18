@@ -149,7 +149,7 @@ export default function BpmnOverlay() {
                 <p className="text-xs text-muted max-w-xl leading-relaxed mt-1 text-pretty">
                   Click any visitor task box in the upper lane to navigate
                   directly to that section. Press{" "}
-                  <span className="font-mono bg-white/5 border border-white/10 px-1 py-0.5 rounded text-accent font-bold">
+                  <span className="font-mono bg-white/5 border border-white/10 px-2 py-1 rounded-xl text-accent font-bold">
                     ESC
                   </span>{" "}
                   or click close to dismiss.

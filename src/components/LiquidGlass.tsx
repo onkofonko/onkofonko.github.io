@@ -534,7 +534,7 @@ function LiquidGlassComponent({
     as === "a" || as === "button" || as === "span" ? "span" : "div";
   const contentClasses = `relative z-30 w-full h-full ${
     as === "a" || as === "button" || as === "span"
-      ? "flex items-center justify-center gap-2 font-medium"
+      ? "flex items-center justify-center gap-2 font-semibold"
       : ""
   } ${innerClassName}`.trim();
 

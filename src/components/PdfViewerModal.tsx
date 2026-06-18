@@ -125,7 +125,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title"
-            className="relative w-full h-full md:h-[85vh] md:max-w-5xl bg-surface/85 border-0 md:border md:border-white/10 rounded-none md:rounded-2xl backdrop-blur-2xl flex flex-col overflow-hidden z-10 pointer-events-auto"
+            className="relative w-full h-full md:h-[85vh] md:max-w-5xl bg-surface/85 border-0 md:border md:border-white/10 rounded-none md:rounded-3xl backdrop-blur-2xl flex flex-col overflow-hidden z-10 pointer-events-auto"
             style={{
               boxShadow:
                 "inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 4px 16px rgba(0, 0, 0, 0.6)",
@@ -215,7 +215,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
               >
                 <LiquidGlass.Tab
                   value="pdf"
-                  className={`relative text-xs font-medium rounded-full px-4 py-1.5 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                  className={`relative text-xs font-semibold rounded-full px-4 py-2 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
                     activeTab === "pdf"
                       ? "text-text-primary"
                       : "text-muted hover:text-text-primary"
@@ -225,7 +225,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                 </LiquidGlass.Tab>
                 <LiquidGlass.Tab
                   value="interactive"
-                  className={`relative text-xs font-medium rounded-full px-4 py-1.5 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                  className={`relative text-xs font-semibold rounded-full px-4 py-2 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
                     activeTab === "interactive"
                       ? "text-text-primary"
                       : "text-muted hover:text-text-primary"
@@ -304,7 +304,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
 
                       <div className="relative z-10">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="text-xs text-accent uppercase font-semibold bg-accent/10 px-2 py-0.5 rounded">
+                          <span className="text-xs text-accent uppercase font-semibold bg-accent/10 px-2 py-0.5 rounded-xl">
                             {lang === "en"
                               ? "Active Resume"
                               : "Aktívny Životopis"}
@@ -313,7 +313,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                         <h1 className="text-3xl md:text-4xl font-display text-text-primary mb-1 text-balance">
                           {activeCv.title}
                         </h1>
-                        <p className="text-sm font-medium text-text-primary/95 font-body text-pretty">
+                        <p className="text-sm font-normal text-text-primary/95 font-body text-pretty">
                           {activeCv.role}
                         </p>
 
@@ -379,7 +379,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                       <div className="lg:col-span-2 space-y-10">
                         {/* Profile Section */}
                         <section className="space-y-3">
-                          <h2 className="text-lg font-semibold text-text-primary flex items-center gap-2 border-b border-white/5 pb-2 text-balance">
+                          <h2 className="text-lg font-extrabold text-text-primary flex items-center gap-2 border-b border-white/5 pb-2 text-balance">
                             <Sparkles size={16} className="text-accent" />
                             {activeCv.profile.title}
                           </h2>
@@ -390,7 +390,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
 
                         {/* Experience Section */}
                         <section className="space-y-4">
-                          <h2 className="text-lg font-semibold text-text-primary flex items-center gap-2 border-b border-white/5 pb-2 text-balance">
+                          <h2 className="text-lg font-extrabold text-text-primary flex items-center gap-2 border-b border-white/5 pb-2 text-balance">
                             <Briefcase size={16} className="text-accent" />
                             {activeCv.experience.title}
                           </h2>
@@ -412,7 +412,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                                       {job.company}
                                     </p>
                                   </div>
-                                  <span className="text-[10px] uppercase text-accent bg-accent/5 px-2 py-0.5 rounded border border-accent/15 tabular-nums">
+                                  <span className="text-[10px] uppercase text-accent bg-accent/5 px-2 py-0.5 rounded-xl border border-accent/15 tabular-nums">
                                     {job.period}
                                   </span>
                                 </div>
@@ -434,7 +434,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
 
                         {/* Education Section */}
                         <section className="space-y-4">
-                          <h2 className="text-lg font-semibold text-text-primary flex items-center gap-2 border-b border-white/5 pb-2 text-balance">
+                          <h2 className="text-lg font-extrabold text-text-primary flex items-center gap-2 border-b border-white/5 pb-2 text-balance">
                             <GraduationCap size={16} className="text-accent" />
                             {activeCv.education.title}
                           </h2>
@@ -456,14 +456,14 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                                       {edu.school}
                                     </p>
                                   </div>
-                                  <span className="text-[10px] text-muted font-mono bg-stroke/20 px-2 py-0.5 rounded tabular-nums">
+                                  <span className="text-[10px] text-muted font-mono bg-stroke/20 px-2 py-0.5 rounded-xl tabular-nums">
                                     {edu.period}
                                   </span>
                                 </div>
 
                                 {/* Bachelor's Thesis Detail Block */}
                                 {edu.details ? (
-                                  <div className="mt-3 p-3.5 rounded-xl border border-white/5 bg-surface/30">
+                                  <div className="mt-3 p-3.5 rounded-lg border border-white/5 bg-surface/30">
                                     <p className="text-xs font-semibold text-text-primary mb-2 flex items-center gap-1.5 text-balance">
                                       <span className="w-1 h-3 rounded bg-accent" />
                                       {edu.details.thesisTitle}
@@ -495,7 +495,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                       <div className="space-y-8">
                         {/* Skills Block */}
                         <div className="p-5 rounded-2xl border border-white/5 bg-surface/40 space-y-6">
-                          <h2 className="text-sm font-bold uppercase text-text-primary/90 flex items-center gap-2 pb-2 border-b border-white/5 text-balance">
+                          <h2 className="text-sm font-extrabold uppercase text-text-primary/90 flex items-center gap-2 pb-2 border-b border-white/5 text-balance">
                             <Globe size={14} className="text-accent" />
                             {activeCv.skills.title}
                           </h2>
@@ -503,14 +503,14 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                           <div className="space-y-4">
                             {activeCv.skills.categories.map((cat, catIdx) => (
                               <div key={catIdx} className="space-y-2">
-                                <h3 className="text-[11px] font-bold uppercase text-accent text-balance">
+                                <h3 className="text-[11px] font-semibold uppercase text-accent text-balance">
                                   {cat.name}
                                 </h3>
                                 <div className="flex flex-wrap gap-1.5">
                                   {cat.items.map((skill, itemIdx) => (
                                     <span
                                       key={itemIdx}
-                                      className="text-[11px] text-muted/95 bg-surface/70 hover:bg-white/[0.04] border border-white/5 rounded-md px-2 py-1 transition-[background-color,color] select-none hover:text-text-primary"
+                                      className="text-[11px] text-muted/95 bg-surface/70 hover:bg-white/[0.04] border border-white/5 rounded-xl px-2 py-1 transition-[background-color,color] select-none hover:text-text-primary"
                                     >
                                       {skill}
                                     </span>
@@ -523,7 +523,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
 
                         {/* Languages Block */}
                         <div className="p-5 rounded-2xl border border-white/5 bg-surface/40 space-y-4">
-                          <h2 className="text-sm font-bold uppercase text-text-primary/90 flex items-center gap-2 pb-2 border-b border-white/5 text-balance">
+                          <h2 className="text-sm font-extrabold uppercase text-text-primary/90 flex items-center gap-2 pb-2 border-b border-white/5 text-balance">
                             <Languages size={14} className="text-accent" />
                             {activeCv.languages.title}
                           </h2>
@@ -534,10 +534,10 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                                 key={idx}
                                 className="flex justify-between items-center text-xs"
                               >
-                                <span className="font-medium text-text-primary">
+                                <span className="font-normal text-text-primary">
                                   {langItem.name}
                                 </span>
-                                <span className="text-accent bg-accent/10 px-2 py-0.5 rounded font-mono text-[10px] font-semibold border border-accent/10">
+                                <span className="text-accent bg-accent/10 px-2 py-0.5 rounded-xl font-mono text-[10px] font-semibold border border-accent/10">
                                   {langItem.level}
                                 </span>
                               </div>
@@ -547,7 +547,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
 
                         {/* Mobile Warning Notice */}
                         {isMobile ? (
-                          <div className="p-4 rounded-xl border border-accent/20 bg-accent/5 text-center space-y-2">
+                          <div className="p-4 rounded-lg border border-accent/20 bg-accent/5 text-center space-y-2">
                             <p className="text-[11px] text-muted text-pretty">
                               PDF view is optimized for desktop viewports. To
                               read the official document, you can open or
@@ -557,7 +557,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                               href="/cv/Ondrej_Michal_Ockaj_CV.pdf"
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 text-xs text-accent hover:text-text-primary transition-colors font-medium"
+                              className="inline-flex items-center gap-1.5 text-xs text-accent hover:text-text-primary transition-colors font-semibold"
                             >
                               <ExternalLink size={12} />
                               Open PDF Document

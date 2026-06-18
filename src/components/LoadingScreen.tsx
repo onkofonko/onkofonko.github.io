@@ -233,7 +233,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       {/* Top Header Row */}
       <div className="relative z-10 flex justify-between items-center w-full">
         <motion.div
-          className="text-[10px] md:text-xs text-muted uppercase font-sans font-medium"
+          className="text-[10px] md:text-xs text-muted uppercase font-sans font-semibold"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -242,7 +242,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         </motion.div>
         <motion.button
           onClick={handleSkip}
-          className="px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.015] hover:bg-white/[0.05] hover:border-white/20 text-[10px] md:text-xs text-muted hover:text-text-primary transition-colors duration-200 cursor-pointer active:scale-95 z-20 pointer-events-auto"
+          className="px-4 py-2 rounded-xl border border-white/10 bg-white/[0.015] hover:bg-white/[0.05] hover:border-white/20 text-[10px] md:text-xs text-muted hover:text-text-primary transition-colors duration-200 cursor-pointer active:scale-95 z-20 pointer-events-auto"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -616,7 +616,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-end w-full">
         {/* Left column: Methodology checklist */}
         <div className="md:col-span-6 flex flex-col items-start gap-3">
-          <span className="text-[10px] text-muted/40 uppercase font-sans font-medium">
+          <span className="text-[10px] text-muted/70 uppercase font-sans font-semibold">
             Process Modeling Methodology
           </span>
           {/* Methodology checklist — Desktop Only */}
@@ -631,10 +631,10 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                     key={step.label}
                     className={`flex items-center gap-3 text-[10px] md:text-xs font-sans ${
                       isActive
-                        ? "text-text-primary font-medium"
+                        ? "text-text-primary font-semibold"
                         : isCompleted
-                          ? "text-muted/40"
-                          : "text-muted/20"
+                          ? "text-muted/70"
+                          : "text-muted/45"
                     }`}
                   >
                     <span className="size-4 flex-shrink-0 relative">
@@ -716,7 +716,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                             <span className="text-[9px] text-accent/80 font-bold uppercase tracking-wider mb-0.5">
                               Phase {idx + 1} of 7
                             </span>
-                            <span className="text-text-primary font-medium text-xs leading-snug block text-pretty">
+                            <span className="text-text-primary font-semibold text-xs leading-snug block text-pretty">
                               {step.label}
                             </span>
                           </div>
@@ -736,7 +736,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             <motion.span className="text-5xl md:text-7xl font-display text-text-primary tabular-nums leading-none min-w-[3ch] inline-block text-right">
               {displayText}
             </motion.span>
-            <span className="text-lg md:text-2xl font-display text-muted/50">
+            <span className="text-lg md:text-2xl font-display text-muted/80">
               %
             </span>
           </div>

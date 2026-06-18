@@ -50,7 +50,7 @@ const parseInlineMarkdown = (text: string) => {
     .replace(ITALIC_REGEX, "<em>$1</em>")
     .replace(
       CODE_REGEX,
-      '<code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-xs font-mono">$1</code>',
+      '<code class="px-1.5 py-0.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono">$1</code>',
     );
 };
 
@@ -158,7 +158,7 @@ const JournalEntry = memo(function JournalEntry({
       </div>
 
       {/* Title */}
-      <p className="flex-1 text-sm md:text-base text-text-primary/80 group-hover:text-text-primary transition-colors duration-200 line-clamp-1 z-10 relative font-medium text-pretty">
+      <p className="flex-1 text-sm md:text-base text-text-primary/80 group-hover:text-text-primary transition-colors duration-200 line-clamp-1 z-10 relative font-semibold text-pretty">
         {article.title}
       </p>
 
@@ -211,7 +211,7 @@ const JournalDrawer = memo(function JournalDrawer({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
           <div className="absolute bottom-4 left-4 right-4 z-10">
-            <span className="text-[10px] text-accent uppercase font-bold bg-accent/20 border border-accent/30 rounded px-2.5 py-0.5">
+            <span className="text-[10px] text-accent uppercase font-bold bg-accent/20 border border-accent/30 rounded-xl px-2.5 py-0.5">
               {article.subtitle}
             </span>
             <h3 className="text-2xl md:text-3xl font-display text-text-primary mt-2 leading-tight text-balance">

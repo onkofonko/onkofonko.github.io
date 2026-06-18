@@ -177,7 +177,7 @@ function Skills() {
           className="relative z-30 pt-10 md:pt-14"
         >
           <div className="mb-6">
-            <span className="text-xs text-muted uppercase font-medium flex items-center gap-1.5">
+            <span className="text-xs text-muted uppercase font-semibold flex items-center gap-1.5">
               <BpmnNodeBadge type="gateway-parallel" />
               Languages
             </span>
@@ -187,12 +187,12 @@ function Skills() {
               <LiquidGlass
                 key={lang.language}
                 as="div"
-                className="px-5 py-2"
+                className="px-4 py-2"
                 innerClassName="flex items-center gap-3"
                 magnetic={false}
                 tilt={false}
               >
-                <span className="text-sm font-medium text-text-primary">
+                <span className="text-sm font-semibold text-text-primary">
                   {lang.language}
                 </span>
                 <span className="text-xs text-muted">{lang.level}</span>

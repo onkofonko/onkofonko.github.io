@@ -232,7 +232,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="lightbox-title"
-        className="relative max-w-7xl w-full h-[100dvh] md:h-auto md:aspect-[16/10] max-h-[100dvh] md:max-h-[85vh] rounded-none md:rounded-2xl overflow-hidden border-0 md:border border-white/10 flex flex-col bg-surface"
+        className="relative max-w-7xl w-full h-[100dvh] md:h-auto md:aspect-[16/10] max-h-[100dvh] md:max-h-[85vh] rounded-none md:rounded-3xl overflow-hidden border-0 md:border border-white/10 flex flex-col bg-surface"
         initial={{
           scale: prefersReducedMotion ? 1 : isMobile ? 0.92 : 0.96,
           opacity: 0,
@@ -351,7 +351,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
         <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-20 pointer-events-none">
           <p
             id="lightbox-title"
-            className="text-sm font-medium text-white mb-1 text-balance"
+            className="text-sm font-semibold text-white mb-1 text-balance"
           >
             {item.title}
           </p>

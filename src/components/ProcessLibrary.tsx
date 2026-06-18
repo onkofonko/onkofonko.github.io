@@ -75,7 +75,7 @@ function ProcessLibrary() {
                 <LiquidGlass.Tab
                   key={item.id}
                   value={item.id}
-                  className={`w-full text-left relative px-5 py-4 rounded-xl transition-colors duration-300 flex items-center gap-4 select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                  className={`w-full text-left relative px-8 py-4 rounded-xl transition-colors duration-300 flex items-center gap-4 select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
                     activeItem.id === item.id
                       ? "text-text-primary"
                       : "text-muted hover:text-text-primary"
@@ -88,7 +88,7 @@ function ProcessLibrary() {
 
                   {/* Metadata */}
                   <div className="relative z-10">
-                    <h4 className="text-sm font-semibold transition-transform duration-300 group-hover:translate-x-1 text-balance">
+                    <h4 className="text-sm font-semibold transition-transform duration-300 group-hover:translate-x-1 text-balance line-clamp-2">
                       {item.title}
                     </h4>
                     <p className="text-[9px] text-muted uppercase mt-0.5">
@@ -119,7 +119,7 @@ function ProcessLibrary() {
                     {/* Canvas Header */}
                     <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10 w-full">
                       <div>
-                        <span className="inline-block text-[9px] text-accent uppercase bg-accent/10 border border-accent/20 rounded px-2.5 py-0.5">
+                        <span className="inline-block text-[9px] text-accent uppercase bg-accent/10 border border-accent/20 rounded-xl px-2.5 py-0.5">
                           {activeItem.type}
                         </span>
                         <h3 className="text-xl md:text-2xl font-display text-text-primary mt-2 text-balance">
@@ -131,7 +131,7 @@ function ProcessLibrary() {
                     {/* Adaptable Grid Canvas Board */}
                     <button
                       type="button"
-                      className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-stroke/50 flex items-center justify-center p-0 mb-6 select-none cursor-zoom-in group/canvas z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                      className="relative w-full aspect-[16/10] rounded-lg overflow-hidden border border-stroke/50 flex items-center justify-center p-0 mb-6 select-none cursor-zoom-in group/canvas z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                       onClick={() => setLightboxItem(activeItem)}
                       aria-label={`Zoom diagram: ${activeItem.title}`}
                       style={{

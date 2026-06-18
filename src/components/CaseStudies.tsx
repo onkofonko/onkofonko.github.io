@@ -23,7 +23,7 @@ const parseInlineMarkdown = (text: string) => {
     .replace(ITALIC_REGEX, "<em>$1</em>")
     .replace(
       CODE_REGEX,
-      '<code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-xs font-mono">$1</code>',
+      '<code class="px-1.5 py-0.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono">$1</code>',
     );
 };
 
@@ -81,7 +81,7 @@ function CaseStudies() {
           className="mb-12 md:mb-16 relative z-30"
         >
           <div className="mb-4">
-            <span className="text-xs text-muted uppercase font-medium flex items-center gap-1.5">
+            <span className="text-xs text-muted uppercase font-semibold flex items-center gap-1.5">
               <BpmnNodeBadge type="task" />
               Case Studies
             </span>
@@ -151,7 +151,7 @@ const CaseStudyCard = memo(function CaseStudyCard({
 
           {/* Title */}
           <div>
-            <h3 className="text-2xl md:text-3xl font-display text-text-primary mb-1 text-balance">
+            <h3 className="text-2xl md:text-3xl font-display text-text-primary mb-1 text-balance line-clamp-2">
               {study.title}
             </h3>
             <p className="text-sm text-muted text-pretty">{study.subtitle}</p>
@@ -237,9 +237,6 @@ const CaseStudyCard = memo(function CaseStudyCard({
               {study.timeline}
             </p>
           </div>
-
-          {/* Divider */}
-          <div className="w-full h-px bg-stroke/30" />
 
           {/* CTA */}
           <div className="flex justify-start">
@@ -348,7 +345,7 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({
       >
         {/* Header */}
         <motion.div variants={drawerItemVariants}>
-          <span className="text-[10px] text-accent uppercase font-bold bg-accent/20 border border-accent/30 rounded px-2.5 py-0.5">
+          <span className="text-[10px] text-accent uppercase font-bold bg-accent/20 border border-accent/30 rounded-xl px-2.5 py-0.5">
             {study.category}
           </span>
           <h3 className="text-2xl md:text-3xl font-display text-text-primary mt-2 text-balance">
@@ -365,7 +362,7 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({
             Client Profile
           </h3>
           <p
-            className="text-sm text-text-primary/95 font-medium leading-relaxed text-pretty"
+            className="text-sm text-text-primary/95 font-normal leading-relaxed text-pretty"
             dangerouslySetInnerHTML={{
               __html: parseInlineMarkdown(study.client),
             }}

@@ -96,7 +96,7 @@ const BaseDrawer = memo(function BaseDrawer({
         {/* Top bar */}
         <div className="flex items-center justify-between p-6 border-b border-white/10 relative z-20">
           <div
-            className="flex items-center gap-2 text-xs text-muted uppercase font-medium"
+            className="flex items-center gap-2 text-xs text-muted uppercase font-semibold"
             id="drawer-title"
           >
             {icon && icon}
