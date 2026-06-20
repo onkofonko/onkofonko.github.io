@@ -243,12 +243,27 @@ export default function Aurora(props: AuroraProps) {
     };
     animateId = requestAnimationFrame(update);
 
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        if (animateId) {
+          cancelAnimationFrame(animateId);
+          animateId = 0;
+        }
+      } else {
+        if (!animateId) {
+          animateId = requestAnimationFrame(update);
+        }
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     resize();
 
     const activeGl = gl;
     return () => {
       cancelAnimationFrame(animateId);
       window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       if (
         ctn &&
         activeGl.canvas &&
