@@ -1,13 +1,14 @@
 import { useEffect, useState, memo, MouseEvent } from "react";
 import { FileText } from "lucide-react";
 import {
-  AnimatePresence,
   motion,
   useReducedMotion,
   useScroll,
   useTransform,
   Variants,
 } from "motion/react";
+import "slot-text/style.css";
+import { SlotText } from "slot-text/react";
 import LiquidGlass from "./LiquidGlass";
 import BpmnNodeBadge from "./BpmnNodeBadge";
 
@@ -152,33 +153,6 @@ const arrowVariants: Variants = {
   },
 };
 
-const roleVariants: Variants = {
-  hidden: (prefersReducedMotion: boolean) => ({
-    y: prefersReducedMotion ? 0 : 8,
-    opacity: 0,
-    filter: prefersReducedMotion ? "none" : "blur(4px)",
-    transition: {
-      duration: prefersReducedMotion ? 0.1 : 0.15,
-      ease: "easeIn" as const,
-    },
-  }),
-  visible: {
-    y: 0,
-    opacity: 1,
-    filter: "blur(0px)",
-    transition: { duration: 0.25, ease: [0.25, 0.1, 0.25, 1] as const },
-  },
-  exit: (prefersReducedMotion: boolean) => ({
-    y: prefersReducedMotion ? 0 : -8,
-    opacity: 0,
-    filter: prefersReducedMotion ? "none" : "blur(4px)",
-    transition: {
-      duration: prefersReducedMotion ? 0.1 : 0.15,
-      ease: "easeIn" as const,
-    },
-  }),
-};
-
 function Hero({ onViewCv, onViewWork }: HeroProps) {
   const [roleIndex, setRoleIndex] = useState(0);
   const { scrollY } = useScroll();
@@ -228,19 +202,17 @@ function Hero({ onViewCv, onViewWork }: HeroProps) {
           <span className="inline-block">
             working as a{" "}
             <span className="inline-block text-text-primary font-semibold">
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.span
-                  key={roleIndex}
-                  custom={prefersReducedMotion}
-                  variants={roleVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="inline-block"
-                >
-                  {ROLES[roleIndex]}.
-                </motion.span>
-              </AnimatePresence>
+              <SlotText
+                text={ROLES[roleIndex] + "."}
+                options={{
+                  direction: "down",
+                  skipUnchanged: false,
+                  duration: prefersReducedMotion ? 0 : 350,
+                  stagger: 50,
+                  bounce: 0.2,
+                  easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                }}
+              />
             </span>
           </span>
         </motion.p>

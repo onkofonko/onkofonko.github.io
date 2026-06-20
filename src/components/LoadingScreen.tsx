@@ -242,7 +242,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         </motion.div>
         <motion.button
           onClick={handleSkip}
-          className="px-4 py-2 rounded-xl border border-white/10 bg-white/[0.015] hover:bg-white/[0.05] hover:border-white/20 text-[10px] md:text-xs text-muted hover:text-text-primary transition-colors duration-200 cursor-pointer active:scale-95 z-20 pointer-events-auto"
+          className="px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/20 text-[10px] md:text-xs text-muted hover:text-text-primary transition-colors duration-200 cursor-pointer active:scale-95 z-20 pointer-events-auto"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
