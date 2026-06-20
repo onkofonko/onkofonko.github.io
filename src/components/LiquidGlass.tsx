@@ -9,6 +9,7 @@ import {
   useContext,
   useMemo,
   memo,
+  forwardRef,
   type CSSProperties,
   type PointerEvent,
   type ReactNode,
@@ -185,7 +186,250 @@ interface LiquidGlassPropsWithRef extends LiquidGlassProps {
   ref?: Ref<HTMLElement | null>;
 }
 
-function LiquidGlassComponent({
+/* eslint-disable @typescript-eslint/no-unused-vars */
+function LiquidGlassMobile({
+  children,
+  as = "div",
+  href,
+  download,
+  target,
+  rel,
+  ariaLabel,
+  onClick,
+  className = "",
+  innerClassName = "",
+  style = DEFAULT_STYLE,
+  interactive = true,
+  springScale = false,
+  roundedClass = "rounded-full",
+  magnetic = false,
+  tilt = false,
+  magneticStrength = 0.02,
+  tiltStrength = 2,
+  ripple = true,
+  variant = "flat",
+  active = false,
+  specularGlow = false,
+  ref,
+  ...rest
+}: LiquidGlassPropsWithRef) {
+  /* eslint-enable @typescript-eslint/no-unused-vars */
+  const localRef = useRef<HTMLElement | null>(null);
+  const [width, setWidth] = useState(120);
+
+  // Synchronize internal ref with forwarded ref
+  useEffect(() => {
+    if (!ref) return;
+    if (typeof ref === "function") {
+      ref(localRef.current);
+    } else {
+      (ref as MutableRefObject<HTMLElement | null>).current = localRef.current;
+    }
+  }, [ref]);
+
+  // Click ripple state & logic hook
+  const {
+    clickPos,
+    rippleRadius,
+    rippleOpacity,
+    onPointerDown: handlePointerDown,
+  } = useRipple(interactive && springScale && ripple);
+
+  // Keyboard handler: support Enter/Space activation for non-semantic interactive elements
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent<HTMLElement>) => {
+      if ((e.key === "Enter" || e.key === " ") && onClick) {
+        e.preventDefault();
+        onClick(e as unknown as MouseEvent<HTMLElement>);
+      }
+    },
+    [onClick],
+  );
+
+  const borderActiveClasses = active
+    ? "border-white/[0.15] bg-white/[0.04]"
+    : "border-white/[0.04] group-hover:border-white/[0.08] bg-white/[0.015] group-hover:bg-white/[0.03]";
+
+  const baseClasses = `
+    group relative inline-flex items-center justify-center
+    ${borderActiveClasses} backdrop-blur-lg
+    text-text-primary transition-[border-color,background-color,box-shadow] duration-300 ease-out select-none
+    overflow-hidden ${
+      as === "button" || href || onClick
+        ? "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+        : "cursor-default"
+    } ${roundedClass}
+  `
+    .replace(WHITESPACE_REGEX, " ")
+    .trim();
+
+  // Combine inline styles to form realistic glass depth (soft and subtle)
+  const glassStyle = useMemo<CSSProperties>(() => {
+    let shadow = `
+      inset 0 1px 1px rgba(255, 255, 255, 0.25),
+      inset 0 4px 8px rgba(255, 255, 255, 0.03),
+      0 4px 10px rgba(0, 0, 0, 0.08)
+    `;
+    const isEffectivelyActive = active;
+
+    if (variant === "sunken") {
+      shadow = isEffectivelyActive
+        ? `
+          inset 0 3px 8px rgba(0, 0, 0, 0.45),
+          inset 0 1px 2px rgba(255, 255, 255, 0.12),
+          0 4px 12px rgba(0, 0, 0, 0.2)
+        `
+        : `
+          inset 0 2px 5px rgba(0, 0, 0, 0.35),
+          inset 0 1px 1px rgba(255, 255, 255, 0.05),
+          0 1px 2px rgba(255, 255, 255, 0.02)
+        `;
+    } else if (variant === "beveled") {
+      shadow = isEffectivelyActive
+        ? `
+          inset 0 1px 2px rgba(255, 255, 255, 0.4),
+          inset 0 6px 12px rgba(255, 255, 255, 0.06),
+          0 8px 16px rgba(0, 0, 0, 0.15)
+        `
+        : `
+          inset 0 1px 1px rgba(255, 255, 255, 0.25),
+          inset 0 4px 8px rgba(255, 255, 255, 0.03),
+          0 4px 10px rgba(0, 0, 0, 0.08)
+        `;
+    }
+
+    // Specular highlight bloom overlay
+    if (specularGlow && isEffectivelyActive) {
+      shadow = `inset 0 1px 2px rgba(255, 255, 255, 0.24), inset 0 8px 16px rgba(255, 255, 255, 0.06), ${shadow}`;
+    }
+
+    return {
+      boxShadow: shadow,
+      WebkitBackfaceVisibility: "hidden",
+      backfaceVisibility: "hidden",
+      willChange: style?.willChange ?? "transform, filter, backdrop-filter",
+      ...style,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any;
+  }, [style, variant, active, specularGlow]);
+
+  const { tapScaleX, tapScaleY } = useMemo(() => {
+    const tapDeltaX = TAP_DELTA_MOBILE;
+    const tapScaleX = 1 + tapDeltaX / width;
+    const tapScaleY = TAP_SCALE_Y_MOBILE;
+
+    return { tapScaleX, tapScaleY };
+  }, [width]);
+
+  const handlePointerDownWrapper = useCallback(
+    (e: PointerEvent<HTMLElement>) => {
+      if (localRef.current) {
+        setWidth(localRef.current.offsetWidth);
+      }
+      handlePointerDown(e);
+    },
+    [handlePointerDown],
+  );
+
+  const sharedAnimationProps = useMemo(
+    () => ({
+      whileTap: springScale
+        ? { scaleX: tapScaleX, scaleY: tapScaleY }
+        : undefined,
+      transition: springScale
+        ? {
+            scaleX: {
+              type: "spring",
+              stiffness: 400,
+              damping: 15,
+              mass: 0.6,
+            },
+            scaleY: {
+              type: "spring",
+              stiffness: 400,
+              damping: 15,
+              mass: 0.6,
+            },
+          }
+        : undefined,
+      onPointerDown: handlePointerDownWrapper,
+    }),
+    [springScale, handlePointerDownWrapper, tapScaleX, tapScaleY],
+  );
+
+  // Determine container tag and layout styles dynamically based on semantics
+  const ContentTag =
+    as === "a" || as === "button" || as === "span" ? "span" : "div";
+  const contentClasses = `relative z-30 w-full h-full ${
+    as === "a" || as === "button" || as === "span"
+      ? "flex items-center justify-center gap-2 font-semibold"
+      : ""
+  } ${innerClassName}`.trim();
+
+  const innerElements = (
+    <>
+      {interactive ? (
+        <>
+          {springScale && ripple ? (
+            <Ripple
+              clickPos={clickPos}
+              rippleRadius={rippleRadius}
+              rippleOpacity={rippleOpacity}
+            />
+          ) : null}
+        </>
+      ) : null}
+
+      {/* Label and icons */}
+      <ContentTag className={contentClasses}>{children}</ContentTag>
+    </>
+  );
+
+  const Tag = href
+    ? motion.a
+    : as === "button"
+      ? motion.button
+      : // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (motion as any)[as];
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const tagProps: any = {
+    className: `${baseClasses} ${className}`,
+    style: glassStyle,
+    "aria-label": ariaLabel,
+    ...sharedAnimationProps,
+    ...rest,
+  };
+
+  if (href) {
+    tagProps.href = href;
+    tagProps.download = download;
+    tagProps.target = target;
+    tagProps.rel = rel;
+    tagProps.onClick = onClick as MouseEventHandler<HTMLAnchorElement>;
+  } else if (as === "button") {
+    tagProps.type = "button";
+    tagProps.onClick = onClick as MouseEventHandler<HTMLButtonElement>;
+  } else if (onClick) {
+    tagProps.onClick = onClick;
+    // For non-semantic elements, add keyboard accessibility
+    if (as !== "a" && (as as string) !== "button") {
+      tagProps.tabIndex = 0;
+      tagProps.onKeyDown = handleKeyDown;
+      tagProps.role = "button";
+    }
+  }
+
+  return (
+    <Tag ref={localRef} {...tagProps}>
+      {innerElements}
+    </Tag>
+  );
+}
+
+LiquidGlassMobile.displayName = "LiquidGlassMobile";
+
+function LiquidGlassDesktop({
   children,
   as = "div",
   href,
@@ -213,13 +457,13 @@ function LiquidGlassComponent({
 }: LiquidGlassPropsWithRef) {
   const localRef = useRef<HTMLElement | null>(null);
   const [width, setWidth] = useState(120);
-  const isMobile = useIsMobile();
 
-  // Disable mouse-only effects on touch devices
-  if (isMobile) {
-    magnetic = false;
-    tilt = false;
-  }
+  const effectiveTiltStrength = useMemo(() => {
+    const referenceWidth = 240;
+    const raw = tiltStrength * (referenceWidth / Math.max(width, 1));
+    // Clamp to prevent extreme tilt on tiny elements
+    return Math.min(raw, 12);
+  }, [width, tiltStrength]);
 
   // Synchronize internal ref with forwarded ref
   useEffect(() => {
@@ -300,7 +544,7 @@ function LiquidGlassComponent({
       opacity.set(1);
       setIsHovered(true);
     }
-  }, [interactive, updateRect, opacity, setWidth]);
+  }, [interactive, updateRect, opacity]);
 
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
@@ -324,8 +568,8 @@ function LiquidGlassComponent({
       if (tilt) {
         const pctX = x / (currentRect.width / 2);
         const pctY = y / (currentRect.height / 2);
-        tiltX.set(-pctY * tiltStrength);
-        tiltY.set(pctX * tiltStrength);
+        tiltX.set(-pctY * effectiveTiltStrength);
+        tiltY.set(pctX * effectiveTiltStrength);
       }
     },
     [
@@ -339,7 +583,7 @@ function LiquidGlassComponent({
       magneticStrength,
       tilt,
       tiltX,
-      tiltStrength,
+      effectiveTiltStrength,
       tiltY,
     ],
   );
@@ -450,7 +694,7 @@ function LiquidGlassComponent({
       rotateX: tilt ? springTiltX : undefined,
       rotateY: tilt ? springTiltY : undefined,
       transformStyle: tilt ? "preserve-3d" : undefined,
-      perspective: tilt ? 1000 : undefined,
+      transformPerspective: tilt ? 1000 : undefined,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any;
   }, [
@@ -468,16 +712,16 @@ function LiquidGlassComponent({
   ]);
 
   const { hoverScaleX, hoverScaleY, tapScaleX, tapScaleY } = useMemo(() => {
-    const hoverDeltaX = isMobile ? HOVER_DELTA_MOBILE : HOVER_DELTA_DESKTOP;
+    const hoverDeltaX = HOVER_DELTA_DESKTOP;
     const hoverScaleX = 1 + hoverDeltaX / width;
-    const hoverScaleY = isMobile ? HOVER_SCALE_Y_MOBILE : HOVER_SCALE_Y_DESKTOP;
+    const hoverScaleY = HOVER_SCALE_Y_DESKTOP;
 
-    const tapDeltaX = isMobile ? TAP_DELTA_MOBILE : TAP_DELTA_DESKTOP;
+    const tapDeltaX = TAP_DELTA_DESKTOP;
     const tapScaleX = 1 + tapDeltaX / width;
-    const tapScaleY = isMobile ? TAP_SCALE_Y_MOBILE : TAP_SCALE_Y_DESKTOP;
+    const tapScaleY = TAP_SCALE_Y_DESKTOP;
 
     return { hoverScaleX, hoverScaleY, tapScaleX, tapScaleY };
-  }, [isMobile, width]);
+  }, [width]);
 
   const handlePointerDownWrapper = useCallback(
     (e: PointerEvent<HTMLElement>) => {
@@ -486,7 +730,7 @@ function LiquidGlassComponent({
       }
       handlePointerDown(e);
     },
-    [handlePointerDown, setWidth],
+    [handlePointerDown],
   );
 
   const sharedAnimationProps = useMemo(
@@ -544,32 +788,30 @@ function LiquidGlassComponent({
     <>
       {interactive ? (
         <>
-          {!isMobile ? (
-            <span
-              className={`absolute inset-0 pointer-events-none z-0 overflow-hidden ${roundedClass}`}
-            >
-              <motion.span
-                className="absolute size-48 -mt-24 -ml-24 rounded-full bg-gradient-to-r from-[#7A7BBF]/6 to-[#6667AB]/6 blur-2xl pointer-events-none mix-blend-screen"
-                style={{
-                  x: springX,
-                  y: springY,
-                  opacity: springOpacity,
-                  left: "50%",
-                  top: "50%",
-                }}
-              />
-              <motion.span
-                className="absolute size-32 -mt-16 -ml-16 rounded-full bg-gradient-to-r from-[#F26B5B]/3 to-[#926AA6]/3 blur-xl pointer-events-none mix-blend-screen"
-                style={{
-                  x: lagX,
-                  y: lagY,
-                  opacity: springOpacity,
-                  left: "50%",
-                  top: "50%",
-                }}
-              />
-            </span>
-          ) : null}
+          <span
+            className={`absolute inset-0 pointer-events-none z-0 overflow-hidden ${roundedClass}`}
+          >
+            <motion.span
+              className="absolute size-48 -mt-24 -ml-24 rounded-full bg-gradient-to-r from-[#7A7BBF]/6 to-[#6667AB]/6 blur-2xl pointer-events-none mix-blend-screen"
+              style={{
+                x: springX,
+                y: springY,
+                opacity: springOpacity,
+                left: "50%",
+                top: "50%",
+              }}
+            />
+            <motion.span
+              className="absolute size-32 -mt-16 -ml-16 rounded-full bg-gradient-to-r from-[#F26B5B]/3 to-[#926AA6]/3 blur-xl pointer-events-none mix-blend-screen"
+              style={{
+                x: lagX,
+                y: lagY,
+                opacity: springOpacity,
+                left: "50%",
+                top: "50%",
+              }}
+            />
+          </span>
 
           {springScale && ripple ? (
             <Ripple
@@ -579,12 +821,10 @@ function LiquidGlassComponent({
             />
           ) : null}
 
-          {!isMobile ? (
-            <motion.span
-              className={`absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${roundedClass}`}
-              style={{ background: borderGradient, mixBlendMode: "overlay" }}
-            />
-          ) : null}
+          <motion.span
+            className={`absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${roundedClass}`}
+            style={{ background: borderGradient, mixBlendMode: "overlay" }}
+          />
         </>
       ) : null}
 
@@ -635,9 +875,17 @@ function LiquidGlassComponent({
   );
 }
 
-LiquidGlassComponent.displayName = "LiquidGlassComponent";
+LiquidGlassDesktop.displayName = "LiquidGlassDesktop";
 
-export const LiquidGlass = memo(LiquidGlassComponent);
+export const LiquidGlass = memo(
+  forwardRef<HTMLElement, LiquidGlassProps>((props, ref) => {
+    const isMobile = useIsMobile();
+    if (isMobile) {
+      return <LiquidGlassMobile ref={ref} {...props} />;
+    }
+    return <LiquidGlassDesktop ref={ref} {...props} />;
+  }),
+);
 
 LiquidGlass.displayName = "LiquidGlass";
 
