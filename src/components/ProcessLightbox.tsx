@@ -53,6 +53,36 @@ const ZoomableImage = memo(
   },
 );
 
+// Click area that toggles zoom between 100% and 250% on clean clicks (not drags)
+const ZoomClickArea = memo(function ZoomClickArea({
+  children,
+  isZoomed,
+  wasPanningRef,
+}: {
+  children: React.ReactNode;
+  isZoomed: boolean;
+  wasPanningRef: { current: boolean };
+}) {
+  const { resetTransform, centerView } = useControls();
+
+  return (
+    <div
+      className="w-full h-full flex items-center justify-center"
+      onClick={(e) => {
+        e.stopPropagation();
+        if (wasPanningRef.current) return;
+        if (isZoomed) {
+          resetTransform(200);
+        } else {
+          centerView(2.5, 200);
+        }
+      }}
+    >
+      {children}
+    </div>
+  );
+});
+
 // Sub-component for controls to isolate render cycles from the rest of the lightbox
 const LightboxControls = memo(
   ({
@@ -154,6 +184,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
   const [isPanning, setIsPanning] = useState(false);
+  const wasPanningRef = useRef(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -236,7 +267,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
             centerZoomedOut
             smooth={true}
             disablePadding={true}
-            doubleClick={{ mode: "toggle", animationTime: 0 }}
+            doubleClick={{ disabled: true }}
             wheel={{ step: 0.00125 }}
             zoomAnimation={{ disabled: true }}
             onTransform={(_ref, state) => {
@@ -245,7 +276,13 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
                 setIsZoomed(zoomed);
               }
             }}
-            onPanningStart={() => setIsPanning(true)}
+            onPanningStart={() => {
+              setIsPanning(true);
+              wasPanningRef.current = false;
+            }}
+            onPanning={() => {
+              wasPanningRef.current = true;
+            }}
             onPanningStop={() => setIsPanning(false)}
           >
             {/* Floating Island Control Panel inside context to use useControls */}
@@ -273,12 +310,14 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
                 cursor: cursorStyle,
               }}
             >
-              <ZoomableImage
-                src={item.image}
-                alt={item.title}
-                isZoomed={isZoomed}
-                isPanning={isPanning}
-              />
+              <ZoomClickArea isZoomed={isZoomed} wasPanningRef={wasPanningRef}>
+                <ZoomableImage
+                  src={item.image}
+                  alt={item.title}
+                  isZoomed={isZoomed}
+                  isPanning={isPanning}
+                />
+              </ZoomClickArea>
             </TransformComponent>
           </TransformWrapper>
         </div>
