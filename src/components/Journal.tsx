@@ -3,18 +3,12 @@ import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, Clock, MessageSquare, BookOpen } from "lucide-react";
 import { ARTICLES, type Article } from "../data/articles";
 import LiquidGlass from "./LiquidGlass";
-import BpmnNodeBadge from "./BpmnNodeBadge";
 import BaseDrawer from "./BaseDrawer";
 import { useModalHistory } from "../hooks/useModalHistory";
+import { parseInlineMarkdown } from "../utils/markdownParser";
 
-const headerVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 1, ease: [0.25, 0.1, 0.25, 1] as const },
-  },
-};
+const isBuildMode =
+  typeof window !== "undefined" && (window as any).__BONEYARD_BUILD;
 
 const containerVariants = {
   hidden: {},
@@ -34,26 +28,6 @@ const cardVariants = {
   },
 };
 
-const AMPERSAND_REGEX = /&/g;
-const LT_REGEX = /</g;
-const GT_REGEX = />/g;
-const BOLD_REGEX = /\*\*(.*?)\*\*/g;
-const ITALIC_REGEX = /\*(.*?)\*/g;
-const CODE_REGEX = /`(.*?)`/g;
-
-const parseInlineMarkdown = (text: string) => {
-  return text
-    .replace(AMPERSAND_REGEX, "&amp;")
-    .replace(LT_REGEX, "&lt;")
-    .replace(GT_REGEX, "&gt;")
-    .replace(BOLD_REGEX, "<strong>$1</strong>")
-    .replace(ITALIC_REGEX, "<em>$1</em>")
-    .replace(
-      CODE_REGEX,
-      '<code class="px-1.5 py-0.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono">$1</code>',
-    );
-};
-
 function Journal() {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
@@ -66,50 +40,20 @@ function Journal() {
 
   return (
     <>
-      <section
-        id="journal"
-        className="bg-transparent pt-16 md:pt-24 pb-0 scroll-mt-20 md:scroll-mt-24"
+      {/* Journal entries */}
+      <motion.div
+        className="flex flex-col gap-3"
+        variants={containerVariants}
+        initial={isBuildMode ? "visible" : "hidden"}
+        whileInView={isBuildMode ? undefined : "visible"}
+        viewport={isBuildMode ? undefined : { once: true, margin: "-60px" }}
       >
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
-          {/* Header */}
-          <motion.div
-            variants={headerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="flex items-end justify-between mb-10 md:mb-14"
-          >
-            <div>
-              <h2 className="text-3xl md:text-5xl font-display text-text-primary mb-3 text-balance flex items-center gap-3">
-                <BpmnNodeBadge
-                  type="intermediate-event-catch-message"
-                  className="translate-y-[2px]"
-                />
-                Recent thought pieces
-              </h2>
-              <p className="text-sm text-muted max-w-sm text-pretty">
-                Analyzing process optimization, systems integrations, and
-                enterprise digital transformation frameworks.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Journal entries */}
-          <motion.div
-            className="flex flex-col gap-3"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-          >
-            {ARTICLES.map((article) => (
-              <motion.article key={article.id} variants={cardVariants}>
-                <JournalEntry article={article} onOpen={setSelectedArticle} />
-              </motion.article>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+        {ARTICLES.map((article) => (
+          <motion.article key={article.id} variants={cardVariants}>
+            <JournalEntry article={article} onOpen={setSelectedArticle} />
+          </motion.article>
+        ))}
+      </motion.div>
 
       {/* Drawer */}
       <AnimatePresence>

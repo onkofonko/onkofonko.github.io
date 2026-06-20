@@ -3,38 +3,12 @@ import { motion, AnimatePresence, animate } from "motion/react";
 import { AlertCircle, CheckCircle, FileText, Activity } from "lucide-react";
 import { CASE_STUDIES, type CaseStudyDetail } from "../data/caseStudies";
 import LiquidGlass from "./LiquidGlass";
-import BpmnNodeBadge from "./BpmnNodeBadge";
 import BaseDrawer from "./BaseDrawer";
 import { useModalHistory } from "../hooks/useModalHistory";
+import { parseInlineMarkdown } from "../utils/markdownParser";
 
-const AMPERSAND_REGEX = /&/g;
-const LT_REGEX = /</g;
-const GT_REGEX = />/g;
-const BOLD_REGEX = /\*\*(.*?)\*\*/g;
-const ITALIC_REGEX = /\*(.*?)\*/g;
-const CODE_REGEX = /`(.*?)`/g;
-
-const parseInlineMarkdown = (text: string) => {
-  return text
-    .replace(AMPERSAND_REGEX, "&amp;")
-    .replace(LT_REGEX, "&lt;")
-    .replace(GT_REGEX, "&gt;")
-    .replace(BOLD_REGEX, "<strong>$1</strong>")
-    .replace(ITALIC_REGEX, "<em>$1</em>")
-    .replace(
-      CODE_REGEX,
-      '<code class="px-1.5 py-0.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono">$1</code>',
-    );
-};
-
-const headerVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 1, ease: [0.25, 0.1, 0.25, 1] as const },
-  },
-};
+const isBuildMode =
+  typeof window !== "undefined" && (window as any).__BONEYARD_BUILD;
 
 const containerVariants = {
   hidden: {},
@@ -67,49 +41,20 @@ function CaseStudies() {
   useModalHistory(selectedStudy !== null, handleCloseStudy);
 
   return (
-    <section
-      id="work"
-      className="bg-transparent pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24"
-    >
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
-        {/* Header */}
-        <motion.div
-          variants={headerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="mb-12 md:mb-16 relative z-30"
-        >
-          <div className="mb-4">
-            <span className="text-xs text-muted uppercase font-semibold flex items-center gap-1.5">
-              <BpmnNodeBadge type="task" />
-              Case Studies
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-display text-text-primary mb-3 text-balance">
-            Process transformation projects
-          </h2>
-          <p className="text-sm text-muted max-w-sm text-pretty">
-            Real-world analysis and digital solutions across supply chain,
-            logistics, and HR domains.
-          </p>
-        </motion.div>
-
-        {/* Case Studies */}
-        <motion.div
-          className="space-y-6 md:space-y-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-        >
-          {CASE_STUDIES.map((study) => (
-            <motion.article key={study.id} variants={cardVariants}>
-              <CaseStudyCard study={study} onOpen={setSelectedStudy} />
-            </motion.article>
-          ))}
-        </motion.div>
-      </div>
+    <>
+      <motion.div
+        className="space-y-6 md:space-y-8"
+        variants={containerVariants}
+        initial={isBuildMode ? "visible" : "hidden"}
+        whileInView={isBuildMode ? undefined : "visible"}
+        viewport={isBuildMode ? undefined : { once: true, margin: "-80px" }}
+      >
+        {CASE_STUDIES.map((study) => (
+          <motion.article key={study.id} variants={cardVariants}>
+            <CaseStudyCard study={study} onOpen={setSelectedStudy} />
+          </motion.article>
+        ))}
+      </motion.div>
 
       {/* Drawer */}
       <AnimatePresence>
@@ -117,7 +62,7 @@ function CaseStudies() {
           <CaseStudyDrawer study={selectedStudy} onClose={handleCloseStudy} />
         ) : null}
       </AnimatePresence>
-    </section>
+    </>
   );
 }
 

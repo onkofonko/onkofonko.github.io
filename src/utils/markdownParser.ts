@@ -295,3 +295,23 @@ export function parseCaseStudy(
     deliverables,
   };
 }
+
+const AMPERSAND_REGEX = /&/g;
+const LT_REGEX = /</g;
+const GT_REGEX = />/g;
+const BOLD_REGEX = /\*\*(.*?)\*\*/g;
+const ITALIC_REGEX = /\*(.*?)\*/g;
+const CODE_REGEX = /`(.*?)`/g;
+
+export const parseInlineMarkdown = (text: string) => {
+  return text
+    .replace(AMPERSAND_REGEX, "&amp;")
+    .replace(LT_REGEX, "&lt;")
+    .replace(GT_REGEX, "&gt;")
+    .replace(BOLD_REGEX, "<strong>$1</strong>")
+    .replace(ITALIC_REGEX, "<em>$1</em>")
+    .replace(
+      CODE_REGEX,
+      '<code class="px-1.5 py-0.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono">$1</code>',
+    );
+};

@@ -11,6 +11,9 @@ import {
 import LiquidGlass from "./LiquidGlass";
 import BpmnNodeBadge from "./BpmnNodeBadge";
 
+const isBuildMode =
+  typeof window !== "undefined" && (window as any).__BONEYARD_BUILD;
+
 const SKILL_CATEGORIES = [
   {
     title: "Process Analysis",
@@ -97,15 +100,6 @@ const LANGUAGES = [
   { language: "Russian", level: "Intermediate (B1)" },
 ];
 
-const headerVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 1, ease: [0.25, 0.1, 0.25, 1] as const },
-  },
-};
-
 const containerVariants = {
   hidden: {},
   visible: {
@@ -126,82 +120,58 @@ const cardVariants = {
 
 function Skills() {
   return (
-    <section
-      id="skills"
-      className="bg-transparent pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24"
-    >
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
-        {/* Header */}
-        <motion.div
-          variants={headerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="mb-8 md:mb-10 relative z-30"
-        >
-          <h2 className="text-3xl md:text-5xl font-display text-text-primary mb-3 text-balance flex items-center gap-3">
-            <BpmnNodeBadge type="gateway-or" className="translate-y-[2px]" />
-            Skills & competencies
-          </h2>
-          <p className="text-sm text-muted max-w-sm text-pretty">
-            Comprehensive toolkit for process analysis, business transformation,
-            and digital solutions.
-          </p>
-        </motion.div>
+    <>
+      {/* Skills Bento Grid */}
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-3 gap-5"
+        variants={containerVariants}
+        initial={isBuildMode ? "visible" : "hidden"}
+        whileInView={isBuildMode ? undefined : "visible"}
+        viewport={isBuildMode ? undefined : { once: true, margin: "-80px" }}
+      >
+        {SKILL_CATEGORIES.map((category) => (
+          <motion.div
+            key={category.title}
+            variants={cardVariants}
+            className={`${category.gridSpan} h-full`}
+          >
+            <SkillCard category={category} />
+          </motion.div>
+        ))}
+      </motion.div>
 
-        {/* Skills Bento Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-5"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-        >
-          {SKILL_CATEGORIES.map((category) => (
-            <motion.div
-              key={category.title}
-              variants={cardVariants}
-              className={`${category.gridSpan} h-full`}
+      {/* Languages — inline tags */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        className="relative z-30 pt-10 md:pt-14"
+      >
+        <div className="mb-6">
+          <span className="text-xs text-muted uppercase font-semibold flex items-center gap-1.5">
+            <BpmnNodeBadge type="gateway-parallel" />
+            Languages
+          </span>
+        </div>
+        <div className="flex flex-wrap gap-4">
+          {LANGUAGES.map((lang) => (
+            <LiquidGlass
+              key={lang.language}
+              as="div"
+              className="px-4 py-2"
+              innerClassName="flex items-center gap-3"
+              magnetic={false}
+              tilt={false}
             >
-              <SkillCard category={category} />
-            </motion.div>
+              <span className="text-sm font-semibold text-text-primary">
+                {lang.language}
+              </span>
+              <span className="text-xs text-muted">{lang.level}</span>
+            </LiquidGlass>
           ))}
-        </motion.div>
-
-        {/* Languages — inline tags */}
-        <motion.div
-          variants={headerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="relative z-30 pt-10 md:pt-14"
-        >
-          <div className="mb-6">
-            <span className="text-xs text-muted uppercase font-semibold flex items-center gap-1.5">
-              <BpmnNodeBadge type="gateway-parallel" />
-              Languages
-            </span>
-          </div>
-          <div className="flex flex-wrap gap-4">
-            {LANGUAGES.map((lang) => (
-              <LiquidGlass
-                key={lang.language}
-                as="div"
-                className="px-4 py-2"
-                innerClassName="flex items-center gap-3"
-                magnetic={false}
-                tilt={false}
-              >
-                <span className="text-sm font-semibold text-text-primary">
-                  {lang.language}
-                </span>
-                <span className="text-xs text-muted">{lang.level}</span>
-              </LiquidGlass>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </section>
+        </div>
+      </motion.div>
+    </>
   );
 }
 

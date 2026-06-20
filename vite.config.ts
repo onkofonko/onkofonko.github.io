@@ -5,11 +5,14 @@ import tailwindcss from "@tailwindcss/vite";
 import checker from "vite-plugin-checker";
 import compression from "vite-plugin-compression";
 import { visualizer } from "rollup-plugin-visualizer";
+import { boneyardPlugin } from "boneyard-js/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
+    boneyardPlugin(),
+
     babel({
       presets: [reactCompilerPreset()],
     }),

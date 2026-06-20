@@ -7,28 +7,75 @@ import {
   useCallback,
   startTransition,
 } from "react";
-import { AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import LoadingScreen from "./components/LoadingScreen";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { useModalHistory } from "./hooks/useModalHistory";
 import { useIsMobile } from "./hooks/useMediaQuery";
+import { Skeleton } from "boneyard-js/react";
 import Aurora from "./components/Aurora.tsx";
+import BpmnNodeBadge from "./components/BpmnNodeBadge";
 
-// Cache dynamic import promises so React 19 lazy() can unpack them synchronously without a microtask tick
+import caseStudiesBones from "./bones/case-studies.bones.json";
+import skillsBones from "./bones/skills.bones.json";
+import processesBones from "./bones/processes.bones.json";
+import journalBones from "./bones/journal.bones.json";
+import contactBones from "./bones/contact.bones.json";
+import { configureBoneyard } from "boneyard-js/react";
+
+configureBoneyard({
+  color: "rgba(255, 255, 255, 0.015)",
+  darkColor: "rgba(255, 255, 255, 0.015)",
+  animate: "shimmer",
+  shimmerColor: "rgba(255, 255, 255, 0.08)",
+  darkShimmerColor: "rgba(255, 255, 255, 0.08)",
+  speed: "2s",
+  shimmerAngle: 110,
+  stagger: 80,
+  transition: 300,
+});
+
+const getSkeletonHeight = (bonesData: any) => {
+  if (typeof window === "undefined" || !bonesData?.breakpoints) return 0;
+  const width = window.innerWidth;
+  const breakpoints = Object.keys(bonesData.breakpoints)
+    .map(Number)
+    .sort((a, b) => b - a);
+  const matchedBp =
+    breakpoints.find((bp) => width >= bp) ??
+    breakpoints[breakpoints.length - 1];
+  return bonesData.breakpoints[matchedBp]?.height ?? 0;
+};
+
+// Cache dynamic import promises and track their resolution status
+
 function makePreloadable<T>(importFn: () => Promise<T>) {
   let promise: Promise<T> | null = null;
-  return () => {
+  let isResolved = false;
+
+  const load = () => {
     if (!promise) {
-      promise = importFn();
+      promise = importFn().then((val) => {
+        isResolved = true;
+        return val;
+      });
     }
     return promise;
+  };
+
+  return {
+    load,
+    getReady: () => isResolved,
   };
 }
 
 // Detect slow connections/data saver across mobile browsers (including Safari)
 const isSlowConnection = () => {
+  if (typeof window !== "undefined" && (window as any).__BONEYARD_BUILD) {
+    return false;
+  }
   if (typeof navigator === "undefined") return false;
   if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
     return true;
@@ -63,13 +110,13 @@ const loadBpmnOverlay = makePreloadable(
   () => import("./components/BpmnOverlay"),
 );
 
-const CaseStudies = lazy(loadCaseStudies);
-const Skills = lazy(loadSkills);
-const ProcessLibrary = lazy(loadProcessLibrary);
-const Journal = lazy(loadJournal);
-const Contact = lazy(loadContact);
-const PdfViewerModal = lazy(loadPdfViewerModal);
-const BpmnOverlay = lazy(loadBpmnOverlay);
+const CaseStudies = lazy(loadCaseStudies.load);
+const Skills = lazy(loadSkills.load);
+const ProcessLibrary = lazy(loadProcessLibrary.load);
+const Journal = lazy(loadJournal.load);
+const Contact = lazy(loadContact.load);
+const PdfViewerModal = lazy(loadPdfViewerModal.load);
+const BpmnOverlay = lazy(loadBpmnOverlay.load);
 
 const LABEL_MAP: Record<string, string> = {
   home: "Home",
@@ -82,14 +129,39 @@ const LABEL_MAP: Record<string, string> = {
 
 const AURORA_COLOR_STOPS = ["#1E1B4B", "#312E81", "#6667AB", "#A78BFA"];
 
+const SKELETON_CHUNKS = new Set([
+  "caseStudies",
+  "skills",
+  "processes",
+  "journal",
+  "contact",
+]);
+
 export default function App() {
   const [isLoading, setIsLoading] = useState(() => {
+    if (typeof window !== "undefined" && (window as any).__BONEYARD_BUILD) {
+      return false;
+    }
     try {
       return !sessionStorage.getItem("portfolio_loaded");
     } catch {
       return true;
     }
   });
+  const [chunksReady, setChunksReady] = useState(() => ({
+    caseStudies: loadCaseStudies.getReady(),
+    skills: loadSkills.getReady(),
+    processes: loadProcessLibrary.getReady(),
+    journal: loadJournal.getReady(),
+    contact: loadContact.getReady(),
+  }));
+  const [skeletonHeights] = useState(() => ({
+    caseStudies: getSkeletonHeight(caseStudiesBones),
+    skills: getSkeletonHeight(skillsBones),
+    processes: getSkeletonHeight(processesBones),
+    journal: getSkeletonHeight(journalBones),
+    contact: getSkeletonHeight(contactBones),
+  }));
   const [activeSection, setActiveSection] = useState("Home");
   const [isCvOpen, setIsCvOpen] = useState(false);
   const isMobile = useIsMobile();
@@ -102,13 +174,14 @@ export default function App() {
 
   // Preload lazy components concurrently with main-thread yielding to protect INP
   useEffect(() => {
-    if (isLoading) return;
-
     if (isSlowConnection()) return;
 
     const yieldToMain = async () => {
-      if (typeof (window as any).scheduler?.yield === "function") {
-        await (window as any).scheduler.yield();
+      const scheduler = (
+        window as Window & { scheduler?: { yield: () => Promise<void> } }
+      ).scheduler;
+      if (typeof scheduler?.yield === "function") {
+        await scheduler.yield();
       } else {
         await new Promise<void>((resolve) => setTimeout(resolve, 0));
       }
@@ -116,21 +189,28 @@ export default function App() {
 
     const preloadAll = async () => {
       const queue = [
-        loadCaseStudies,
-        loadSkills,
-        loadProcessLibrary,
-        loadJournal,
-        loadContact,
-        loadPdfViewerModal,
-        ...(isMobile ? [] : [loadBpmnOverlay]),
+        { loader: loadCaseStudies, key: "caseStudies" },
+        { loader: loadSkills, key: "skills" },
+        { loader: loadProcessLibrary, key: "processes" },
+        { loader: loadJournal, key: "journal" },
+        { loader: loadContact, key: "contact" },
+        { loader: loadPdfViewerModal, key: "pdfViewerModal" },
+        ...(isMobile ? [] : [{ loader: loadBpmnOverlay, key: "bpmnOverlay" }]),
       ];
 
       if (import.meta.env.DEV) {
         performance.mark("preload-queue-start");
       }
 
-      for (const fn of queue) {
-        fn().catch(() => {});
+      for (const item of queue) {
+        item.loader
+          .load()
+          .then(() => {
+            if (SKELETON_CHUNKS.has(item.key)) {
+              setChunksReady((prev) => ({ ...prev, [item.key]: true }));
+            }
+          })
+          .catch(() => {});
         await yieldToMain();
       }
 
@@ -149,7 +229,7 @@ export default function App() {
     } else {
       setTimeout(() => preloadAll(), 0);
     }
-  }, [isLoading, isMobile]);
+  }, [isMobile]);
 
   // Dynamic Scroll Highlighting Observer
   useEffect(() => {
@@ -303,35 +383,177 @@ export default function App() {
           <Hero onViewCv={handleViewCv} onViewWork={handleViewWork} />
         </div>
 
-        <div id="work">
-          <Suspense fallback={null}>
-            <CaseStudies />
-          </Suspense>
-        </div>
+        <section
+          id="work"
+          className="bg-transparent pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24"
+        >
+          <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="mb-12 md:mb-16 relative z-30"
+            >
+              <div className="mb-4">
+                <span className="text-xs text-muted uppercase font-semibold flex items-center gap-1.5">
+                  <BpmnNodeBadge type="task" />
+                  Case Studies
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-display text-text-primary mb-3 text-balance">
+                Process transformation projects
+              </h2>
+              <p className="text-sm text-muted max-w-sm text-pretty">
+                Real-world analysis and digital solutions across supply chain,
+                logistics, and HR domains.
+              </p>
+            </motion.div>
+            <Skeleton name="case-studies" loading={!chunksReady.caseStudies}>
+              <Suspense
+                fallback={
+                  <div style={{ height: skeletonHeights.caseStudies }} />
+                }
+              >
+                <CaseStudies />
+              </Suspense>
+            </Skeleton>
+          </div>
+        </section>
 
-        <div id="skills">
-          <Suspense fallback={null}>
-            <Skills />
-          </Suspense>
-        </div>
+        <section
+          id="skills"
+          className="bg-transparent pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24"
+        >
+          <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="mb-8 md:mb-10 relative z-30"
+            >
+              <h2 className="text-3xl md:text-5xl font-display text-text-primary mb-3 text-balance flex items-center gap-3">
+                <BpmnNodeBadge
+                  type="gateway-or"
+                  className="translate-y-[2px]"
+                />
+                Skills & competencies
+              </h2>
+              <p className="text-sm text-muted max-w-sm text-pretty">
+                Comprehensive toolkit for process analysis, business
+                transformation, and digital solutions.
+              </p>
+            </motion.div>
+            <Skeleton name="skills" loading={!chunksReady.skills}>
+              <Suspense
+                fallback={<div style={{ height: skeletonHeights.skills }} />}
+              >
+                <Skills />
+              </Suspense>
+            </Skeleton>
+          </div>
+        </section>
 
-        <div id="processes">
-          <Suspense fallback={null}>
-            <ProcessLibrary />
-          </Suspense>
-        </div>
+        <section
+          id="processes"
+          className="bg-transparent pt-16 md:pt-24 pb-0 scroll-mt-20 md:scroll-mt-24"
+        >
+          <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="mb-10 md:mb-14 relative z-30"
+            >
+              <h2 className="text-3xl md:text-5xl font-display text-text-primary mb-3 text-balance flex items-center gap-3">
+                <BpmnNodeBadge
+                  type="subprocess-collapsed"
+                  className="translate-y-[2px]"
+                />
+                BPMN & Process models
+              </h2>
+              <p className="text-sm text-muted max-w-sm text-pretty">
+                Real-world enterprise process diagrams, workflows, and
+                transformation models.
+              </p>
+            </motion.div>
+            <Skeleton name="processes" loading={!chunksReady.processes}>
+              <Suspense
+                fallback={<div style={{ height: skeletonHeights.processes }} />}
+              >
+                <ProcessLibrary />
+              </Suspense>
+            </Skeleton>
+          </div>
+        </section>
 
-        <div id="journal">
-          <Suspense fallback={null}>
-            <Journal />
-          </Suspense>
-        </div>
+        <section
+          id="journal"
+          className="bg-transparent pt-16 md:pt-24 pb-0 scroll-mt-20 md:scroll-mt-24"
+        >
+          <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="flex items-end justify-between mb-10 md:mb-14"
+            >
+              <div>
+                <h2 className="text-3xl md:text-5xl font-display text-text-primary mb-3 text-balance flex items-center gap-3">
+                  <BpmnNodeBadge
+                    type="intermediate-event-catch-message"
+                    className="translate-y-[2px]"
+                  />
+                  Recent thought pieces
+                </h2>
+                <p className="text-sm text-muted max-w-sm text-pretty">
+                  Analyzing process optimization, systems integrations, and
+                  enterprise digital transformation frameworks.
+                </p>
+              </div>
+            </motion.div>
+            <Skeleton name="journal" loading={!chunksReady.journal}>
+              <Suspense
+                fallback={<div style={{ height: skeletonHeights.journal }} />}
+              >
+                <Journal />
+              </Suspense>
+            </Skeleton>
+          </div>
+        </section>
 
-        <div id="contact">
-          <Suspense fallback={null}>
-            <Contact onViewCv={handleViewCv} />
-          </Suspense>
-        </div>
+        <footer
+          id="contact"
+          className="bg-transparent pt-16 md:pt-24 pb-8 md:pb-12 overflow-hidden relative scroll-mt-20 md:scroll-mt-24"
+        >
+          <div className="relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 text-center pb-2"
+            >
+              <p className="text-xs text-muted uppercase font-semibold mb-5 text-pretty flex items-center justify-center gap-1.5">
+                <BpmnNodeBadge type="end-event-none" />
+                Get in touch
+              </p>
+              <h2 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-display text-text-primary mb-10 leading-[1.1] pb-2 text-balance">
+                Let's work together
+              </h2>
+            </motion.div>
+            <Skeleton name="contact" loading={!chunksReady.contact}>
+              <Suspense
+                fallback={<div style={{ height: skeletonHeights.contact }} />}
+              >
+                <Contact onViewCv={handleViewCv} />
+              </Suspense>
+            </Skeleton>
+          </div>
+        </footer>
 
         <Suspense fallback={null}>
           <PdfViewerModal
