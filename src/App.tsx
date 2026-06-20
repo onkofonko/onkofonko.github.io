@@ -37,8 +37,11 @@ configureBoneyard({
   transition: 300,
 });
 
-const getSkeletonHeight = (bonesData: any) => {
-  if (typeof window === "undefined" || !bonesData?.breakpoints) return 0;
+const getSkeletonHeight = (bonesData: {
+  breakpoints?: Record<string, { height: number }>;
+}) => {
+  if (typeof window === "undefined" || !bonesData || !bonesData.breakpoints)
+    return 0;
   const width = window.innerWidth;
   const breakpoints = Object.keys(bonesData.breakpoints)
     .map(Number)
@@ -73,7 +76,10 @@ function makePreloadable<T>(importFn: () => Promise<T>) {
 
 // Detect slow connections/data saver across mobile browsers (including Safari)
 const isSlowConnection = () => {
-  if (typeof window !== "undefined" && (window as any).__BONEYARD_BUILD) {
+  if (
+    typeof window !== "undefined" &&
+    (window as unknown as { __BONEYARD_BUILD?: boolean }).__BONEYARD_BUILD
+  ) {
     return false;
   }
   if (typeof navigator === "undefined") return false;
@@ -139,7 +145,10 @@ const SKELETON_CHUNKS = new Set([
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(() => {
-    if (typeof window !== "undefined" && (window as any).__BONEYARD_BUILD) {
+    if (
+      typeof window !== "undefined" &&
+      (window as unknown as { __BONEYARD_BUILD?: boolean }).__BONEYARD_BUILD
+    ) {
       return false;
     }
     try {

@@ -12,7 +12,8 @@ import LiquidGlass from "./LiquidGlass";
 import BpmnNodeBadge from "./BpmnNodeBadge";
 
 const isBuildMode =
-  typeof window !== "undefined" && (window as any).__BONEYARD_BUILD;
+  typeof window !== "undefined" &&
+  (window as unknown as { __BONEYARD_BUILD?: boolean }).__BONEYARD_BUILD;
 
 const SKILL_CATEGORIES = [
   {

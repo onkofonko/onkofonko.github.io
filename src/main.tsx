@@ -15,7 +15,9 @@ if (import.meta.env.DEV) {
   ) {
     new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
-        const loaf = entry as any;
+        const loaf = entry as PerformanceEntry & {
+          firstUIEventTimestamp: number;
+        };
         if (loaf.firstUIEventTimestamp > 0 && entry.duration > 200) {
           console.warn("INP-risk LoAF >200ms:", entry.duration, entry);
         }

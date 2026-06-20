@@ -23,35 +23,33 @@ interface ProcessLightboxProps {
 }
 
 // Sub-component for the image to isolate scale updates and cursor states
-const ZoomableImage = memo(
-  ({
-    src,
-    alt,
-    isZoomed,
-    isPanning,
-  }: {
-    src: string;
-    alt: string;
-    isZoomed: boolean;
-    isPanning: boolean;
-  }) => {
-    return (
-      <img
-        src={src}
-        alt={alt}
-        style={{
-          cursor: isZoomed ? (isPanning ? "grabbing" : "grab") : "zoom-in",
-        }}
-        className={`max-w-full max-h-full object-contain select-none pointer-events-auto bg-white shadow-2xl border border-white/5 touch-none ${
-          isZoomed
-            ? "p-0 rounded-none border-none"
-            : "p-2 md:p-6 rounded-lg md:rounded-xl"
-        }`}
-        draggable={false}
-      />
-    );
-  },
-);
+const ZoomableImage = memo(function ZoomableImage({
+  src,
+  alt,
+  isZoomed,
+  isPanning,
+}: {
+  src: string;
+  alt: string;
+  isZoomed: boolean;
+  isPanning: boolean;
+}) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      style={{
+        cursor: isZoomed ? (isPanning ? "grabbing" : "grab") : "zoom-in",
+      }}
+      className={`max-w-full max-h-full object-contain select-none pointer-events-auto bg-white shadow-2xl border border-white/5 touch-none ${
+        isZoomed
+          ? "p-0 rounded-none border-none"
+          : "p-2 md:p-6 rounded-lg md:rounded-xl"
+      }`}
+      draggable={false}
+    />
+  );
+});
 
 // Click area that toggles zoom between 100% and 250% on clean clicks (not drags)
 const ZoomClickArea = memo(function ZoomClickArea({
@@ -84,96 +82,94 @@ const ZoomClickArea = memo(function ZoomClickArea({
 });
 
 // Sub-component for controls to isolate render cycles from the rest of the lightbox
-const LightboxControls = memo(
-  ({
-    isMobile,
-    isZoomed,
-    onClose,
-  }: {
-    isMobile: boolean;
-    isZoomed: boolean;
-    onClose: () => void;
-  }) => {
-    const scaleTextRef = useRef<HTMLSpanElement>(null);
-    const { zoomIn, zoomOut, resetTransform } = useControls();
+const LightboxControls = memo(function LightboxControls({
+  isMobile,
+  isZoomed,
+  onClose,
+}: {
+  isMobile: boolean;
+  isZoomed: boolean;
+  onClose: () => void;
+}) {
+  const scaleTextRef = useRef<HTMLSpanElement>(null);
+  const { zoomIn, zoomOut, resetTransform } = useControls();
 
-    useTransformEffect(({ state }) => {
-      const scaleVal = state.scale;
-      // Update text directly in the DOM to avoid triggering React re-renders of the buttons
-      if (scaleTextRef.current) {
-        scaleTextRef.current.innerText =
-          scaleVal > 1.01 && isMobile
-            ? "Reset"
-            : `${Math.round(scaleVal * 100)}%`;
-      }
-    });
+  useTransformEffect(({ state }) => {
+    const scaleVal = state.scale;
+    // Update text directly in the DOM to avoid triggering React re-renders of the buttons
+    if (scaleTextRef.current) {
+      scaleTextRef.current.innerText =
+        scaleVal > 1.01 && isMobile
+          ? "Reset"
+          : `${Math.round(scaleVal * 100)}%`;
+    }
+  });
 
-    return (
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-4 z-[60]">
-        <div className="inline-flex items-center gap-1.5 bg-surface/80 backdrop-blur-md border border-white/10 p-[6px] rounded-full shadow-2xl select-none">
-          {/* Scale / Reset */}
-          <LiquidGlass
-            as={isZoomed ? "button" : "span"}
-            roundedClass="rounded-full"
-            interactive={isZoomed}
-            springScale={isZoomed}
-            className={`h-8 w-16 flex items-center justify-center text-[10px] tracking-wider uppercase select-none font-bold text-text-primary ${
-              isZoomed
-                ? "pointer-events-auto cursor-pointer"
-                : "pointer-events-none cursor-default"
-            }`}
-            onClick={isZoomed ? () => resetTransform() : undefined}
-            magnetic={isZoomed}
-            magneticStrength={0.04}
-          >
-            <span ref={scaleTextRef}>100%</span>
-          </LiquidGlass>
+  return (
+    <div className="absolute top-4 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-4 z-[60]">
+      <div className="inline-flex items-center gap-1.5 bg-surface/80 backdrop-blur-md border border-white/10 p-[6px] rounded-full shadow-2xl select-none">
+        {/* Scale / Reset */}
+        <LiquidGlass
+          as={isZoomed ? "button" : "span"}
+          roundedClass="rounded-full"
+          interactive={isZoomed}
+          springScale={isZoomed}
+          className={`h-8 w-16 flex items-center justify-center text-[10px] tracking-wider uppercase select-none font-bold text-text-primary ${
+            isZoomed
+              ? "pointer-events-auto cursor-pointer"
+              : "pointer-events-none cursor-default"
+          }`}
+          onClick={isZoomed ? () => resetTransform() : undefined}
+          magnetic={isZoomed}
+          magneticStrength={0.04}
+        >
+          <span ref={scaleTextRef}>100%</span>
+        </LiquidGlass>
 
-          {/* Zoom In */}
-          <LiquidGlass.Button
-            onClick={() => zoomIn(0.15, 0)}
-            disabled={false}
-            magnetic={true}
-            magneticStrength={0.04}
-            roundedClass="rounded-full"
-            className="size-8 p-0 flex items-center justify-center text-text-primary"
-            ariaLabel="Zoom In"
-          >
-            <Plus size={14} />
-          </LiquidGlass.Button>
+        {/* Zoom In */}
+        <LiquidGlass.Button
+          onClick={() => zoomIn(0.15, 0)}
+          disabled={false}
+          magnetic={true}
+          magneticStrength={0.04}
+          roundedClass="rounded-full"
+          className="size-8 p-0 flex items-center justify-center text-text-primary"
+          ariaLabel="Zoom In"
+        >
+          <Plus size={14} />
+        </LiquidGlass.Button>
 
-          {/* Zoom Out */}
-          <LiquidGlass.Button
-            onClick={() => zoomOut(0.15, 0)}
-            disabled={!isZoomed}
-            magnetic={isZoomed}
-            magneticStrength={0.04}
-            roundedClass="rounded-full"
-            className="size-8 p-0 flex items-center justify-center text-text-primary disabled:opacity-40 disabled:pointer-events-none"
-            ariaLabel="Zoom Out"
-          >
-            <Minus size={14} />
-          </LiquidGlass.Button>
+        {/* Zoom Out */}
+        <LiquidGlass.Button
+          onClick={() => zoomOut(0.15, 0)}
+          disabled={!isZoomed}
+          magnetic={isZoomed}
+          magneticStrength={0.04}
+          roundedClass="rounded-full"
+          className="size-8 p-0 flex items-center justify-center text-text-primary disabled:opacity-40 disabled:pointer-events-none"
+          ariaLabel="Zoom Out"
+        >
+          <Minus size={14} />
+        </LiquidGlass.Button>
 
-          {/* Separator */}
-          <div className="w-px h-4 bg-white/10 mx-0.5" />
+        {/* Separator */}
+        <div className="w-px h-4 bg-white/10 mx-0.5" />
 
-          {/* Close */}
-          <LiquidGlass.Button
-            onClick={onClose}
-            ariaLabel="Close lightbox"
-            magnetic={true}
-            magneticStrength={0.04}
-            roundedClass="rounded-full"
-            className="size-8 p-0 flex items-center justify-center text-text-primary"
-          >
-            <X size={14} />
-          </LiquidGlass.Button>
-        </div>
+        {/* Close */}
+        <LiquidGlass.Button
+          onClick={onClose}
+          ariaLabel="Close lightbox"
+          magnetic={true}
+          magneticStrength={0.04}
+          roundedClass="rounded-full"
+          className="size-8 p-0 flex items-center justify-center text-text-primary"
+        >
+          <X size={14} />
+        </LiquidGlass.Button>
       </div>
-    );
-  },
-);
+    </div>
+  );
+});
 
 function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
   const prefersReducedMotion = useReducedMotion();

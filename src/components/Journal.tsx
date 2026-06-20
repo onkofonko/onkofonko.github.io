@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import { useState, memo, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, Clock, MessageSquare, BookOpen } from "lucide-react";
@@ -8,7 +9,8 @@ import { useModalHistory } from "../hooks/useModalHistory";
 import { parseInlineMarkdown } from "../utils/markdownParser";
 
 const isBuildMode =
-  typeof window !== "undefined" && (window as any).__BONEYARD_BUILD;
+  typeof window !== "undefined" &&
+  (window as unknown as { __BONEYARD_BUILD?: boolean }).__BONEYARD_BUILD;
 
 const containerVariants = {
   hidden: {},

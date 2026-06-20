@@ -25,6 +25,7 @@ export default function Navbar({
   // States to track navbar interaction (flat vs. active/premium highlights)
   const [isHovered, setIsHovered] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [prevActive, setPrevActive] = useState(activeSection);
 
   // Track scroll state on mobile for dynamic backdrop blur performance optimization
   // Keep it simple using standard window scroll listener and React state
@@ -49,13 +50,19 @@ export default function Navbar({
 
   const active = activeSection;
 
-  useEffect(() => {
+  if (active !== prevActive) {
+    setPrevActive(active);
     setIsTransitioning(true);
-    const timer = setTimeout(() => {
-      setIsTransitioning(false);
-    }, 500); // 500ms covers the 400ms CSS transition and animation settling
-    return () => clearTimeout(timer);
-  }, [active]);
+  }
+
+  useEffect(() => {
+    if (isTransitioning) {
+      const timer = setTimeout(() => {
+        setIsTransitioning(false);
+      }, 500); // 500ms covers the 400ms CSS transition and animation settling
+      return () => clearTimeout(timer);
+    }
+  }, [isTransitioning]);
 
   // Close mobile menu on Escape key press
   useEffect(() => {
