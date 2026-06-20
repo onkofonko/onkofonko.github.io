@@ -21,6 +21,7 @@
     "react": "^19.2.7",
     "react-compiler-runtime": "^1.0.0",
     "react-dom": "^19.2.7",
+    "react-zoom-pan-pinch": "^4.0.3",
     "slot-text": "^0.3.1"
   },
   "devDependencies": {
