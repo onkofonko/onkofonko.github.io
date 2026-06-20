@@ -1,4 +1,4 @@
-import { useEffect, useRef, ReactNode, memo } from "react";
+import { useEffect, useLayoutEffect, useRef, ReactNode, memo } from "react";
 import { createPortal } from "react-dom";
 import { motion, useReducedMotion, Variants } from "motion/react";
 import { X } from "lucide-react";
@@ -57,7 +57,7 @@ const BaseDrawer = memo(function BaseDrawer({
     }
     return () => {
       if (triggerRef.current instanceof HTMLElement) {
-        triggerRef.current.focus();
+        triggerRef.current.focus({ preventScroll: true });
       }
     };
   }, []);
@@ -74,7 +74,7 @@ const BaseDrawer = memo(function BaseDrawer({
   }, [onClose]);
 
   // Lock body scroll when drawer is open (with iOS Mobile Safari support)
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof document === "undefined" || typeof window === "undefined")
       return;
 
@@ -90,11 +90,17 @@ const BaseDrawer = memo(function BaseDrawer({
       const originalPosition = document.body.style.position;
       const originalTop = document.body.style.top;
       const originalWidth = document.body.style.width;
+      const originalHeight = document.body.style.height;
+      const htmlOriginalHeight = document.documentElement.style.height;
+      const htmlOriginalOverflow = document.documentElement.style.overflow;
 
       document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
       document.body.style.width = "100%";
+      document.body.style.height = "100%";
       document.body.style.overflow = "hidden";
+      document.documentElement.style.height = "100%";
+      document.documentElement.style.overflow = "hidden";
 
       return () => {
         const htmlEl = document.documentElement;
@@ -104,10 +110,20 @@ const BaseDrawer = memo(function BaseDrawer({
         document.body.style.position = originalPosition;
         document.body.style.top = originalTop;
         document.body.style.width = originalWidth;
+        document.body.style.height = originalHeight;
         document.body.style.overflow = originalOverflow;
+        document.documentElement.style.height = htmlOriginalHeight;
+        document.documentElement.style.overflow = htmlOriginalOverflow;
+
+        // Force browser to recalculate height and reflow before scrolling
+        void document.body.offsetHeight;
 
         window.scrollTo(0, scrollY);
-        htmlEl.style.scrollBehavior = originalScrollBehavior;
+
+        // Restore scroll behavior in next frame
+        requestAnimationFrame(() => {
+          htmlEl.style.scrollBehavior = originalScrollBehavior;
+        });
       };
     } else {
       document.body.style.overflow = "hidden";
@@ -136,10 +152,10 @@ const BaseDrawer = memo(function BaseDrawer({
 
       if (e.shiftKey && document.activeElement === first) {
         e.preventDefault();
-        last.focus();
+        last.focus({ preventScroll: true });
       } else if (!e.shiftKey && document.activeElement === last) {
         e.preventDefault();
-        first.focus();
+        first.focus({ preventScroll: true });
       }
     };
 
@@ -148,7 +164,7 @@ const BaseDrawer = memo(function BaseDrawer({
     // Auto-focus first focusable element
     const frameId = requestAnimationFrame(() => {
       const first = drawer.querySelector<HTMLElement>(focusableSelector);
-      first?.focus();
+      first?.focus({ preventScroll: true });
     });
 
     return () => {
@@ -168,7 +184,7 @@ const BaseDrawer = memo(function BaseDrawer({
         animate={{ opacity: 1, transition: { duration: 0.2, ease: "easeOut" } }}
         exit={{ opacity: 0, transition: { duration: 0.15, ease: "easeIn" } }}
         onClick={onClose}
-        className="fixed inset-0 z-[90] bg-black/70 backdrop-blur-none md:backdrop-blur-sm"
+        className="fixed inset-0 z-[90] bg-black/70 backdrop-blur-none md:backdrop-blur-sm overscroll-contain"
       />
 
       {/* Drawer Body */}
@@ -182,7 +198,7 @@ const BaseDrawer = memo(function BaseDrawer({
         role="dialog"
         aria-modal="true"
         aria-labelledby="drawer-title"
-        className={`fixed top-0 right-0 h-full w-full ${maxWidthClass || "max-w-2xl"} z-[100] bg-surface md:bg-surface/90 md:backdrop-blur-xl border-l border-white/10 shadow-[0_4px_16px_rgba(0,0,0,0.6)] flex flex-col overflow-hidden ${isMobile ? "will-change-transform" : ""}`}
+        className={`fixed top-0 right-0 h-full w-full ${maxWidthClass || "max-w-2xl"} z-[100] bg-surface md:bg-surface/90 md:backdrop-blur-xl border-l border-white/10 shadow-[0_4px_16px_rgba(0,0,0,0.6)] flex flex-col overflow-hidden ${isMobile ? "will-change-transform" : ""} overscroll-contain`}
       >
         {/* Top bar */}
         <div className="flex items-center justify-between p-6 border-b border-white/10 relative z-20">
