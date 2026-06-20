@@ -47,6 +47,20 @@ const BaseDrawer = memo(function BaseDrawer({
   const overlayRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const isMobile = useIsMobile();
+  const focusTrapRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<Element | null>(null);
+
+  // Capture active element on mount and restore it on unmount
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      triggerRef.current = document.activeElement;
+    }
+    return () => {
+      if (triggerRef.current instanceof HTMLElement) {
+        triggerRef.current.focus();
+      }
+    };
+  }, []);
 
   // Close drawer on Escape key press, active only when drawer is mounted
   useEffect(() => {
@@ -59,11 +73,87 @@ const BaseDrawer = memo(function BaseDrawer({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose]);
 
-  // Lock body scroll when drawer is open
+  // Lock body scroll when drawer is open (with iOS Mobile Safari support)
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    if (typeof document === "undefined" || typeof window === "undefined")
+      return;
+
+    // Detect iOS devices
+    const isIOS =
+      /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+    const originalOverflow = document.body.style.overflow;
+
+    if (isIOS) {
+      const scrollY = window.scrollY;
+      const originalPosition = document.body.style.position;
+      const originalTop = document.body.style.top;
+      const originalWidth = document.body.style.width;
+
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
+
+      return () => {
+        const htmlEl = document.documentElement;
+        const originalScrollBehavior = htmlEl.style.scrollBehavior;
+        htmlEl.style.scrollBehavior = "auto";
+
+        document.body.style.position = originalPosition;
+        document.body.style.top = originalTop;
+        document.body.style.width = originalWidth;
+        document.body.style.overflow = originalOverflow;
+
+        window.scrollTo(0, scrollY);
+        htmlEl.style.scrollBehavior = originalScrollBehavior;
+      };
+    } else {
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, []);
+
+  // Focus trap inside the drawer
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const drawer = focusTrapRef.current;
+    if (!drawer) return;
+
+    const focusableSelector =
+      'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      const focusables =
+        drawer.querySelectorAll<HTMLElement>(focusableSelector);
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Auto-focus first focusable element
+    const frameId = requestAnimationFrame(() => {
+      const first = drawer.querySelector<HTMLElement>(focusableSelector);
+      first?.focus();
+    });
+
     return () => {
-      document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
+      cancelAnimationFrame(frameId);
     };
   }, []);
 
@@ -83,6 +173,7 @@ const BaseDrawer = memo(function BaseDrawer({
 
       {/* Drawer Body */}
       <motion.div
+        ref={focusTrapRef}
         custom={{ prefersReducedMotion, isMobile }}
         initial="hidden"
         animate="visible"

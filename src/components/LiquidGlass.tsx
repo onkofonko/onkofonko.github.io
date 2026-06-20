@@ -17,6 +17,8 @@ import {
   type MutableRefObject,
   type MouseEventHandler,
   type Ref,
+  type ComponentPropsWithoutRef,
+  type HTMLAttributes,
 } from "react";
 import {
   motion,
@@ -141,15 +143,15 @@ export interface LiquidGlassTabsProps {
   [key: string]: any; // Allow arbitrary props (like onMouseEnter, onMouseLeave)
 }
 
-export interface LiquidGlassTabProps {
+export interface LiquidGlassTabProps extends Omit<
+  ComponentPropsWithoutRef<typeof motion.button>,
+  "value" | "children"
+> {
   value: string | number; // Unique identifier matching parent value
-  children: ReactNode;
-  className?: string; // Style classes for this tab button
+  children?: ReactNode;
   activeClassName?: string; // Styles applied specifically when tab is active
   highlightClassName?: string; // Override default highlight styles for this tab specifically
   highlightStyle?: CSSProperties;
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
-  disabled?: boolean;
 }
 
 // =========================================================================
@@ -761,6 +763,7 @@ export const Tabs = memo(function Tabs({
   return (
     <TabsContext.Provider value={contextValue}>
       <div
+        role="tablist"
         className={`flex ${className}`}
         style={style}
         {...rest}
@@ -948,6 +951,33 @@ export const Tab = memo(function Tab({
     if (onClick) onClick(e);
   };
 
+  const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+    const tabs = Array.from(
+      e.currentTarget
+        .closest('[role="tablist"]')
+        ?.querySelectorAll('[role="tab"]') ?? [],
+    );
+    const idx = tabs.indexOf(e.currentTarget);
+    let nextIdx = idx;
+
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      nextIdx = (idx + 1) % tabs.length;
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      nextIdx = (idx - 1 + tabs.length) % tabs.length;
+    } else if (e.key === "Home") {
+      nextIdx = 0;
+    } else if (e.key === "End") {
+      nextIdx = tabs.length - 1;
+    } else {
+      return;
+    }
+
+    e.preventDefault();
+    const nextTab = tabs[nextIdx] as HTMLButtonElement;
+    nextTab.focus();
+    nextTab.click(); // triggers onChange
+  };
+
   const combinedHighlightClass =
     `absolute inset-0 z-[-1] highlight-pill overflow-hidden ${roundedClass} ${contextHighlightClass} ${highlightClassName}`.trim();
   const combinedHighlightStyle = {
@@ -985,6 +1015,12 @@ export const Tab = memo(function Tab({
         isActive ? activeClassName : ""
       }`}
       {...rest}
+      role="tab"
+      aria-selected={isActive}
+      aria-controls={`tabpanel-${value}`}
+      id={`tab-${value}`}
+      tabIndex={isActive ? 0 : -1}
+      onKeyDown={handleKeyDown}
     >
       {showHighlight ? (
         <motion.span
@@ -1009,6 +1045,30 @@ export const Tab = memo(function Tab({
   );
 });
 
+export interface LiquidGlassTabPanelProps extends HTMLAttributes<HTMLDivElement> {
+  value: string | number;
+  children?: ReactNode;
+}
+
+export const TabPanel = memo(function TabPanel({
+  value,
+  children,
+  ...rest
+}: LiquidGlassTabPanelProps) {
+  return (
+    <div
+      role="tabpanel"
+      id={`tabpanel-${value}`}
+      aria-labelledby={`tab-${value}`}
+      {...rest}
+    >
+      {children}
+    </div>
+  );
+});
+
+TabPanel.displayName = "LiquidGlass.TabPanel";
+
 export { LiquidGlassButton as Button };
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -1016,4 +1076,5 @@ export default Object.assign(LiquidGlass, {
   Button: LiquidGlassButton,
   Tabs,
   Tab,
+  TabPanel,
 });
