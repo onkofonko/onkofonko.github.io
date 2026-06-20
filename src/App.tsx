@@ -11,13 +11,9 @@ import { AnimatePresence } from "motion/react";
 import LoadingScreen from "./components/LoadingScreen";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import DeferredSection from "./components/DeferredSection.tsx";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { useModalHistory } from "./hooks/useModalHistory";
 import { useIsMobile } from "./hooks/useMediaQuery";
-import { CASE_STUDIES } from "./data/caseStudies";
-import { ARTICLES } from "./data/articles";
-import { PROCESS_ITEMS } from "./data/processItems";
 import Aurora from "./components/Aurora.tsx";
 
 // Cache dynamic import promises so React 19 lazy() can unpack them synchronously without a microtask tick
@@ -67,25 +63,11 @@ const loadBpmnOverlay = makePreloadable(
   () => import("./components/BpmnOverlay"),
 );
 
-const CaseStudies = Object.assign(lazy(loadCaseStudies), {
-  count: CASE_STUDIES.length,
-  variant: "card" as const,
-});
-const Skills = Object.assign(lazy(loadSkills), {
-  count: 6,
-  variant: "grid" as const,
-});
-const ProcessLibrary = Object.assign(lazy(loadProcessLibrary), {
-  count: PROCESS_ITEMS.length,
-  variant: "split" as const,
-});
-const Journal = Object.assign(lazy(loadJournal), {
-  count: ARTICLES.length,
-  variant: "list" as const,
-});
-const Contact = Object.assign(lazy(loadContact), {
-  variant: "footer" as const,
-});
+const CaseStudies = lazy(loadCaseStudies);
+const Skills = lazy(loadSkills);
+const ProcessLibrary = lazy(loadProcessLibrary);
+const Journal = lazy(loadJournal);
+const Contact = lazy(loadContact);
 const PdfViewerModal = lazy(loadPdfViewerModal);
 const BpmnOverlay = lazy(loadBpmnOverlay);
 
@@ -322,33 +304,33 @@ export default function App() {
         </div>
 
         <div id="work">
-          <DeferredSection minHeight={isMobile ? "992px" : "810px"}>
+          <Suspense fallback={null}>
             <CaseStudies />
-          </DeferredSection>
+          </Suspense>
         </div>
 
         <div id="skills">
-          <DeferredSection minHeight={isMobile ? "1824px" : "1176px"}>
+          <Suspense fallback={null}>
             <Skills />
-          </DeferredSection>
+          </Suspense>
         </div>
 
         <div id="processes">
-          <DeferredSection minHeight={isMobile ? "1242px" : "944px"}>
+          <Suspense fallback={null}>
             <ProcessLibrary />
-          </DeferredSection>
+          </Suspense>
         </div>
 
         <div id="journal">
-          <DeferredSection minHeight={isMobile ? "400px" : "448px"}>
+          <Suspense fallback={null}>
             <Journal />
-          </DeferredSection>
+          </Suspense>
         </div>
 
         <div id="contact">
-          <DeferredSection minHeight={isMobile ? "577px" : "493px"}>
+          <Suspense fallback={null}>
             <Contact onViewCv={handleViewCv} />
-          </DeferredSection>
+          </Suspense>
         </div>
 
         <Suspense fallback={null}>
