@@ -214,7 +214,7 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
 
   return createPortal(
     <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-md p-0 md:p-6 touch-none"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-none md:backdrop-blur-sm p-0 md:p-6 touch-none"
       style={{ touchAction: "none" }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
