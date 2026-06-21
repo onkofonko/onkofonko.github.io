@@ -252,8 +252,8 @@ function LiquidGlassMobile({
 
   const baseClasses = `
     group relative inline-flex items-center justify-center
-    ${borderActiveClasses} backdrop-blur-lg
-    text-text-primary transition-[border-color,background-color,box-shadow] duration-300 ease-out select-none
+    backdrop-blur-lg
+    text-text-primary select-none
     overflow-hidden ${
       as === "button" || href || onClick
         ? "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
@@ -264,54 +264,39 @@ function LiquidGlassMobile({
     .trim();
 
   // Combine inline styles to form realistic glass depth (soft and subtle)
-  const glassStyle = useMemo<CSSProperties>(() => {
-    let shadow = `
-      inset 0 1px 1px rgba(255, 255, 255, 0.25),
-      inset 0 4px 8px rgba(255, 255, 255, 0.03),
-      0 4px 10px rgba(0, 0, 0, 0.08)
-    `;
-    const isEffectivelyActive = active;
-
+  const innerGlassStyle = useMemo<CSSProperties>(() => {
     if (variant === "sunken") {
-      shadow = isEffectivelyActive
-        ? `
-          inset 0 3px 8px rgba(0, 0, 0, 0.45),
-          inset 0 1px 2px rgba(255, 255, 255, 0.12),
-          0 4px 12px rgba(0, 0, 0, 0.2)
-        `
-        : `
-          inset 0 2px 5px rgba(0, 0, 0, 0.35),
-          inset 0 1px 1px rgba(255, 255, 255, 0.05),
-          0 1px 2px rgba(255, 255, 255, 0.02)
-        `;
-    } else if (variant === "beveled") {
-      shadow = isEffectivelyActive
-        ? `
-          inset 0 1px 2px rgba(255, 255, 255, 0.4),
-          inset 0 6px 12px rgba(255, 255, 255, 0.06),
-          0 8px 16px rgba(0, 0, 0, 0.15)
-        `
-        : `
-          inset 0 1px 1px rgba(255, 255, 255, 0.25),
-          inset 0 4px 8px rgba(255, 255, 255, 0.03),
-          0 4px 10px rgba(0, 0, 0, 0.08)
-        `;
+      return {
+        boxShadow: active
+          ? "inset 0 3px 8px rgba(0, 0, 0, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.12), 0 4px 12px rgba(0, 0, 0, 0.2)"
+          : "inset 0 2px 5px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 1px 2px rgba(255, 255, 255, 0.02)",
+      };
     }
-
-    // Specular highlight bloom overlay
-    if (specularGlow && isEffectivelyActive) {
-      shadow = `inset 0 1px 2px rgba(255, 255, 255, 0.24), inset 0 8px 16px rgba(255, 255, 255, 0.06), ${shadow}`;
+    if (variant === "beveled") {
+      return {
+        boxShadow: active
+          ? "inset 0 1px 2px rgba(255, 255, 255, 0.4), inset 0 6px 12px rgba(255, 255, 255, 0.06), 0 8px 16px rgba(0, 0, 0, 0.15)"
+          : "inset 0 1px 1px rgba(255, 255, 255, 0.25), inset 0 4px 8px rgba(255, 255, 255, 0.03), 0 4px 10px rgba(0, 0, 0, 0.08)",
+      };
     }
-
+    const defaultShadow =
+      "inset 0 1px 1px rgba(255, 255, 255, 0.25), inset 0 4px 8px rgba(255, 255, 255, 0.03), 0 4px 10px rgba(0, 0, 0, 0.08)";
     return {
-      boxShadow: shadow,
+      boxShadow:
+        specularGlow && active
+          ? `inset 0 1px 2px rgba(255, 255, 255, 0.24), inset 0 8px 16px rgba(255, 255, 255, 0.06), ${defaultShadow}`
+          : defaultShadow,
+    };
+  }, [variant, active, specularGlow]);
+
+  const tagStyle = useMemo<CSSProperties>(() => {
+    return {
       WebkitBackfaceVisibility: "hidden",
       backfaceVisibility: "hidden",
       willChange: style?.willChange ?? "transform, filter, backdrop-filter",
       ...style,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } as any;
-  }, [style, variant, active, specularGlow]);
+    };
+  }, [style]);
 
   const { tapScaleX, tapScaleY } = useMemo(() => {
     const tapDeltaX = TAP_DELTA_MOBILE;
@@ -368,6 +353,10 @@ function LiquidGlassMobile({
 
   const innerElements = (
     <>
+      <span
+        className={`absolute inset-0 pointer-events-none z-0 border ${borderActiveClasses} ${roundedClass} transition-[border-color,background-color,box-shadow] duration-300 ease-out`}
+        style={innerGlassStyle}
+      />
       {interactive ? (
         <>
           {springScale && ripple ? (
@@ -395,7 +384,7 @@ function LiquidGlassMobile({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const tagProps: any = {
     className: `${baseClasses} ${className}`,
-    style: glassStyle,
+    style: tagStyle,
     "aria-label": ariaLabel,
     ...sharedAnimationProps,
     ...rest,
@@ -497,27 +486,30 @@ function LiquidGlassDesktop({
   const lagX = useSpring(mouseX, { damping: 38, stiffness: 110, mass: 1.0 });
   const lagY = useSpring(mouseY, { damping: 38, stiffness: 110, mass: 1.0 });
 
-  // Motion values for magnetic pull offset
-  const pullX = useMotionValue(0);
-  const pullY = useMotionValue(0);
-  const springPullX = useSpring(pullX, {
-    damping: 30,
-    stiffness: 200,
-    mass: 0.5,
-  });
-  const springPullY = useSpring(pullY, {
-    damping: 30,
-    stiffness: 200,
-    mass: 0.5,
-  });
-
-  // Motion values for 3D tilt angles
-  const tiltX = useMotionValue(0);
-  const tiltY = useMotionValue(0);
-  const springTiltX = useSpring(tiltX, { damping: 25, stiffness: 150 });
-  const springTiltY = useSpring(tiltY, { damping: 25, stiffness: 150 });
-
   const rectRef = useRef<DOMRect | null>(null);
+
+  // Derived motion values using useTransform - runs in O(1) with zero spring solver ticking
+  const springPullX = useTransform(springX, (x) =>
+    magnetic ? x * magneticStrength : 0,
+  );
+  const springPullY = useTransform(springY, (y) =>
+    magnetic ? y * magneticStrength : 0,
+  );
+
+  const springTiltX = useTransform(springY, (y) => {
+    if (!tilt || !rectRef.current) return 0;
+    const halfHeight = rectRef.current.height / 2;
+    const pctY = y / halfHeight;
+    return -pctY * effectiveTiltStrength;
+  });
+
+  const springTiltY = useTransform(springX, (x) => {
+    if (!tilt || !rectRef.current) return 0;
+    const halfWidth = rectRef.current.width / 2;
+    const pctX = x / halfWidth;
+    return pctX * effectiveTiltStrength;
+  });
+
   const [isHovered, setIsHovered] = useState(false);
 
   // Click ripple state & logic hook
@@ -559,33 +551,8 @@ function LiquidGlassDesktop({
       const y = e.clientY - currentRect.top - currentRect.height / 2;
       mouseX.set(x);
       mouseY.set(y);
-
-      if (magnetic) {
-        pullX.set(x * magneticStrength);
-        pullY.set(y * magneticStrength);
-      }
-
-      if (tilt) {
-        const pctX = x / (currentRect.width / 2);
-        const pctY = y / (currentRect.height / 2);
-        tiltX.set(-pctY * effectiveTiltStrength);
-        tiltY.set(pctX * effectiveTiltStrength);
-      }
     },
-    [
-      interactive,
-      updateRect,
-      mouseX,
-      mouseY,
-      magnetic,
-      pullX,
-      pullY,
-      magneticStrength,
-      tilt,
-      tiltX,
-      effectiveTiltStrength,
-      tiltY,
-    ],
+    [interactive, updateRect, mouseX, mouseY],
   );
 
   const handleMouseLeave = useCallback(() => {
@@ -593,13 +560,9 @@ function LiquidGlassDesktop({
       opacity.set(0);
       mouseX.set(0);
       mouseY.set(0);
-      pullX.set(0);
-      pullY.set(0);
-      tiltX.set(0);
-      tiltY.set(0);
       setIsHovered(false);
     }
-  }, [interactive, opacity, mouseX, mouseY, pullX, pullY, tiltX, tiltY]);
+  }, [interactive, opacity, mouseX, mouseY]);
 
   // Keyboard handler: support Enter/Space activation for non-semantic interactive elements
   const handleKeyDown = useCallback(
@@ -632,8 +595,8 @@ function LiquidGlassDesktop({
 
   const baseClasses = `
     group relative inline-flex items-center justify-center
-    ${borderActiveClasses} backdrop-blur-lg
-    text-text-primary transition-[border-color,background-color,box-shadow] duration-300 ease-out select-none
+    backdrop-blur-lg
+    text-text-primary select-none
     overflow-hidden ${
       as === "button" || href || onClick
         ? "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
@@ -644,59 +607,45 @@ function LiquidGlassDesktop({
     .trim();
 
   // Combine inline styles to form realistic glass depth (soft and subtle)
-  const glassStyle = useMemo<CSSProperties>(() => {
-    let shadow = `
-      inset 0 1px 1px rgba(255, 255, 255, 0.25),
-      inset 0 4px 8px rgba(255, 255, 255, 0.03),
-      0 4px 10px rgba(0, 0, 0, 0.08)
-    `;
+  const innerGlassStyle = useMemo<CSSProperties>(() => {
     const isEffectivelyActive = active || isHovered;
-
     if (variant === "sunken") {
-      shadow = isEffectivelyActive
-        ? `
-          inset 0 3px 8px rgba(0, 0, 0, 0.45),
-          inset 0 1px 2px rgba(255, 255, 255, 0.12),
-          0 4px 12px rgba(0, 0, 0, 0.2)
-        `
-        : `
-          inset 0 2px 5px rgba(0, 0, 0, 0.35),
-          inset 0 1px 1px rgba(255, 255, 255, 0.05),
-          0 1px 2px rgba(255, 255, 255, 0.02)
-        `;
-    } else if (variant === "beveled") {
-      shadow = isEffectivelyActive
-        ? `
-          inset 0 1px 2px rgba(255, 255, 255, 0.4),
-          inset 0 6px 12px rgba(255, 255, 255, 0.06),
-          0 8px 16px rgba(0, 0, 0, 0.15)
-        `
-        : `
-          inset 0 1px 1px rgba(255, 255, 255, 0.25),
-          inset 0 4px 8px rgba(255, 255, 255, 0.03),
-          0 4px 10px rgba(0, 0, 0, 0.08)
-        `;
+      return {
+        boxShadow: isEffectivelyActive
+          ? "inset 0 3px 8px rgba(0, 0, 0, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.12), 0 4px 12px rgba(0, 0, 0, 0.2)"
+          : "inset 0 2px 5px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 1px 2px rgba(255, 255, 255, 0.02)",
+      };
     }
-
-    // Specular highlight bloom overlay
-    if (specularGlow && isEffectivelyActive) {
-      shadow = `inset 0 1px 2px rgba(255, 255, 255, 0.24), inset 0 8px 16px rgba(255, 255, 255, 0.06), ${shadow}`;
+    if (variant === "beveled") {
+      return {
+        boxShadow: isEffectivelyActive
+          ? "inset 0 1px 2px rgba(255, 255, 255, 0.4), inset 0 6px 12px rgba(255, 255, 255, 0.06), 0 8px 16px rgba(0, 0, 0, 0.15)"
+          : "inset 0 1px 1px rgba(255, 255, 255, 0.25), inset 0 4px 8px rgba(255, 255, 255, 0.03), 0 4px 10px rgba(0, 0, 0, 0.08)",
+      };
     }
-
+    const defaultShadow =
+      "inset 0 1px 1px rgba(255, 255, 255, 0.25), inset 0 4px 8px rgba(255, 255, 255, 0.03), 0 4px 10px rgba(0, 0, 0, 0.08)";
     return {
-      boxShadow: shadow,
+      boxShadow:
+        specularGlow && isEffectivelyActive
+          ? `inset 0 1px 2px rgba(255, 255, 255, 0.24), inset 0 8px 16px rgba(255, 255, 255, 0.06), ${defaultShadow}`
+          : defaultShadow,
+    };
+  }, [variant, active, isHovered, specularGlow]);
+
+  const tagStyle = useMemo<any>(() => {
+    return {
       WebkitBackfaceVisibility: "hidden",
       backfaceVisibility: "hidden",
       willChange: style?.willChange ?? "transform, filter, backdrop-filter",
-      ...style,
       x: magnetic ? springPullX : undefined,
       y: magnetic ? springPullY : undefined,
       rotateX: tilt ? springTiltX : undefined,
       rotateY: tilt ? springTiltY : undefined,
       transformStyle: tilt ? "preserve-3d" : undefined,
       transformPerspective: tilt ? 1000 : undefined,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } as any;
+      ...style,
+    };
   }, [
     style,
     magnetic,
@@ -705,10 +654,6 @@ function LiquidGlassDesktop({
     tilt,
     springTiltX,
     springTiltY,
-    variant,
-    active,
-    isHovered,
-    specularGlow,
   ]);
 
   const { hoverScaleX, hoverScaleY, tapScaleX, tapScaleY } = useMemo(() => {
@@ -786,6 +731,10 @@ function LiquidGlassDesktop({
 
   const innerElements = (
     <>
+      <span
+        className={`absolute inset-0 pointer-events-none z-0 border ${borderActiveClasses} ${roundedClass} transition-[border-color,background-color,box-shadow] duration-300 ease-out`}
+        style={innerGlassStyle}
+      />
       {interactive ? (
         <>
           <span
@@ -843,7 +792,7 @@ function LiquidGlassDesktop({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const tagProps: any = {
     className: `${baseClasses} ${className}`,
-    style: glassStyle,
+    style: tagStyle,
     "aria-label": ariaLabel,
     ...sharedAnimationProps,
     ...rest,
