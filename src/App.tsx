@@ -14,6 +14,7 @@ import Hero from "./components/Hero";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { useModalHistory } from "./hooks/useModalHistory";
 import { useIsMobile } from "./hooks/useMediaQuery";
+import { useLazyMount } from "./hooks/useLazyMount";
 import { Skeleton } from "boneyard-js/react";
 import Aurora from "./components/Aurora.tsx";
 import BpmnNodeBadge from "./components/BpmnNodeBadge";
@@ -174,6 +175,14 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("Home");
   const [isCvOpen, setIsCvOpen] = useState(false);
   const isMobile = useIsMobile();
+
+  const rootMargin = isMobile ? "500px" : "300px";
+  const [caseStudiesRef, caseStudiesInView] = useLazyMount({ rootMargin });
+  const [skillsRef, skillsInView] = useLazyMount({ rootMargin });
+  const [processesRef, processesInView] = useLazyMount({ rootMargin });
+  const [journalRef, journalInView] = useLazyMount({ rootMargin });
+  const [contactRef, contactInView] = useLazyMount({ rootMargin });
+
   const ignoreScrollUntil = useRef(0);
   const visibleSections = useRef<Record<string, boolean>>({});
   const navbarSentinelRef = useRef<HTMLDivElement>(null);
@@ -393,6 +402,7 @@ export default function App() {
         </div>
 
         <section
+          ref={caseStudiesRef}
           id="work"
           className="bg-transparent pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24"
         >
@@ -418,19 +428,27 @@ export default function App() {
                 logistics, and HR domains.
               </p>
             </motion.div>
-            <Skeleton name="case-studies" loading={!chunksReady.caseStudies}>
+            <Skeleton
+              name="case-studies"
+              loading={!chunksReady.caseStudies || !caseStudiesInView}
+            >
               <Suspense
                 fallback={
                   <div style={{ height: skeletonHeights.caseStudies }} />
                 }
               >
-                <CaseStudies />
+                {caseStudiesInView ? (
+                  <CaseStudies />
+                ) : (
+                  <div style={{ height: skeletonHeights.caseStudies }} />
+                )}
               </Suspense>
             </Skeleton>
           </div>
         </section>
 
         <section
+          ref={skillsRef}
           id="skills"
           className="bg-transparent pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24"
         >
@@ -454,17 +472,25 @@ export default function App() {
                 transformation, and digital solutions.
               </p>
             </motion.div>
-            <Skeleton name="skills" loading={!chunksReady.skills}>
+            <Skeleton
+              name="skills"
+              loading={!chunksReady.skills || !skillsInView}
+            >
               <Suspense
                 fallback={<div style={{ height: skeletonHeights.skills }} />}
               >
-                <Skills />
+                {skillsInView ? (
+                  <Skills />
+                ) : (
+                  <div style={{ height: skeletonHeights.skills }} />
+                )}
               </Suspense>
             </Skeleton>
           </div>
         </section>
 
         <section
+          ref={processesRef}
           id="processes"
           className="bg-transparent pt-16 md:pt-24 pb-0 scroll-mt-20 md:scroll-mt-24"
         >
@@ -488,17 +514,25 @@ export default function App() {
                 transformation models.
               </p>
             </motion.div>
-            <Skeleton name="processes" loading={!chunksReady.processes}>
+            <Skeleton
+              name="processes"
+              loading={!chunksReady.processes || !processesInView}
+            >
               <Suspense
                 fallback={<div style={{ height: skeletonHeights.processes }} />}
               >
-                <ProcessLibrary />
+                {processesInView ? (
+                  <ProcessLibrary />
+                ) : (
+                  <div style={{ height: skeletonHeights.processes }} />
+                )}
               </Suspense>
             </Skeleton>
           </div>
         </section>
 
         <section
+          ref={journalRef}
           id="journal"
           className="bg-transparent pt-16 md:pt-24 pb-0 scroll-mt-20 md:scroll-mt-24"
         >
@@ -524,17 +558,25 @@ export default function App() {
                 </p>
               </div>
             </motion.div>
-            <Skeleton name="journal" loading={!chunksReady.journal}>
+            <Skeleton
+              name="journal"
+              loading={!chunksReady.journal || !journalInView}
+            >
               <Suspense
                 fallback={<div style={{ height: skeletonHeights.journal }} />}
               >
-                <Journal />
+                {journalInView ? (
+                  <Journal />
+                ) : (
+                  <div style={{ height: skeletonHeights.journal }} />
+                )}
               </Suspense>
             </Skeleton>
           </div>
         </section>
 
         <footer
+          ref={contactRef}
           id="contact"
           className="bg-transparent pt-16 md:pt-24 pb-8 md:pb-12 overflow-hidden relative scroll-mt-20 md:scroll-mt-24"
         >
@@ -554,11 +596,18 @@ export default function App() {
                 Let's work together
               </h2>
             </motion.div>
-            <Skeleton name="contact" loading={!chunksReady.contact}>
+            <Skeleton
+              name="contact"
+              loading={!chunksReady.contact || !contactInView}
+            >
               <Suspense
                 fallback={<div style={{ height: skeletonHeights.contact }} />}
               >
-                <Contact onViewCv={handleViewCv} />
+                {contactInView ? (
+                  <Contact onViewCv={handleViewCv} />
+                ) : (
+                  <div style={{ height: skeletonHeights.contact }} />
+                )}
               </Suspense>
             </Skeleton>
           </div>
