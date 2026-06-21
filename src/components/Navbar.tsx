@@ -135,6 +135,7 @@ export default function Navbar({
               : "navbar-highlight-flat"
           }
           className="flex items-center gap-1 md:gap-1.5"
+          role="none"
         >
           {/* Home Button (Avatar + Name) */}
           <LiquidGlass.Tab
@@ -146,6 +147,7 @@ export default function Navbar({
                 : "text-muted hover:text-text-primary"
             }`}
             aria-label="Home"
+            role="link"
           >
             <span className="relative size-6 rounded-full bg-bg flex items-center justify-center z-10 overflow-hidden border border-white/5 flex-shrink-0">
               {avatarError ? (
@@ -180,6 +182,7 @@ export default function Navbar({
                     ? "text-text-primary"
                     : "text-muted hover:text-text-primary"
                 }`}
+                role="link"
               >
                 {link}
               </LiquidGlass.Tab>
@@ -255,6 +258,7 @@ export default function Navbar({
                   "opacity 0.25s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1)",
                 transformOrigin: "top",
               }}
+              role="none"
             >
               {["Home", ...NAV_LINKS].map((link) => (
                 <LiquidGlass.Tab
@@ -265,6 +269,7 @@ export default function Navbar({
                       ? "text-text-primary"
                       : "text-muted hover:text-text-primary hover:bg-white/[0.02]"
                   }`}
+                  role="link"
                 >
                   {link}
                 </LiquidGlass.Tab>

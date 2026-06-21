@@ -28,6 +28,7 @@ import {
   useTransform,
   animate,
   type MotionValue,
+  type MotionStyle,
 } from "motion/react";
 import { SPRING } from "../utils/springConfig";
 import { useIsMobile } from "../hooks/useMediaQuery";
@@ -633,7 +634,7 @@ function LiquidGlassDesktop({
     };
   }, [variant, active, isHovered, specularGlow]);
 
-  const tagStyle = useMemo<any>(() => {
+  const tagStyle = useMemo<MotionStyle>(() => {
     return {
       WebkitBackfaceVisibility: "hidden",
       backfaceVisibility: "hidden",
@@ -1008,6 +1009,9 @@ export const Tab = memo(function Tab({
   const isHovered = hoveredValue === value;
   const isMobileNav = layoutId?.includes("mobile");
 
+  const tabRole = rest.role !== undefined ? rest.role : "tab";
+  const isTabRole = tabRole === "tab";
+
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const [buttonWidth, setButtonWidth] = useState(120);
 
@@ -1212,12 +1216,34 @@ export const Tab = memo(function Tab({
         isActive ? activeClassName : ""
       }`}
       {...rest}
-      role="tab"
-      aria-selected={isActive}
-      aria-controls={`tabpanel-${value}`}
+      role={tabRole ?? undefined}
+      aria-selected={
+        rest["aria-selected"] !== undefined
+          ? rest["aria-selected"]
+          : isTabRole
+            ? isActive
+              ? "true"
+              : undefined
+            : undefined
+      }
+      aria-controls={
+        rest["aria-controls"] !== undefined
+          ? rest["aria-controls"]
+          : isTabRole
+            ? `tabpanel-${value}`
+            : undefined
+      }
       id={`tab-${value}`}
-      tabIndex={isActive ? 0 : -1}
-      onKeyDown={handleKeyDown}
+      tabIndex={
+        rest.tabIndex !== undefined
+          ? rest.tabIndex
+          : isTabRole
+            ? isActive
+              ? 0
+              : -1
+            : undefined
+      }
+      onKeyDown={isTabRole ? handleKeyDown : rest.onKeyDown}
     >
       {showHighlight ? (
         <motion.span

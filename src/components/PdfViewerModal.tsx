@@ -216,6 +216,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
               >
                 <LiquidGlass.Tab
                   value="pdf"
+                  aria-controls="tabpanel-pdf"
                   className={`relative text-xs font-semibold rounded-full px-4 py-2 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
                     activeTab === "pdf"
                       ? "text-text-primary"
@@ -226,6 +227,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                 </LiquidGlass.Tab>
                 <LiquidGlass.Tab
                   value="interactive"
+                  aria-controls="tabpanel-interactive"
                   className={`relative text-xs font-semibold rounded-full px-4 py-2 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
                     activeTab === "interactive"
                       ? "text-text-primary"
@@ -276,28 +278,51 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
             {/* Viewer Body Content */}
             <div className="flex-1 overflow-hidden relative bg-bg/40">
               {/* Tab 1: PDF Document */}
-              {activeTab === "pdf" ? (
-                <div className="absolute inset-0 flex flex-col">
-                  {pdfLoading ? (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-bg/80 z-20">
-                      <Loader2 className="animate-spin text-accent" size={32} />
-                      <p className="text-xs text-muted">
-                        Loading PDF Document…
-                      </p>
-                    </div>
-                  ) : null}
-                  <iframe
-                    src="/cv/Ondrej_Michal_Ockaj_CV.pdf#toolbar=0&navpanes=0&scrollbar=1"
-                    className="w-full h-full border-0 relative z-10"
-                    title="Ondrej Michal Očkaj CV PDF"
-                    onLoad={() => setPdfLoading(false)}
-                  />
-                </div>
-              ) : null}
+              <div
+                role="tabpanel"
+                id="tabpanel-pdf"
+                aria-labelledby="tab-pdf"
+                className={
+                  activeTab === "pdf"
+                    ? "absolute inset-0 flex flex-col"
+                    : "hidden"
+                }
+              >
+                {activeTab === "pdf" && (
+                  <>
+                    {pdfLoading ? (
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-bg/80 z-20">
+                        <Loader2
+                          className="animate-spin text-accent"
+                          size={32}
+                        />
+                        <p className="text-xs text-muted">
+                          Loading PDF Document…
+                        </p>
+                      </div>
+                    ) : null}
+                    <iframe
+                      src="/cv/Ondrej_Michal_Ockaj_CV.pdf#toolbar=0&navpanes=0&scrollbar=1"
+                      className="w-full h-full border-0 relative z-10"
+                      title="Ondrej Michal Očkaj CV PDF"
+                      onLoad={() => setPdfLoading(false)}
+                    />
+                  </>
+                )}
+              </div>
 
               {/* Tab 2: Interactive Resume HTML */}
-              {activeTab === "interactive" ? (
-                <div className="absolute inset-0 overflow-y-auto custom-cv-scrollbar p-6 md:p-8 lg:p-12">
+              <div
+                role="tabpanel"
+                id="tabpanel-interactive"
+                aria-labelledby="tab-interactive"
+                className={
+                  activeTab === "interactive"
+                    ? "absolute inset-0 overflow-y-auto custom-cv-scrollbar p-6 md:p-8 lg:p-12"
+                    : "hidden"
+                }
+              >
+                {activeTab === "interactive" && (
                   <div className="max-w-4xl mx-auto space-y-10 pb-12">
                     {/* CV Heading Card */}
                     <div className="relative p-6 md:p-8 rounded-2xl border border-white/5 bg-surface/30 backdrop-blur-md overflow-hidden flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
@@ -568,8 +593,8 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                       </div>
                     </div>
                   </div>
-                </div>
-              ) : null}
+                )}
+              </div>
             </div>
           </motion.div>
         </div>
