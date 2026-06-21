@@ -18,12 +18,12 @@ import { useLazyMount } from "./hooks/useLazyMount";
 import { Skeleton } from "boneyard-js/react";
 import Aurora from "./components/Aurora.tsx";
 import BpmnNodeBadge from "./components/BpmnNodeBadge";
+import Contact from "./components/Contact";
 
 import caseStudiesBones from "./bones/case-studies.bones.json";
 import skillsBones from "./bones/skills.bones.json";
 import processesBones from "./bones/processes.bones.json";
 import journalBones from "./bones/journal.bones.json";
-import contactBones from "./bones/contact.bones.json";
 import { configureBoneyard } from "boneyard-js/react";
 
 configureBoneyard({
@@ -109,7 +109,6 @@ const loadProcessLibrary = makePreloadable(
   () => import("./components/ProcessLibrary"),
 );
 const loadJournal = makePreloadable(() => import("./components/Journal"));
-const loadContact = makePreloadable(() => import("./components/Contact"));
 const loadPdfViewerModal = makePreloadable(
   () => import("./components/PdfViewerModal"),
 );
@@ -121,7 +120,6 @@ const CaseStudies = lazy(loadCaseStudies.load);
 const Skills = lazy(loadSkills.load);
 const ProcessLibrary = lazy(loadProcessLibrary.load);
 const Journal = lazy(loadJournal.load);
-const Contact = lazy(loadContact.load);
 const PdfViewerModal = lazy(loadPdfViewerModal.load);
 const BpmnOverlay = lazy(loadBpmnOverlay.load);
 
@@ -141,7 +139,6 @@ const SKELETON_CHUNKS = new Set([
   "skills",
   "processes",
   "journal",
-  "contact",
 ]);
 
 export default function App() {
@@ -163,14 +160,12 @@ export default function App() {
     skills: loadSkills.getReady(),
     processes: loadProcessLibrary.getReady(),
     journal: loadJournal.getReady(),
-    contact: loadContact.getReady(),
   }));
   const [skeletonHeights] = useState(() => ({
     caseStudies: getSkeletonHeight(caseStudiesBones),
     skills: getSkeletonHeight(skillsBones),
     processes: getSkeletonHeight(processesBones),
     journal: getSkeletonHeight(journalBones),
-    contact: getSkeletonHeight(contactBones),
   }));
   const [activeSection, setActiveSection] = useState("Home");
   const [isCvOpen, setIsCvOpen] = useState(false);
@@ -181,7 +176,6 @@ export default function App() {
   const [skillsRef, skillsInView] = useLazyMount({ rootMargin });
   const [processesRef, processesInView] = useLazyMount({ rootMargin });
   const [journalRef, journalInView] = useLazyMount({ rootMargin });
-  const [contactRef, contactInView] = useLazyMount({ rootMargin });
 
   const ignoreScrollUntil = useRef(0);
   const visibleSections = useRef<Record<string, boolean>>({});
@@ -211,7 +205,6 @@ export default function App() {
         { loader: loadSkills, key: "skills" },
         { loader: loadProcessLibrary, key: "processes" },
         { loader: loadJournal, key: "journal" },
-        { loader: loadContact, key: "contact" },
         { loader: loadPdfViewerModal, key: "pdfViewerModal" },
         ...(isMobile ? [] : [{ loader: loadBpmnOverlay, key: "bpmnOverlay" }]),
       ];
@@ -576,7 +569,6 @@ export default function App() {
         </section>
 
         <footer
-          ref={contactRef}
           id="contact"
           className="bg-transparent pt-16 md:pt-24 pb-8 md:pb-12 overflow-hidden relative scroll-mt-20 md:scroll-mt-24"
         >
@@ -596,20 +588,7 @@ export default function App() {
                 Let's work together
               </h2>
             </motion.div>
-            <Skeleton
-              name="contact"
-              loading={!chunksReady.contact || !contactInView}
-            >
-              <Suspense
-                fallback={<div style={{ height: skeletonHeights.contact }} />}
-              >
-                {contactInView ? (
-                  <Contact onViewCv={handleViewCv} />
-                ) : (
-                  <div style={{ height: skeletonHeights.contact }} />
-                )}
-              </Suspense>
-            </Skeleton>
+            <Contact onViewCv={handleViewCv} />
           </div>
         </footer>
 
