@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, memo, useCallback } from "react";
 import { createPortal } from "react-dom";
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, Variants } from "motion/react";
 import { X, Plus, Minus } from "lucide-react";
 import {
   TransformWrapper,
@@ -10,6 +10,7 @@ import {
 } from "react-zoom-pan-pinch";
 import LiquidGlass from "./LiquidGlass";
 import { useModalHistory } from "../hooks/useModalHistory";
+import { SPRING } from "../utils/springConfig";
 
 interface ProcessLightboxProps {
   item: {
@@ -201,6 +202,40 @@ const LightboxControls = memo(function LightboxControls({
   );
 });
 
+const backdropVariants: Variants = {
+  hidden: (custom: { prefersReducedMotion: boolean; isMobile: boolean }) => ({
+    opacity: 0,
+    transition: custom.prefersReducedMotion
+      ? { duration: 0.15 }
+      : { duration: custom.isMobile ? 0.35 : 0.2, ease: "easeIn" },
+  }),
+  visible: (custom: { prefersReducedMotion: boolean; isMobile: boolean }) => ({
+    opacity: 1,
+    transition: custom.prefersReducedMotion
+      ? { duration: 0.15 }
+      : { duration: custom.isMobile ? 0.45 : 0.3, ease: "easeOut" },
+  }),
+};
+
+const dialogVariants: Variants = {
+  hidden: (custom: { prefersReducedMotion: boolean; isMobile: boolean }) => ({
+    scale: custom.prefersReducedMotion ? 1 : custom.isMobile ? 0.92 : 0.96,
+    opacity: 0,
+    transition: custom.prefersReducedMotion
+      ? { duration: 0.15 }
+      : { duration: custom.isMobile ? 0.35 : 0.18, ease: "easeIn" },
+  }),
+  visible: (custom: { prefersReducedMotion: boolean; isMobile: boolean }) => ({
+    scale: 1,
+    opacity: 1,
+    transition: custom.prefersReducedMotion
+      ? { duration: 0.15 }
+      : custom.isMobile
+        ? { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }
+        : SPRING.modal,
+  }),
+};
+
 function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
   const prefersReducedMotion = useReducedMotion();
 
@@ -246,14 +281,11 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
     <motion.div
       className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-none md:backdrop-blur-sm p-0 md:p-6 touch-none"
       style={{ touchAction: "none" }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={
-        prefersReducedMotion
-          ? { duration: 0.15 }
-          : { duration: isMobile ? 0.45 : 0.2, ease: "easeOut" }
-      }
+      custom={{ prefersReducedMotion, isMobile }}
+      variants={backdropVariants}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
       onClick={onClose}
     >
       <motion.div
@@ -261,22 +293,11 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
         aria-modal="true"
         aria-labelledby="lightbox-title"
         className="relative max-w-7xl w-full h-[100dvh] md:h-auto md:aspect-[16/10] max-h-[100dvh] md:max-h-[85vh] rounded-none md:rounded-3xl overflow-hidden border-0 md:border border-white/10 flex flex-col bg-surface"
-        initial={{
-          scale: prefersReducedMotion ? 1 : isMobile ? 0.92 : 0.96,
-          opacity: 0,
-        }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{
-          scale: prefersReducedMotion ? 1 : isMobile ? 0.92 : 0.96,
-          opacity: 0,
-        }}
-        transition={
-          prefersReducedMotion
-            ? { duration: 0.15 }
-            : isMobile
-              ? { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }
-              : { type: "spring", damping: 30, stiffness: 350 }
-        }
+        custom={{ prefersReducedMotion, isMobile }}
+        variants={dialogVariants}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Full Viewport for Diagram (Responsive flex) */}
