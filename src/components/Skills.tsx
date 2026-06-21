@@ -121,7 +121,7 @@ const cardVariants = {
 
 function Skills() {
   return (
-    <>
+    <div className="px-6 md:px-10 lg:px-16">
       {/* Skills Bento Grid */}
       <motion.div
         className="grid grid-cols-1 md:grid-cols-3 gap-5"
@@ -172,7 +172,7 @@ function Skills() {
           ))}
         </div>
       </motion.div>
-    </>
+    </div>
   );
 }
 

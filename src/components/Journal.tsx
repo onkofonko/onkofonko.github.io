@@ -43,19 +43,21 @@ function Journal() {
   return (
     <>
       {/* Journal entries */}
-      <motion.div
-        className="flex flex-col gap-3"
-        variants={containerVariants}
-        initial={isBuildMode ? "visible" : "hidden"}
-        whileInView={isBuildMode ? undefined : "visible"}
-        viewport={isBuildMode ? undefined : { once: true, margin: "-60px" }}
-      >
-        {ARTICLES.map((article) => (
-          <motion.article key={article.id} variants={cardVariants}>
-            <JournalEntry article={article} onOpen={setSelectedArticle} />
-          </motion.article>
-        ))}
-      </motion.div>
+      <div className="px-6 md:px-10 lg:px-16">
+        <motion.div
+          className="flex flex-col gap-3"
+          variants={containerVariants}
+          initial={isBuildMode ? "visible" : "hidden"}
+          whileInView={isBuildMode ? undefined : "visible"}
+          viewport={isBuildMode ? undefined : { once: true, margin: "-60px" }}
+        >
+          {ARTICLES.map((article) => (
+            <motion.article key={article.id} variants={cardVariants}>
+              <JournalEntry article={article} onOpen={setSelectedArticle} />
+            </motion.article>
+          ))}
+        </motion.div>
+      </div>
 
       {/* Drawer */}
       <AnimatePresence>

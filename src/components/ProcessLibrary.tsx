@@ -41,136 +41,138 @@ function ProcessLibrary() {
   return (
     <>
       {/* Interactive Split Dashboard */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-stretch relative z-20">
-        {/* Left Column: Index Menu Selector */}
-        <LiquidGlass.Tabs
-          value={activeItem.id}
-          onChange={handleTabChange}
-          layoutId="active-process-highlight"
-          roundedClass="rounded-xl"
-          className="lg:col-span-5 flex flex-col gap-2 justify-center"
-        >
-          {PROCESS_ITEMS.map((item, idx) => (
-            <LiquidGlass.Tab
-              key={item.id}
-              value={item.id}
-              aria-controls={`tabpanel-${item.id}`}
-              className={`w-full text-left relative px-8 py-4 rounded-xl transition-colors duration-300 flex items-center gap-4 select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
-                activeItem.id === item.id
-                  ? "text-text-primary"
-                  : "text-muted hover:text-text-primary"
-              }`}
-            >
-              {/* Badge Index */}
-              <span className="relative z-10 text-xs font-body font-semibold text-accent/80 tabular-nums min-w-[20px]">
-                {String(idx + 1).padStart(2, "0")}
-              </span>
+      <div className="px-6 md:px-10 lg:px-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-stretch relative z-20">
+          {/* Left Column: Index Menu Selector */}
+          <LiquidGlass.Tabs
+            value={activeItem.id}
+            onChange={handleTabChange}
+            layoutId="active-process-highlight"
+            roundedClass="rounded-xl"
+            className="lg:col-span-5 flex flex-col gap-2 justify-center"
+          >
+            {PROCESS_ITEMS.map((item, idx) => (
+              <LiquidGlass.Tab
+                key={item.id}
+                value={item.id}
+                aria-controls={`tabpanel-${item.id}`}
+                className={`w-full text-left relative px-8 py-4 rounded-xl transition-colors duration-300 flex items-center gap-4 select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                  activeItem.id === item.id
+                    ? "text-text-primary"
+                    : "text-muted hover:text-text-primary"
+                }`}
+              >
+                {/* Badge Index */}
+                <span className="relative z-10 text-xs font-body font-semibold text-accent/80 tabular-nums min-w-[20px]">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
 
-              {/* Metadata */}
-              <div className="relative z-10">
-                <h3 className="text-sm font-semibold transition-transform duration-300 group-hover:translate-x-1 text-balance line-clamp-2">
-                  {item.title}
-                </h3>
-                <p className="text-[9px] text-muted uppercase mt-0.5">
-                  {item.type}
-                </p>
-              </div>
-            </LiquidGlass.Tab>
-          ))}
-        </LiquidGlass.Tabs>
+                {/* Metadata */}
+                <div className="relative z-10">
+                  <h3 className="text-sm font-semibold transition-transform duration-300 group-hover:translate-x-1 text-balance line-clamp-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-[9px] text-muted uppercase mt-0.5">
+                    {item.type}
+                  </p>
+                </div>
+              </LiquidGlass.Tab>
+            ))}
+          </LiquidGlass.Tabs>
 
-        {/* Right Column: Visual Preview Canvas */}
-        <div className="lg:col-span-7 flex flex-col justify-center relative min-h-[500px]">
-          {PROCESS_ITEMS.map((item) => (
-            <div
-              key={item.id}
-              role="tabpanel"
-              id={`tabpanel-${item.id}`}
-              aria-labelledby={`tab-${item.id}`}
-              className={
-                activeItem.id === item.id ? "w-full h-full block" : "hidden"
-              }
-            >
-              <AnimatePresence mode="wait">
-                {activeItem.id === item.id && (
-                  <motion.div
-                    key={item.id}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    variants={tabContentVariants}
-                    className="w-full h-full flex flex-col"
-                  >
-                    <LiquidGlass
-                      as="div"
-                      roundedClass="rounded-2xl"
-                      className="w-full h-full p-6 md:p-8 flex-col text-left justify-start items-stretch"
-                      tilt={true}
+          {/* Right Column: Visual Preview Canvas */}
+          <div className="lg:col-span-7 flex flex-col justify-center relative min-h-[500px]">
+            {PROCESS_ITEMS.map((item) => (
+              <div
+                key={item.id}
+                role="tabpanel"
+                id={`tabpanel-${item.id}`}
+                aria-labelledby={`tab-${item.id}`}
+                className={
+                  activeItem.id === item.id ? "w-full h-full block" : "hidden"
+                }
+              >
+                <AnimatePresence mode="wait">
+                  {activeItem.id === item.id && (
+                    <motion.div
+                      key={item.id}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      variants={tabContentVariants}
+                      className="w-full h-full flex flex-col"
                     >
-                      {/* Canvas Header */}
-                      <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10 w-full">
-                        <div>
-                          <span className="inline-block text-[9px] text-accent uppercase bg-accent/10 border border-accent/20 rounded-xl px-2.5 py-0.5">
-                            {item.type}
-                          </span>
-                          <h3 className="text-xl md:text-2xl font-display text-text-primary mt-2 text-balance">
-                            {item.title}
-                          </h3>
-                        </div>
-                      </div>
-
-                      {/* Adaptable Grid Canvas Board */}
-                      <button
-                        type="button"
-                        className="relative w-full aspect-[16/10] rounded-lg overflow-hidden border border-stroke/50 flex items-center justify-center p-0 mb-6 select-none cursor-zoom-in group/canvas z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                        onClick={() => setLightboxItem(item)}
-                        aria-label={`Zoom diagram: ${item.title}`}
-                        style={{
-                          background: `radial-gradient(circle, hsl(var(--stroke)) 1px, transparent 1px) 0 0 / 16px 16px, hsl(var(--surface))`,
-                          boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.4)",
-                        }}
+                      <LiquidGlass
+                        as="div"
+                        roundedClass="rounded-2xl"
+                        className="w-full h-full p-6 md:p-8 flex-col text-left justify-start items-stretch"
+                        tilt={true}
                       >
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          width={800}
-                          height={500}
-                          className="w-full h-full object-contain rounded-lg p-6 transition-transform duration-500 group-hover/canvas:scale-102"
-                          loading="lazy"
-                        />
-
-                        {/* Zoom badge overlay */}
-                        <div className="absolute bottom-3 right-3 z-20 opacity-0 translate-y-1 group-hover/canvas:opacity-100 group-hover/canvas:translate-y-0 transition duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1)] pointer-events-none">
-                          <LiquidGlass
-                            as="span"
-                            roundedClass="rounded-lg"
-                            interactive={false}
-                            className="text-[10px] px-3 py-1.5 text-text-primary pointer-events-none"
-                          >
-                            Zoom Diagram{" "}
-                            <span className="text-accent ml-1">↗</span>
-                          </LiquidGlass>
+                        {/* Canvas Header */}
+                        <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10 w-full">
+                          <div>
+                            <span className="inline-block text-[9px] text-accent uppercase bg-accent/10 border border-accent/20 rounded-xl px-2.5 py-0.5">
+                              {item.type}
+                            </span>
+                            <h3 className="text-xl md:text-2xl font-display text-text-primary mt-2 text-balance">
+                              {item.title}
+                            </h3>
+                          </div>
                         </div>
 
-                        {/* Glass glare overlay */}
-                        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.03)_0%,transparent_60%)]" />
-                      </button>
+                        {/* Adaptable Grid Canvas Board */}
+                        <button
+                          type="button"
+                          className="relative w-full aspect-[16/10] rounded-lg overflow-hidden border border-stroke/50 flex items-center justify-center p-0 mb-6 select-none cursor-zoom-in group/canvas z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                          onClick={() => setLightboxItem(item)}
+                          aria-label={`Zoom diagram: ${item.title}`}
+                          style={{
+                            background: `radial-gradient(circle, hsl(var(--stroke)) 1px, transparent 1px) 0 0 / 16px 16px, hsl(var(--surface))`,
+                            boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.4)",
+                          }}
+                        >
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            width={800}
+                            height={500}
+                            className="w-full h-full object-contain rounded-lg p-6 transition-transform duration-500 group-hover/canvas:scale-102"
+                            loading="lazy"
+                          />
 
-                      {/* Canvas Footer Details */}
-                      <div className="relative z-10 mt-auto min-h-[70px] h-auto">
-                        <p className="text-[10px] text-muted uppercase font-semibold mb-2">
-                          Operational Insight
-                        </p>
-                        <p className="text-sm text-text-primary/80 leading-relaxed text-pretty">
-                          {item.description}
-                        </p>
-                      </div>
-                    </LiquidGlass>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+                          {/* Zoom badge overlay */}
+                          <div className="absolute bottom-3 right-3 z-20 opacity-0 translate-y-1 group-hover/canvas:opacity-100 group-hover/canvas:translate-y-0 transition duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1)] pointer-events-none">
+                            <LiquidGlass
+                              as="span"
+                              roundedClass="rounded-lg"
+                              interactive={false}
+                              className="text-[10px] px-3 py-1.5 text-text-primary pointer-events-none"
+                            >
+                              Zoom Diagram{" "}
+                              <span className="text-accent ml-1">↗</span>
+                            </LiquidGlass>
+                          </div>
+
+                          {/* Glass glare overlay */}
+                          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.03)_0%,transparent_60%)]" />
+                        </button>
+
+                        {/* Canvas Footer Details */}
+                        <div className="relative z-10 mt-auto min-h-[70px] h-auto">
+                          <p className="text-[10px] text-muted uppercase font-semibold mb-2">
+                            Operational Insight
+                          </p>
+                          <p className="text-sm text-text-primary/80 leading-relaxed text-pretty">
+                            {item.description}
+                          </p>
+                        </div>
+                      </LiquidGlass>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

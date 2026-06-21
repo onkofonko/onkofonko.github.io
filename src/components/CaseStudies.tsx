@@ -43,19 +43,21 @@ function CaseStudies() {
 
   return (
     <>
-      <motion.div
-        className="space-y-6 md:space-y-8"
-        variants={containerVariants}
-        initial={isBuildMode ? "visible" : "hidden"}
-        whileInView={isBuildMode ? undefined : "visible"}
-        viewport={isBuildMode ? undefined : { once: true, margin: "-80px" }}
-      >
-        {CASE_STUDIES.map((study) => (
-          <motion.article key={study.id} variants={cardVariants}>
-            <CaseStudyCard study={study} onOpen={setSelectedStudy} />
-          </motion.article>
-        ))}
-      </motion.div>
+      <div className="px-6 md:px-10 lg:px-16">
+        <motion.div
+          className="space-y-6 md:space-y-8"
+          variants={containerVariants}
+          initial={isBuildMode ? "visible" : "hidden"}
+          whileInView={isBuildMode ? undefined : "visible"}
+          viewport={isBuildMode ? undefined : { once: true, margin: "-80px" }}
+        >
+          {CASE_STUDIES.map((study) => (
+            <motion.article key={study.id} variants={cardVariants}>
+              <CaseStudyCard study={study} onOpen={setSelectedStudy} />
+            </motion.article>
+          ))}
+        </motion.div>
+      </div>
 
       {/* Drawer */}
       <AnimatePresence>
