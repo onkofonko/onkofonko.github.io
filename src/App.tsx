@@ -421,22 +421,29 @@ export default function App() {
                 logistics, and HR domains.
               </p>
             </motion.div>
-            <Skeleton
-              name="case-studies"
-              loading={!chunksReady.caseStudies || !caseStudiesInView}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              <Suspense
-                fallback={
-                  <div style={{ height: skeletonHeights.caseStudies }} />
-                }
+              <Skeleton
+                name="case-studies"
+                loading={!chunksReady.caseStudies || !caseStudiesInView}
               >
-                {caseStudiesInView ? (
-                  <CaseStudies />
-                ) : (
-                  <div style={{ height: skeletonHeights.caseStudies }} />
-                )}
-              </Suspense>
-            </Skeleton>
+                <Suspense
+                  fallback={
+                    <div style={{ height: skeletonHeights.caseStudies }} />
+                  }
+                >
+                  {caseStudiesInView ? (
+                    <CaseStudies />
+                  ) : (
+                    <div style={{ height: skeletonHeights.caseStudies }} />
+                  )}
+                </Suspense>
+              </Skeleton>
+            </motion.div>
           </div>
         </section>
 
@@ -465,20 +472,27 @@ export default function App() {
                 transformation, and digital solutions.
               </p>
             </motion.div>
-            <Skeleton
-              name="skills"
-              loading={!chunksReady.skills || !skillsInView}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              <Suspense
-                fallback={<div style={{ height: skeletonHeights.skills }} />}
+              <Skeleton
+                name="skills"
+                loading={!chunksReady.skills || !skillsInView}
               >
-                {skillsInView ? (
-                  <Skills />
-                ) : (
-                  <div style={{ height: skeletonHeights.skills }} />
-                )}
-              </Suspense>
-            </Skeleton>
+                <Suspense
+                  fallback={<div style={{ height: skeletonHeights.skills }} />}
+                >
+                  {skillsInView ? (
+                    <Skills />
+                  ) : (
+                    <div style={{ height: skeletonHeights.skills }} />
+                  )}
+                </Suspense>
+              </Skeleton>
+            </motion.div>
           </div>
         </section>
 
@@ -507,20 +521,29 @@ export default function App() {
                 transformation models.
               </p>
             </motion.div>
-            <Skeleton
-              name="processes"
-              loading={!chunksReady.processes || !processesInView}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              <Suspense
-                fallback={<div style={{ height: skeletonHeights.processes }} />}
+              <Skeleton
+                name="processes"
+                loading={!chunksReady.processes || !processesInView}
               >
-                {processesInView ? (
-                  <ProcessLibrary />
-                ) : (
-                  <div style={{ height: skeletonHeights.processes }} />
-                )}
-              </Suspense>
-            </Skeleton>
+                <Suspense
+                  fallback={
+                    <div style={{ height: skeletonHeights.processes }} />
+                  }
+                >
+                  {processesInView ? (
+                    <ProcessLibrary />
+                  ) : (
+                    <div style={{ height: skeletonHeights.processes }} />
+                  )}
+                </Suspense>
+              </Skeleton>
+            </motion.div>
           </div>
         </section>
 
@@ -551,20 +574,27 @@ export default function App() {
                 </p>
               </div>
             </motion.div>
-            <Skeleton
-              name="journal"
-              loading={!chunksReady.journal || !journalInView}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              <Suspense
-                fallback={<div style={{ height: skeletonHeights.journal }} />}
+              <Skeleton
+                name="journal"
+                loading={!chunksReady.journal || !journalInView}
               >
-                {journalInView ? (
-                  <Journal />
-                ) : (
-                  <div style={{ height: skeletonHeights.journal }} />
-                )}
-              </Suspense>
-            </Skeleton>
+                <Suspense
+                  fallback={<div style={{ height: skeletonHeights.journal }} />}
+                >
+                  {journalInView ? (
+                    <Journal />
+                  ) : (
+                    <div style={{ height: skeletonHeights.journal }} />
+                  )}
+                </Suspense>
+              </Skeleton>
+            </motion.div>
           </div>
         </section>
 
@@ -588,7 +618,14 @@ export default function App() {
                 Let's work together
               </h2>
             </motion.div>
-            <Contact onViewCv={handleViewCv} />
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <Contact onViewCv={handleViewCv} />
+            </motion.div>
           </div>
         </footer>
 
