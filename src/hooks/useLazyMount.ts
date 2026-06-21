@@ -5,15 +5,18 @@ interface UseLazyMountOptions {
 }
 
 export function useLazyMount(options: UseLazyMountOptions = {}) {
-  const [hasIntersected, setHasIntersected] = useState(false);
+  // Always mount immediately in development mode so boneyard CLI can capture DOM layout for skeletons
+  const isDev = typeof import.meta !== "undefined" && !!import.meta.env?.DEV;
+
+  const [hasIntersected, setHasIntersected] = useState(isDev);
   const ref = useRef<HTMLElement | null>(null);
 
   // Destructure to avoid object reference changes re-triggering the effect
   const rootMargin = options.rootMargin ?? "300px";
 
   useEffect(() => {
-    // Exit if already loaded or running on the server
-    if (hasIntersected || typeof window === "undefined") return;
+    // Exit if already loaded, in dev mode, or running on the server
+    if (hasIntersected || isDev || typeof window === "undefined") return;
 
     const element = ref.current;
     if (!element) return;
@@ -44,7 +47,7 @@ export function useLazyMount(options: UseLazyMountOptions = {}) {
       observer.disconnect();
       element.removeEventListener("focusin", triggerMount);
     };
-  }, [hasIntersected, rootMargin]);
+  }, [hasIntersected, rootMargin, isDev]);
 
   return [ref, hasIntersected] as const;
 }
