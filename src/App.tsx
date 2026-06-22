@@ -1,11 +1,12 @@
 import {
   Suspense,
   lazy,
-  useState,
   useEffect,
   useRef,
   useCallback,
   startTransition,
+  useReducer,
+  useMemo,
 } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import LoadingScreen from "./components/LoadingScreen";
@@ -141,34 +142,79 @@ const SKELETON_CHUNKS = new Set([
   "journal",
 ]);
 
+interface AppState {
+  isLoading: boolean;
+  chunksReady: {
+    caseStudies: boolean;
+    skills: boolean;
+    processes: boolean;
+    journal: boolean;
+  };
+  activeSection: string;
+  isCvOpen: boolean;
+}
+
+type AppAction =
+  | { type: "COMPLETE_LOADING" }
+  | { type: "SET_CHUNK_READY"; chunk: keyof AppState["chunksReady"] }
+  | { type: "SET_ACTIVE_SECTION"; section: string }
+  | { type: "SET_CV_OPEN"; isOpen: boolean };
+
+function appReducer(state: AppState, action: AppAction): AppState {
+  switch (action.type) {
+    case "COMPLETE_LOADING":
+      return { ...state, isLoading: false };
+    case "SET_CHUNK_READY":
+      return {
+        ...state,
+        chunksReady: { ...state.chunksReady, [action.chunk]: true },
+      };
+    case "SET_ACTIVE_SECTION":
+      return { ...state, activeSection: action.section };
+    case "SET_CV_OPEN":
+      return { ...state, isCvOpen: action.isOpen };
+    default:
+      return state;
+  }
+}
+
 export default function App() {
-  const [isLoading, setIsLoading] = useState(() => {
-    if (
-      typeof window !== "undefined" &&
-      (window as unknown as { __BONEYARD_BUILD?: boolean }).__BONEYARD_BUILD
-    ) {
-      return false;
-    }
-    try {
-      return !sessionStorage.getItem("portfolio_loaded");
-    } catch {
-      return true;
-    }
-  });
-  const [chunksReady, setChunksReady] = useState(() => ({
-    caseStudies: loadCaseStudies.getReady(),
-    skills: loadSkills.getReady(),
-    processes: loadProcessLibrary.getReady(),
-    journal: loadJournal.getReady(),
+  const [state, dispatch] = useReducer(appReducer, null, () => ({
+    isLoading: (() => {
+      if (
+        typeof window !== "undefined" &&
+        (window as unknown as { __BONEYARD_BUILD?: boolean }).__BONEYARD_BUILD
+      ) {
+        return false;
+      }
+      try {
+        return !sessionStorage.getItem("portfolio_loaded");
+      } catch {
+        return true;
+      }
+    })(),
+    chunksReady: {
+      caseStudies: loadCaseStudies.getReady(),
+      skills: loadSkills.getReady(),
+      processes: loadProcessLibrary.getReady(),
+      journal: loadJournal.getReady(),
+    },
+    activeSection: "Home",
+    isCvOpen: false,
   }));
-  const [skeletonHeights] = useState(() => ({
-    caseStudies: getSkeletonHeight(caseStudiesBones),
-    skills: getSkeletonHeight(skillsBones),
-    processes: getSkeletonHeight(processesBones),
-    journal: getSkeletonHeight(journalBones),
-  }));
-  const [activeSection, setActiveSection] = useState("Home");
-  const [isCvOpen, setIsCvOpen] = useState(false);
+
+  const { isLoading, chunksReady, activeSection, isCvOpen } = state;
+
+  const skeletonHeights = useMemo(
+    () => ({
+      caseStudies: getSkeletonHeight(caseStudiesBones),
+      skills: getSkeletonHeight(skillsBones),
+      processes: getSkeletonHeight(processesBones),
+      journal: getSkeletonHeight(journalBones),
+    }),
+    [],
+  );
+
   const isMobile = useIsMobile();
 
   const rootMargin = isMobile ? "500px" : "300px";
@@ -182,11 +228,17 @@ export default function App() {
   const navbarSentinelRef = useRef<HTMLDivElement>(null);
 
   // Close CV viewer modal on back swipe / browser back button
-  useModalHistory(isCvOpen, () => setIsCvOpen(false));
+  useModalHistory(isCvOpen, () =>
+    dispatch({ type: "SET_CV_OPEN", isOpen: false }),
+  );
 
   // Preload lazy components concurrently with main-thread yielding to protect INP
   useEffect(() => {
     if (isSlowConnection()) return;
+
+    let active = true;
+    let idleId: number | null = null;
+    let timeoutId: number | null = null;
 
     const yieldToMain = async () => {
       const scheduler = (
@@ -214,11 +266,15 @@ export default function App() {
       }
 
       for (const item of queue) {
+        if (!active) break;
         item.loader
           .load()
           .then(() => {
-            if (SKELETON_CHUNKS.has(item.key)) {
-              setChunksReady((prev) => ({ ...prev, [item.key]: true }));
+            if (active && SKELETON_CHUNKS.has(item.key)) {
+              dispatch({
+                type: "SET_CHUNK_READY",
+                chunk: item.key as keyof AppState["chunksReady"],
+              });
             }
           })
           .catch(() => {});
@@ -236,10 +292,27 @@ export default function App() {
     };
 
     if (typeof window.requestIdleCallback === "function") {
-      window.requestIdleCallback(() => preloadAll(), { timeout: 2000 });
+      idleId = window.requestIdleCallback(
+        () => {
+          if (active) preloadAll();
+        },
+        { timeout: 2000 },
+      );
     } else {
-      setTimeout(() => preloadAll(), 0);
+      timeoutId = window.setTimeout(() => {
+        if (active) preloadAll();
+      }, 0);
     }
+
+    return () => {
+      active = false;
+      if (idleId !== null) {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId !== null) {
+        window.clearTimeout(timeoutId);
+      }
+    };
   }, [isMobile]);
 
   // Dynamic Scroll Highlighting Observer
@@ -268,7 +341,16 @@ export default function App() {
         const visible = sections.filter((id) => visibleSections.current[id]);
         if (visible.length > 0) {
           const targetId = visible[visible.length - 1];
-          setActiveSection(LABEL_MAP[targetId] || "Home");
+          dispatch({
+            type: "SET_ACTIVE_SECTION",
+            section: LABEL_MAP[targetId] || "Home",
+          });
+
+          // Synchronize URL hash
+          const newHash = `#${targetId}`;
+          if (window.location.hash !== newHash) {
+            window.history.replaceState(null, "", newHash);
+          }
         }
       },
       { rootMargin: "-25% 0px -55% 0px" },
@@ -284,9 +366,20 @@ export default function App() {
 
   const handleNavClick = useCallback((section: string) => {
     startTransition(() => {
-      setActiveSection(section);
+      dispatch({ type: "SET_ACTIVE_SECTION", section });
     });
     ignoreScrollUntil.current = Date.now() + 1000; // Lock scrollspy updates for 1s during smooth scroll
+
+    // Synchronize URL hash
+    const sectionId = Object.keys(LABEL_MAP).find(
+      (key) => LABEL_MAP[key] === section,
+    );
+    if (sectionId) {
+      const newHash = `#${sectionId}`;
+      if (window.location.hash !== newHash) {
+        window.history.pushState(null, "", newHash);
+      }
+    }
   }, []);
 
   const handleViewWork = useCallback(() => {
@@ -295,35 +388,17 @@ export default function App() {
   }, [handleNavClick]);
 
   const handleViewCv = useCallback(() => {
-    setIsCvOpen(true);
+    dispatch({ type: "SET_CV_OPEN", isOpen: true });
   }, []);
 
   const handleLoadingComplete = useCallback(() => {
-    setIsLoading(false);
+    dispatch({ type: "COMPLETE_LOADING" });
     try {
       sessionStorage.setItem("portfolio_loaded", "true");
     } catch {
       // Ignore errors (e.g. private browsing restrictions)
     }
   }, []);
-
-  // Synchronize activeSection with URL hash
-  useEffect(() => {
-    if (isLoading) return;
-    const sectionId = Object.keys(LABEL_MAP).find(
-      (key) => LABEL_MAP[key] === activeSection,
-    );
-    if (sectionId) {
-      const newHash = `#${sectionId}`;
-      if (window.location.hash !== newHash) {
-        if (Date.now() < ignoreScrollUntil.current) {
-          window.history.pushState(null, "", newHash);
-        } else {
-          window.history.replaceState(null, "", newHash);
-        }
-      }
-    }
-  }, [activeSection, isLoading]);
 
   // Handle initial deep-linking based on URL hash
   useEffect(() => {
@@ -336,7 +411,7 @@ export default function App() {
       if (label) {
         const element = document.getElementById(targetId);
         timer = setTimeout(() => {
-          setActiveSection(label);
+          dispatch({ type: "SET_ACTIVE_SECTION", section: label });
           element?.scrollIntoView({ behavior: "smooth" });
         }, 100);
       }
@@ -652,7 +727,7 @@ export default function App() {
         <Suspense fallback={null}>
           <PdfViewerModal
             isOpen={isCvOpen}
-            onClose={() => setIsCvOpen(false)}
+            onClose={() => dispatch({ type: "SET_CV_OPEN", isOpen: false })}
           />
         </Suspense>
 

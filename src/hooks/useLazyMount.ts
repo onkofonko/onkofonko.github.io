@@ -9,6 +9,7 @@ export function useLazyMount(options: UseLazyMountOptions = {}) {
   const isDev = typeof import.meta !== "undefined" && !!import.meta.env?.DEV;
 
   const [hasIntersected, setHasIntersected] = useState(isDev);
+  const hasIntersectedRef = useRef(isDev);
   const ref = useRef<HTMLElement | null>(null);
 
   // Destructure to avoid object reference changes re-triggering the effect
@@ -16,18 +17,32 @@ export function useLazyMount(options: UseLazyMountOptions = {}) {
 
   useEffect(() => {
     // Exit if already loaded, in dev mode, or running on the server
-    if (hasIntersected || isDev || typeof window === "undefined") return;
+    if (hasIntersectedRef.current || isDev || typeof window === "undefined")
+      return;
 
     const element = ref.current;
     if (!element) return;
 
+    let observer: IntersectionObserver | null = null;
+    let focusListenerActive = true;
+
     // Trigger immediate mount and clean up listeners
     const triggerMount = () => {
+      hasIntersectedRef.current = true;
       setHasIntersected(true);
+
+      if (observer) {
+        observer.disconnect();
+        observer = null;
+      }
+      if (focusListenerActive) {
+        element.removeEventListener("focusin", triggerMount);
+        focusListenerActive = false;
+      }
     };
 
     // Set up IntersectionObserver
-    const observer = new IntersectionObserver(
+    observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           triggerMount();
@@ -44,10 +59,14 @@ export function useLazyMount(options: UseLazyMountOptions = {}) {
 
     // Cleanup: disconnect and remove listeners
     return () => {
-      observer.disconnect();
-      element.removeEventListener("focusin", triggerMount);
+      if (observer) {
+        observer.disconnect();
+      }
+      if (focusListenerActive) {
+        element.removeEventListener("focusin", triggerMount);
+      }
     };
-  }, [hasIntersected, rootMargin, isDev]);
+  }, [rootMargin, isDev]);
 
   return [ref, hasIntersected] as const;
 }

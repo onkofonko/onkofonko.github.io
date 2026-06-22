@@ -59,17 +59,29 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const doneRef = useRef(false);
 
   // Threshold-triggered React states (only re-render when crossed, not every frame)
-  const [nodeStart, setNodeStart] = useState(initialVal >= 5);
-  const [nodeTask1, setNodeTask1] = useState(initialVal >= 25);
-  const [nodeGateway, setNodeGateway] = useState(initialVal >= 50);
-  const [nodeTask2, setNodeTask2] = useState(initialVal >= 75);
-  const [nodeTask3, setNodeTask3] = useState(initialVal >= 75);
-  const [nodeMergeGateway, setNodeMergeGateway] = useState(initialVal >= 90);
-  const [nodeEnd, setNodeEnd] = useState(initialVal >= 95);
-  const [activeStepIdx, setActiveStepIdx] = useState(-1);
-  const [completedSteps, setCompletedSteps] = useState<boolean[]>(() =>
-    BPMN_STEPS.map(() => initialVal >= 100),
-  );
+  const [loadingState, setLoadingState] = useState({
+    nodes: {
+      start: initialVal >= 5,
+      task1: initialVal >= 25,
+      gateway: initialVal >= 50,
+      task2: initialVal >= 75,
+      task3: initialVal >= 75,
+      mergeGateway: initialVal >= 90,
+      end: initialVal >= 95,
+    },
+    activeStepIdx: -1,
+    completedSteps: BPMN_STEPS.map(() => initialVal >= 100),
+  });
+  const { nodes, activeStepIdx, completedSteps } = loadingState;
+  const {
+    start: nodeStart,
+    task1: nodeTask1,
+    gateway: nodeGateway,
+    task2: nodeTask2,
+    task3: nodeTask3,
+    mergeGateway: nodeMergeGateway,
+    end: nodeEnd,
+  } = nodes;
 
   // Refs to avoid stale closures in RAF
   const nodeStartRef = useRef(initialVal >= 5);
@@ -87,15 +99,19 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     count.set(100);
     if (!doneRef.current) {
       doneRef.current = true;
-      setNodeStart(true);
-      setNodeTask1(true);
-      setNodeGateway(true);
-      setNodeTask2(true);
-      setNodeTask3(true);
-      setNodeMergeGateway(true);
-      setNodeEnd(true);
-      setActiveStepIdx(BPMN_STEPS.length - 1);
-      setCompletedSteps(BPMN_STEPS.map(() => true));
+      setLoadingState({
+        nodes: {
+          start: true,
+          task1: true,
+          gateway: true,
+          task2: true,
+          task3: true,
+          mergeGateway: true,
+          end: true,
+        },
+        activeStepIdx: BPMN_STEPS.length - 1,
+        completedSteps: BPMN_STEPS.map(() => true),
+      });
       onComplete();
     }
   };
@@ -128,31 +144,39 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       count.set(eased * 100);
 
       // Check thresholds — update React state only when crossed
+      let nodesUpdated = false;
+      const updatedNodes: Partial<typeof nodes> = {};
       if (current >= 5 && !nodeStartRef.current) {
         nodeStartRef.current = true;
-        setNodeStart(true);
+        updatedNodes.start = true;
+        nodesUpdated = true;
       }
       if (current >= 25 && !nodeTask1Ref.current) {
         nodeTask1Ref.current = true;
-        setNodeTask1(true);
+        updatedNodes.task1 = true;
+        nodesUpdated = true;
       }
       if (current >= 50 && !nodeGatewayRef.current) {
         nodeGatewayRef.current = true;
-        setNodeGateway(true);
+        updatedNodes.gateway = true;
+        nodesUpdated = true;
       }
       if (current >= 75 && !nodeTask2Ref.current) {
         nodeTask2Ref.current = true;
-        setNodeTask2(true);
-        setNodeTask3(true);
         nodeTask3Ref.current = true;
+        updatedNodes.task2 = true;
+        updatedNodes.task3 = true;
+        nodesUpdated = true;
       }
       if (current >= 90 && !nodeMergeGatewayRef.current) {
         nodeMergeGatewayRef.current = true;
-        setNodeMergeGateway(true);
+        updatedNodes.mergeGateway = true;
+        nodesUpdated = true;
       }
       if (current >= 95 && !nodeEndRef.current) {
         nodeEndRef.current = true;
-        setNodeEnd(true);
+        updatedNodes.end = true;
+        nodesUpdated = true;
       }
 
       // Step checklist — only setState when a threshold actually crosses
@@ -160,26 +184,41 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         (s) => current >= s.threshold && current < s.completedThreshold,
       );
       const prev = lastStepSnapshot.current;
-      let dirty = false;
-      if (stepIdx !== prev.idx) dirty = true;
-      if (!dirty) {
+      let stepsDirty = false;
+      if (stepIdx !== prev.idx) stepsDirty = true;
+      if (!stepsDirty) {
         for (let i = 0; i < BPMN_STEPS.length; i++) {
           if (
             current >= BPMN_STEPS[i].completedThreshold !==
             prev.completed[i]
           ) {
-            dirty = true;
+            stepsDirty = true;
             break;
           }
         }
       }
-      if (dirty) {
-        const completed = BPMN_STEPS.map(
-          (s) => current >= s.completedThreshold,
-        );
+
+      let completed: boolean[] = [];
+      if (stepsDirty) {
+        completed = BPMN_STEPS.map((s) => current >= s.completedThreshold);
         lastStepSnapshot.current = { idx: stepIdx, completed };
-        setActiveStepIdx(stepIdx);
-        setCompletedSteps(completed);
+      }
+
+      if (nodesUpdated || stepsDirty) {
+        setLoadingState((prev) => {
+          const nextNodes = nodesUpdated
+            ? { ...prev.nodes, ...updatedNodes }
+            : prev.nodes;
+          const nextActiveStepIdx = stepsDirty ? stepIdx : prev.activeStepIdx;
+          const nextCompletedSteps = stepsDirty
+            ? completed
+            : prev.completedSteps;
+          return {
+            nodes: nextNodes,
+            activeStepIdx: nextActiveStepIdx,
+            completedSteps: nextCompletedSteps,
+          };
+        });
       }
 
       if (progress < 1) {
@@ -224,7 +263,6 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       className="fixed inset-0 z-[9999] bg-bg flex flex-col justify-between p-6 md:p-12 overflow-hidden select-none"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
-      style={{ willChange: "opacity" }}
     >
       {/* Background aesthetics */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] opacity-60 pointer-events-none" />
@@ -252,10 +290,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       </div>
 
       {/* Center: BPMN Diagram Area */}
-      <div
-        className="relative z-10 flex-1 flex items-center justify-center py-6 w-full"
-        style={{ willChange: "contents" }}
-      >
+      <div className="relative z-10 flex-1 flex items-center justify-center py-6 w-full">
         {/* Desktop Diagram */}
         {!isMobile && (
           <div className="w-full max-w-4xl px-4">
@@ -748,7 +783,6 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               style={{
                 scaleX: progressScale,
                 width: "100%",
-                willChange: "transform",
               }}
             />
           </div>

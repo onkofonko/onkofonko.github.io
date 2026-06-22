@@ -210,27 +210,24 @@ export function parseCaseStudy(
 
   // Parse tools (comma-separated list)
   const tools = metadata.tools
-    ? metadata.tools
-        .split(",")
-        .map((t) => t.trim())
-        .filter(Boolean)
+    ? metadata.tools.split(",").flatMap((t) => {
+        const trimmed = t.trim();
+        return trimmed ? [trimmed] : [];
+      })
     : [];
 
   // Parse results: "37% | Reduction in picking time; 19.4% | Improvement..."
   const results = metadata.results
-    ? metadata.results
-        .split(";")
-        .map((item) => {
-          const pipeIndex = item.indexOf("|");
-          if (pipeIndex !== -1) {
-            return {
-              metric: item.substring(0, pipeIndex).trim(),
-              description: item.substring(pipeIndex + 1).trim(),
-            };
-          }
-          return { metric: item.trim(), description: "" };
-        })
-        .filter((r) => r.metric)
+    ? metadata.results.split(";").flatMap((item) => {
+        const pipeIndex = item.indexOf("|");
+        const metric = (
+          pipeIndex !== -1 ? item.substring(0, pipeIndex) : item
+        ).trim();
+        if (!metric) return [];
+        const description =
+          pipeIndex !== -1 ? item.substring(pipeIndex + 1).trim() : "";
+        return [{ metric, description }];
+      })
     : [];
 
   // Parse body line by line
@@ -248,21 +245,13 @@ export function parseCaseStudy(
       currentHeader = line.substring(4).trim().toLowerCase();
     } else if (line.startsWith("- ") || line.startsWith("* ")) {
       const item = line.substring(2).trim();
-      if (
-        currentHeader.includes("as-is") ||
-        currentHeader.includes("source") ||
-        currentHeader.includes("legacy")
-      ) {
+      if (/as-is|source|legacy/.test(currentHeader)) {
         asIsFlow.push(item);
-      } else if (
-        currentHeader.includes("to-be") ||
-        currentHeader.includes("model") ||
-        currentHeader.includes("bpmn")
-      ) {
+      } else if (/to-be|model|bpmn/.test(currentHeader)) {
         toBeFlow.push(item);
-      } else if (currentHeader.includes("methodology")) {
+      } else if (/methodology/.test(currentHeader)) {
         methodology.push(item);
-      } else if (currentHeader.includes("deliverable")) {
+      } else if (/deliverable/.test(currentHeader)) {
         deliverables.push(item);
       }
     } else if (line !== "") {

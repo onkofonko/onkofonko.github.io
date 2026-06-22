@@ -6,10 +6,9 @@ import {
   useEffect,
   useCallback,
   createContext,
-  useContext,
+  use,
   useMemo,
   memo,
-  forwardRef,
   type CSSProperties,
   type PointerEvent,
   type ReactNode,
@@ -576,14 +575,22 @@ function LiquidGlassDesktop({
     [onClick],
   );
 
+  const updateRectRef = useRef(updateRect);
   useEffect(() => {
+    updateRectRef.current = updateRect;
+  }, [updateRect]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      updateRectRef.current();
+    };
     if (interactive && isHovered) {
-      window.addEventListener("resize", updateRect, { passive: true });
+      window.addEventListener("resize", handleResize, { passive: true });
       return () => {
-        window.removeEventListener("resize", updateRect);
+        window.removeEventListener("resize", handleResize);
       };
     }
-  }, [interactive, isHovered, updateRect]);
+  }, [interactive, isHovered]);
 
   // Compute cursor-following border spotlight gradient (softer glare)
   const borderGradient = useTransform([springX, springY], ([x, y]) => {
@@ -828,13 +835,13 @@ function LiquidGlassDesktop({
 LiquidGlassDesktop.displayName = "LiquidGlassDesktop";
 
 export const LiquidGlass = memo(
-  forwardRef<HTMLElement, LiquidGlassProps>((props, ref) => {
+  ({ ref, ...props }: LiquidGlassProps & { ref?: Ref<HTMLElement | null> }) => {
     const isMobile = useIsMobile();
     if (isMobile) {
       return <LiquidGlassMobile ref={ref} {...props} />;
     }
     return <LiquidGlassDesktop ref={ref} {...props} />;
-  }),
+  },
 );
 
 LiquidGlass.displayName = "LiquidGlass";
@@ -905,7 +912,7 @@ interface TabsContextValue {
 const TabsContext = createContext<TabsContextValue | null>(null);
 
 function useTabsContext() {
-  const context = useContext(TabsContext);
+  const context = use(TabsContext);
   if (!context) {
     throw new Error(
       "LiquidGlass.Tab must be used within a LiquidGlass.Tabs component",
@@ -914,7 +921,7 @@ function useTabsContext() {
   return context;
 }
 
-export const Tabs = memo(function Tabs({
+const Tabs = memo(function Tabs({
   value,
   onChange,
   layoutId,
@@ -962,6 +969,7 @@ export const Tabs = memo(function Tabs({
     <TabsContext.Provider value={contextValue}>
       <div
         role="tablist"
+        tabIndex={-1}
         className={`flex ${className}`}
         style={style}
         {...rest}
@@ -978,7 +986,34 @@ export const Tabs = memo(function Tabs({
   );
 });
 
-export const Tab = memo(function Tab({
+const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+  const tabs = Array.from(
+    e.currentTarget
+      .closest('[role="tablist"]')
+      ?.querySelectorAll('[role="tab"]') ?? [],
+  );
+  const idx = tabs.indexOf(e.currentTarget);
+  let nextIdx = idx;
+
+  if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+    nextIdx = (idx + 1) % tabs.length;
+  } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+    nextIdx = (idx - 1 + tabs.length) % tabs.length;
+  } else if (e.key === "Home") {
+    nextIdx = 0;
+  } else if (e.key === "End") {
+    nextIdx = tabs.length - 1;
+  } else {
+    return;
+  }
+
+  e.preventDefault();
+  const nextTab = tabs[nextIdx] as HTMLButtonElement;
+  nextTab.focus();
+  nextTab.click(); // triggers onChange
+};
+
+const Tab = memo(function Tab({
   value,
   children,
   className = "",
@@ -1152,33 +1187,6 @@ export const Tab = memo(function Tab({
     if (onClick) onClick(e);
   };
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
-    const tabs = Array.from(
-      e.currentTarget
-        .closest('[role="tablist"]')
-        ?.querySelectorAll('[role="tab"]') ?? [],
-    );
-    const idx = tabs.indexOf(e.currentTarget);
-    let nextIdx = idx;
-
-    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-      nextIdx = (idx + 1) % tabs.length;
-    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-      nextIdx = (idx - 1 + tabs.length) % tabs.length;
-    } else if (e.key === "Home") {
-      nextIdx = 0;
-    } else if (e.key === "End") {
-      nextIdx = tabs.length - 1;
-    } else {
-      return;
-    }
-
-    e.preventDefault();
-    const nextTab = tabs[nextIdx] as HTMLButtonElement;
-    nextTab.focus();
-    nextTab.click(); // triggers onChange
-  };
-
   const combinedHighlightClass =
     `absolute inset-0 z-[-1] highlight-pill overflow-hidden ${roundedClass} ${contextHighlightClass} ${highlightClassName}`.trim();
   const combinedHighlightStyle = {
@@ -1273,7 +1281,7 @@ export interface LiquidGlassTabPanelProps extends HTMLAttributes<HTMLDivElement>
   children?: ReactNode;
 }
 
-export const TabPanel = memo(function TabPanel({
+const TabPanel = memo(function TabPanel({
   value,
   children,
   ...rest
@@ -1291,8 +1299,6 @@ export const TabPanel = memo(function TabPanel({
 });
 
 TabPanel.displayName = "LiquidGlass.TabPanel";
-
-export { LiquidGlassButton as Button };
 
 // eslint-disable-next-line react-refresh/only-export-components
 export default Object.assign(LiquidGlass, {

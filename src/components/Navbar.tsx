@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useEffect, useCallback, useReducer } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import LiquidGlass from "./LiquidGlass";
@@ -12,33 +12,85 @@ interface NavbarProps {
   sentinelRef: React.RefObject<HTMLDivElement | null>;
 }
 
+interface NavbarState {
+  scrolled: boolean;
+  isOpen: boolean;
+  avatarError: boolean;
+  isHovered: boolean;
+  isTransitioning: boolean;
+  prevActive: string;
+  isScrolling: boolean;
+}
+
+type NavbarAction =
+  | { type: "SET_SCROLLED"; scrolled: boolean }
+  | { type: "SET_IS_OPEN"; isOpen: boolean }
+  | { type: "SET_AVATAR_ERROR"; error: boolean }
+  | { type: "SET_IS_HOVERED"; hovered: boolean }
+  | { type: "SET_IS_TRANSIENT"; transitioning: boolean }
+  | { type: "SET_SCROLLING"; scrolling: boolean }
+  | { type: "TRANSITION_SECTION"; prevActive: string; transitioning: boolean };
+
+function navbarReducer(state: NavbarState, action: NavbarAction): NavbarState {
+  switch (action.type) {
+    case "SET_SCROLLED":
+      return { ...state, scrolled: action.scrolled };
+    case "SET_IS_OPEN":
+      return { ...state, isOpen: action.isOpen };
+    case "SET_AVATAR_ERROR":
+      return { ...state, avatarError: action.error };
+    case "SET_IS_HOVERED":
+      return { ...state, isHovered: action.hovered };
+    case "SET_IS_TRANSIENT":
+      return { ...state, isTransitioning: action.transitioning };
+    case "SET_SCROLLING":
+      return { ...state, isScrolling: action.scrolling };
+    case "TRANSITION_SECTION":
+      return {
+        ...state,
+        prevActive: action.prevActive,
+        isTransitioning: action.transitioning,
+      };
+    default:
+      return state;
+  }
+}
+
 export default function Navbar({
   activeSection,
   onNavClick,
   sentinelRef,
 }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [avatarError, setAvatarError] = useState(false);
   const isMobile = useIsMobile();
 
-  // States to track navbar interaction (flat vs. active/premium highlights)
-  const [isHovered, setIsHovered] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [prevActive, setPrevActive] = useState(activeSection);
+  const [state, dispatch] = useReducer(navbarReducer, {
+    scrolled: false,
+    isOpen: false,
+    avatarError: false,
+    isHovered: false,
+    isTransitioning: false,
+    prevActive: "",
+    isScrolling: false,
+  });
 
-  // Track scroll state on mobile for dynamic backdrop blur performance optimization
-  // Keep it simple using standard window scroll listener and React state
-  const [isScrolling, setIsScrolling] = useState(false);
+  const {
+    scrolled,
+    isOpen,
+    avatarError,
+    isHovered,
+    isTransitioning,
+    prevActive,
+    isScrolling,
+  } = state;
 
   useEffect(() => {
     if (!isMobile) return;
     let t: number;
     const handleScroll = () => {
-      setIsScrolling(true);
+      dispatch({ type: "SET_SCROLLING", scrolling: true });
       clearTimeout(t);
       t = window.setTimeout(() => {
-        setIsScrolling(false);
+        dispatch({ type: "SET_SCROLLING", scrolling: false });
       }, 120);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -50,15 +102,18 @@ export default function Navbar({
 
   const active = activeSection;
 
-  if (active !== prevActive) {
-    setPrevActive(active);
-    setIsTransitioning(true);
+  if (activeSection !== prevActive) {
+    dispatch({
+      type: "TRANSITION_SECTION",
+      prevActive: activeSection,
+      transitioning: prevActive !== "",
+    });
   }
 
   useEffect(() => {
     if (isTransitioning) {
       const timer = setTimeout(() => {
-        setIsTransitioning(false);
+        dispatch({ type: "SET_IS_TRANSIENT", transitioning: false });
       }, 500); // 500ms covers the 400ms CSS transition and animation settling
       return () => clearTimeout(timer);
     }
@@ -70,7 +125,7 @@ export default function Navbar({
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setIsOpen(false);
+        dispatch({ type: "SET_IS_OPEN", isOpen: false });
       }
     };
 
@@ -83,7 +138,8 @@ export default function Navbar({
     const sentinel = sentinelRef.current;
     if (!sentinel) return;
     const observer = new IntersectionObserver(
-      ([entry]) => setScrolled(!entry.isIntersecting),
+      ([entry]) =>
+        dispatch({ type: "SET_SCROLLED", scrolled: !entry.isIntersecting }),
       { threshold: 0 },
     );
     observer.observe(sentinel);
@@ -93,7 +149,7 @@ export default function Navbar({
   const handleNav = useCallback(
     (label: string) => {
       onNavClick(label);
-      setIsOpen(false); // Close mobile menu dropdown
+      dispatch({ type: "SET_IS_OPEN", isOpen: false }); // Close mobile menu dropdown
       if (label === "Home") {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else if (label === "Case Studies") {
@@ -117,6 +173,9 @@ export default function Navbar({
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center pt-4 md:pt-6 px-4 pointer-events-none">
+      <span className="hidden" aria-hidden="true">
+        {prevActive}
+      </span>
       {/* Main Pill Capsule Container */}
       <div
         className={`pointer-events-auto flex items-center justify-between md:justify-start gap-1 md:gap-1.5 rounded-full border border-white/10 bg-surface/40 px-3 py-2.5 navbar-capsule w-full max-w-[85vw] md:w-auto relative z-50 md:max-w-[95vw] ${
@@ -127,8 +186,12 @@ export default function Navbar({
           value={active}
           onChange={handleNav}
           layoutId="active-nav-highlight"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          onMouseEnter={() =>
+            dispatch({ type: "SET_IS_HOVERED", hovered: true })
+          }
+          onMouseLeave={() =>
+            dispatch({ type: "SET_IS_HOVERED", hovered: false })
+          }
           highlightClassName={
             isHovered || isTransitioning
               ? "navbar-highlight-active"
@@ -157,11 +220,13 @@ export default function Navbar({
               ) : (
                 <img
                   src="https://avatars.githubusercontent.com/u/36997301?v=4&s=24"
-                  alt="Ondrej Michal Očkaj"
+                  onError={() =>
+                    dispatch({ type: "SET_AVATAR_ERROR", error: true })
+                  }
+                  alt="Ondrej Michal Ockaj"
                   width="24"
                   height="24"
                   className="w-full h-full object-cover"
-                  onError={() => setAvatarError(true)}
                 />
               )}
             </span>
@@ -210,9 +275,10 @@ export default function Navbar({
         {/* Hamburger Menu Toggle (Mobile Only) */}
         <div className="flex md:hidden">
           <LiquidGlass.Button
-            onClick={() => setIsOpen(!isOpen)}
+            type="button"
+            onClick={() => dispatch({ type: "SET_IS_OPEN", isOpen: !isOpen })}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
             className="size-10 p-0"
-            ariaLabel="Toggle Menu"
           >
             {isOpen ? <X size={16} /> : <Menu size={16} />}
           </LiquidGlass.Button>
@@ -225,11 +291,11 @@ export default function Navbar({
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                key="backdrop"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 className="fixed inset-0 bg-black/10 backdrop-blur-[1px] md:hidden z-40 pointer-events-auto"
-                onClick={() => setIsOpen(false)}
+                onClick={() => dispatch({ type: "SET_IS_OPEN", isOpen: false })}
               />
             )}
           </AnimatePresence>
@@ -239,8 +305,12 @@ export default function Navbar({
               value={active}
               onChange={handleNav}
               layoutId="active-mobile-nav-highlight"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+              onMouseEnter={() =>
+                dispatch({ type: "SET_IS_HOVERED", hovered: true })
+              }
+              onMouseLeave={() =>
+                dispatch({ type: "SET_IS_HOVERED", hovered: false })
+              }
               highlightClassName={`border border-white/10 ${isHovered || isTransitioning ? "navbar-highlight-active" : "navbar-highlight-flat"}`}
               highlightStyle={{
                 boxShadow: "inset 0 1px 1px rgba(255, 255, 255, 0.15)",

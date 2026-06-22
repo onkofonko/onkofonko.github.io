@@ -1,5 +1,12 @@
 /* eslint-disable react/no-array-index-key */
-import { useState, useEffect, useCallback, useMemo, memo } from "react";
+import {
+  useEffect,
+  useCallback,
+  useMemo,
+  memo,
+  useRef,
+  useReducer,
+} from "react";
 import {
   motion,
   AnimatePresence,
@@ -54,31 +61,80 @@ const modalVariants: Variants = {
 
 const WHITESPACE_REGEX = /\s+/g;
 
+interface PdfState {
+  activeTab: "pdf" | "interactive";
+  lang: "en" | "sk";
+  pdfLoading: boolean;
+  isHovered: boolean;
+  isTransitioning: boolean;
+}
+
+type PdfAction =
+  | { type: "CHANGE_TAB"; tab: "pdf" | "interactive" }
+  | { type: "SET_LANG"; lang: "en" | "sk" }
+  | { type: "SET_PDF_LOADING"; loading: boolean }
+  | { type: "SET_IS_HOVERED"; hovered: boolean }
+  | { type: "SET_IS_TRANSITIONING"; transitioning: boolean };
+
+function pdfReducer(state: PdfState, action: PdfAction): PdfState {
+  switch (action.type) {
+    case "CHANGE_TAB":
+      return { ...state, activeTab: action.tab, isTransitioning: true };
+    case "SET_LANG":
+      return { ...state, lang: action.lang };
+    case "SET_PDF_LOADING":
+      return { ...state, pdfLoading: action.loading };
+    case "SET_IS_HOVERED":
+      return { ...state, isHovered: action.hovered };
+    case "SET_IS_TRANSITIONING":
+      return { ...state, isTransitioning: action.transitioning };
+    default:
+      return state;
+  }
+}
+
 function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
   const isMobile = useIsMobile();
-  const [activeTab, setActiveTab] = useState<"pdf" | "interactive">("pdf");
-  const [lang, setLang] = useState<"en" | "sk">("en");
-  const [pdfLoading, setPdfLoading] = useState(true);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const [state, dispatch] = useReducer(pdfReducer, {
+    activeTab: "pdf",
+    lang: "en",
+    pdfLoading: true,
+    isHovered: false,
+    isTransitioning: false,
+  });
+
+  const { activeTab, lang, pdfLoading, isHovered, isTransitioning } = state;
 
   const handleTabChange = useCallback((tab: "pdf" | "interactive") => {
-    setActiveTab(tab);
-    setIsTransitioning(true);
+    dispatch({ type: "CHANGE_TAB", tab });
   }, []);
 
   useEffect(() => {
     if (!isTransitioning) return;
-    const timer = setTimeout(() => setIsTransitioning(false), 500);
+    const timer = setTimeout(
+      () => dispatch({ type: "SET_IS_TRANSITIONING", transitioning: false }),
+      500,
+    );
     return () => clearTimeout(timer);
   }, [isTransitioning]);
 
   const prefersReducedMotion = useReducedMotion();
 
+  const onCloseRef = useRef(onClose);
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
+
+  const handleTabChangeRef = useRef(handleTabChange);
+  useEffect(() => {
+    handleTabChangeRef.current = handleTabChange;
+  }, [handleTabChange]);
+
   // Esc key closes modal & lock body scroll
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") onCloseRef.current();
     };
 
     if (isOpen) {
@@ -89,17 +145,17 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
         document.body.style.overflow = "unset";
       };
     }
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   // Force PDF tab when switching to mobile
   useEffect(() => {
     if (isMobile && isOpen) {
       const timer = setTimeout(() => {
-        handleTabChange("pdf");
+        handleTabChangeRef.current("pdf");
       }, 0);
       return () => clearTimeout(timer);
     }
-  }, [isMobile, isOpen, handleTabChange]);
+  }, [isMobile, isOpen]);
 
   const activeCv = useMemo(() => CV_DATA[lang], [lang]);
 
@@ -201,12 +257,14 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
               {/* Tab Selector — Navbar-style sliding highlight blob (Desktop only) */}
               <LiquidGlass.Tabs
                 value={activeTab}
-                onChange={(val) =>
-                  handleTabChange(val as "pdf" | "interactive")
-                }
+                onChange={handleTabChange}
                 layoutId="active-viewer-tab"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+                onMouseEnter={() =>
+                  dispatch({ type: "SET_IS_HOVERED", hovered: true })
+                }
+                onMouseLeave={() =>
+                  dispatch({ type: "SET_IS_HOVERED", hovered: false })
+                }
                 highlightClassName={
                   isHovered || isTransitioning
                     ? "navbar-highlight-active"
@@ -301,12 +359,28 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                         </p>
                       </div>
                     ) : null}
-                    <iframe
-                      src="/cv/Ondrej_Michal_Ockaj_CV.pdf#toolbar=0&navpanes=0&scrollbar=1"
+                    <object
+                      data="/cv/Ondrej_Michal_Ockaj_CV.pdf#toolbar=0&navpanes=0&scrollbar=1"
+                      type="application/pdf"
                       className="w-full h-full border-0 relative z-10"
-                      title="Ondrej Michal Očkaj CV PDF"
-                      onLoad={() => setPdfLoading(false)}
-                    />
+                      title="Ondrej Michal Ockaj CV"
+                      onLoad={() =>
+                        dispatch({ type: "SET_PDF_LOADING", loading: false })
+                      }
+                    >
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-bg/85 z-20 p-4 text-center">
+                        <p className="text-sm text-muted">
+                          Your browser does not support PDF viewing in-page.
+                        </p>
+                        <a
+                          href="/cv/Ondrej_Michal_Ockaj_CV.pdf"
+                          download
+                          className="px-4 py-2 rounded-full bg-accent text-bg hover:bg-accent-hover text-xs font-semibold transition-colors duration-200"
+                        >
+                          Download CV PDF
+                        </a>
+                      </div>
+                    </object>
                   </>
                 )}
               </div>
@@ -379,7 +453,9 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                       {/* Language Toggler */}
                       <div className="relative z-10 self-start md:self-auto flex items-center gap-1.5">
                         <LiquidGlass.Button
-                          onClick={() => setLang("en")}
+                          onClick={() =>
+                            dispatch({ type: "SET_LANG", lang: "en" })
+                          }
                           className={`px-3 py-1.5 text-xs font-semibold flex items-center gap-1 ${
                             lang === "en" ? "text-accent" : "text-muted"
                           }`}
@@ -388,7 +464,9 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                           EN
                         </LiquidGlass.Button>
                         <LiquidGlass.Button
-                          onClick={() => setLang("sk")}
+                          onClick={() =>
+                            dispatch({ type: "SET_LANG", lang: "sk" })
+                          }
                           className={`px-3 py-1.5 text-xs font-semibold flex items-center gap-1 ${
                             lang === "sk" ? "text-accent" : "text-muted"
                           }`}
@@ -421,9 +499,9 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                             {activeCv.experience.title}
                           </h2>
                           <div className="space-y-6">
-                            {activeCv.experience.items.map((job, idx) => (
+                            {activeCv.experience.items.map((job) => (
                               <div
-                                key={idx}
+                                key={`${job.company}-${job.role}`}
                                 className="relative pl-6 before:absolute before:left-1.5 before:top-1.5 before:bottom-0 before:w-px before:bg-stroke/60"
                               >
                                 {/* Timeline Bullet */}
@@ -465,9 +543,9 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                             {activeCv.education.title}
                           </h2>
                           <div className="space-y-6">
-                            {activeCv.education.items.map((edu, idx) => (
+                            {activeCv.education.items.map((edu) => (
                               <div
-                                key={idx}
+                                key={`${edu.school}-${edu.degree}`}
                                 className="relative pl-6 before:absolute before:left-1.5 before:top-1.5 before:bottom-0 before:w-px before:bg-stroke/60 last:before:hidden"
                               >
                                 {/* Timeline Bullet */}
@@ -555,9 +633,9 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                           </h2>
 
                           <div className="space-y-2.5">
-                            {activeCv.languages.items.map((langItem, idx) => (
+                            {activeCv.languages.items.map((langItem) => (
                               <div
-                                key={idx}
+                                key={langItem.name}
                                 className="flex justify-between items-center text-xs"
                               >
                                 <span className="font-normal text-text-primary">

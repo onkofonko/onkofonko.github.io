@@ -217,6 +217,7 @@ const JournalDrawer = memo(function JournalDrawer({
                           <th
                             key={hIdx}
                             className="px-2 py-2.5 font-semibold uppercase tracking-wider text-[9px] sm:text-[10px] text-accent/90"
+                            aria-label={header}
                             dangerouslySetInnerHTML={{
                               __html: parseInlineMarkdown(header),
                             }}
@@ -234,6 +235,7 @@ const JournalDrawer = memo(function JournalDrawer({
                             <td
                               key={cIdx}
                               className="px-2 py-2 leading-relaxed align-top break-words"
+                              aria-label={cell}
                               dangerouslySetInnerHTML={{
                                 __html: parseInlineMarkdown(cell),
                               }}

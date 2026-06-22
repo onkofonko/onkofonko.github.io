@@ -1,4 +1,11 @@
-import { useState, useRef, useLayoutEffect, useEffect, ReactNode } from "react";
+import {
+  useState,
+  useRef,
+  useLayoutEffect,
+  useEffect,
+  ReactNode,
+  KeyboardEvent,
+} from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 
@@ -15,7 +22,7 @@ export default function Tooltip({ content, children }: TooltipProps) {
   const [visible, setVisible] = useState(false);
   const [isInstant, setIsInstant] = useState(false);
   const [coords, setCoords] = useState({ top: 0, left: 0, position: "top" });
-  const triggerRef = useRef<HTMLSpanElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -37,7 +44,7 @@ export default function Tooltip({ content, children }: TooltipProps) {
         globalLastActiveTooltipTime = Date.now();
       }
     };
-  }, []);
+  }, [hoverTimeoutRef]);
 
   const showTooltip = () => {
     if (hoverTimeoutRef.current) {
@@ -141,16 +148,28 @@ export default function Tooltip({ content, children }: TooltipProps) {
 
   const isPositioned = coords.top !== 0 || coords.left !== 0;
 
+  const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      if (visible) {
+        hideTooltip();
+      } else {
+        showTooltip();
+      }
+    }
+  };
+
   return (
-    <span
+    <button
       ref={triggerRef}
+      type="button"
       onPointerEnter={(e) => e.pointerType === "mouse" && showTooltip()}
       onPointerLeave={(e) => e.pointerType === "mouse" && hideTooltip()}
       onFocus={showTooltip}
       onBlur={hideTooltip}
       onClick={() => (visible ? hideTooltip() : showTooltip())}
-      tabIndex={0}
-      className="inline-flex cursor-help focus-visible:outline-none"
+      onKeyDown={handleKeyDown}
+      className="inline-flex cursor-help focus-visible:outline-none text-left bg-transparent border-0 p-0 m-0"
     >
       {children}
       {createPortal(
@@ -203,6 +222,6 @@ export default function Tooltip({ content, children }: TooltipProps) {
         </AnimatePresence>,
         document.body,
       )}
-    </span>
+    </button>
   );
 }

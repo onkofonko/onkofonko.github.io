@@ -116,6 +116,7 @@ export default function BpmnOverlay() {
                 </p>
               </div>
               <button
+                type="button"
                 onClick={() => setShowHotkeyTip(false)}
                 className="text-muted hover:text-white p-1 flex-shrink-0"
               >

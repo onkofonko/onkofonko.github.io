@@ -87,7 +87,10 @@ function Contact({ onViewCv }: ContactProps) {
 
           {/* Copyright */}
           <div className="flex items-center gap-4">
-            <p className="text-xs text-muted text-pretty flex items-center gap-1.5 select-none">
+            <p
+              className="text-xs text-muted text-pretty flex items-center gap-1.5 select-none"
+              suppressHydrationWarning
+            >
               © {new Date().getFullYear()} Ondrej Michal Očkaj
             </p>
           </div>

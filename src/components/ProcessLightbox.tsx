@@ -10,6 +10,7 @@ import {
 } from "react-zoom-pan-pinch";
 import LiquidGlass from "./LiquidGlass";
 import { useModalHistory } from "../hooks/useModalHistory";
+import { useIsMobile } from "../hooks/useMediaQuery";
 import { SPRING } from "../utils/springConfig";
 
 interface ProcessLightboxProps {
@@ -56,17 +57,35 @@ const ZoomableImage = memo(function ZoomableImage({
 const ZoomClickArea = memo(function ZoomClickArea({
   children,
   isZoomed,
+  isPanning,
   wasPanningRef,
 }: {
   children: React.ReactNode;
   isZoomed: boolean;
+  isPanning: boolean;
   wasPanningRef: { current: boolean };
 }) {
   const { resetTransform, centerView } = useControls();
+  const cursorStyle = isZoomed ? (isPanning ? "grabbing" : "grab") : "zoom-in";
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      if (wasPanningRef.current) return;
+      if (isZoomed) {
+        resetTransform(200);
+      } else {
+        centerView(2.5, 200);
+      }
+    }
+  };
 
   return (
-    <div
-      className="w-full h-full flex items-center justify-center"
+    <button
+      type="button"
+      aria-label="Toggle Zoom"
+      style={{ cursor: cursorStyle }}
+      className="w-full h-full flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent bg-transparent border-0 p-0 m-0"
       onClick={(e) => {
         e.stopPropagation();
         if (wasPanningRef.current) return;
@@ -76,9 +95,10 @@ const ZoomClickArea = memo(function ZoomClickArea({
           centerView(2.5, 200);
         }
       }}
+      onKeyDown={handleKeyDown}
     >
       {children}
-    </div>
+    </button>
   );
 });
 
@@ -242,19 +262,10 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
   // Close lightbox on back swipe / browser back button
   useModalHistory(true, onClose);
 
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const [isZoomed, setIsZoomed] = useState(false);
   const [isPanning, setIsPanning] = useState(false);
   const wasPanningRef = useRef(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   // Close lightbox on Escape key press & lock body scroll on mobile
   useEffect(() => {
@@ -357,7 +368,11 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
                 cursor: cursorStyle,
               }}
             >
-              <ZoomClickArea isZoomed={isZoomed} wasPanningRef={wasPanningRef}>
+              <ZoomClickArea
+                isZoomed={isZoomed}
+                isPanning={isPanning}
+                wasPanningRef={wasPanningRef}
+              >
                 <ZoomableImage
                   src={item.image}
                   alt={item.title}
