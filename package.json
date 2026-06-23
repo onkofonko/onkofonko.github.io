@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "bpmn-font": "^0.12.1",
-    "lucide-react": "^1.17.0",
-    "motion": "^12.40.0",
+    "lucide-react": "^1.21.0",
+    "motion": "^12.41.0",
     "ogl": "^1.0.11",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
@@ -30,7 +30,7 @@
     "@tailwindcss/vite": "^4.3.0",
     "@types/react": "^19.2.16",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.2",
+    "@vitejs/plugin-react": "^6.0.3",
     "babel-plugin-react-compiler": "^1.0.0",
     "boneyard-js": "^1.8.1",
     "eslint": "^9.39.4",
@@ -39,22 +39,25 @@
     "eslint-plugin-react-compiler": "^19.1.0-rc.2",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
-    "globals": "^17.6.0",
+    "globals": "^17.7.0",
     "husky": "^9.1.7",
-    "lint-staged": "^17.0.7",
+    "lint-staged": "^17.0.8",
     "prettier": "3.8.4",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "rollup-plugin-visualizer": "^7.0.1",
     "svgo": "^4.0.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.60.1",
-    "vite": "^8.0.16",
-    "vite-plugin-checker": "^0.14.1",
+    "typescript-eslint": "^8.62.0",
+    "vite": "^8.1.0",
+    "vite-plugin-checker": "^0.14.4",
     "vite-plugin-compression": "^0.5.1",
     "web-vitals": "^5.3.0"
   },
   "overrides": {
-    "@babel/plugin-proposal-private-methods": "npm:@babel/plugin-transform-private-methods@^7.22.0"
+    "@babel/plugin-proposal-private-methods": "npm:@babel/plugin-transform-private-methods@^7.22.0",
+    "eslint-plugin-react-hooks": {
+      "zod-validation-error": "^4.0.2"
+    }
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"

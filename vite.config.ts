@@ -57,6 +57,9 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
+  css: {
+    transformer: "lightningcss",
+  },
   resolve: {
     tsconfigPaths: true,
   },
