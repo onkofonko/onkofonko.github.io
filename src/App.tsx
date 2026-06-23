@@ -135,6 +135,11 @@ const LABEL_MAP: Record<string, string> = {
 
 const AURORA_COLOR_STOPS = ["#1E1B4B", "#312E81", "#6667AB", "#A78BFA"];
 
+const SECTION_INITIAL = { opacity: 0, y: 30 };
+const SECTION_ANIMATE = { opacity: 1, y: 0 };
+const SECTION_VIEWPORT = { once: true, margin: "-100px" } as const;
+const SECTION_TRANSITION = { duration: 1, ease: [0.25, 0.1, 0.25, 1] as const };
+
 const SKELETON_CHUNKS = new Set([
   "caseStudies",
   "skills",
@@ -476,10 +481,10 @@ export default function App() {
         >
           <div className="max-w-[1200px] mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={SECTION_INITIAL}
+              whileInView={SECTION_ANIMATE}
+              viewport={SECTION_VIEWPORT}
+              transition={SECTION_TRANSITION}
               className="mb-12 md:mb-16 relative z-30 px-6 md:px-10 lg:px-16"
             >
               <div className="mb-4">
@@ -497,10 +502,10 @@ export default function App() {
               </p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={SECTION_INITIAL}
+              whileInView={SECTION_ANIMATE}
+              viewport={SECTION_VIEWPORT}
+              transition={SECTION_TRANSITION}
             >
               <Skeleton
                 name="case-studies"
@@ -533,10 +538,10 @@ export default function App() {
         >
           <div className="max-w-[1200px] mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={SECTION_INITIAL}
+              whileInView={SECTION_ANIMATE}
+              viewport={SECTION_VIEWPORT}
+              transition={SECTION_TRANSITION}
               className="mb-8 md:mb-10 relative z-30 px-6 md:px-10 lg:px-16"
             >
               <h2 className="text-3xl md:text-5xl font-display text-text-primary mb-3 text-balance flex items-center gap-3">
@@ -552,10 +557,10 @@ export default function App() {
               </p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={SECTION_INITIAL}
+              whileInView={SECTION_ANIMATE}
+              viewport={SECTION_VIEWPORT}
+              transition={SECTION_TRANSITION}
             >
               <Skeleton
                 name="skills"
@@ -588,10 +593,10 @@ export default function App() {
         >
           <div className="max-w-[1200px] mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={SECTION_INITIAL}
+              whileInView={SECTION_ANIMATE}
+              viewport={SECTION_VIEWPORT}
+              transition={SECTION_TRANSITION}
               className="mb-10 md:mb-14 relative z-30 px-6 md:px-10 lg:px-16"
             >
               <h2 className="text-3xl md:text-5xl font-display text-text-primary mb-3 text-balance flex items-center gap-3">
@@ -607,10 +612,10 @@ export default function App() {
               </p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={SECTION_INITIAL}
+              whileInView={SECTION_ANIMATE}
+              viewport={SECTION_VIEWPORT}
+              transition={SECTION_TRANSITION}
             >
               <Skeleton
                 name="processes"
@@ -643,10 +648,10 @@ export default function App() {
         >
           <div className="max-w-[1200px] mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={SECTION_INITIAL}
+              whileInView={SECTION_ANIMATE}
+              viewport={SECTION_VIEWPORT}
+              transition={SECTION_TRANSITION}
               className="flex items-end justify-between mb-10 md:mb-14 px-6 md:px-10 lg:px-16"
             >
               <div>
@@ -664,10 +669,10 @@ export default function App() {
               </div>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={SECTION_INITIAL}
+              whileInView={SECTION_ANIMATE}
+              viewport={SECTION_VIEWPORT}
+              transition={SECTION_TRANSITION}
             >
               <Skeleton
                 name="journal"
@@ -699,10 +704,10 @@ export default function App() {
         >
           <div className="relative z-10">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={SECTION_INITIAL}
+              whileInView={SECTION_ANIMATE}
+              viewport={SECTION_VIEWPORT}
+              transition={SECTION_TRANSITION}
               className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 text-center pb-2"
             >
               <p className="text-xs text-muted uppercase font-semibold mb-5 text-pretty flex items-center justify-center gap-1.5">
@@ -714,10 +719,10 @@ export default function App() {
               </h2>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={SECTION_INITIAL}
+              whileInView={SECTION_ANIMATE}
+              viewport={SECTION_VIEWPORT}
+              transition={SECTION_TRANSITION}
             >
               <Contact onViewCv={handleViewCv} />
             </motion.div>

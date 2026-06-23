@@ -1,5 +1,11 @@
 import { useState, useEffect, memo, useCallback } from "react";
-import { motion, AnimatePresence, animate } from "motion/react";
+import {
+  motion,
+  AnimatePresence,
+  animate,
+  useMotionValue,
+  useTransform,
+} from "motion/react";
 import { AlertCircle, CheckCircle, FileText, Activity } from "lucide-react";
 import { CASE_STUDIES, type CaseStudyDetail } from "../data/caseStudies";
 import LiquidGlass from "./LiquidGlass";
@@ -220,38 +226,27 @@ const MetricCountUp = memo(function MetricCountUp({
   const suffix = numericPart
     ? value.substring(startIndex + numericPart[0].length)
     : "";
-  const hasPlus = value.trim().startsWith("+");
 
-  const [displayValue, setDisplayValue] = useState(0);
+  const mv = useMotionValue(0);
+  const display = useTransform(mv, (v) => {
+    const num = target % 1 === 0 ? Math.floor(v) : parseFloat(v.toFixed(1));
+    const displayPrefix =
+      prefix.startsWith("+") && num === 0 ? prefix.replace("+", "") : prefix;
+    return `${displayPrefix}${num}${suffix}`;
+  });
 
   useEffect(() => {
     if (!isNumeric) return;
-    const controls = animate(0, target, {
+    const controls = animate(mv, target, {
       duration: 0.6,
       ease: [0.25, 0.1, 0.25, 1],
-      onUpdate(val) {
-        setDisplayValue(
-          target % 1 === 0 ? Math.floor(val) : parseFloat(val.toFixed(1)),
-        );
-      },
     });
     return () => controls.stop();
-  }, [target, isNumeric]);
+  }, [mv, target, isNumeric]);
 
-  if (!isNumeric) {
-    return <span>{value}</span>;
-  }
+  if (!isNumeric) return <span>{value}</span>;
 
-  const displayPrefix =
-    hasPlus && displayValue === 0 ? prefix.replace("+", "") : prefix;
-
-  return (
-    <span>
-      {displayPrefix}
-      {displayValue}
-      {suffix}
-    </span>
-  );
+  return <motion.span>{display}</motion.span>;
 });
 
 const drawerContentVariants = {

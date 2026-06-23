@@ -7,6 +7,23 @@ import {
 } from "motion/react";
 import { useIsMobile } from "../hooks/useMediaQuery";
 
+const nodeOpacityAnimate = (active: boolean) => ({ opacity: active ? 1 : 0 });
+const nodeOpacityTransition = { duration: 0.4 };
+
+const nodePulseAnimate = (active: boolean) => ({
+  scale: active ? [1, 1.08, 1] : 1,
+  opacity: active ? 1 : 0,
+});
+const nodePulseTransition = (active: boolean) => ({
+  scale: {
+    duration: 1.8,
+    repeat: active ? Infinity : 0,
+    repeatType: "reverse" as const,
+    ease: "easeInOut" as const,
+  },
+  opacity: { duration: 0.4, ease: "easeOut" as const },
+});
+
 interface LoadingScreenProps {
   onComplete: () => void;
 }
@@ -440,19 +457,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                     ? "drop-shadow(0px 0px 6px hsla(var(--accent), 0.45))"
                     : "none",
                 }}
-                animate={{
-                  scale: nodeStart ? [1, 1.08, 1] : 1,
-                  opacity: nodeStart ? 1 : 0,
-                }}
-                transition={{
-                  scale: {
-                    duration: 1.8,
-                    repeat: nodeStart ? Infinity : 0,
-                    repeatType: "reverse",
-                    ease: "easeInOut",
-                  },
-                  opacity: { duration: 0.4, ease: "easeOut" },
-                }}
+                animate={nodePulseAnimate(nodeStart)}
+                transition={nodePulseTransition(nodeStart)}
               />
 
               {/* NODE 2: Task 1 (Analyze) */}
@@ -480,8 +486,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                     ? "drop-shadow(0px 0px 6px hsla(var(--accent), 0.45))"
                     : "none",
                 }}
-                animate={{ opacity: nodeTask1 ? 1 : 0 }}
-                transition={{ duration: 0.4 }}
+                animate={nodeOpacityAnimate(nodeTask1)}
+                transition={nodeOpacityTransition}
               />
 
               {/* NODE 3: Gateway */}
@@ -501,8 +507,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                     ? "drop-shadow(0px 0px 6px hsla(var(--accent), 0.45))"
                     : "none",
                 }}
-                animate={{ opacity: nodeGateway ? 1 : 0 }}
-                transition={{ duration: 0.4 }}
+                animate={nodeOpacityAnimate(nodeGateway)}
+                transition={nodeOpacityTransition}
               />
               <g
                 stroke={
@@ -540,8 +546,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                     ? "drop-shadow(0px 0px 6px hsla(var(--accent), 0.45))"
                     : "none",
                 }}
-                animate={{ opacity: nodeTask2 ? 1 : 0 }}
-                transition={{ duration: 0.4 }}
+                animate={nodeOpacityAnimate(nodeTask2)}
+                transition={nodeOpacityTransition}
               />
 
               {/* NODE 4b: Task 3 (Optimize) */}
@@ -569,8 +575,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                     ? "drop-shadow(0px 0px 6px hsla(var(--accent), 0.45))"
                     : "none",
                 }}
-                animate={{ opacity: nodeTask3 ? 1 : 0 }}
-                transition={{ duration: 0.4 }}
+                animate={nodeOpacityAnimate(nodeTask3)}
+                transition={nodeOpacityTransition}
               />
 
               {/* NODE 4c: Merge Gateway */}
@@ -590,8 +596,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                     ? "drop-shadow(0px 0px 6px hsla(var(--accent), 0.45))"
                     : "none",
                 }}
-                animate={{ opacity: nodeMergeGateway ? 1 : 0 }}
-                transition={{ duration: 0.4 }}
+                animate={nodeOpacityAnimate(nodeMergeGateway)}
+                transition={nodeOpacityTransition}
               />
               <g
                 stroke={
@@ -625,19 +631,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                     ? "drop-shadow(0px 0px 6px hsla(var(--accent), 0.45))"
                     : "none",
                 }}
-                animate={{
-                  scale: nodeEnd ? [1, 1.08, 1] : 1,
-                  opacity: nodeEnd ? 1 : 0,
-                }}
-                transition={{
-                  scale: {
-                    duration: 1.8,
-                    repeat: nodeEnd ? Infinity : 0,
-                    repeatType: "reverse",
-                    ease: "easeInOut",
-                  },
-                  opacity: { duration: 0.4, ease: "easeOut" },
-                }}
+                animate={nodePulseAnimate(nodeEnd)}
+                transition={nodePulseTransition(nodeEnd)}
               />
             </svg>
           </div>
