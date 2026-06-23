@@ -106,7 +106,7 @@ function ProcessLibrary() {
                         as="div"
                         roundedClass="rounded-2xl"
                         className="w-full h-full p-6 md:p-8 flex-col text-left justify-start items-stretch"
-                        tilt={true}
+                        tilt
                       >
                         {/* Canvas Header */}
                         <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10 w-full">

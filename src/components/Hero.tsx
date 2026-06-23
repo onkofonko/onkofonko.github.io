@@ -240,8 +240,8 @@ function Hero({ onViewCv, onViewWork }: HeroProps) {
               onClick={onViewCv}
               className="px-8 py-4"
               ariaLabel="View CV"
-              magnetic={true}
-              tilt={true}
+              magnetic
+              tilt
               magneticStrength={0.02}
               specularGlow
             >
@@ -256,8 +256,8 @@ function Hero({ onViewCv, onViewWork }: HeroProps) {
             href="#work"
             className="px-8 py-4"
             ariaLabel="View Case Studies"
-            magnetic={true}
-            tilt={true}
+            magnetic
+            tilt
             magneticStrength={0.02}
             specularGlow
             onClick={(e: MouseEvent<HTMLElement>) => {

@@ -22,8 +22,8 @@ function Contact({ onViewCv }: ContactProps) {
             href="mailto:ondrej.michal.ockaj@gmail.com"
             className="px-8 py-4 group/email-btn"
             ariaLabel="Send email"
-            magnetic={true}
-            tilt={true}
+            magnetic
+            tilt
             magneticStrength={0.02}
             specularGlow
           >
@@ -44,8 +44,8 @@ function Contact({ onViewCv }: ContactProps) {
               onClick={onViewCv}
               className="px-8 py-4 whitespace-nowrap"
               ariaLabel="View CV"
-              magnetic={true}
-              tilt={true}
+              magnetic
+              tilt
               magneticStrength={0.02}
               specularGlow
             >
@@ -72,8 +72,8 @@ function Contact({ onViewCv }: ContactProps) {
                 rel="noopener noreferrer"
                 className="text-xs px-4 py-2"
                 ariaLabel={`Visit ${social.label}`}
-                magnetic={true}
-                tilt={true}
+                magnetic
+                tilt
                 magneticStrength={0.02}
               >
                 {social.label}

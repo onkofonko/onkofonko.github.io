@@ -181,7 +181,7 @@ const LightboxControls = memo(function LightboxControls({
         <LiquidGlass.Button
           onClick={() => zoomIn(0.15, 0)}
           disabled={false}
-          magnetic={true}
+          magnetic
           magneticStrength={0.04}
           roundedClass="rounded-full"
           className="size-8 p-0 flex items-center justify-center text-text-primary"
@@ -210,7 +210,7 @@ const LightboxControls = memo(function LightboxControls({
         <LiquidGlass.Button
           onClick={onClose}
           ariaLabel="Close lightbox"
-          magnetic={true}
+          magnetic
           magneticStrength={0.04}
           roundedClass="rounded-full"
           className="size-8 p-0 flex items-center justify-center text-text-primary"
@@ -323,8 +323,8 @@ function ProcessLightbox({ item, onClose }: ProcessLightboxProps) {
             maxScale={6}
             centerOnInit
             centerZoomedOut
-            smooth={true}
-            disablePadding={true}
+            smooth
+            disablePadding
             doubleClick={{ disabled: true }}
             wheel={{ step: 0.00125 }}
             zoomAnimation={{ disabled: true }}

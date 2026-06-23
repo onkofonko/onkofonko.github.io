@@ -358,15 +358,13 @@ function LiquidGlassMobile({
         style={innerGlassStyle}
       />
       {interactive ? (
-        <>
-          {springScale && ripple ? (
-            <Ripple
-              clickPos={clickPos}
-              rippleRadius={rippleRadius}
-              rippleOpacity={rippleOpacity}
-            />
-          ) : null}
-        </>
+        springScale && ripple ? (
+          <Ripple
+            clickPos={clickPos}
+            rippleRadius={rippleRadius}
+            rippleOpacity={rippleOpacity}
+          />
+        ) : null
       ) : null}
 
       {/* Label and icons */}
@@ -877,7 +875,7 @@ function LiquidGlassButtonComponent({
       onClick={onClick}
       className={className}
       ariaLabel={ariaLabel}
-      springScale={true}
+      springScale
       magnetic={magnetic}
       tilt={tilt}
       magneticStrength={magneticStrength}
@@ -1181,7 +1179,7 @@ const Tab = memo(function Tab({
     setHoveredValue(value);
   };
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const selectOption = (e: MouseEvent<HTMLButtonElement>) => {
     if (disabled) return;
     if (onChange) onChange(value);
     if (onClick) onClick(e);
@@ -1201,7 +1199,7 @@ const Tab = memo(function Tab({
       ref={buttonRef}
       type="button"
       disabled={disabled}
-      onClick={handleClick}
+      onClick={selectOption}
       onPointerDown={(e) => {
         if (buttonRef.current) {
           setButtonWidth(buttonRef.current.offsetWidth);

@@ -196,7 +196,7 @@ const SkillCard = memo(function SkillCard({
       as="div"
       roundedClass="rounded-2xl"
       className="w-full h-full p-6 md:p-8 flex-col text-left justify-start items-stretch"
-      tilt={true}
+      tilt
     >
       <div
         className={`flex flex-col ${category.isWide ? "md:flex-row md:justify-between md:gap-8" : ""} h-full w-full`}

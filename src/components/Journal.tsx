@@ -234,7 +234,7 @@ const JournalDrawer = memo(function JournalDrawer({
                           {row.map((cell, cIdx) => (
                             <td
                               key={cIdx}
-                              className="px-2 py-2 leading-relaxed align-top break-words"
+                              className="p-2 leading-relaxed align-top break-words"
                               aria-label={cell}
                               dangerouslySetInnerHTML={{
                                 __html: parseInlineMarkdown(cell),

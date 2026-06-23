@@ -99,8 +99,8 @@ export default function BpmnOverlay() {
               roundedClass="rounded-xl"
               className="p-3 shadow-2xl border border-white/10"
               innerClassName="flex items-center gap-3 w-full"
-              interactive={true}
-              specularGlow={true}
+              interactive
+              specularGlow
             >
               <BpmnNodeBadge type="script-task" className="flex-shrink-0" />
               <div className="flex-1 text-left">

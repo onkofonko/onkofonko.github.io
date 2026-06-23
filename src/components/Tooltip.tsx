@@ -19,39 +19,43 @@ interface TooltipProps {
 }
 
 export default function Tooltip({ content, children }: TooltipProps) {
-  const [visible, setVisible] = useState(false);
+  const [status, setStatus] = useState<"hidden" | "scheduling" | "visible">(
+    "hidden",
+  );
   const [isInstant, setIsInstant] = useState(false);
   const [coords, setCoords] = useState({ top: 0, left: 0, position: "top" });
+
   const triggerRef = useRef<HTMLButtonElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
-  const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const prefersReducedMotion = useReducedMotion();
-  const visibleRef = useRef(visible);
 
-  // Sync visible ref for unmount cleanup
-  useEffect(() => {
-    visibleRef.current = visible;
-  }, [visible]);
+  // Derive visibility for rendering and layout logic
+  const visible = status === "visible";
 
-  // Cleanup on unmount
+  // Handle delayed scheduling
   useEffect(() => {
+    if (status !== "scheduling") return;
+
+    const timer = setTimeout(() => {
+      globalActiveTooltipCount = globalActiveTooltipCount + 1;
+      globalLastActiveTooltipTime = Date.now();
+      setStatus("visible");
+    }, 120);
+
+    return () => clearTimeout(timer);
+  }, [status]);
+
+  // Handle global coordination cleanup on hide or unmount
+  useEffect(() => {
+    if (status !== "visible") return;
+
     return () => {
-      if (hoverTimeoutRef.current) {
-        clearTimeout(hoverTimeoutRef.current);
-      }
-      if (visibleRef.current) {
-        globalActiveTooltipCount = Math.max(0, globalActiveTooltipCount - 1);
-        globalLastActiveTooltipTime = Date.now();
-      }
+      globalActiveTooltipCount = Math.max(0, globalActiveTooltipCount - 1);
+      globalLastActiveTooltipTime = Date.now();
     };
-  }, [hoverTimeoutRef]);
+  }, [status]);
 
   const showTooltip = () => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
-      hoverTimeoutRef.current = null;
-    }
-
     const now = Date.now();
     const timeSinceLastActive = now - globalLastActiveTooltipTime;
     const isCloseSequence =
@@ -61,28 +65,15 @@ export default function Tooltip({ content, children }: TooltipProps) {
       globalActiveTooltipCount = globalActiveTooltipCount + 1;
       globalLastActiveTooltipTime = now;
       setIsInstant(true);
-      setVisible(true);
+      setStatus("visible");
     } else {
       setIsInstant(false);
-      hoverTimeoutRef.current = setTimeout(() => {
-        globalActiveTooltipCount = globalActiveTooltipCount + 1;
-        globalLastActiveTooltipTime = Date.now();
-        setVisible(true);
-      }, 120);
+      setStatus("scheduling");
     }
   };
 
   const hideTooltip = () => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
-      hoverTimeoutRef.current = null;
-    }
-
-    if (visible) {
-      globalActiveTooltipCount = Math.max(0, globalActiveTooltipCount - 1);
-      globalLastActiveTooltipTime = Date.now();
-    }
-    setVisible(false);
+    setStatus("hidden");
   };
 
   useLayoutEffect(() => {
@@ -135,7 +126,7 @@ export default function Tooltip({ content, children }: TooltipProps) {
     updatePosition();
 
     const handleScroll = () => {
-      setVisible(false);
+      setStatus("hidden");
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -174,7 +165,7 @@ export default function Tooltip({ content, children }: TooltipProps) {
       {children}
       {createPortal(
         <AnimatePresence>
-          {visible && (
+          {visible ? (
             <motion.div
               ref={tooltipRef}
               role="tooltip"
@@ -218,7 +209,7 @@ export default function Tooltip({ content, children }: TooltipProps) {
             >
               {content}
             </motion.div>
-          )}
+          ) : null}
         </AnimatePresence>,
         document.body,
       )}

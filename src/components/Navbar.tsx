@@ -261,8 +261,8 @@ export default function Navbar({
             href="mailto:ondrej.michal.ockaj@gmail.com"
             className="text-xs md:text-sm px-3 md:px-4 py-1.5 md:py-2"
             ariaLabel="Send email"
-            magnetic={true}
-            tilt={true}
+            magnetic
+            tilt
             magneticStrength={0.02}
           >
             Say hi

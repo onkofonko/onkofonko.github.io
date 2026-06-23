@@ -90,7 +90,7 @@ const CaseStudyCard = memo(function CaseStudyCard({
       roundedClass="rounded-2xl"
       className="w-full text-left justify-start items-stretch cursor-pointer"
       onClick={() => onOpen(study)}
-      tilt={true}
+      tilt
     >
       {/* Content grid */}
       <div className="relative z-10 grid md:grid-cols-12 gap-6 md:gap-8 p-6 md:p-8 w-full h-full">
@@ -431,8 +431,8 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({
           <LiquidGlass.Button
             href="mailto:ondrej.michal.ockaj@gmail.com"
             className="px-5 py-2.5 text-xs"
-            magnetic={true}
-            tilt={true}
+            magnetic
+            tilt
             magneticStrength={0.02}
           >
             Request project details ↗
