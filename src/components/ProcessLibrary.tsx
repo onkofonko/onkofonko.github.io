@@ -19,7 +19,7 @@ const tabContentVariants: Variants = {
   },
   exit: {
     opacity: 0,
-    y: -15,
+    y: 15,
     scale: 0.98,
     transition: { duration: 0.15, ease: [0.25, 0.1, 0.25, 1] as const },
   },
@@ -141,7 +141,7 @@ function ProcessLibrary() {
                           />
 
                           {/* Zoom badge overlay */}
-                          <div className="absolute bottom-3 right-3 z-20 opacity-0 translate-y-1 group-hover/canvas:opacity-100 group-hover/canvas:translate-y-0 transition duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1)] pointer-events-none">
+                          <div className="absolute bottom-3 right-3 z-20 opacity-0 translate-y-1 group-hover/canvas:opacity-100 group-hover/canvas:translate-y-0 transition-transform duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1)] pointer-events-none">
                             <LiquidGlass
                               as="span"
                               roundedClass="rounded-lg"

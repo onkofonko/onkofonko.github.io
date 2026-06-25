@@ -100,7 +100,7 @@ const JournalEntry = memo(function JournalEntry({
           alt={article.title}
           width={48}
           height={48}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
           loading="lazy"
         />
       </div>
