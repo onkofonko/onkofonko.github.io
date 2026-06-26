@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import { useState, memo, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, Clock, MessageSquare, BookOpen } from "lucide-react";
@@ -6,7 +5,8 @@ import { ARTICLES, type Article } from "../data/articles";
 import LiquidGlass from "./LiquidGlass";
 import BaseDrawer from "./BaseDrawer";
 import { useModalHistory } from "../hooks/useModalHistory";
-import { parseInlineMarkdown } from "../utils/markdownParser";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const isBuildMode =
   typeof window !== "undefined" &&
@@ -177,78 +177,72 @@ const JournalDrawer = memo(function JournalDrawer({
         </div>
 
         {/* Article Text Content */}
-        <div className="space-y-6 text-text-primary/90 text-sm md:text-base leading-relaxed max-w-none">
-          {article.content.map((sec, sIdx) => (
-            <div key={sIdx} className="space-y-4">
-              {sec.sectionTitle && (
-                <h3 className="text-lg font-body text-text-primary font-bold mt-8 text-balance flex items-center gap-2">
+        <div className="text-text-primary/90 text-sm md:text-base leading-relaxed max-w-none">
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={{
+              h3: ({ children }) => (
+                <h3 className="text-lg font-body text-text-primary font-bold mt-8 mb-4 text-balance flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-                  {sec.sectionTitle}
+                  {children}
                 </h3>
-              )}
-              {sec.paragraphs.map((para, pIdx) => (
-                <p
-                  key={pIdx}
-                  className="text-text-primary/80 font-normal text-pretty"
-                  dangerouslySetInnerHTML={{
-                    __html: parseInlineMarkdown(para),
-                  }}
-                />
-              ))}
-              {sec.bulletPoints && (
-                <ul className="space-y-2 mt-4 pl-5 list-disc text-muted">
-                  {sec.bulletPoints.map((bp, bIdx) => (
-                    <li
-                      key={bIdx}
-                      className="text-xs md:text-sm text-pretty"
-                      dangerouslySetInnerHTML={{
-                        __html: parseInlineMarkdown(bp),
-                      }}
-                    />
-                  ))}
+              ),
+              p: ({ children }) => (
+                <p className="text-text-primary/80 font-normal mb-4 text-pretty leading-relaxed">
+                  {children}
+                </p>
+              ),
+              ul: ({ children }) => (
+                <ul className="space-y-2 my-4 pl-5 list-disc text-muted">
+                  {children}
                 </ul>
-              )}
-              {sec.table && (
+              ),
+              li: ({ children }) => (
+                <li className="text-xs md:text-sm text-pretty leading-relaxed">
+                  {children}
+                </li>
+              ),
+              strong: ({ children }) => (
+                <strong className="font-semibold text-text-primary">
+                  {children}
+                </strong>
+              ),
+              code: ({ children }) => (
+                <code className="px-1.5 py-0.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono">
+                  {children}
+                </code>
+              ),
+              table: ({ children }) => (
                 <div className="my-6 rounded-xl border border-white/10 bg-white/5 overflow-x-auto scrollbar-thin">
                   <table className="w-full min-w-[720px] md:min-w-0 text-left border-collapse text-[10px] sm:text-[11px] md:text-xs table-auto">
-                    <thead>
-                      <tr className="border-b border-white/10 bg-white/5 font-display text-text-primary">
-                        {sec.table.headers.map((header, hIdx) => (
-                          <th
-                            key={hIdx}
-                            className="px-2 py-2.5 font-semibold uppercase tracking-wider text-[9px] sm:text-[10px] text-accent/90"
-                            aria-label={header}
-                            dangerouslySetInnerHTML={{
-                              __html: parseInlineMarkdown(header),
-                            }}
-                          />
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-white/5 text-text-primary/75">
-                      {sec.table.rows.map((row, rIdx) => (
-                        <tr
-                          key={rIdx}
-                          className="hover:bg-white/[0.02] transition-colors duration-150"
-                        >
-                          {row.map((cell, cIdx) => (
-                            <td
-                              key={cIdx}
-                              className="p-2 leading-relaxed align-top break-words"
-                              aria-label={cell}
-                              dangerouslySetInnerHTML={{
-                                __html: parseInlineMarkdown(cell),
-                              }}
-                            />
-                          ))}
-                        </tr>
-                      ))}
-                    </tbody>
+                    {children}
                   </table>
                 </div>
-              )}
-            </div>
-          ))}
+              ),
+              thead: ({ children }) => (
+                <thead className="border-b border-white/10 bg-white/5 font-display text-text-primary">
+                  {children}
+                </thead>
+              ),
+              th: ({ children }) => (
+                <th className="px-2 py-2.5 font-semibold uppercase tracking-wider text-[9px] sm:text-[10px] text-accent/90">
+                  {children}
+                </th>
+              ),
+              tbody: ({ children }) => (
+                <tbody className="divide-y divide-white/5 text-text-primary/75">
+                  {children}
+                </tbody>
+              ),
+              td: ({ children }) => (
+                <td className="p-2 leading-relaxed align-top break-words">
+                  {children}
+                </td>
+              ),
+            }}
+          >
+            {article.body}
+          </ReactMarkdown>
         </div>
 
         {/* CTA / Close */}

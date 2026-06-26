@@ -11,7 +11,7 @@ import { CASE_STUDIES, type CaseStudyDetail } from "../data/caseStudies";
 import LiquidGlass from "./LiquidGlass";
 import BaseDrawer from "./BaseDrawer";
 import { useModalHistory } from "../hooks/useModalHistory";
-import { parseInlineMarkdown } from "../utils/markdownParser";
+import ReactMarkdown from "react-markdown";
 
 const isBuildMode =
   typeof window !== "undefined" &&
@@ -304,18 +304,48 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({
           <h3 className="text-xs text-muted uppercase border-b border-stroke pb-1 text-balance">
             Client Profile
           </h3>
-          <p
-            className="text-sm text-text-primary/95 font-normal leading-relaxed text-pretty"
-            dangerouslySetInnerHTML={{
-              __html: parseInlineMarkdown(study.client),
+          <ReactMarkdown
+            components={{
+              p: ({ children }) => (
+                <p className="text-sm text-text-primary/95 font-normal leading-relaxed text-pretty">
+                  {children}
+                </p>
+              ),
+              strong: ({ children }) => (
+                <strong className="font-semibold text-text-primary">
+                  {children}
+                </strong>
+              ),
+              code: ({ children }) => (
+                <code className="px-1.5 py-0.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono">
+                  {children}
+                </code>
+              ),
             }}
-          />
-          <p
-            className="text-sm text-muted leading-relaxed mt-2 text-pretty"
-            dangerouslySetInnerHTML={{
-              __html: parseInlineMarkdown(study.longDescription),
+          >
+            {study.client}
+          </ReactMarkdown>
+          <ReactMarkdown
+            components={{
+              p: ({ children }) => (
+                <p className="text-sm text-muted leading-relaxed text-pretty">
+                  {children}
+                </p>
+              ),
+              strong: ({ children }) => (
+                <strong className="font-semibold text-text-primary">
+                  {children}
+                </strong>
+              ),
+              code: ({ children }) => (
+                <code className="px-1.5 py-0.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono">
+                  {children}
+                </code>
+              ),
             }}
-          />
+          >
+            {study.longDescription}
+          </ReactMarkdown>
         </motion.div>
 
         {/* Results Grid */}

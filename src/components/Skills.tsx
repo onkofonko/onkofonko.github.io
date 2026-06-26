@@ -162,7 +162,7 @@ function Skills() {
               className="px-4 py-2"
               innerClassName="flex items-center gap-3"
               magnetic={false}
-              tilt={false}
+              tilt
             >
               <span className="text-sm font-semibold text-text-primary">
                 {lang.language}

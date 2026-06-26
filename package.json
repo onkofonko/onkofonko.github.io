@@ -20,8 +20,11 @@
     "ogl": "^1.0.11",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
+    "react-markdown": "^10.1.0",
     "react-zoom-pan-pinch": "^4.0.3",
-    "slot-text": "^0.3.1"
+    "remark-gfm": "^4.0.1",
+    "slot-text": "^0.3.1",
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",
