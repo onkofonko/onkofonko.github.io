@@ -167,6 +167,10 @@ export default function Navbar({
         document
           .getElementById("journal")
           ?.scrollIntoView({ behavior: "smooth" });
+      } else if (label === "Contact") {
+        document
+          .getElementById("contact")
+          ?.scrollIntoView({ behavior: "smooth" });
       }
     },
     [onNavClick],
@@ -253,25 +257,21 @@ export default function Navbar({
                 {link}
               </Tab>
             ))}
+
+            {/* Contact link (Desktop Only) */}
+            <Tab
+              value="Contact"
+              className={`relative text-xs md:text-sm rounded-full px-3 md:px-[19px] py-1.5 md:py-[11px] transition-colors duration-200 select-none z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                active === "Contact"
+                  ? "text-text-primary"
+                  : "text-muted hover:text-text-primary"
+              }`}
+              role="link"
+            >
+              Contact
+            </Tab>
           </div>
         </Tabs>
-
-        {/* Say hi button (Desktop Only) */}
-        <div className="hidden md:block ml-2.5">
-          <LiquidGlassButton
-            href="mailto:ondrej.michal.ockaj@gmail.com"
-            className="text-xs md:text-sm px-3 md:px-[19px] py-1.5 md:py-[11px]"
-            ariaLabel="Send email"
-            magnetic
-            tilt
-            magneticStrength={0.02}
-          >
-            Say hi
-            <span className="text-muted transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-              ↗
-            </span>
-          </LiquidGlassButton>
-        </div>
 
         {/* Hamburger Menu Toggle (Mobile Only) */}
         <div className="flex md:hidden">
@@ -331,7 +331,7 @@ export default function Navbar({
               }}
               role="none"
             >
-              {["Home", ...NAV_LINKS].map((link) => (
+              {["Home", ...NAV_LINKS, "Contact"].map((link) => (
                 <Tab
                   key={link}
                   value={link}
@@ -345,20 +345,6 @@ export default function Navbar({
                   {link}
                 </Tab>
               ))}
-
-              {/* Say Hi Button inside Mobile Menu */}
-              <div className="mt-2 pt-2 border-t border-white/5 w-full">
-                <LiquidGlassButton
-                  href="mailto:ondrej.michal.ockaj@gmail.com"
-                  className="w-full text-sm py-3 justify-center"
-                  ariaLabel="Send email"
-                >
-                  Say hi
-                  <span className="text-muted transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                    ↗
-                  </span>
-                </LiquidGlassButton>
-              </div>
             </Tabs>
           </div>
         </>

@@ -20,6 +20,7 @@ import { Skeleton } from "boneyard-js/react";
 import Aurora from "./components/Aurora.tsx";
 import BpmnNodeBadge from "./components/BpmnNodeBadge";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 import caseStudiesBones from "./bones/case-studies.bones.json";
 import skillsBones from "./bones/skills.bones.json";
@@ -698,9 +699,9 @@ export default function App() {
           </div>
         </section>
 
-        <footer
+        <section
           id="contact"
-          className="bg-transparent pt-16 md:pt-24 pb-8 md:pb-12 overflow-hidden relative scroll-mt-20 md:scroll-mt-24"
+          className="relative w-full min-h-[100dvh] flex items-center justify-center"
         >
           <div className="relative z-10">
             <motion.div
@@ -714,9 +715,14 @@ export default function App() {
                 <BpmnNodeBadge type="end-event-none" />
                 Get in touch
               </p>
-              <h2 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-display text-text-primary mb-10 leading-[1.1] pb-2 text-balance">
+              <h2 className="text-[clamp(3.5rem,8vw,6rem)] font-display text-text-primary mb-6 leading-[1.1] pb-2 text-balance">
                 Let's work together
               </h2>
+              <p className="text-sm md:text-base text-muted max-w-md mx-auto mb-10 text-pretty">
+                Looking to analyze, map, and optimize your business processes,
+                design digital transformation solutions, or fill an analyst
+                role? Let's connect.
+              </p>
             </motion.div>
             <motion.div
               initial={SECTION_INITIAL}
@@ -724,10 +730,13 @@ export default function App() {
               viewport={SECTION_VIEWPORT}
               transition={SECTION_TRANSITION}
             >
-              <Contact onViewCv={handleViewCv} />
+              <Contact />
             </motion.div>
           </div>
-        </footer>
+          <div className="absolute bottom-0 w-full">
+            <Footer />
+          </div>
+        </section>
 
         <Suspense fallback={null}>
           <PdfViewerModal

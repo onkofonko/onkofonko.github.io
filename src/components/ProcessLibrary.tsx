@@ -1,5 +1,6 @@
 import { useState, useCallback, memo } from "react";
 import { motion, AnimatePresence, Variants } from "motion/react";
+import { Expand } from "lucide-react";
 import { PROCESS_ITEMS } from "../data/processItems";
 import { LiquidGlass } from "./LiquidGlass/LiquidGlass";
 import { Tabs, Tab } from "./LiquidGlass/LiquidGlassTabs";
@@ -118,7 +119,7 @@ function ProcessLibrary() {
                         {/* Canvas Header */}
                         <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10 w-full">
                           <div>
-                            <span className="inline-block text-[9px] text-accent uppercase bg-accent/10 border border-accent/20 rounded-xl px-2.5 py-0.5">
+                            <span className="inline-block text-[10px] text-accent uppercase font-bold bg-accent/20 border border-accent/30 rounded-xl px-2.5 py-0.5">
                               {item.type}
                             </span>
                             <h3 className="text-xl md:text-2xl font-display text-text-primary mt-2 text-balance">
@@ -147,21 +148,16 @@ function ProcessLibrary() {
                             loading="lazy"
                           />
 
-                          {/* Zoom badge overlay */}
-                          <div className="absolute bottom-3 right-3 z-20 opacity-0 translate-y-1 group-hover/canvas:opacity-100 group-hover/canvas:translate-y-0 transition-transform duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1)] pointer-events-none">
-                            <LiquidGlass
-                              as="span"
-                              roundedClass="rounded-lg"
-                              interactive={false}
-                              className="text-[10px] px-3 py-1.5 text-text-primary pointer-events-none"
-                            >
-                              Zoom Diagram{" "}
-                              <span className="text-accent ml-1">↗</span>
-                            </LiquidGlass>
-                          </div>
-
                           {/* Glass glare overlay */}
                           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.03)_0%,transparent_60%)]" />
+
+                          {/* Permanent expand affordance */}
+                          <div className="absolute bottom-3 right-3 z-20 inline-flex items-center gap-1.5 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-xl px-2.5 py-1 pointer-events-none">
+                            <Expand size={13} className="text-accent" />
+                            <span className="text-[10px] text-accent uppercase font-bold">
+                              Expand
+                            </span>
+                          </div>
                         </button>
 
                         {/* Canvas Footer Details */}

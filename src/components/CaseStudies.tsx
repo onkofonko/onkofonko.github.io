@@ -6,7 +6,13 @@ import {
   useMotionValue,
   useTransform,
 } from "motion/react";
-import { AlertCircle, CheckCircle, FileText, Activity } from "lucide-react";
+import {
+  AlertCircle,
+  CheckCircle,
+  FileText,
+  Activity,
+  ArrowUpRight,
+} from "lucide-react";
 import { CASE_STUDIES, type CaseStudyDetail } from "../data/caseStudies";
 import { LiquidGlass, LiquidGlassButton } from "./LiquidGlass/LiquidGlass";
 import BaseDrawer from "./BaseDrawer";
@@ -98,7 +104,7 @@ const CaseStudyCard = memo(function CaseStudyCard({
         <div className="md:col-span-7 flex flex-col gap-6">
           {/* Category badge */}
           <div>
-            <span className="inline-block text-[10px] text-muted uppercase font-bold bg-bg/60 backdrop-blur-sm rounded-full px-3 py-1 border border-stroke/50">
+            <span className="inline-block text-[10px] text-accent uppercase font-bold bg-accent/20 border border-accent/30 rounded-xl px-2.5 py-0.5">
               {study.category}
             </span>
           </div>
@@ -193,9 +199,13 @@ const CaseStudyCard = memo(function CaseStudyCard({
           </div>
 
           {/* CTA */}
-          <div className="flex justify-start">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase text-accent group-hover:text-text-primary transition-colors duration-300">
-              Explore process analysis details →
+          <div className="flex justify-end">
+            <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent group-hover:text-accent/80 transition-colors duration-200">
+              <span>View project</span>
+              <ArrowUpRight
+                size={16}
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
             </span>
           </div>
         </div>

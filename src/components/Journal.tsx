@@ -1,8 +1,8 @@
-import { useState, memo, useCallback } from "react";
+import { useState, memo, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, Clock, MessageSquare, BookOpen } from "lucide-react";
 import { ARTICLES, type Article } from "../data/articles";
-import { LiquidGlassButton } from "./LiquidGlass/LiquidGlass";
+import { LiquidGlass, LiquidGlassButton } from "./LiquidGlass/LiquidGlass";
 import BaseDrawer from "./BaseDrawer";
 import { useModalHistory } from "../hooks/useModalHistory";
 import ReactMarkdown from "react-markdown";
@@ -26,7 +26,7 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as const },
+    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const },
   },
 };
 
@@ -37,15 +37,13 @@ function Journal() {
     setSelectedArticle(null);
   }, []);
 
-  // Close journal drawer on back swipe / browser back button
   useModalHistory(selectedArticle !== null, handleCloseArticle);
 
   return (
     <>
-      {/* Journal entries */}
       <div className="px-6 md:px-10 lg:px-16">
         <motion.div
-          className="flex flex-col gap-3"
+          className="flex flex-col gap-8 md:gap-10"
           variants={containerVariants}
           initial={isBuildMode ? "visible" : "hidden"}
           whileInView={isBuildMode ? undefined : "visible"}
@@ -59,7 +57,6 @@ function Journal() {
         </motion.div>
       </div>
 
-      {/* Drawer */}
       <AnimatePresence>
         {selectedArticle ? (
           <JournalDrawer
@@ -81,52 +78,62 @@ const JournalEntry = memo(function JournalEntry({
   article,
   onOpen,
 }: EntryProps) {
+  const excerpt = useMemo(() => {
+    const words = article.body.split(/\s+/);
+    return words.slice(0, 40).join(" ") + "...";
+  }, [article.body]);
+
   return (
-    <LiquidGlassButton
+    <LiquidGlass
+      as="div"
       onClick={() => onOpen(article)}
+      roundedClass="rounded-[28px]"
+      className="w-full"
       springScale={false}
-      whileTap={{ scaleX: 1.008, scaleY: 0.98 }}
-      transition={{
-        scaleX: { type: "spring", stiffness: 400, damping: 15, mass: 0.6 },
-        scaleY: { type: "spring", stiffness: 400, damping: 15, mass: 0.6 },
-      }}
-      roundedClass="rounded-[40px] sm:rounded-full"
-      className="w-full p-3 sm:p-4 justify-start items-center gap-4 sm:gap-6 pointer-events-auto text-left"
+      tilt
     >
-      {/* Thumbnail */}
-      <div className="flex-shrink-0 size-12 rounded-full overflow-hidden border border-stroke z-10 relative">
-        <img
-          src={article.image}
-          alt={article.title}
-          width={48}
-          height={48}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-          loading="lazy"
-        />
-      </div>
+      <div className="p-5 md:p-6 space-y-4">
+        {/* Thumbnail + title */}
+        <div className="flex items-center gap-4">
+          <div className="flex-shrink-0 size-11 rounded-full overflow-hidden border border-white/10 group-hover:border-accent/30 transition-colors duration-300">
+            <img
+              src={article.image}
+              alt=""
+              width={44}
+              height={44}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="flex-1 min-w-0">
+            <h3 className="text-xl md:text-2xl font-display text-text-primary leading-tight text-balance">
+              {article.title}
+            </h3>
+          </div>
+        </div>
 
-      {/* Title */}
-      <p className="flex-1 text-sm md:text-base text-text-primary/80 group-hover:text-text-primary transition-colors duration-200 line-clamp-1 z-10 relative font-semibold text-pretty">
-        {article.title}
-      </p>
+        <p className="text-sm md:text-base text-text-primary/80 group-hover:text-text-primary leading-relaxed text-pretty line-clamp-3 transition-colors duration-200">
+          {excerpt}
+        </p>
 
-      {/* Meta */}
-      <div className="hidden sm:flex items-center gap-4 flex-shrink-0 z-10 relative tabular-nums">
-        <span className="flex items-center gap-1.5 text-xs text-muted">
-          <Clock size={11} />
-          {article.readTime}
-        </span>
-        <span className="text-xs text-muted">{article.date}</span>
+        <div className="flex items-center justify-between pt-2">
+          <div className="flex items-center gap-4 text-xs text-muted group-hover:text-text-primary/70 tabular-nums transition-colors duration-200">
+            <span className="flex items-center gap-1.5">
+              <Clock size={11} />
+              {article.readTime}
+            </span>
+            <span>{article.date}</span>
+          </div>
+          <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent group-hover:text-accent/80 transition-colors duration-200">
+            <span>Read</span>
+            <ArrowUpRight
+              size={16}
+              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </span>
+        </div>
       </div>
-
-      {/* Arrow */}
-      <div className="flex-shrink-0 text-muted group-hover:text-text-primary transition-colors duration-200 z-10 relative pr-2 flex items-center justify-center">
-        <ArrowUpRight
-          size={16}
-          className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-        />
-      </div>
-    </LiquidGlassButton>
+    </LiquidGlass>
   );
 });
 
@@ -141,43 +148,30 @@ const JournalDrawer = memo(function JournalDrawer({
 }: DrawerProps) {
   return (
     <BaseDrawer
-      title="Journal Thought Piece"
+      title="Journal"
       icon={<BookOpen size={14} className="text-accent" />}
       onClose={onClose}
       maxWidthClass="max-w-4xl"
     >
-      {/* Scrollable Content Container */}
-      <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-8 select-text">
-        {/* Header Image banner */}
-        <div className="relative h-48 md:h-56 w-full rounded-2xl overflow-hidden border border-white/10">
-          <img
-            src={article.image}
-            alt={article.title}
-            width={800}
-            height={450}
-            className="w-full h-full object-cover opacity-50"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
-          <div className="absolute bottom-4 left-4 right-4 z-10">
-            <span className="text-[10px] text-accent uppercase font-bold bg-accent/20 border border-accent/30 rounded-xl px-2.5 py-0.5">
-              {article.subtitle}
+      <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-6 select-text">
+        <div className="space-y-3 pb-4 border-b border-white/5">
+          <span className="inline-block text-[10px] text-accent uppercase font-bold bg-accent/20 border border-accent/30 rounded-xl px-2.5 py-0.5">
+            {article.subtitle}
+          </span>
+          <h2 className="text-2xl md:text-3xl font-display text-text-primary leading-tight text-balance">
+            {article.title}
+          </h2>
+          <div className="flex gap-4 items-center text-xs text-muted tabular-nums">
+            <span>{article.date}</span>
+            <span>·</span>
+            <span className="flex items-center gap-1">
+              <Clock size={11} />
+              {article.readTime}
             </span>
-            <h3 className="text-2xl md:text-3xl font-display text-text-primary mt-2 leading-tight text-balance">
-              {article.title}
-            </h3>
-            <div className="flex gap-4 items-center text-xs text-muted mt-2 tabular-nums">
-              <span>{article.date}</span>
-              <span>·</span>
-              <span className="flex items-center gap-1">
-                <Clock size={11} />
-                {article.readTime}
-              </span>
-            </div>
           </div>
         </div>
 
-        {/* Article Text Content */}
-        <div className="text-text-primary/90 text-sm md:text-base leading-relaxed max-w-none">
+        <div className="text-text-primary/90 text-sm md:text-base leading-relaxed max-w-[70ch]">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
@@ -245,11 +239,13 @@ const JournalDrawer = memo(function JournalDrawer({
           </ReactMarkdown>
         </div>
 
-        {/* CTA / Close */}
         <div className="pt-6 border-t border-white/5 flex justify-between items-center gap-4">
           <LiquidGlassButton
             href={`mailto:ondrej.michal.ockaj@gmail.com?subject=Regarding Article: ${encodeURIComponent(article.title)}`}
             className="px-5 py-2.5 text-xs"
+            magnetic
+            tilt
+            magneticStrength={0.02}
           >
             Discuss this thought piece
             <MessageSquare size={13} />
