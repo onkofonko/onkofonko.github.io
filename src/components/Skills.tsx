@@ -8,7 +8,7 @@ import {
   Palette,
   FileText,
 } from "lucide-react";
-import LiquidGlass from "./LiquidGlass";
+import { LiquidGlass } from "./LiquidGlass/LiquidGlass";
 import BpmnNodeBadge from "./BpmnNodeBadge";
 
 const isBuildMode =

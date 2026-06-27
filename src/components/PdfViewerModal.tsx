@@ -28,7 +28,8 @@ import {
   Sparkles,
   Languages,
 } from "lucide-react";
-import LiquidGlass from "./LiquidGlass";
+import { LiquidGlassButton } from "./LiquidGlass/LiquidGlass";
+import { Tabs, Tab } from "./LiquidGlass/LiquidGlassTabs";
 import { SPRING } from "../utils/springConfig";
 import { useIsMobile } from "../hooks/useMediaQuery";
 
@@ -223,17 +224,17 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                 {/* Mobile Action Buttons (Right side on mobile) */}
                 <div className="flex sm:hidden items-center gap-2">
                   {/* Download Direct */}
-                  <LiquidGlass.Button
+                  <LiquidGlassButton
                     href="/cv/Ondrej_Michal_Ockaj_CV.pdf"
                     download="Ondrej_Michal_Ockaj_CV.pdf"
                     className="p-2 size-9"
                     ariaLabel="Download PDF CV"
                   >
                     <Download size={14} className="text-text-primary" />
-                  </LiquidGlass.Button>
+                  </LiquidGlassButton>
 
                   {/* Open in New Tab */}
-                  <LiquidGlass.Button
+                  <LiquidGlassButton
                     href="/cv/Ondrej_Michal_Ockaj_CV.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -241,21 +242,21 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                     ariaLabel="Open CV PDF in new tab"
                   >
                     <ExternalLink size={14} className="text-text-primary" />
-                  </LiquidGlass.Button>
+                  </LiquidGlassButton>
 
                   {/* Close Button */}
-                  <LiquidGlass.Button
+                  <LiquidGlassButton
                     onClick={onClose}
                     ariaLabel="Close CV Viewer"
                     className="size-9 p-0"
                   >
                     <X size={16} />
-                  </LiquidGlass.Button>
+                  </LiquidGlassButton>
                 </div>
               </div>
 
               {/* Tab Selector — Navbar-style sliding highlight blob (Desktop only) */}
-              <LiquidGlass.Tabs
+              <Tabs
                 value={activeTab}
                 onChange={handleTabChange}
                 layoutId="active-viewer-tab"
@@ -272,7 +273,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                 }
                 className="hidden md:flex items-center gap-0.5 bg-white/[0.03] p-2 rounded-full border border-white/5"
               >
-                <LiquidGlass.Tab
+                <Tab
                   value="pdf"
                   aria-controls="tabpanel-pdf"
                   className={`relative text-xs font-semibold rounded-full px-4 py-2 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
@@ -282,8 +283,8 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                   }`}
                 >
                   PDF Document
-                </LiquidGlass.Tab>
-                <LiquidGlass.Tab
+                </Tab>
+                <Tab
                   value="interactive"
                   aria-controls="tabpanel-interactive"
                   className={`relative text-xs font-semibold rounded-full px-4 py-2 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
@@ -296,23 +297,23 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                     <Sparkles size={11} className="text-accent" />
                     Interactive CV
                   </span>
-                </LiquidGlass.Tab>
-              </LiquidGlass.Tabs>
+                </Tab>
+              </Tabs>
 
               {/* Desktop Action Buttons (Hidden on mobile) */}
               <div className="hidden sm:flex items-center gap-2">
                 {/* Download Direct */}
-                <LiquidGlass.Button
+                <LiquidGlassButton
                   href="/cv/Ondrej_Michal_Ockaj_CV.pdf"
                   download="Ondrej_Michal_Ockaj_CV.pdf"
                   className="p-2 size-9"
                   ariaLabel="Download PDF CV"
                 >
                   <Download size={14} className="text-text-primary" />
-                </LiquidGlass.Button>
+                </LiquidGlassButton>
 
                 {/* Open in New Tab */}
-                <LiquidGlass.Button
+                <LiquidGlassButton
                   href="/cv/Ondrej_Michal_Ockaj_CV.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -320,16 +321,16 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                   ariaLabel="Open CV PDF in new tab"
                 >
                   <ExternalLink size={14} className="text-text-primary" />
-                </LiquidGlass.Button>
+                </LiquidGlassButton>
 
                 {/* Close Button */}
-                <LiquidGlass.Button
+                <LiquidGlassButton
                   onClick={onClose}
                   ariaLabel="Close CV Viewer"
                   className="size-9 p-0"
                 >
                   <X size={16} />
-                </LiquidGlass.Button>
+                </LiquidGlassButton>
               </div>
             </div>
 
@@ -452,7 +453,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
 
                       {/* Language Toggler */}
                       <div className="relative z-10 self-start md:self-auto flex items-center gap-1.5">
-                        <LiquidGlass.Button
+                        <LiquidGlassButton
                           onClick={() =>
                             dispatch({ type: "SET_LANG", lang: "en" })
                           }
@@ -462,8 +463,8 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                         >
                           <Languages size={10} />
                           EN
-                        </LiquidGlass.Button>
-                        <LiquidGlass.Button
+                        </LiquidGlassButton>
+                        <LiquidGlassButton
                           onClick={() =>
                             dispatch({ type: "SET_LANG", lang: "sk" })
                           }
@@ -473,7 +474,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                         >
                           <Languages size={10} />
                           SK
-                        </LiquidGlass.Button>
+                        </LiquidGlassButton>
                       </div>
                     </div>
 

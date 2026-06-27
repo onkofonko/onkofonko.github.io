@@ -267,3 +267,15 @@ body {
     transition-delay: 0ms !important;
   }
 }
+
+@property --scale-x {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 1;
+}
+
+@property --scale-y {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 1;
+}

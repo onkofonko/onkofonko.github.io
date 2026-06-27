@@ -9,7 +9,7 @@ import {
 } from "motion/react";
 import "slot-text/style.css";
 import { SlotText } from "slot-text/react";
-import LiquidGlass from "./LiquidGlass";
+import { LiquidGlassButton } from "./LiquidGlass/LiquidGlass";
 import BpmnNodeBadge from "./BpmnNodeBadge";
 
 const ROLES = [
@@ -236,7 +236,7 @@ function Hero({ onViewCv, onViewWork }: HeroProps) {
             onFocusCapture={preloadPdfModal}
             className="inline-flex"
           >
-            <LiquidGlass.Button
+            <LiquidGlassButton
               onClick={onViewCv}
               className="px-8 py-4"
               ariaLabel="View CV"
@@ -250,9 +250,9 @@ function Hero({ onViewCv, onViewWork }: HeroProps) {
                 size={16}
                 className="transition-transform duration-200 group-hover:scale-105"
               />
-            </LiquidGlass.Button>
+            </LiquidGlassButton>
           </span>
-          <LiquidGlass.Button
+          <LiquidGlassButton
             href="#work"
             className="px-8 py-4"
             ariaLabel="View Case Studies"
@@ -266,7 +266,7 @@ function Hero({ onViewCv, onViewWork }: HeroProps) {
             }}
           >
             View Case Studies
-          </LiquidGlass.Button>
+          </LiquidGlassButton>
         </motion.div>
       </motion.div>
 

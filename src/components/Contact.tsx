@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { ExternalLink, ArrowUpRight, FileText } from "lucide-react";
-import LiquidGlass from "./LiquidGlass";
+import { LiquidGlassButton } from "./LiquidGlass/LiquidGlass";
 
 const SOCIALS = [
   { label: "X (Twitter)", href: "https://x.com/onkozinternetu" },
@@ -18,7 +18,7 @@ function Contact({ onViewCv }: ContactProps) {
     <>
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 text-center mb-16 md:mb-20">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-          <LiquidGlass.Button
+          <LiquidGlassButton
             href="mailto:ondrej.michal.ockaj@gmail.com"
             className="px-8 py-4 group/email-btn"
             ariaLabel="Send email"
@@ -34,13 +34,13 @@ function Contact({ onViewCv }: ContactProps) {
                 className="transition-transform duration-300 group-hover/email-btn:translate-x-0.5 group-hover/email-btn:-translate-y-0.5"
               />
             </span>
-          </LiquidGlass.Button>
+          </LiquidGlassButton>
           <span
             onMouseEnter={preloadPdfModal}
             onFocusCapture={preloadPdfModal}
             className="inline-flex"
           >
-            <LiquidGlass.Button
+            <LiquidGlassButton
               onClick={onViewCv}
               className="px-8 py-4 whitespace-nowrap"
               ariaLabel="View CV"
@@ -54,7 +54,7 @@ function Contact({ onViewCv }: ContactProps) {
                 size={14}
                 className="transition-transform duration-200 group-hover:scale-105"
               />
-            </LiquidGlass.Button>
+            </LiquidGlassButton>
           </span>
         </div>
       </div>
@@ -65,7 +65,7 @@ function Contact({ onViewCv }: ContactProps) {
           {/* Socials */}
           <div className="flex items-center gap-3">
             {SOCIALS.map((social) => (
-              <LiquidGlass.Button
+              <LiquidGlassButton
                 key={social.label}
                 href={social.href}
                 target="_blank"
@@ -81,7 +81,7 @@ function Contact({ onViewCv }: ContactProps) {
                   size={12}
                   className="transition-transform duration-200 group-hover:scale-110"
                 />
-              </LiquidGlass.Button>
+              </LiquidGlassButton>
             ))}
           </div>
 

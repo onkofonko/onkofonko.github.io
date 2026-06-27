@@ -8,7 +8,7 @@ import {
   useControls,
   useTransformEffect,
 } from "react-zoom-pan-pinch";
-import LiquidGlass from "./LiquidGlass";
+import { LiquidGlass, LiquidGlassButton } from "./LiquidGlass/LiquidGlass";
 import { useModalHistory } from "../hooks/useModalHistory";
 import { useIsMobile } from "../hooks/useMediaQuery";
 import { SPRING } from "../utils/springConfig";
@@ -178,7 +178,7 @@ const LightboxControls = memo(function LightboxControls({
         </span>
 
         {/* Zoom In */}
-        <LiquidGlass.Button
+        <LiquidGlassButton
           onClick={() => zoomIn(0.15, 0)}
           disabled={false}
           magnetic
@@ -188,10 +188,10 @@ const LightboxControls = memo(function LightboxControls({
           ariaLabel="Zoom In"
         >
           <Plus size={14} />
-        </LiquidGlass.Button>
+        </LiquidGlassButton>
 
         {/* Zoom Out */}
-        <LiquidGlass.Button
+        <LiquidGlassButton
           onClick={() => zoomOut(0.15, 0)}
           disabled={!isZoomed}
           magnetic={isZoomed}
@@ -201,13 +201,13 @@ const LightboxControls = memo(function LightboxControls({
           ariaLabel="Zoom Out"
         >
           <Minus size={14} />
-        </LiquidGlass.Button>
+        </LiquidGlassButton>
 
         {/* Separator */}
         <div className="w-px h-4 bg-white/10 mx-0.5" />
 
         {/* Close */}
-        <LiquidGlass.Button
+        <LiquidGlassButton
           onClick={onClose}
           ariaLabel="Close lightbox"
           magnetic
@@ -216,7 +216,7 @@ const LightboxControls = memo(function LightboxControls({
           className="size-8 p-0 flex items-center justify-center text-text-primary"
         >
           <X size={14} />
-        </LiquidGlass.Button>
+        </LiquidGlassButton>
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 import { useState, useCallback, memo } from "react";
 import { motion, AnimatePresence, Variants } from "motion/react";
 import { PROCESS_ITEMS } from "../data/processItems";
-import LiquidGlass from "./LiquidGlass";
+import { LiquidGlass } from "./LiquidGlass/LiquidGlass";
+import { Tabs, Tab } from "./LiquidGlass/LiquidGlassTabs";
 import ProcessLightbox from "./ProcessLightbox";
 
 const tabContentVariants: Variants = {
@@ -44,7 +45,7 @@ function ProcessLibrary() {
       <div className="px-6 md:px-10 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-stretch relative z-20">
           {/* Left Column: Index Menu Selector */}
-          <LiquidGlass.Tabs
+          <Tabs
             value={activeItem.id}
             onChange={handleTabChange}
             layoutId="active-process-highlight"
@@ -52,7 +53,7 @@ function ProcessLibrary() {
             className="lg:col-span-5 flex flex-col gap-2 justify-center"
           >
             {PROCESS_ITEMS.map((item, idx) => (
-              <LiquidGlass.Tab
+              <Tab
                 key={item.id}
                 value={item.id}
                 aria-controls={`tabpanel-${item.id}`}
@@ -63,7 +64,13 @@ function ProcessLibrary() {
                 }`}
               >
                 {/* Badge Index */}
-                <span className="relative z-10 text-xs font-body font-semibold text-accent/80 tabular-nums min-w-[20px]">
+                <span
+                  className={`relative z-10 text-xs font-body tabular-nums min-w-[20px] transition-all duration-300 ${
+                    activeItem.id === item.id
+                      ? "font-bold text-accent"
+                      : "font-semibold text-accent/80"
+                  }`}
+                >
                   {String(idx + 1).padStart(2, "0")}
                 </span>
 
@@ -72,13 +79,13 @@ function ProcessLibrary() {
                   <h3 className="text-sm font-semibold transition-transform duration-300 group-hover:translate-x-1 text-balance line-clamp-2">
                     {item.title}
                   </h3>
-                  <p className="text-[9px] text-muted uppercase mt-0.5">
+                  <p className="text-[9px] text-muted uppercase mt-0.5 transition-transform duration-300 group-hover:translate-x-1">
                     {item.type}
                   </p>
                 </div>
-              </LiquidGlass.Tab>
+              </Tab>
             ))}
-          </LiquidGlass.Tabs>
+          </Tabs>
 
           {/* Right Column: Visual Preview Canvas */}
           <div className="lg:col-span-7 flex flex-col justify-center relative min-h-[500px]">

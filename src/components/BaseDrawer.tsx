@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useRef, ReactNode, memo } from "react";
 import { createPortal } from "react-dom";
 import { motion, useReducedMotion, Variants } from "motion/react";
 import { X } from "lucide-react";
-import LiquidGlass from "./LiquidGlass";
+import { LiquidGlassButton } from "./LiquidGlass/LiquidGlass";
 import { SPRING } from "../utils/springConfig";
 import { useIsMobile } from "../hooks/useMediaQuery";
 
@@ -209,13 +209,13 @@ const BaseDrawer = memo(function BaseDrawer({
             {icon && icon}
             <span>{title}</span>
           </div>
-          <LiquidGlass.Button
+          <LiquidGlassButton
             onClick={onClose}
             ariaLabel="Close panel"
             className="size-10 p-0"
           >
             <X size={16} />
-          </LiquidGlass.Button>
+          </LiquidGlassButton>
         </div>
 
         {/* Content wrapper */}

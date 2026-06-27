@@ -8,7 +8,7 @@ import {
 } from "motion/react";
 import { AlertCircle, CheckCircle, FileText, Activity } from "lucide-react";
 import { CASE_STUDIES, type CaseStudyDetail } from "../data/caseStudies";
-import LiquidGlass from "./LiquidGlass";
+import { LiquidGlass, LiquidGlassButton } from "./LiquidGlass/LiquidGlass";
 import BaseDrawer from "./BaseDrawer";
 import { useModalHistory } from "../hooks/useModalHistory";
 import ReactMarkdown from "react-markdown";
@@ -458,7 +458,7 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({
           variants={drawerItemVariants}
           className="pt-6 border-t border-white/5 flex justify-between items-center gap-4"
         >
-          <LiquidGlass.Button
+          <LiquidGlassButton
             href="mailto:ondrej.michal.ockaj@gmail.com"
             className="px-5 py-2.5 text-xs"
             magnetic
@@ -466,7 +466,7 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({
             magneticStrength={0.02}
           >
             Request project details ↗
-          </LiquidGlass.Button>
+          </LiquidGlassButton>
         </motion.div>
       </motion.div>
     </BaseDrawer>

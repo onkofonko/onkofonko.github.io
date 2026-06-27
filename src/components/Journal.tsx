@@ -2,7 +2,7 @@ import { useState, memo, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, Clock, MessageSquare, BookOpen } from "lucide-react";
 import { ARTICLES, type Article } from "../data/articles";
-import LiquidGlass from "./LiquidGlass";
+import { LiquidGlassButton } from "./LiquidGlass/LiquidGlass";
 import BaseDrawer from "./BaseDrawer";
 import { useModalHistory } from "../hooks/useModalHistory";
 import ReactMarkdown from "react-markdown";
@@ -82,7 +82,7 @@ const JournalEntry = memo(function JournalEntry({
   onOpen,
 }: EntryProps) {
   return (
-    <LiquidGlass.Button
+    <LiquidGlassButton
       onClick={() => onOpen(article)}
       springScale={false}
       whileTap={{ scaleX: 1.008, scaleY: 0.98 }}
@@ -126,7 +126,7 @@ const JournalEntry = memo(function JournalEntry({
           className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
         />
       </div>
-    </LiquidGlass.Button>
+    </LiquidGlassButton>
   );
 });
 
@@ -247,13 +247,13 @@ const JournalDrawer = memo(function JournalDrawer({
 
         {/* CTA / Close */}
         <div className="pt-6 border-t border-white/5 flex justify-between items-center gap-4">
-          <LiquidGlass.Button
+          <LiquidGlassButton
             href={`mailto:ondrej.michal.ockaj@gmail.com?subject=Regarding Article: ${encodeURIComponent(article.title)}`}
             className="px-5 py-2.5 text-xs"
           >
             Discuss this thought piece
             <MessageSquare size={13} />
-          </LiquidGlass.Button>
+          </LiquidGlassButton>
         </div>
       </div>
     </BaseDrawer>

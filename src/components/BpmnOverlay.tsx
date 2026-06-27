@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X } from "lucide-react";
-import LiquidGlass from "./LiquidGlass";
+import { LiquidGlass, LiquidGlassButton } from "./LiquidGlass/LiquidGlass";
 import BpmnNodeBadge from "./BpmnNodeBadge";
 import { useIsMobile } from "../hooks/useMediaQuery";
 
@@ -156,13 +156,13 @@ export default function BpmnOverlay() {
                   or click close to dismiss.
                 </p>
               </div>
-              <LiquidGlass.Button
+              <LiquidGlassButton
                 onClick={() => setIsOpen(false)}
                 ariaLabel="Close model overlay"
                 className="size-11 p-0 flex-shrink-0"
               >
                 <X size={18} />
-              </LiquidGlass.Button>
+              </LiquidGlassButton>
             </div>
 
             {/* BPMN Diagram Core */}

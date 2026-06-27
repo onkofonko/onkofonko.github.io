@@ -1,7 +1,8 @@
 import { useEffect, useCallback, useReducer } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
-import LiquidGlass from "./LiquidGlass";
+import { LiquidGlassButton } from "./LiquidGlass/LiquidGlass";
+import { Tabs, Tab } from "./LiquidGlass/LiquidGlassTabs";
 import { useIsMobile } from "../hooks/useMediaQuery";
 
 const NAV_LINKS = ["Case Studies", "Skills", "Process Library", "Journal"];
@@ -178,11 +179,11 @@ export default function Navbar({
       </span>
       {/* Main Pill Capsule Container */}
       <div
-        className={`pointer-events-auto flex items-center justify-between md:justify-start gap-1 md:gap-1.5 rounded-full border border-white/10 bg-surface/40 px-3 py-2.5 navbar-capsule w-full max-w-[85vw] md:w-auto relative z-50 md:max-w-[95vw] ${
+        className={`pointer-events-auto flex items-center justify-between md:justify-start gap-1 md:gap-1.5 rounded-full border border-white/10 bg-surface/40 p-[7px] navbar-capsule w-full max-w-[85vw] md:w-auto relative z-50 md:max-w-[95vw] ${
           isScrolling ? "backdrop-blur-[3px]" : "backdrop-blur-md"
         } ${scrolled ? "border-white/20 bg-surface/60" : ""}`}
       >
-        <LiquidGlass.Tabs
+        <Tabs
           value={active}
           onChange={handleNav}
           layoutId="active-nav-highlight"
@@ -201,10 +202,10 @@ export default function Navbar({
           role="none"
         >
           {/* Home Button (Avatar + Name) */}
-          <LiquidGlass.Tab
+          <Tab
             value="Home"
             highlightClassName="hidden md:block"
-            className={`relative text-xs sm:text-sm rounded-full pl-1.5 pr-3 py-1.5 transition-colors duration-200 select-none z-10 flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+            className={`relative text-xs sm:text-sm rounded-full pl-1.5 md:pl-[9px] pr-3 md:pr-[15px] py-1.5 md:py-[9px] transition-colors duration-200 select-none z-10 flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
               active === "Home"
                 ? "text-text-primary"
                 : "text-muted hover:text-text-primary"
@@ -234,15 +235,15 @@ export default function Navbar({
             <span className="text-[13px] font-semibold leading-none whitespace-nowrap">
               Ondrej Michal Očkaj
             </span>
-          </LiquidGlass.Tab>
+          </Tab>
 
           {/* Nav links (Desktop Only) */}
           <div className="hidden md:flex items-center gap-0.5">
             {NAV_LINKS.map((link) => (
-              <LiquidGlass.Tab
+              <Tab
                 key={link}
                 value={link}
-                className={`relative text-xs md:text-sm rounded-full px-3 md:px-4 py-1.5 md:py-2 transition-colors duration-200 select-none z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                className={`relative text-xs md:text-sm rounded-full px-3 md:px-[19px] py-1.5 md:py-[11px] transition-colors duration-200 select-none z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
                   active === link
                     ? "text-text-primary"
                     : "text-muted hover:text-text-primary"
@@ -250,16 +251,16 @@ export default function Navbar({
                 role="link"
               >
                 {link}
-              </LiquidGlass.Tab>
+              </Tab>
             ))}
           </div>
-        </LiquidGlass.Tabs>
+        </Tabs>
 
         {/* Say hi button (Desktop Only) */}
         <div className="hidden md:block ml-2.5">
-          <LiquidGlass.Button
+          <LiquidGlassButton
             href="mailto:ondrej.michal.ockaj@gmail.com"
-            className="text-xs md:text-sm px-3 md:px-4 py-1.5 md:py-2"
+            className="text-xs md:text-sm px-3 md:px-[19px] py-1.5 md:py-[11px]"
             ariaLabel="Send email"
             magnetic
             tilt
@@ -269,19 +270,19 @@ export default function Navbar({
             <span className="text-muted transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
               ↗
             </span>
-          </LiquidGlass.Button>
+          </LiquidGlassButton>
         </div>
 
         {/* Hamburger Menu Toggle (Mobile Only) */}
         <div className="flex md:hidden">
-          <LiquidGlass.Button
+          <LiquidGlassButton
             type="button"
             onClick={() => dispatch({ type: "SET_IS_OPEN", isOpen: !isOpen })}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             className="size-10 p-0"
           >
             {isOpen ? <X size={16} /> : <Menu size={16} />}
-          </LiquidGlass.Button>
+          </LiquidGlassButton>
         </div>
       </div>
 
@@ -301,7 +302,7 @@ export default function Navbar({
           </AnimatePresence>
 
           <div className="md:hidden z-50 w-72 mt-2 pointer-events-none">
-            <LiquidGlass.Tabs
+            <Tabs
               value={active}
               onChange={handleNav}
               layoutId="active-mobile-nav-highlight"
@@ -331,10 +332,10 @@ export default function Navbar({
               role="none"
             >
               {["Home", ...NAV_LINKS].map((link) => (
-                <LiquidGlass.Tab
+                <Tab
                   key={link}
                   value={link}
-                  className={`relative w-full text-center flex justify-center items-center text-sm font-semibold rounded-full px-4 py-2 transition-colors duration-300 select-none z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                  className={`relative w-full text-center flex justify-center items-center text-sm font-semibold rounded-full px-4 py-3 transition-colors duration-300 select-none z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
                     active === link
                       ? "text-text-primary"
                       : "text-muted hover:text-text-primary hover:bg-white/[0.02]"
@@ -342,12 +343,12 @@ export default function Navbar({
                   role="link"
                 >
                   {link}
-                </LiquidGlass.Tab>
+                </Tab>
               ))}
 
               {/* Say Hi Button inside Mobile Menu */}
               <div className="mt-2 pt-2 border-t border-white/5 w-full">
-                <LiquidGlass.Button
+                <LiquidGlassButton
                   href="mailto:ondrej.michal.ockaj@gmail.com"
                   className="w-full text-sm py-3 justify-center"
                   ariaLabel="Send email"
@@ -356,9 +357,9 @@ export default function Navbar({
                   <span className="text-muted transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                     ↗
                   </span>
-                </LiquidGlass.Button>
+                </LiquidGlassButton>
               </div>
-            </LiquidGlass.Tabs>
+            </Tabs>
           </div>
         </>
       )}
