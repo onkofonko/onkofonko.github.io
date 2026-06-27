@@ -30,6 +30,7 @@ export interface LiquidGlassTabsProps {
   hoverSlide?: boolean;
   ripple?: boolean;
   roundedClass?: string;
+  squircle?: boolean;
   className?: string;
   highlightClassName?: string;
   highlightStyle?: CSSProperties;
@@ -64,6 +65,7 @@ interface TabsContextValue {
   hoverSlide: boolean;
   ripple: boolean;
   roundedClass: string;
+  squircle: boolean;
   highlightClassName?: string;
   highlightStyle?: CSSProperties;
 }
@@ -88,6 +90,7 @@ const Tabs = memo(function Tabs({
   hoverSlide = true,
   ripple = true,
   roundedClass = "rounded-full",
+  squircle = false,
   className = "",
   highlightClassName = "",
   highlightStyle = DEFAULT_STYLE,
@@ -108,6 +111,7 @@ const Tabs = memo(function Tabs({
       hoverSlide,
       ripple,
       roundedClass,
+      squircle,
       highlightClassName,
       highlightStyle,
     }),
@@ -119,6 +123,7 @@ const Tabs = memo(function Tabs({
       hoverSlide,
       ripple,
       roundedClass,
+      squircle,
       highlightClassName,
       highlightStyle,
     ],
@@ -195,6 +200,7 @@ const Tab = memo(function Tab({
     hoverSlide,
     ripple,
     roundedClass,
+    squircle,
     highlightClassName: contextHighlightClass,
     highlightStyle: contextHighlightStyle,
   } = useTabsContext();
@@ -291,10 +297,14 @@ const Tab = memo(function Tab({
 
   const outerHighlightClass =
     `absolute inset-0 z-[-1] pointer-events-none ${roundedClass}`.trim();
+  const baseRadius = squircle
+    ? Math.min(dimensions.height / 2, 16)
+    : dimensions.height / 2;
+
   const outerHighlightStyle = {
     ...contextHighlightStyle,
     ...highlightStyle,
-    "--base-radius": `${dimensions.height / 2}px`,
+    "--base-radius": `${baseRadius}px`,
   };
 
   const innerHighlightClass =

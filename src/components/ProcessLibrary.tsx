@@ -50,7 +50,8 @@ function ProcessLibrary() {
             value={activeItem.id}
             onChange={handleTabChange}
             layoutId="active-process-highlight"
-            roundedClass="rounded-xl"
+            squircle
+            roundedClass="rounded-2xl"
             className="lg:col-span-5 flex flex-col gap-2 justify-center"
           >
             {PROCESS_ITEMS.map((item, idx) => (
@@ -58,7 +59,7 @@ function ProcessLibrary() {
                 key={item.id}
                 value={item.id}
                 aria-controls={`tabpanel-${item.id}`}
-                className={`w-full text-left relative px-8 py-4 rounded-xl transition-colors duration-300 flex items-center gap-4 select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                className={`w-full text-left relative px-8 py-4 rounded-2xl transition-colors duration-300 flex items-center gap-4 select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
                   activeItem.id === item.id
                     ? "text-text-primary"
                     : "text-muted hover:text-text-primary"
