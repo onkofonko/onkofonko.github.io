@@ -92,6 +92,17 @@ function LiquidGlassMobile({
     [ref],
   );
 
+  // standard window resize listener prevents layout thrashing during interactions
+  useEffect(() => {
+    const handleResize = () => {
+      if (localRef.current) {
+        setWidth(localRef.current.offsetWidth);
+      }
+    };
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const {
     rippleX,
     rippleY,
@@ -167,8 +178,6 @@ function LiquidGlassMobile({
 
   const handlePointerDownWrapper = useCallback(
     (e: PointerEvent<HTMLElement>) => {
-      if (!localRef.current) return;
-      setWidth(localRef.current.offsetWidth);
       handlePointerDown(e);
     },
     [handlePointerDown],
@@ -366,12 +375,6 @@ function LiquidGlassDesktop({
 
   const handleMouseEnter = useCallback(() => {
     if (!interactive) return;
-    if (localRef.current) {
-      setDimensions({
-        width: localRef.current.offsetWidth,
-        height: localRef.current.offsetHeight,
-      });
-    }
     updateRect();
     opacity.set(1);
     setIsHovered(true);
@@ -415,6 +418,12 @@ function LiquidGlassDesktop({
   useEffect(() => {
     const handleResize = () => {
       updateRect();
+      if (localRef.current) {
+        setDimensions({
+          width: localRef.current.offsetWidth,
+          height: localRef.current.offsetHeight,
+        });
+      }
     };
     if (interactive && isHovered) {
       window.addEventListener("resize", handleResize, { passive: true });
@@ -500,11 +509,6 @@ function LiquidGlassDesktop({
 
   const handlePointerDownWrapper = useCallback(
     (e: PointerEvent<HTMLElement>) => {
-      if (!localRef.current) return;
-      setDimensions({
-        width: localRef.current.offsetWidth,
-        height: localRef.current.offsetHeight,
-      });
       handlePointerDown(e);
     },
     [handlePointerDown],
@@ -705,6 +709,6 @@ function LiquidGlassButtonComponent({
 LiquidGlassButtonComponent.displayName = "LiquidGlassButtonComponent";
 
 const LiquidGlassButton = memo(LiquidGlassButtonComponent);
-LiquidGlassButton.displayName = "LiquidGlass.Button";
+LiquidGlassButton.displayName = "LiquidGlassButton";
 
 export { LiquidGlass, LiquidGlassButton };

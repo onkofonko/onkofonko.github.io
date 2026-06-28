@@ -3,6 +3,7 @@ import {
   use,
   useMemo,
   useState,
+  useEffect,
   memo,
   useRef,
   useCallback,
@@ -18,6 +19,7 @@ import { motion } from "motion/react";
 import { SPRING } from "../../utils/springConfig";
 import Ripple from "./Ripple";
 import { useRipple } from "./useRipple";
+import { useIsMobile } from "../../hooks/useMediaQuery";
 import { DEFAULT_STYLE } from "./types";
 import { scaleDeltas, scaleVertical, springs, hoverDelta } from "./config";
 
@@ -60,8 +62,11 @@ interface TabsContextValue {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange?: (value: any) => void;
   layoutId: string;
-  hoveredValue: string | number | null;
-  setHoveredValue: (value: string | number | null) => void;
+  hoverStore: {
+    get: () => string | number | null;
+    set: (val: string | number | null) => void;
+    subscribe: (listener: () => void) => () => void;
+  };
   hoverSlide: boolean;
   ripple: boolean;
   roundedClass: string;
@@ -75,9 +80,7 @@ const TabsContext = createContext<TabsContextValue | null>(null);
 function useTabsContext() {
   const context = use(TabsContext);
   if (!context) {
-    throw new Error(
-      "LiquidGlass.Tab must be used within a LiquidGlass.Tabs component",
-    );
+    throw new Error("Tab must be used within a Tabs component");
   }
   return context;
 }
@@ -97,17 +100,30 @@ const Tabs = memo(function Tabs({
   style,
   ...rest
 }: LiquidGlassTabsProps) {
-  const [hoveredValue, setHoveredValue] = useState<string | number | null>(
-    null,
-  );
+  const hoverStore = useMemo(() => {
+    const ref = { current: null as string | number | null };
+    const listeners = new Set<() => void>();
+    return {
+      get: () => ref.current,
+      set: (val: string | number | null) => {
+        ref.current = val;
+        listeners.forEach((l) => l());
+      },
+      subscribe: (listener: () => void) => {
+        listeners.add(listener);
+        return () => {
+          listeners.delete(listener);
+        };
+      },
+    };
+  }, []);
 
   const contextValue = useMemo(
     () => ({
       value,
       onChange,
       layoutId,
-      hoveredValue,
-      setHoveredValue,
+      hoverStore,
       hoverSlide,
       ripple,
       roundedClass,
@@ -119,7 +135,7 @@ const Tabs = memo(function Tabs({
       value,
       onChange,
       layoutId,
-      hoveredValue,
+      hoverStore,
       hoverSlide,
       ripple,
       roundedClass,
@@ -138,7 +154,7 @@ const Tabs = memo(function Tabs({
         style={style}
         {...rest}
         onMouseLeave={(e) => {
-          setHoveredValue(null);
+          hoverStore.set(null);
           if (rest.onMouseLeave) {
             rest.onMouseLeave(e);
           }
@@ -195,8 +211,7 @@ const Tab = memo(function Tab({
     value: activeValue,
     onChange,
     layoutId,
-    hoveredValue,
-    setHoveredValue,
+    hoverStore,
     hoverSlide,
     ripple,
     roundedClass,
@@ -208,9 +223,30 @@ const Tab = memo(function Tab({
   const { rippleX, rippleY, rippleRadius, rippleOpacity, onPointerDown } =
     useRipple(ripple);
 
+  const isMobile = useIsMobile();
   const isActive = activeValue === value;
-  const isHovered = hoveredValue === value;
-  const isMobileNav = layoutId?.includes("mobile");
+
+  const [isHovered, setIsHovered] = useState(() => hoverStore.get() === value);
+  const [isAnyHovered, setIsAnyHovered] = useState(
+    () => hoverStore.get() !== null,
+  );
+
+  useEffect(() => {
+    return hoverStore.subscribe(() => {
+      const currentHovered = hoverStore.get();
+      setIsHovered(currentHovered === value);
+      setIsAnyHovered(currentHovered !== null);
+    });
+  }, [hoverStore, value]);
+
+  const isMobileNav = layoutId?.includes("mobile") || isMobile;
+
+  const layoutTransition = useMemo(() => {
+    if (isMobile) {
+      return { layout: SPRING.highlightMobile };
+    }
+    return HIGHLIGHT_TRANSITION;
+  }, [isMobile]);
 
   const tabRole = rest.role !== undefined ? rest.role : "tab";
   const isTabRole = tabRole === "tab";
@@ -223,6 +259,20 @@ const Tab = memo(function Tab({
     buttonRef.current = node;
     if (!node) return;
     setDimensions({ width: node.offsetWidth, height: node.offsetHeight });
+  }, []);
+
+  // standard window resize listener prevents layout thrashing during interactions
+  useEffect(() => {
+    const handleResize = () => {
+      if (buttonRef.current) {
+        setDimensions({
+          width: buttonRef.current.offsetWidth,
+          height: buttonRef.current.offsetHeight,
+        });
+      }
+    };
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const tapDeltaX = isMobileNav
@@ -261,7 +311,7 @@ const Tab = memo(function Tab({
       : 1;
 
   const showHighlight = hoverSlide
-    ? isHovered || (isActive && hoveredValue === null)
+    ? isHovered || (isActive && !isAnyHovered)
     : isActive;
 
   const handlePointerDown = useCallback(
@@ -274,8 +324,8 @@ const Tab = memo(function Tab({
 
   const handleMouseEnter = useCallback(() => {
     if (disabled || !hoverSlide) return;
-    setHoveredValue(value);
-  }, [disabled, hoverSlide, value, setHoveredValue]);
+    hoverStore.set(value);
+  }, [disabled, hoverSlide, value, hoverStore]);
 
   const selectOption = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
@@ -305,6 +355,7 @@ const Tab = memo(function Tab({
     ...contextHighlightStyle,
     ...highlightStyle,
     "--base-radius": `${baseRadius}px`,
+    willChange: "transform",
   };
 
   const innerHighlightClass =
@@ -317,12 +368,6 @@ const Tab = memo(function Tab({
       disabled={disabled}
       onClick={selectOption}
       onPointerDown={(e) => {
-        if (buttonRef.current) {
-          setDimensions({
-            width: buttonRef.current.offsetWidth,
-            height: buttonRef.current.offsetHeight,
-          });
-        }
         handlePointerDown(e);
         setIsPressed(true);
       }}
@@ -332,12 +377,6 @@ const Tab = memo(function Tab({
         setIsPressed(false);
       }}
       onMouseEnter={() => {
-        if (buttonRef.current) {
-          setDimensions({
-            width: buttonRef.current.offsetWidth,
-            height: buttonRef.current.offsetHeight,
-          });
-        }
         handleMouseEnter();
       }}
       className={`relative select-none z-10 transition-colors duration-200 focus-visible:outline-none ${className} ${
@@ -378,7 +417,7 @@ const Tab = memo(function Tab({
           layoutId={layoutId}
           className={outerHighlightClass}
           style={outerHighlightStyle as CSSProperties}
-          transition={HIGHLIGHT_TRANSITION}
+          transition={layoutTransition}
         >
           <motion.span
             animate={scaleAnimationTarget}
@@ -389,6 +428,7 @@ const Tab = memo(function Tab({
               borderRadius:
                 "calc((var(--base-radius) * var(--scale-y)) / var(--scale-x)) / var(--base-radius)",
               transformOrigin: "center center",
+              willChange: "transform",
             }}
           >
             {ripple ? (
@@ -424,6 +464,6 @@ const TabPanel = memo(function TabPanel({
   );
 });
 
-TabPanel.displayName = "LiquidGlass.TabPanel";
+TabPanel.displayName = "TabPanel";
 
 export { Tabs, Tab, TabPanel };

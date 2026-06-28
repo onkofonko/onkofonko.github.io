@@ -1,4 +1,4 @@
-import { useState, useCallback, memo } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import { motion, AnimatePresence, Variants } from "motion/react";
 import { Expand } from "lucide-react";
 import { PROCESS_ITEMS } from "../data/processItems";
@@ -32,6 +32,22 @@ function ProcessLibrary() {
   const [lightboxItem, setLightboxItem] = useState<
     (typeof PROCESS_ITEMS)[0] | null
   >(null);
+
+  // sliding-window preloading only pre-fetches the two adjacent diagrams (N-1 and N+1) to conserve bandwidth
+  useEffect(() => {
+    const currentIndex = PROCESS_ITEMS.findIndex(
+      (item) => item.id === activeItem.id,
+    );
+    if (currentIndex === -1) return;
+
+    const adjacentIndices = [currentIndex - 1, currentIndex + 1];
+    adjacentIndices.forEach((idx) => {
+      if (idx >= 0 && idx < PROCESS_ITEMS.length) {
+        const img = new Image();
+        img.src = PROCESS_ITEMS[idx].image;
+      }
+    });
+  }, [activeItem.id]);
 
   const handleTabChange = useCallback((id: number) => {
     const selected = PROCESS_ITEMS.find((item) => item.id === id);
@@ -91,91 +107,80 @@ function ProcessLibrary() {
 
           {/* Right Column: Visual Preview Canvas */}
           <div className="lg:col-span-7 flex flex-col justify-center relative min-h-[500px]">
-            {PROCESS_ITEMS.map((item) => (
-              <div
-                key={item.id}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeItem.id}
                 role="tabpanel"
-                id={`tabpanel-${item.id}`}
-                aria-labelledby={`tab-${item.id}`}
-                className={
-                  activeItem.id === item.id ? "w-full h-full block" : "hidden"
-                }
+                id={`tabpanel-${activeItem.id}`}
+                aria-labelledby={`tab-${activeItem.id}`}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                variants={tabContentVariants}
+                className="w-full h-full flex flex-col"
               >
-                <AnimatePresence mode="wait">
-                  {activeItem.id === item.id && (
-                    <motion.div
-                      key={item.id}
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      variants={tabContentVariants}
-                      className="w-full h-full flex flex-col"
-                    >
-                      <LiquidGlass
-                        as="div"
-                        roundedClass="rounded-2xl"
-                        className="w-full h-full p-6 md:p-8 flex-col text-left justify-start items-stretch"
-                        tilt
-                      >
-                        {/* Canvas Header */}
-                        <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10 w-full">
-                          <div>
-                            <span className="inline-block text-[10px] text-accent uppercase font-bold bg-accent/20 border border-accent/30 rounded-xl px-2.5 py-0.5">
-                              {item.type}
-                            </span>
-                            <h3 className="text-xl md:text-2xl font-display text-text-primary mt-2 text-balance">
-                              {item.title}
-                            </h3>
-                          </div>
-                        </div>
+                <LiquidGlass
+                  as="div"
+                  roundedClass="rounded-2xl"
+                  className="w-full h-full p-6 md:p-8 flex-col text-left justify-start items-stretch"
+                  tilt
+                >
+                  {/* Canvas Header */}
+                  <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10 w-full">
+                    <div>
+                      <span className="inline-block text-[10px] text-accent uppercase font-bold bg-accent/20 border border-accent/30 rounded-xl px-2.5 py-0.5">
+                        {activeItem.type}
+                      </span>
+                      <h3 className="text-xl md:text-2xl font-display text-text-primary mt-2 text-balance">
+                        {activeItem.title}
+                      </h3>
+                    </div>
+                  </div>
 
-                        {/* Adaptable Grid Canvas Board */}
-                        <button
-                          type="button"
-                          className="relative w-full aspect-[16/10] rounded-lg overflow-hidden border border-stroke/50 flex items-center justify-center p-0 mb-6 select-none cursor-zoom-in group/canvas z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                          onClick={() => setLightboxItem(item)}
-                          aria-label={`Zoom diagram: ${item.title}`}
-                          style={{
-                            background: `radial-gradient(circle, hsl(var(--stroke)) 1px, transparent 1px) 0 0 / 16px 16px, hsl(var(--surface))`,
-                            boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.4)",
-                          }}
-                        >
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            width={800}
-                            height={500}
-                            className="w-full h-full object-contain rounded-lg p-6 transition-transform duration-500 group-hover/canvas:scale-102"
-                            loading="lazy"
-                          />
+                  {/* Adaptable Grid Canvas Board */}
+                  <button
+                    type="button"
+                    className="relative w-full aspect-[16/10] rounded-lg overflow-hidden border border-stroke/50 flex items-center justify-center p-0 mb-6 select-none cursor-zoom-in group/canvas z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                    onClick={() => setLightboxItem(activeItem)}
+                    aria-label={`Zoom diagram: ${activeItem.title}`}
+                    style={{
+                      background: `radial-gradient(circle, hsl(var(--stroke)) 1px, transparent 1px) 0 0 / 16px 16px, hsl(var(--surface))`,
+                      boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.4)",
+                    }}
+                  >
+                    <img
+                      src={activeItem.image}
+                      alt={activeItem.title}
+                      width={800}
+                      height={500}
+                      className="w-full h-full object-contain rounded-lg p-6 transition-transform duration-500 group-hover/canvas:scale-102"
+                      loading="lazy"
+                    />
 
-                          {/* Glass glare overlay */}
-                          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.03)_0%,transparent_60%)]" />
+                    {/* Glass glare overlay */}
+                    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.03)_0%,transparent_60%)]" />
 
-                          {/* Permanent expand affordance */}
-                          <div className="absolute bottom-3 right-3 z-20 inline-flex items-center gap-1.5 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-xl px-2.5 py-1 pointer-events-none">
-                            <Expand size={13} className="text-accent" />
-                            <span className="text-[10px] text-accent uppercase font-bold">
-                              Expand
-                            </span>
-                          </div>
-                        </button>
+                    {/* Permanent expand affordance */}
+                    <div className="absolute bottom-3 right-3 z-20 inline-flex items-center gap-1.5 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-xl px-2.5 py-1 pointer-events-none">
+                      <Expand size={13} className="text-accent" />
+                      <span className="text-[10px] text-accent uppercase font-bold">
+                        Expand
+                      </span>
+                    </div>
+                  </button>
 
-                        {/* Canvas Footer Details */}
-                        <div className="relative z-10 mt-auto min-h-[70px] h-auto">
-                          <p className="text-[10px] text-muted uppercase font-semibold mb-2">
-                            Operational Insight
-                          </p>
-                          <p className="text-sm text-text-primary/80 leading-relaxed text-pretty">
-                            {item.description}
-                          </p>
-                        </div>
-                      </LiquidGlass>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
+                  {/* Canvas Footer Details */}
+                  <div className="relative z-10 mt-auto min-h-[70px] h-auto">
+                    <p className="text-[10px] text-muted uppercase font-semibold mb-2">
+                      Operational Insight
+                    </p>
+                    <p className="text-sm text-text-primary/80 leading-relaxed text-pretty">
+                      {activeItem.description}
+                    </p>
+                  </div>
+                </LiquidGlass>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>

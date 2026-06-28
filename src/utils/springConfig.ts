@@ -7,6 +7,11 @@ export const SPRING = {
     damping: 25,
     mass: 0.6,
   },
+  highlightMobile: {
+    type: "spring" as const,
+    duration: 0.18,
+    bounce: 0.08,
+  },
   /** Drawers sliding in from edge */
   drawer: { type: "spring" as const, damping: 28, stiffness: 220 },
   /** Modals scaling in */
