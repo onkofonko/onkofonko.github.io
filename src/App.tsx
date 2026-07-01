@@ -16,7 +16,14 @@ import { ErrorBoundary } from "./components/ErrorBoundary";
 import { useModalHistory } from "./hooks/useModalHistory";
 import { useIsMobile } from "./hooks/useMediaQuery";
 import { useLazyMount } from "./hooks/useLazyMount";
-import { Skeleton } from "boneyard-js/react";
+import { BoneSuspense } from "boneyard-js/react";
+
+const PENDING_PROMISE = new Promise<void>(() => {});
+function SuspenseTrigger() {
+  throw PENDING_PROMISE;
+  return null;
+}
+
 import Aurora from "./components/Aurora.tsx";
 import BpmnNodeBadge from "./components/BpmnNodeBadge";
 import Contact from "./components/Contact";
@@ -141,28 +148,14 @@ const SECTION_ANIMATE = { opacity: 1, y: 0 };
 const SECTION_VIEWPORT = { once: true, margin: "-100px" } as const;
 const SECTION_TRANSITION = { duration: 1, ease: [0.25, 0.1, 0.25, 1] as const };
 
-const SKELETON_CHUNKS = new Set([
-  "caseStudies",
-  "skills",
-  "processes",
-  "journal",
-]);
-
 interface AppState {
   isLoading: boolean;
-  chunksReady: {
-    caseStudies: boolean;
-    skills: boolean;
-    processes: boolean;
-    journal: boolean;
-  };
   activeSection: string;
   isCvOpen: boolean;
 }
 
 type AppAction =
   | { type: "COMPLETE_LOADING" }
-  | { type: "SET_CHUNK_READY"; chunk: keyof AppState["chunksReady"] }
   | { type: "SET_ACTIVE_SECTION"; section: string }
   | { type: "SET_CV_OPEN"; isOpen: boolean };
 
@@ -170,11 +163,6 @@ function appReducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
     case "COMPLETE_LOADING":
       return { ...state, isLoading: false };
-    case "SET_CHUNK_READY":
-      return {
-        ...state,
-        chunksReady: { ...state.chunksReady, [action.chunk]: true },
-      };
     case "SET_ACTIVE_SECTION":
       return { ...state, activeSection: action.section };
     case "SET_CV_OPEN":
@@ -199,17 +187,11 @@ export default function App() {
         return true;
       }
     })(),
-    chunksReady: {
-      caseStudies: loadCaseStudies.getReady(),
-      skills: loadSkills.getReady(),
-      processes: loadProcessLibrary.getReady(),
-      journal: loadJournal.getReady(),
-    },
     activeSection: "Home",
     isCvOpen: false,
   }));
 
-  const { isLoading, chunksReady, activeSection, isCvOpen } = state;
+  const { isLoading, activeSection, isCvOpen } = state;
 
   const skeletonHeights = useMemo(
     () => ({
@@ -273,17 +255,7 @@ export default function App() {
 
       for (const item of queue) {
         if (!active) break;
-        item.loader
-          .load()
-          .then(() => {
-            if (active && SKELETON_CHUNKS.has(item.key)) {
-              dispatch({
-                type: "SET_CHUNK_READY",
-                chunk: item.key as keyof AppState["chunksReady"],
-              });
-            }
-          })
-          .catch(() => {});
+        item.loader.load().catch(() => {});
         await yieldToMain();
       }
 
@@ -508,26 +480,19 @@ export default function App() {
               viewport={SECTION_VIEWPORT}
               transition={SECTION_TRANSITION}
             >
-              <Skeleton
-                name="case-studies"
-                loading={!chunksReady.caseStudies || !caseStudiesInView}
-              >
-                <Suspense
+              <div style={{ minHeight: skeletonHeights.caseStudies }}>
+                <BoneSuspense
+                  name="case-studies"
+                  className="min-h-[inherit]"
                   fallback={
                     <div className="px-6 md:px-10 lg:px-16">
                       <div style={{ height: skeletonHeights.caseStudies }} />
                     </div>
                   }
                 >
-                  {caseStudiesInView ? (
-                    <CaseStudies />
-                  ) : (
-                    <div className="px-6 md:px-10 lg:px-16">
-                      <div style={{ height: skeletonHeights.caseStudies }} />
-                    </div>
-                  )}
-                </Suspense>
-              </Skeleton>
+                  {caseStudiesInView ? <CaseStudies /> : <SuspenseTrigger />}
+                </BoneSuspense>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -563,26 +528,19 @@ export default function App() {
               viewport={SECTION_VIEWPORT}
               transition={SECTION_TRANSITION}
             >
-              <Skeleton
-                name="skills"
-                loading={!chunksReady.skills || !skillsInView}
-              >
-                <Suspense
+              <div style={{ minHeight: skeletonHeights.skills }}>
+                <BoneSuspense
+                  name="skills"
+                  className="min-h-[inherit]"
                   fallback={
                     <div className="px-6 md:px-10 lg:px-16">
                       <div style={{ height: skeletonHeights.skills }} />
                     </div>
                   }
                 >
-                  {skillsInView ? (
-                    <Skills />
-                  ) : (
-                    <div className="px-6 md:px-10 lg:px-16">
-                      <div style={{ height: skeletonHeights.skills }} />
-                    </div>
-                  )}
-                </Suspense>
-              </Skeleton>
+                  {skillsInView ? <Skills /> : <SuspenseTrigger />}
+                </BoneSuspense>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -618,26 +576,19 @@ export default function App() {
               viewport={SECTION_VIEWPORT}
               transition={SECTION_TRANSITION}
             >
-              <Skeleton
-                name="processes"
-                loading={!chunksReady.processes || !processesInView}
-              >
-                <Suspense
+              <div style={{ minHeight: skeletonHeights.processes }}>
+                <BoneSuspense
+                  name="processes"
+                  className="min-h-[inherit]"
                   fallback={
                     <div className="px-6 md:px-10 lg:px-16">
                       <div style={{ height: skeletonHeights.processes }} />
                     </div>
                   }
                 >
-                  {processesInView ? (
-                    <ProcessLibrary />
-                  ) : (
-                    <div className="px-6 md:px-10 lg:px-16">
-                      <div style={{ height: skeletonHeights.processes }} />
-                    </div>
-                  )}
-                </Suspense>
-              </Skeleton>
+                  {processesInView ? <ProcessLibrary /> : <SuspenseTrigger />}
+                </BoneSuspense>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -675,26 +626,19 @@ export default function App() {
               viewport={SECTION_VIEWPORT}
               transition={SECTION_TRANSITION}
             >
-              <Skeleton
-                name="journal"
-                loading={!chunksReady.journal || !journalInView}
-              >
-                <Suspense
+              <div style={{ minHeight: skeletonHeights.journal }}>
+                <BoneSuspense
+                  name="journal"
+                  className="min-h-[inherit]"
                   fallback={
                     <div className="px-6 md:px-10 lg:px-16">
                       <div style={{ height: skeletonHeights.journal }} />
                     </div>
                   }
                 >
-                  {journalInView ? (
-                    <Journal />
-                  ) : (
-                    <div className="px-6 md:px-10 lg:px-16">
-                      <div style={{ height: skeletonHeights.journal }} />
-                    </div>
-                  )}
-                </Suspense>
-              </Skeleton>
+                  {journalInView ? <Journal /> : <SuspenseTrigger />}
+                </BoneSuspense>
+              </div>
             </motion.div>
           </div>
         </section>
