@@ -24,7 +24,7 @@ function Footer() {
         {/* Scroll to Top Styled as LiquidGlassButton */}
         <LiquidGlassButton
           onClick={handleScrollToTop}
-          className="text-xs px-4 py-2 group/top-btn"
+          className="text-xs px-4 py-3 group/top-btn"
           ariaLabel="Scroll back to top"
           magnetic
           tilt

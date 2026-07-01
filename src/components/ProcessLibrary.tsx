@@ -75,7 +75,7 @@ function ProcessLibrary() {
                 key={item.id}
                 value={item.id}
                 aria-controls={`tabpanel-${item.id}`}
-                className={`w-full text-left relative px-8 py-4 rounded-2xl transition-colors duration-300 flex items-center gap-4 select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                className={`w-full text-left relative px-8 py-4 rounded-2xl transition-colors duration-300 flex items-center gap-4 select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-inset ${
                   activeItem.id === item.id
                     ? "text-text-primary"
                     : "text-muted hover:text-text-primary"

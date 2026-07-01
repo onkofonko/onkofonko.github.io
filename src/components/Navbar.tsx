@@ -181,9 +181,8 @@ export default function Navbar({
       <span className="hidden" aria-hidden="true">
         {prevActive}
       </span>
-      {/* Main Pill Capsule Container */}
       <div
-        className={`pointer-events-auto flex items-center justify-between md:justify-start gap-1 md:gap-1.5 rounded-full border border-white/10 bg-surface/40 p-[7px] navbar-capsule w-full max-w-[85vw] md:w-auto relative z-50 md:max-w-[95vw] ${
+        className={`pointer-events-auto flex items-center justify-between md:justify-start gap-1 md:gap-1.5 rounded-full border border-white/10 bg-surface/40 p-[7px] navbar-capsule overflow-x-clip clip-margin-4 isolate [transform:translateZ(0)] w-full max-w-[85vw] md:w-auto relative z-50 md:max-w-[95vw] ${
           isScrolling ? "backdrop-blur-[3px]" : "backdrop-blur-md"
         } ${scrolled ? "border-white/20 bg-surface/60" : ""}`}
       >
@@ -209,7 +208,7 @@ export default function Navbar({
           <Tab
             value="Home"
             highlightClassName="hidden md:block"
-            className={`relative text-xs sm:text-sm rounded-full pl-1.5 md:pl-[9px] pr-3 md:pr-[15px] py-1.5 md:py-[9px] transition-colors duration-200 select-none z-10 flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+            className={`relative text-xs sm:text-sm rounded-full pl-1.5 md:pl-[9px] pr-3 md:pr-[15px] py-1.5 md:py-[9px] transition-colors duration-200 select-none z-10 flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-inset ${
               active === "Home"
                 ? "text-text-primary"
                 : "text-muted hover:text-text-primary"
@@ -247,7 +246,7 @@ export default function Navbar({
               <Tab
                 key={link}
                 value={link}
-                className={`relative text-xs md:text-sm rounded-full px-3 md:px-[19px] py-1.5 md:py-[11px] transition-colors duration-200 select-none z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                className={`relative text-xs md:text-sm rounded-full px-3 md:px-[19px] py-1.5 md:py-[11px] transition-colors duration-200 select-none z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-inset ${
                   active === link
                     ? "text-text-primary"
                     : "text-muted hover:text-text-primary"
@@ -261,7 +260,7 @@ export default function Navbar({
             {/* Contact link (Desktop Only) */}
             <Tab
               value="Contact"
-              className={`relative text-xs md:text-sm rounded-full px-3 md:px-[19px] py-1.5 md:py-[11px] transition-colors duration-200 select-none z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+              className={`relative text-xs md:text-sm rounded-full px-3 md:px-[19px] py-1.5 md:py-[11px] transition-colors duration-200 select-none z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-inset ${
                 active === "Contact"
                   ? "text-text-primary"
                   : "text-muted hover:text-text-primary"
@@ -279,7 +278,7 @@ export default function Navbar({
             type="button"
             onClick={() => dispatch({ type: "SET_IS_OPEN", isOpen: !isOpen })}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="size-10 p-0"
+            className="size-11 p-0"
           >
             {isOpen ? <X size={16} /> : <Menu size={16} />}
           </LiquidGlassButton>
@@ -335,7 +334,7 @@ export default function Navbar({
                 <Tab
                   key={link}
                   value={link}
-                  className={`relative w-full text-center flex justify-center items-center text-sm font-semibold rounded-full px-4 py-3 transition-colors duration-300 select-none z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                  className={`relative w-full text-center flex justify-center items-center text-sm font-semibold rounded-full px-4 py-3.5 transition-colors duration-300 select-none z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-inset ${
                     active === link
                       ? "text-text-primary"
                       : "text-muted hover:text-text-primary hover:bg-white/[0.02]"

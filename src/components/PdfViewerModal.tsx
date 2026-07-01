@@ -271,12 +271,12 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                     ? "navbar-highlight-active"
                     : "navbar-highlight-flat"
                 }
-                className="hidden md:flex items-center gap-0.5 bg-white/[0.03] p-2 rounded-full border border-white/5"
+                className="hidden md:flex items-center gap-0.5 bg-white/[0.03] p-2 rounded-full border border-white/5 overflow-x-clip clip-margin-4 isolate [transform:translateZ(0)]"
               >
                 <Tab
                   value="pdf"
                   aria-controls="tabpanel-pdf"
-                  className={`relative text-xs font-semibold rounded-full px-4 py-2 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                  className={`relative text-xs font-semibold rounded-full px-4 py-2 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-inset ${
                     activeTab === "pdf"
                       ? "text-text-primary"
                       : "text-muted hover:text-text-primary"
@@ -287,7 +287,7 @@ function PdfViewerModal({ isOpen, onClose }: PdfViewerModalProps) {
                 <Tab
                   value="interactive"
                   aria-controls="tabpanel-interactive"
-                  className={`relative text-xs font-semibold rounded-full px-4 py-2 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                  className={`relative text-xs font-semibold rounded-full px-4 py-2 select-none z-10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-inset ${
                     activeTab === "interactive"
                       ? "text-text-primary"
                       : "text-muted hover:text-text-primary"

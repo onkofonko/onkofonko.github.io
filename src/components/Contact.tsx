@@ -15,7 +15,7 @@ function Contact() {
         <div className="w-full sm:w-auto flex justify-center">
           <LiquidGlassButton
             href="mailto:ondrej.michal.ockaj@gmail.com"
-            className="px-6 py-3 sm:px-8 sm:py-4 whitespace-nowrap group/email-btn w-fit"
+            className="px-6 py-3.5 sm:px-8 sm:py-4 whitespace-nowrap group/email-btn w-fit"
             ariaLabel="Send email"
             magnetic
             tilt
@@ -41,7 +41,7 @@ function Contact() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm whitespace-nowrap group/social-btn flex-1 sm:flex-initial max-w-[145px] sm:max-w-none"
+              className="px-4 py-3.5 sm:px-8 sm:py-4 text-xs sm:text-sm whitespace-nowrap group/social-btn flex-1 sm:flex-initial max-w-[145px] sm:max-w-none"
               ariaLabel={`Visit ${social.label}`}
               magnetic
               tilt

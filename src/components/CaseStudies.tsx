@@ -470,7 +470,7 @@ const CaseStudyDrawer = memo(function CaseStudyDrawer({
         >
           <LiquidGlassButton
             href="mailto:ondrej.michal.ockaj@gmail.com"
-            className="px-5 py-2.5 text-xs"
+            className="px-5 py-3.5 text-xs"
             magnetic
             tilt
             magneticStrength={0.02}

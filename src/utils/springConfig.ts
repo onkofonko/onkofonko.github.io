@@ -3,14 +3,14 @@ export const SPRING = {
   /** Highlight pill sliding between nav/tab items */
   highlight: {
     type: "spring" as const,
-    stiffness: 300,
-    damping: 25,
+    stiffness: 380,
+    damping: 24,
     mass: 0.6,
   },
   highlightMobile: {
     type: "spring" as const,
-    duration: 0.18,
-    bounce: 0.08,
+    duration: 0.2,
+    bounce: 0.06,
   },
   /** Drawers sliding in from edge */
   drawer: { type: "spring" as const, damping: 28, stiffness: 220 },
